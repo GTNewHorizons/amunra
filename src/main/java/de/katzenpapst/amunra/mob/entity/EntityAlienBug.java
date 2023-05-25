@@ -27,7 +27,7 @@ public class EntityAlienBug extends EntityMob implements IEntityNonOxygenBreathe
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(16, 0);
+        this.dataWatcher.addObject(16, (int) 0);
     }
 
     @Override
@@ -139,7 +139,7 @@ public class EntityAlienBug extends EntityMob implements IEntityNonOxygenBreathe
      * setBesideClimableBlock.
      */
     public boolean isBesideClimbableBlock() {
-        return (this.dataWatcher.getWatchableObjectByte((int) 16) & 1) != 0;
+        return (this.dataWatcher.getWatchableObjectByte(16) & 1) != 0;
     }
 
     /**
