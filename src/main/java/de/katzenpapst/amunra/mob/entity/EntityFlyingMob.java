@@ -56,7 +56,7 @@ public abstract class EntityFlyingMob extends EntityFlying implements IMob, IAnt
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(16, 0);
+        this.dataWatcher.addObject(16, (int) 0);
     }
 
     abstract protected void performAttack(Entity target, double accelX, double accelY, double accelZ);

@@ -139,7 +139,7 @@ public class EntityAlienBug extends EntityMob implements IEntityNonOxygenBreathe
      * setBesideClimableBlock.
      */
     public boolean isBesideClimbableBlock() {
-        return (this.dataWatcher.getWatchableObjectByte(16) & 1) != 0;
+        return (this.dataWatcher.getWatchableObjectByte((int) 16) & 1) != 0;
     }
 
     /**
