@@ -140,18 +140,19 @@ public class Pyramid extends BaseStructureStart {
         basicLoot.setMin(5);
         basicLoot.setMax(8);
 
-        ChestGenHooks.addItem(LOOT_CATEGORY_BASIC, alienBook);
-        ChestGenHooks.addItem(LOOT_CATEGORY_BASIC, ironIngot);
-        ChestGenHooks.addItem(LOOT_CATEGORY_BASIC, goldIngot);
-        ChestGenHooks.addItem(LOOT_CATEGORY_BASIC, diamond);
-        ChestGenHooks.addItem(LOOT_CATEGORY_BASIC, nanites);
-        ChestGenHooks.addItem(LOOT_CATEGORY_BASIC, pearl);
-
-        ChestGenHooks.addItem(LOOT_CATEGORY_BASIC, lithium);
-        ChestGenHooks.addItem(LOOT_CATEGORY_BASIC, coldcrystal);
-        ChestGenHooks.addItem(LOOT_CATEGORY_BASIC, ruby);
-        ChestGenHooks.addItem(LOOT_CATEGORY_BASIC, deshPick);
-        ChestGenHooks.addItem(LOOT_CATEGORY_BASIC, desh);
+        basicLoot.addItem(alienBook);
+        basicLoot.addItem(ironIngot);
+        basicLoot.addItem(goldIngot);
+        basicLoot.addItem(diamond);
+        basicLoot.addItem(nanites);
+        basicLoot.addItem(pearl);
+        basicLoot.addItem(coldcrystal);
+        basicLoot.addItem(ruby);
+        basicLoot.addItem(deshPick);
+        basicLoot.addItem(desh);
+        if(!AmunRa.isNHCoreLoaded) {
+            basicLoot.addItem(lithium);
+        }
 
     }
 

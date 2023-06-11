@@ -203,7 +203,9 @@ public class ARItems {
         ARBlocks.subEmerald.setSmeltItem(Items.emerald, 1).setDroppedItem(Items.emerald).setXpDrop(3, 7);
 
         // lithium
-        ARBlocks.subLithium.setDroppedItem(lithiumGem).setXpDrop(3, 7);
+        if(!AmunRa.isNHCoreLoaded) {
+            ARBlocks.subLithium.setDroppedItem(lithiumGem).setXpDrop(3, 7);
+        }
 
         // lapis
         ARBlocks.subLapis.setDroppedItem(new ItemDamagePair(Items.dye, 4)).setMinDropRate(4).setXpDrop(2, 5);
@@ -256,7 +258,9 @@ public class ARItems {
         // net.minecraftforge.oredict.OreDictionary
         // https://web.archive.org/web/20160514155630/http://www.minecraftforge.net/wiki/Common_Oredict_names
         OreDictionary.registerOre("gemRuby", rubyGem.getItemStack(1));
-        OreDictionary.registerOre("gemSpodumene", lithiumGem.getItemStack(1));
+        if(!AmunRa.isNHCoreLoaded) {
+            OreDictionary.registerOre("gemSpodumene", lithiumGem.getItemStack(1));
+        }
 
         OreDictionary.registerOre("ingotSteel", steelIngot.getItemStack(1));
         OreDictionary.registerOre("ingotLead", leadIngot.getItemStack(1));
