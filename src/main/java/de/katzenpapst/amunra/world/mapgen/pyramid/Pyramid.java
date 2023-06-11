@@ -150,7 +150,7 @@ public class Pyramid extends BaseStructureStart {
         basicLoot.addItem(ruby);
         basicLoot.addItem(deshPick);
         basicLoot.addItem(desh);
-        if(!AmunRa.isNHCoreLoaded) {
+        if (!AmunRa.isNHCoreLoaded) {
             basicLoot.addItem(lithium);
         }
 
