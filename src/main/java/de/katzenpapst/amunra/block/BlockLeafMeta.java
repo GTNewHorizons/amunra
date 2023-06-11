@@ -79,11 +79,10 @@ public class BlockLeafMeta extends BlockLeaves implements IMetaBlock {
 
     @Override
     public int getMetaByName(final String name) {
-        final Integer i = this.nameMetaMap.get(name);
-        if (i == null) {
-            throw new IllegalArgumentException("Subblock " + name + " doesn't exist");
+        if(this.nameMetaMap.containsKey(name)) {
+            return this.nameMetaMap.get(name);
         }
-        return i;
+        throw new IllegalArgumentException("Subblock " + name + " doesn't exist");
     }
 
     @Override
@@ -96,10 +95,14 @@ public class BlockLeafMeta extends BlockLeaves implements IMetaBlock {
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        if (this.isOpaqueCube()) {
-            return ((SubBlockLeaf) this.getSubBlock(meta)).getOpaqueIcon(side);
+        final SubBlock sb = this.getSubBlock(meta);
+        if(sb == null) {
+            return null;
         }
-        return this.getSubBlock(meta).getIcon(side, 0);
+        if (this.isOpaqueCube()) {
+            return ((SubBlockLeaf) sb).getOpaqueIcon(side);
+        }
+        return sb.getIcon(side, 0);
     }
 
     /**
@@ -125,7 +128,6 @@ public class BlockLeafMeta extends BlockLeaves implements IMetaBlock {
         for (int i = 0; i < this.subBlocksArray.length; i++) {
             final SubBlock sb = this.subBlocksArray[i];
             if (sb != null) {
-
                 this.setHarvestLevel(sb.getHarvestTool(0), sb.getHarvestLevel(0), i);
             }
         }
@@ -152,7 +154,7 @@ public class BlockLeafMeta extends BlockLeaves implements IMetaBlock {
     public Item getItemDropped(int meta, Random random, int fortune) {
         final SubBlock sb = this.getSubBlock(meta);
 
-        if (sb.dropsSelf()) {
+        if (sb == null || sb.dropsSelf()) {
             return Item.getItemFromBlock(this);
         }
         return sb.getItemDropped(0, random, fortune);
@@ -161,7 +163,7 @@ public class BlockLeafMeta extends BlockLeaves implements IMetaBlock {
     @Override
     public int damageDropped(int meta) {
         final SubBlock sb = this.getSubBlock(meta);
-        if (sb.dropsSelf()) {
+        if (sb == null || sb.dropsSelf()) {
             return meta;
         }
         return sb.damageDropped(0);
@@ -175,7 +177,7 @@ public class BlockLeafMeta extends BlockLeaves implements IMetaBlock {
     @Override
     public int quantityDropped(int meta, int fortune, Random random) {
         final SubBlock sb = this.getSubBlock(meta);
-        if (sb.dropsSelf()) {
+        if (sb == null || sb.dropsSelf()) {
             return 1;
         }
         return sb.quantityDropped(meta, fortune, random);
@@ -233,7 +235,11 @@ public class BlockLeafMeta extends BlockLeaves implements IMetaBlock {
 
     @Override
     public String getUnlocalizedSubBlockName(final int meta) {
-        return this.getSubBlock(meta).getUnlocalizedName();
+        final SubBlock sb = this.getSubBlock(meta);
+        if(sb != null) {
+            return sb.getUnlocalizedName();
+        }
+        return this.getUnlocalizedName();
     }
 
     @Override
@@ -244,19 +250,28 @@ public class BlockLeafMeta extends BlockLeaves implements IMetaBlock {
     @Override
     public int onBlockPlaced(World worldIn, int x, int y, int z, int side, float subX, float subY, float subZ,
             int meta) {
-        return this.getSubBlock(meta).onBlockPlaced(worldIn, x, y, z, side, subX, subY, subZ, meta);
+        final SubBlock sb = this.getSubBlock(meta);
+        if(sb != null) {
+            return sb.onBlockPlaced(worldIn, x, y, z, side, subX, subY, subZ, meta);
+        }
+        return super.onBlockPlaced(worldIn, x, y, z, side, subX, subY, subZ, meta);
     }
 
     @Override
     public int getExpDrop(IBlockAccess world, int metadata, int fortune) {
-        return this.getSubBlock(metadata).getExpDrop(world, 0, fortune);
+        final SubBlock sb = this.getSubBlock(metadata);
+        if(sb != null) {
+            return sb.getExpDrop(world, 0, fortune);
+        }
+        return super.getExpDrop(world, metadata, fortune);
     }
 
     @Override
     public void onNeighborBlockChange(World worldIn, int x, int y, int z, Block neighbor) {
-        final int meta = worldIn.getBlockMetadata(x, y, z);
-        this.getSubBlock(meta).onNeighborBlockChange(worldIn, x, y, z, neighbor);
-        super.onNeighborBlockChange(worldIn, x, y, z, neighbor);
+        final SubBlock sb = this.getSubBlock(worldIn.getBlockMetadata(x, y, z));
+        if(sb != null) {
+            sb.onNeighborBlockChange(worldIn, x, y, z, neighbor);
+        }
     }
 
 }

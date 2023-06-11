@@ -47,10 +47,8 @@ public class FakeBlock extends SubBlock implements IPartialSealableBlock, IMassi
 
     @Override
     public float getBlockHardness(World worldIn, int x, int y, int z) {
-        final TileEntity tileEntity = worldIn.getTileEntity(x, y, z);
-
-        if (tileEntity instanceof TileEntityMulti) {
-            final BlockVec3 mainBlockPosition = ((TileEntityMulti) tileEntity).mainBlockPosition;
+        if (worldIn.getTileEntity(x, y, z) instanceof TileEntityMulti tileEntity) {
+            final BlockVec3 mainBlockPosition = tileEntity.mainBlockPosition;
             if (mainBlockPosition != null) {
                 return mainBlockPosition.getBlock(worldIn).getBlockHardness(worldIn, x, y, z);
             }
@@ -75,8 +73,10 @@ public class FakeBlock extends SubBlock implements IPartialSealableBlock, IMassi
     @Override
     public boolean onBlockActivated(World worldIn, int x, int y, int z, EntityPlayer player, int side, float subX,
             float subY, float subZ) {
-        final TileEntityMulti tileEntity = (TileEntityMulti) worldIn.getTileEntity(x, y, z);
-        return tileEntity.onBlockActivated(worldIn, x, y, z, player);
+        if(worldIn.getTileEntity(x, y, z) instanceof TileEntityMulti tileEntity) {
+            return tileEntity.onBlockActivated(worldIn, x, y, z, player);   
+        }
+        return super.onBlockActivated(worldIn, x, y, z, player, side, subX, subY, subZ);
     }
 
     @Override

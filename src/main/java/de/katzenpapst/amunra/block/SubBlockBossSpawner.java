@@ -63,7 +63,7 @@ public class SubBlockBossSpawner extends SubBlock {
     @SideOnly(Side.CLIENT)
     @Override
     public AxisAlignedBB getSelectedBoundingBoxFromPool(World worldIn, int x, int y, int z) {
-        return AxisAlignedBB.getBoundingBox(x + 0.0D, y + 0.0D, z + 0.0D, x + 0.0D, y + 0.0D, z + 0.0D);
+        return AxisAlignedBB.getBoundingBox(x, y, z, x, y, z);
     }
 
     @Override

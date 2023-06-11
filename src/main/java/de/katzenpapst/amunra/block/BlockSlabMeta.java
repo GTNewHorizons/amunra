@@ -41,7 +41,11 @@ public class BlockSlabMeta extends BlockSlab implements IMetaBlock, IMassiveBloc
 
     @Override
     public String getUnlocalizedSubBlockName(final int meta) {
-        return this.getSubBlock(meta).getUnlocalizedName() + ".slab";
+        final SubBlock sb = this.getSubBlock(meta);
+        if(sb != null) {
+            return sb.getUnlocalizedName() + ".slab";
+        }
+        return this.getUnlocalizedName() + ".slab";
     }
 
     public void setDoubleslabMeta(final BlockDoubleslabMeta doubleslabMetablock) {
@@ -91,7 +95,11 @@ public class BlockSlabMeta extends BlockSlab implements IMetaBlock, IMassiveBloc
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        return this.getSubBlock(meta).getIcon(side, 0);
+        final SubBlock sb = this.getSubBlock(meta);
+        if(sb != null) {
+            return sb.getIcon(side, 0);
+        }
+        return super.getIcon(side, meta);
     }
 
     @Override
@@ -173,21 +181,30 @@ public class BlockSlabMeta extends BlockSlab implements IMetaBlock, IMassiveBloc
      */
     @Override
     public String func_150002_b(int p_150002_1_) {
-        return this.getUnlocalizedName() + "." + this.getSubBlock(p_150002_1_).getUnlocalizedName();
+        final SubBlock sb = this.getSubBlock(p_150002_1_);
+        if(sb != null) {
+            return this.getUnlocalizedName() + "." + sb.getUnlocalizedName();
+        }
+        return this.getUnlocalizedName();
     }
 
     @Override
     public float getExplosionResistance(Entity par1Entity, World world, int x, int y, int z, double explosionX,
             double explosionY, double explosionZ) {
-        final int metadata = world.getBlockMetadata(x, y, z);
-        return this.getSubBlock(metadata)
-                .getExplosionResistance(par1Entity, world, x, y, z, explosionX, explosionY, explosionZ);
+        final SubBlock sb = this.getSubBlock(world.getBlockMetadata(x, y, z));
+        if(sb != null) {
+            return sb.getExplosionResistance(par1Entity, world, x, y, z, explosionX, explosionY, explosionZ);
+        }
+        return super.getExplosionResistance(par1Entity, world, x, y, z, explosionX, explosionY, explosionZ);
     }
 
     @Override
     public float getBlockHardness(World worldIn, int x, int y, int z) {
-        final int meta = worldIn.getBlockMetadata(x, y, z);
-        return this.getSubBlock(meta).getBlockHardness(worldIn, x, y, z);
+        final SubBlock sb = this.getSubBlock(worldIn.getBlockMetadata(x, y, z));
+        if(sb != null) {
+            return sb.getBlockHardness(worldIn, x, y, z);
+        }
+        return super.getBlockHardness(worldIn, x, y, z);
     }
 
     @Override
@@ -197,22 +214,26 @@ public class BlockSlabMeta extends BlockSlab implements IMetaBlock, IMassiveBloc
 
     @Override
     public int getExpDrop(IBlockAccess world, int metadata, int fortune) {
-        return this.getSubBlock(metadata).getExpDrop(world, 0, fortune);
+        final SubBlock sb = this.getSubBlock(metadata);
+        if(sb != null) {
+            return sb.getExpDrop(world, 0, fortune);
+        }
+        return super.getExpDrop(world, metadata, fortune);
     }
 
     @Override
     public void onNeighborBlockChange(World worldIn, int x, int y, int z, Block neighbor) {
-        final int meta = worldIn.getBlockMetadata(x, y, z);
-        this.getSubBlock(meta).onNeighborBlockChange(worldIn, x, y, z, neighbor);
+        final SubBlock sb = this.getSubBlock(worldIn.getBlockMetadata(x, y, z));
+        if(sb != null) {
+            sb.onNeighborBlockChange(worldIn, x, y, z, neighbor);
+        }
         super.onNeighborBlockChange(worldIn, x, y, z, neighbor);
     }
 
     @Override
     public float getMass(final World w, final int x, final int y, final int z, final int meta) {
-        final SubBlock sb = this.getSubBlock(meta);
-        final float parentMass = BlockMassHelper.getBlockMass(w, sb, meta, x, y, z);
         // return half the mass, because slab
-        return parentMass / 2.0F;
+        return BlockMassHelper.getBlockMass(w, this.getSubBlock(meta), meta, x, y, z) / 2.0f;
     }
 
     @Override

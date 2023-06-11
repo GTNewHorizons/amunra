@@ -79,8 +79,10 @@ public class BlockBushMulti extends BlockBasicMeta implements IGrowable, ISheara
      */
     @Override
     public boolean func_149851_a(World worldIn, int x, int y, int z, boolean isClient) {
-        final int meta = worldIn.getBlockMetadata(x, y, z);
-        return ((SubBlockBush) this.getSubBlock(meta)).func_149851_a(worldIn, x, y, z, isClient);
+        if(this.getSubBlock(worldIn.getBlockMetadata(x, y, z)) instanceof SubBlockBush bush) {
+            return bush.func_149851_a(worldIn, x, y, z, isClient);
+        }
+        return false;
     }
 
     /**
@@ -92,8 +94,10 @@ public class BlockBushMulti extends BlockBasicMeta implements IGrowable, ISheara
      */
     @Override
     public boolean func_149852_a(World worldIn, Random random, int x, int y, int z) {
-        final int meta = worldIn.getBlockMetadata(x, y, z);
-        return ((SubBlockBush) this.getSubBlock(meta)).func_149852_a(worldIn, random, x, y, z);
+        if(this.getSubBlock(worldIn.getBlockMetadata(x, y, z)) instanceof SubBlockBush bush) {
+            return bush.func_149852_a(worldIn, random, x, y, z);
+        }
+        return false;
     }
 
     /**
@@ -106,9 +110,9 @@ public class BlockBushMulti extends BlockBasicMeta implements IGrowable, ISheara
      */
     @Override
     public void func_149853_b(World worldIn, Random random, int x, int y, int z) {
-        final int meta = worldIn.getBlockMetadata(x, y, z);
-        ((SubBlockBush) this.getSubBlock(meta)).func_149853_b(worldIn, random, x, y, z);
-
+        if(this.getSubBlock(worldIn.getBlockMetadata(x, y, z)) instanceof SubBlockBush bush) {
+            bush.func_149853_b(worldIn, random, x, y, z);
+        }
     }
 
     @Override
@@ -133,8 +137,10 @@ public class BlockBushMulti extends BlockBasicMeta implements IGrowable, ISheara
 
     @Override
     public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
-        final int meta = world.getBlockMetadata(x, y, z);
-        return ((SubBlockBush) this.getSubBlock(meta)).getPlantType(world, x, y, z);
+        if(this.getSubBlock(world.getBlockMetadata(x, y, z)) instanceof SubBlockBush bush) {
+            return bush.getPlantType(world, x, y, z);
+        }
+        return EnumPlantType.Plains;
     }
 
     @Override
@@ -148,11 +154,14 @@ public class BlockBushMulti extends BlockBasicMeta implements IGrowable, ISheara
     }
 
     public boolean canPlaceOn(final BlockMetaPair blockToCheck, final int meta) {
-        return ((SubBlockBush) this.getSubBlock(meta)).canPlaceOn(blockToCheck, 0);
+        return this.canPlaceOn(blockToCheck.getBlock(), blockToCheck.getMetadata(), meta);
     }
 
     public boolean canPlaceOn(final Block blockToCheck, final int metaToCheck, final int meta) {
-        return ((SubBlockBush) this.getSubBlock(meta)).canPlaceOn(blockToCheck, metaToCheck, 0);
+        if(this.getSubBlock(meta) instanceof SubBlockBush bush) {
+            return bush.canPlaceOn(blockToCheck, metaToCheck, 0);
+        }
+        return false;
     }
 
     @Override
