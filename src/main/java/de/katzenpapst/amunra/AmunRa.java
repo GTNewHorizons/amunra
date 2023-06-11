@@ -285,7 +285,8 @@ public class AmunRa {
         NetworkRegistry.INSTANCE.registerGuiHandler(AmunRa.instance, new GuiHandler());
         FMLCommonHandler.instance().bus().register(new TickHandlerServer());
 
-        TileEntityMothershipEngineJet.jetFuel = FluidRegistry.getFluid(config.validEngineFuel);
+        TileEntityMothershipEngineJet.jetFuel = FluidRegistry.getFluid(config.validJetEngineFuel);
+        TileEntityMothershipEngineIon.coolant = FluidRegistry.getFluid(config.validIonThrusterCoolant);
 
         // failsafes
         this.doCompatibilityChecks();

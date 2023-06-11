@@ -24,17 +24,17 @@ import micdoodle8.mods.galacticraft.api.vector.Vector3;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.energy.item.ItemElectricBase;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
-import micdoodle8.mods.galacticraft.planets.asteroids.AsteroidsModule;
 
 public class TileEntityMothershipEngineIon extends TileEntityMothershipEngineAbstract {
 
     protected MothershipFuelDisplay fuelType = null;
     protected MothershipFuelDisplay fuelTypeEnergy = null;
+    public static Fluid coolant;
 
     public TileEntityMothershipEngineIon() {
         this.boosterBlock = ARBlocks.blockMsEngineIonBooster;
         this.containingItems = new ItemStack[2];
-        this.fuel = AsteroidsModule.fluidLiquidNitrogen;
+        this.fuel = coolant;
         // AsteroidsItems.canisterLN2
 
         this.fuelType = new MothershipFuelDisplayFluid(this.fuel);

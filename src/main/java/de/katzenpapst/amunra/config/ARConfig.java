@@ -51,7 +51,8 @@ public class ARConfig {
     // bodies which motherships cannot orbit
     public Set<String> mothershipBodiesNoOrbit;
 
-    public String validEngineFuel;
+    public String validJetEngineFuel;
+    public String validIonThrusterCoolant;
 
     // *** sky rendering and related ***
     // bodies not to render
@@ -196,8 +197,14 @@ public class ARConfig {
                 emptySet,
                 "Bodies which should not be orbitable by motherships");
 
-        this.validEngineFuel = config
-                .getString("validEngineFuels", "motherships", "fuel", "These fluids can be used by Jet Engines");
+        this.validJetEngineFuel = config
+                .getString("validJetEngineFuel", "motherships", "fuel", "This fluid can be used by Jet Engines");
+
+        this.validIonThrusterCoolant = config.getString(
+                "validIonThrusterCoolant",
+                "motherships",
+                "liquidnitrogen",
+                "This fluid can be used by Ion Thrusters");
 
         // mothershipUserRestriction = config.getBoolean("restrictMothershipToOwner", "mothership", true, "If true, only
         // the one who built the mothership will be able to use it. If false, anyone can");
