@@ -255,6 +255,13 @@ public class ARItems {
     protected static void registerOreDict() {
         // net.minecraftforge.oredict.OreDictionary
         // https://web.archive.org/web/20160514155630/http://www.minecraftforge.net/wiki/Common_Oredict_names
+        OreDictionary.registerOre("gemRuby", rubyGem.getItemStack(1));
+        OreDictionary.registerOre("gemSpodumene", lithiumGem.getItemStack(1));
+
+        OreDictionary.registerOre("ingotSteel", steelIngot.getItemStack(1));
+        OreDictionary.registerOre("ingotLead", leadIngot.getItemStack(1));
+        OreDictionary.registerOre("ingotUranium", uraniumIngot.getItemStack(1));
+
         OreDictionary.registerOre("compressedGold", compressedGold.getItemStack(1));
 
         OreDictionary.registerOre("dyeBrown", mummyDust.getItemStack(1));
