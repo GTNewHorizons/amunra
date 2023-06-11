@@ -79,7 +79,7 @@ public class BlockBushMulti extends BlockBasicMeta implements IGrowable, ISheara
      */
     @Override
     public boolean func_149851_a(World worldIn, int x, int y, int z, boolean isClient) {
-        if(this.getSubBlock(worldIn.getBlockMetadata(x, y, z)) instanceof SubBlockBush bush) {
+        if (this.getSubBlock(worldIn.getBlockMetadata(x, y, z)) instanceof SubBlockBush bush) {
             return bush.func_149851_a(worldIn, x, y, z, isClient);
         }
         return false;
@@ -94,7 +94,7 @@ public class BlockBushMulti extends BlockBasicMeta implements IGrowable, ISheara
      */
     @Override
     public boolean func_149852_a(World worldIn, Random random, int x, int y, int z) {
-        if(this.getSubBlock(worldIn.getBlockMetadata(x, y, z)) instanceof SubBlockBush bush) {
+        if (this.getSubBlock(worldIn.getBlockMetadata(x, y, z)) instanceof SubBlockBush bush) {
             return bush.func_149852_a(worldIn, random, x, y, z);
         }
         return false;
@@ -110,7 +110,7 @@ public class BlockBushMulti extends BlockBasicMeta implements IGrowable, ISheara
      */
     @Override
     public void func_149853_b(World worldIn, Random random, int x, int y, int z) {
-        if(this.getSubBlock(worldIn.getBlockMetadata(x, y, z)) instanceof SubBlockBush bush) {
+        if (this.getSubBlock(worldIn.getBlockMetadata(x, y, z)) instanceof SubBlockBush bush) {
             bush.func_149853_b(worldIn, random, x, y, z);
         }
     }
@@ -137,7 +137,7 @@ public class BlockBushMulti extends BlockBasicMeta implements IGrowable, ISheara
 
     @Override
     public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
-        if(this.getSubBlock(world.getBlockMetadata(x, y, z)) instanceof SubBlockBush bush) {
+        if (this.getSubBlock(world.getBlockMetadata(x, y, z)) instanceof SubBlockBush bush) {
             return bush.getPlantType(world, x, y, z);
         }
         return EnumPlantType.Plains;
@@ -158,7 +158,7 @@ public class BlockBushMulti extends BlockBasicMeta implements IGrowable, ISheara
     }
 
     public boolean canPlaceOn(final Block blockToCheck, final int metaToCheck, final int meta) {
-        if(this.getSubBlock(meta) instanceof SubBlockBush bush) {
+        if (this.getSubBlock(meta) instanceof SubBlockBush bush) {
             return bush.canPlaceOn(blockToCheck, metaToCheck, 0);
         }
         return false;

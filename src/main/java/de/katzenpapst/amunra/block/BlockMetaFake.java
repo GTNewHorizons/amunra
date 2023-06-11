@@ -25,7 +25,7 @@ public class BlockMetaFake extends BlockBasicMeta implements ITileEntityProvider
     public ItemStack getPickBlock(final MovingObjectPosition target, final World world, final int x, final int y,
             final int z, final EntityPlayer player) {
         final SubBlock sb = this.getSubBlock(world.getBlockMetadata(x, y, z));
-        if(sb != null) {
+        if (sb != null) {
             return sb.getPickBlock(target, world, x, y, z, player);
         }
         return super.getPickBlock(target, world, x, y, z, player);
@@ -45,7 +45,7 @@ public class BlockMetaFake extends BlockBasicMeta implements ITileEntityProvider
     public void makeFakeBlock(final World world, final BlockVec3 position, final BlockVec3 mainBlock,
             final BlockMetaPair bmp) {
         world.setBlock(position.x, position.y, position.z, this, bmp.getMetadata(), 3);
-        if(world.getTileEntity(position.x, position.y, position.z) instanceof TileEntityMulti multi) {
+        if (world.getTileEntity(position.x, position.y, position.z) instanceof TileEntityMulti multi) {
             multi.setMainBlock(mainBlock);
         }
     }
@@ -53,7 +53,7 @@ public class BlockMetaFake extends BlockBasicMeta implements ITileEntityProvider
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
         final SubBlock sb = this.getSubBlock(meta);
-        if(sb != null) {
+        if (sb != null) {
             return sb.createTileEntity(worldIn, meta);
         }
         return null;

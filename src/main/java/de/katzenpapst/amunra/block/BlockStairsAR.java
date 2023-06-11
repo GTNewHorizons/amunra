@@ -61,7 +61,9 @@ public class BlockStairsAR extends BlockStairs implements IMassiveBlock {
     @Override
     public float getMass(final World w, final int x, final int y, final int z, final int meta) {
         // 4/6 = 2/3, because stairs
-        return BlockMassHelper.getBlockMass(w, this.sourceBlock.getBlock(), this.sourceBlock.getMetadata(), x, y, z) * 2.0F / 3.0F;
+        return BlockMassHelper.getBlockMass(w, this.sourceBlock.getBlock(), this.sourceBlock.getMetadata(), x, y, z)
+                * 2.0F
+                / 3.0F;
     }
 
     @Override

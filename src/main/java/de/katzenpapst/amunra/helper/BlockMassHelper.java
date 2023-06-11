@@ -21,7 +21,7 @@ public class BlockMassHelper {
 
     public static float getBlockMass(final World world, final Block block, final int meta, final int x, final int y,
             final int z) {
-        if(block == null) {
+        if (block == null) {
             return 0.0f;
         }
         // first, the mass

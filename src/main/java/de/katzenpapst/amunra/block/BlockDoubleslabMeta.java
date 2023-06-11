@@ -51,7 +51,7 @@ public class BlockDoubleslabMeta extends BlockBasicMeta {
     @Override
     public String getUnlocalizedSubBlockName(final int meta) {
         final SubBlock sb = this.getSubBlock(meta);
-        if(sb != null) {
+        if (sb != null) {
             return sb.getUnlocalizedName() + ".slab";
         }
         return super.getUnlocalizedSubBlockName(meta);

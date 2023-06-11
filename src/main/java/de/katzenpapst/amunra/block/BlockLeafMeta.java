@@ -79,7 +79,7 @@ public class BlockLeafMeta extends BlockLeaves implements IMetaBlock {
 
     @Override
     public int getMetaByName(final String name) {
-        if(this.nameMetaMap.containsKey(name)) {
+        if (this.nameMetaMap.containsKey(name)) {
             return this.nameMetaMap.get(name);
         }
         throw new IllegalArgumentException("Subblock " + name + " doesn't exist");
@@ -96,7 +96,7 @@ public class BlockLeafMeta extends BlockLeaves implements IMetaBlock {
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
         final SubBlock sb = this.getSubBlock(meta);
-        if(sb == null) {
+        if (sb == null) {
             return null;
         }
         if (this.isOpaqueCube()) {
@@ -236,7 +236,7 @@ public class BlockLeafMeta extends BlockLeaves implements IMetaBlock {
     @Override
     public String getUnlocalizedSubBlockName(final int meta) {
         final SubBlock sb = this.getSubBlock(meta);
-        if(sb != null) {
+        if (sb != null) {
             return sb.getUnlocalizedName();
         }
         return this.getUnlocalizedName();
@@ -251,7 +251,7 @@ public class BlockLeafMeta extends BlockLeaves implements IMetaBlock {
     public int onBlockPlaced(World worldIn, int x, int y, int z, int side, float subX, float subY, float subZ,
             int meta) {
         final SubBlock sb = this.getSubBlock(meta);
-        if(sb != null) {
+        if (sb != null) {
             return sb.onBlockPlaced(worldIn, x, y, z, side, subX, subY, subZ, meta);
         }
         return super.onBlockPlaced(worldIn, x, y, z, side, subX, subY, subZ, meta);
@@ -260,7 +260,7 @@ public class BlockLeafMeta extends BlockLeaves implements IMetaBlock {
     @Override
     public int getExpDrop(IBlockAccess world, int metadata, int fortune) {
         final SubBlock sb = this.getSubBlock(metadata);
-        if(sb != null) {
+        if (sb != null) {
             return sb.getExpDrop(world, 0, fortune);
         }
         return super.getExpDrop(world, metadata, fortune);
@@ -269,7 +269,7 @@ public class BlockLeafMeta extends BlockLeaves implements IMetaBlock {
     @Override
     public void onNeighborBlockChange(World worldIn, int x, int y, int z, Block neighbor) {
         final SubBlock sb = this.getSubBlock(worldIn.getBlockMetadata(x, y, z));
-        if(sb != null) {
+        if (sb != null) {
             sb.onNeighborBlockChange(worldIn, x, y, z, neighbor);
         }
     }

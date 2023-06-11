@@ -67,7 +67,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     public void updateTick(World worldIn, int x, int y, int z, Random random) {
         if (!worldIn.isRemote) {
             final SubBlock sb = this.getSubBlock(worldIn.getBlockMetadata(x, y, z));
-            if(sb != null) {
+            if (sb != null) {
                 sb.updateTick(worldIn, x, y, z, random);
             }
         }
@@ -149,7 +149,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     public float getExplosionResistance(Entity exploder, World world, int x, int y, int z, double explosionX,
             double explosionY, double explosionZ) {
         final SubBlock sb = this.getSubBlock(world.getBlockMetadata(x, y, z));
-        if(sb != null) {
+        if (sb != null) {
             return sb.getExplosionResistance(exploder, world, x, y, z, explosionX, explosionY, explosionZ);
         }
         return super.getExplosionResistance(exploder, world, x, y, z, explosionX, explosionY, explosionZ);
@@ -158,7 +158,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     @Override
     public float getBlockHardness(World worldIn, int x, int y, int z) {
         final SubBlock sb = this.getSubBlock(worldIn.getBlockMetadata(x, y, z));
-        if(sb != null) {
+        if (sb != null) {
             return sb.getBlockHardness(worldIn, x, y, z);
         }
         return super.getBlockHardness(worldIn, x, y, z);
@@ -172,7 +172,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
          * Face 5 (Eastern Face)
          */
         final SubBlock sb = this.getSubBlock(meta);
-        if(sb != null) {
+        if (sb != null) {
             sb.getIcon(side, meta);
         }
         return super.getIcon(side, meta);
@@ -232,7 +232,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     @Override
     public TileEntity createTileEntity(World world, int meta) {
         final SubBlock sb = this.getSubBlock(meta);
-        if(sb == null) {
+        if (sb == null) {
             return super.createTileEntity(world, meta);
         }
         return sb.createTileEntity(world, meta);
@@ -255,7 +255,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     @Override
     public boolean getBlocksMovement(IBlockAccess worldIn, int x, int y, int z) {
         final SubBlock sb = this.getSubBlock(worldIn.getBlockMetadata(x, y, z));
-        if(sb != null) {
+        if (sb != null) {
             return sb.getBlocksMovement(worldIn, x, y, z);
         }
         return super.getBlocksMovement(worldIn, x, y, z);
@@ -265,7 +265,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     public boolean onBlockActivated(World worldIn, int x, int y, int z, EntityPlayer player, int side, float subX,
             float subY, float subZ) {
         final SubBlock sb = this.getSubBlock(worldIn.getBlockMetadata(x, y, z));
-        if(sb != null) {
+        if (sb != null) {
             return sb.onBlockActivated(worldIn, x, y, z, player, side, subX, subY, subZ);
         }
         return super.onBlockActivated(worldIn, x, y, z, player, side, subX, subY, subZ);
@@ -274,7 +274,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     @Override
     public int getExpDrop(IBlockAccess world, int metadata, int fortune) {
         final SubBlock sb = this.getSubBlock(metadata);
-        if(sb != null) {
+        if (sb != null) {
             return sb.getExpDrop(world, 0, fortune);
         }
         return super.getExpDrop(world, metadata, fortune);
@@ -283,7 +283,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     @Override
     public boolean isTerraformable(World world, int x, int y, int z) {
         final SubBlock sb = this.getSubBlock(world.getBlockMetadata(x, y, z));
-        if(sb != null) {
+        if (sb != null) {
             return sb.isTerraformable(world, x, y, z);
         }
         return false;
@@ -297,7 +297,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     @Override
     public boolean isPlantable(int metadata) {
         final SubBlock sb = this.getSubBlock(metadata);
-        if(sb != null) {
+        if (sb != null) {
             return sb.isPlantable(0);
         }
         return false;
@@ -306,7 +306,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     @Override
     public boolean isValueable(int metadata) {
         final SubBlock sb = this.getSubBlock(metadata);
-        if(sb != null) {
+        if (sb != null) {
             return sb.isValueable(0);
         }
         return false;
@@ -332,7 +332,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     @Override
     public int getLightValue(IBlockAccess world, int x, int y, int z) {
         final SubBlock sb = this.getSubBlock(world.getBlockMetadata(x, y, z));
-        if(sb != null) {
+        if (sb != null) {
             return sb.getLightValue();
         }
         return super.getLightValue();
@@ -351,7 +351,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     @Override
     public String getUnlocalizedSubBlockName(final int meta) {
         final SubBlock sb = this.getSubBlock(meta);
-        if(sb == null) {
+        if (sb == null) {
             return this.blockNameFU;
         }
         if (this.prefixOwnBlockName) {
@@ -364,7 +364,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     public int onBlockPlaced(World worldIn, int x, int y, int z, int side, float subX, float subY, float subZ,
             int meta) {
         final SubBlock sb = this.getSubBlock(meta);
-        if(sb != null) {
+        if (sb != null) {
             return sb.onBlockPlaced(worldIn, x, y, z, side, subX, subY, subZ, meta);
         }
         return super.onBlockPlaced(worldIn, x, y, z, side, subX, subY, subZ, meta);
@@ -373,7 +373,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     @Override
     public void onNeighborBlockChange(World worldIn, int x, int y, int z, Block neighbor) {
         final SubBlock sb = this.getSubBlock(worldIn.getBlockMetadata(x, y, z));
-        if(sb != null) {
+        if (sb != null) {
             sb.onNeighborBlockChange(worldIn, x, y, z, neighbor);
         }
     }
@@ -384,7 +384,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
         if (sb instanceof IMassiveBlock massiveBlock) {
             return massiveBlock.getMass(w, x, y, z, meta);
         }
-        if(sb == null) {
+        if (sb == null) {
             return 0.0f;
         }
         return BlockMassHelper.guessBlockMass(w, sb, meta, x, y, z);
@@ -401,7 +401,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     @Override
     public void breakBlock(World worldIn, int x, int y, int z, Block blockBroken, int meta) {
         final SubBlock sb = this.getSubBlock(meta);
-        if(sb != null) {
+        if (sb != null) {
             sb.breakBlock(worldIn, x, y, z, blockBroken, meta);
         }
     }
@@ -409,7 +409,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     @Override
     public boolean canBlockStay(World worldIn, int x, int y, int z) {
         final SubBlock sb = this.getSubBlock(worldIn.getBlockMetadata(x, y, z));
-        if(sb != null) {
+        if (sb != null) {
             return sb.canBlockStay(worldIn, x, y, z);
         }
         return super.canBlockStay(worldIn, x, y, z);
@@ -418,7 +418,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     @Override
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World worldIn, int x, int y, int z) {
         final SubBlock sb = this.getSubBlock(worldIn.getBlockMetadata(x, y, z));
-        if(sb != null) {
+        if (sb != null) {
             return sb.getCollisionBoundingBoxFromPool(worldIn, x, y, z);
         }
         return super.getCollisionBoundingBoxFromPool(worldIn, x, y, z);
@@ -427,7 +427,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     @Override
     public boolean canHarvestBlock(EntityPlayer player, int meta) {
         final SubBlock sb = this.getSubBlock(meta);
-        if(sb != null) {
+        if (sb != null) {
             return sb.canHarvestBlock(player, meta);
         }
         return super.canHarvestBlock(player, meta);
@@ -436,7 +436,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     @Override
     public boolean canSilkHarvest(World world, EntityPlayer player, int x, int y, int z, int metadata) {
         final SubBlock sb = this.getSubBlock(metadata);
-        if(sb != null) {
+        if (sb != null) {
             return sb.canSilkHarvest(world, player, x, y, z, metadata);
         }
         return super.canSilkHarvest(world, player, x, y, z, metadata);
@@ -446,7 +446,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     @Override
     public AxisAlignedBB getSelectedBoundingBoxFromPool(World worldIn, int x, int y, int z) {
         final SubBlock sb = this.getSubBlock(worldIn.getBlockMetadata(x, y, z));
-        if(sb != null) {
+        if (sb != null) {
             return sb.getSelectedBoundingBoxFromPool(worldIn, x, y, z);
         }
         return super.getSelectedBoundingBoxFromPool(worldIn, x, y, z);
@@ -455,7 +455,7 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
     @Override
     public boolean canCollideCheck(int meta, boolean includeLiquid) {
         final SubBlock sb = this.getSubBlock(meta);
-        if(sb != null) {
+        if (sb != null) {
             return sb.canCollideCheck(meta, includeLiquid);
         }
         return super.canCollideCheck(meta, includeLiquid);

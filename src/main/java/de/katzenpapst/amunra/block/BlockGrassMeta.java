@@ -54,7 +54,7 @@ public class BlockGrassMeta extends BlockBasicMeta implements IGrowable {
     @Override
     public void updateTick(World worldIn, int x, int y, int z, Random random) {
         final int meta = worldIn.getBlockMetadata(x, y, z);
-        if(!(this.getSubBlock(meta) instanceof SubBlockGrass sb)) {
+        if (!(this.getSubBlock(meta) instanceof SubBlockGrass sb)) {
             return;
         }
         final BlockMetaPair dirtForm = sb.getDirtBlock();
@@ -90,7 +90,7 @@ public class BlockGrassMeta extends BlockBasicMeta implements IGrowable {
     public void func_149853_b(World worldIn, Random random, int x, int y, int z) {
         int l = 0;
         final int meta = worldIn.getBlockMetadata(x, y, z);
-        if(!(this.getSubBlock(meta) instanceof SubBlockGrass sb)) {
+        if (!(this.getSubBlock(meta) instanceof SubBlockGrass sb)) {
             return;
         }
 

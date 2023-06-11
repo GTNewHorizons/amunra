@@ -42,7 +42,7 @@ public class BlockSlabMeta extends BlockSlab implements IMetaBlock, IMassiveBloc
     @Override
     public String getUnlocalizedSubBlockName(final int meta) {
         final SubBlock sb = this.getSubBlock(meta);
-        if(sb != null) {
+        if (sb != null) {
             return sb.getUnlocalizedName() + ".slab";
         }
         return this.getUnlocalizedName() + ".slab";
@@ -96,7 +96,7 @@ public class BlockSlabMeta extends BlockSlab implements IMetaBlock, IMassiveBloc
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
         final SubBlock sb = this.getSubBlock(meta);
-        if(sb != null) {
+        if (sb != null) {
             return sb.getIcon(side, 0);
         }
         return super.getIcon(side, meta);
@@ -182,7 +182,7 @@ public class BlockSlabMeta extends BlockSlab implements IMetaBlock, IMassiveBloc
     @Override
     public String func_150002_b(int p_150002_1_) {
         final SubBlock sb = this.getSubBlock(p_150002_1_);
-        if(sb != null) {
+        if (sb != null) {
             return this.getUnlocalizedName() + "." + sb.getUnlocalizedName();
         }
         return this.getUnlocalizedName();
@@ -192,7 +192,7 @@ public class BlockSlabMeta extends BlockSlab implements IMetaBlock, IMassiveBloc
     public float getExplosionResistance(Entity par1Entity, World world, int x, int y, int z, double explosionX,
             double explosionY, double explosionZ) {
         final SubBlock sb = this.getSubBlock(world.getBlockMetadata(x, y, z));
-        if(sb != null) {
+        if (sb != null) {
             return sb.getExplosionResistance(par1Entity, world, x, y, z, explosionX, explosionY, explosionZ);
         }
         return super.getExplosionResistance(par1Entity, world, x, y, z, explosionX, explosionY, explosionZ);
@@ -201,7 +201,7 @@ public class BlockSlabMeta extends BlockSlab implements IMetaBlock, IMassiveBloc
     @Override
     public float getBlockHardness(World worldIn, int x, int y, int z) {
         final SubBlock sb = this.getSubBlock(worldIn.getBlockMetadata(x, y, z));
-        if(sb != null) {
+        if (sb != null) {
             return sb.getBlockHardness(worldIn, x, y, z);
         }
         return super.getBlockHardness(worldIn, x, y, z);
@@ -215,7 +215,7 @@ public class BlockSlabMeta extends BlockSlab implements IMetaBlock, IMassiveBloc
     @Override
     public int getExpDrop(IBlockAccess world, int metadata, int fortune) {
         final SubBlock sb = this.getSubBlock(metadata);
-        if(sb != null) {
+        if (sb != null) {
             return sb.getExpDrop(world, 0, fortune);
         }
         return super.getExpDrop(world, metadata, fortune);
@@ -224,7 +224,7 @@ public class BlockSlabMeta extends BlockSlab implements IMetaBlock, IMassiveBloc
     @Override
     public void onNeighborBlockChange(World worldIn, int x, int y, int z, Block neighbor) {
         final SubBlock sb = this.getSubBlock(worldIn.getBlockMetadata(x, y, z));
-        if(sb != null) {
+        if (sb != null) {
             sb.onNeighborBlockChange(worldIn, x, y, z, neighbor);
         }
         super.onNeighborBlockChange(worldIn, x, y, z, neighbor);
