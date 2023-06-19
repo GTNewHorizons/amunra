@@ -89,7 +89,7 @@ public class ItemJet extends ItemBlockMulti {
 
         /**
          * 0 -> +Y 1 -> -Y 2 -> -Z 3 -> +Z 4 -> -X 5 -> +X
-         *
+         * <p>
          *
          ** value | motion direction | ------+----------------- + 0 | +Z | 1 | -X | 2 | -Z | 3 | +X |
          *

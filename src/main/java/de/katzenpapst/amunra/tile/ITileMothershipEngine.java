@@ -22,7 +22,7 @@ public interface ITileMothershipEngine {
 
     /**
      * Should return the direction in which the engine is pointing, and, by that, where it would push the ship
-     *
+     * <p>
      * value | motion direction | ------+----------------- + 0 | +Z | 1 | -X | 2 | -Z | 3 | +X |
      */
     int getDirection();

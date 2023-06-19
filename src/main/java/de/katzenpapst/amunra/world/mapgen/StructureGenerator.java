@@ -49,7 +49,7 @@ abstract public class StructureGenerator extends MapGenBaseMeta {
 
     /**
      * Clones an ArrayList of SubComponentData
-     *
+     * <p>
      * helper for generateSubComponents
      */
     private List<SubComponentData> cloneSubComponentList(final List<SubComponentData> subCompData) {
@@ -58,7 +58,7 @@ abstract public class StructureGenerator extends MapGenBaseMeta {
 
     /**
      * Calculates the sum of all SubComponentData's probability values
-     *
+     * <p>
      * helper for generateSubComponents
      */
     private float getProbabilityMaximum(final List<SubComponentData> subCompData) {
@@ -67,7 +67,7 @@ abstract public class StructureGenerator extends MapGenBaseMeta {
 
     /**
      * Just takes the "clazz" member of the entry and tries to create a new instance of it
-     *
+     * <p>
      * helper for generateSubComponents
      */
     private BaseStructureComponent generateComponent(final SubComponentData entry) {
@@ -81,7 +81,7 @@ abstract public class StructureGenerator extends MapGenBaseMeta {
 
     /**
      * Tries to find a sensible limit (aka total maximum of components) for the given list of SubComponentData
-     *
+     * <p>
      * helper for generateSubComponents
      */
     private int findComponentLimit(final List<SubComponentData> subCompData, final Random rand) {

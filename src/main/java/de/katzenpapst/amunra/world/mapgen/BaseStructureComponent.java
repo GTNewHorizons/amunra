@@ -88,13 +88,13 @@ abstract public class BaseStructureComponent {
      * @param box
      * @param block   / protected boolean drawArea(Block[] blocks, byte[] metas, StructureBoundingBox chunkBB,
      *                StructureBoundingBox box, BlockMetaPair block) {
-     *
+     *                <p>
      *                StructureBoundingBox actualBox = intersectBoundingBoxes(chunkBB, box); if(actualBox == null) {
      *                return false; } for(int x=actualBox.minX; x<=actualBox.maxX; x++) { for(int y=actualBox.minY;
      *                y<=actualBox.maxY; y++) { for(int z=actualBox.minZ; z<=actualBox.maxZ; z++) { int xOffset =
      *                getXWithOffset(x, z); int zOffset = getZWithOffset(x, z); int relX = CoordHelper.abs2rel(xOffset);
      *                int relZ = CoordHelper.abs2rel(zOffset); placeBlockRel(blocks, metas, relX, y, relZ, block); } } }
-     *
+     *                <p>
      *                return true; }
      */
 
@@ -221,7 +221,7 @@ abstract public class BaseStructureComponent {
 
     /**
      * For doors, in a sense, and furnaces
-     *
+     * <p>
      * 1 0-+-2 3
      */
     public static int rotateDoorlikeMetadata(final int unrotated, final int coordMode) {
@@ -236,7 +236,7 @@ abstract public class BaseStructureComponent {
     /**
      * This should work for stairs 0 = E 1 = W 2 = S 3 = N for torches, add +1; 0 means nothing and 5 means "on the
      * ground", and the interpretation is "torch FACING dir"
-     *
+     * <p>
      * 3 1-+-0 2
      */
     public static int rotateStairlikeMetadata(final int unrotated, final int coordMode) {
@@ -245,7 +245,7 @@ abstract public class BaseStructureComponent {
 
     /**
      * Universal function for metadata rotation, based on what I found using trial&error with torches
-     *
+     * <p>
      * n w-+-e s
      */
     public static int rotateUniversalMetadata(final int unrotated, final int coordMode, final int n, final int s,

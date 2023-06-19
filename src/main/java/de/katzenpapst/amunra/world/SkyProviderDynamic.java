@@ -902,7 +902,7 @@ public class SkyProviderDynamic extends IRenderHandler {
 
     /**
      * Should convert an angle around the sun into an angle around this body
-     *
+     * <p>
      *
      * @param innerAngle              in radians, the angle between curBody<-->sun and otherBody<-->sun
      * @param otherBodyDistance       other body's orbital radius

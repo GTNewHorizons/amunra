@@ -111,7 +111,7 @@ public class AstronomyHelper {
 
     /**
      * Calculate the angle at which body2 is in body1's sky if both orbit the same parent
-     *
+     * <p>
      *
      * @param innerAngle            in radians, the angle between curBody<-->sun and otherBody<-->sun
      * @param body1distance         this body's orbital radius

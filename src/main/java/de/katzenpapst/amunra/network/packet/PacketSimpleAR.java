@@ -159,7 +159,7 @@ public class PacketSimpleAR extends Packet implements IPacket {
 
         /**
          * Returns the data from a previous S_MOTHERSHIP_UPDATE to all clients in the dimension
-         *
+         * <p>
          * params: - dimension_id: the dimension id of the ship - nbt_data: the data to be read by the
          * MothershipWorldProvider
          */
@@ -172,7 +172,7 @@ public class PacketSimpleAR extends Packet implements IPacket {
 
         /**
          * Sends changed mothership setting to clients
-         *
+         * <p>
          * params: - mothership_id - nbt_data
          */
         C_MOTHERSHIP_SETTINGS_CHANGED(Side.CLIENT, Integer.class, NBTTagCompound.class),
