@@ -264,8 +264,7 @@ public class ItemNanotool extends ItemAbstractBatteryUser implements ITool, IToo
                     || b == Blocks.web
                     || b == Blocks.redstone_wire
                     || b == Blocks.tripwire;
-            case SHOVEL -> b.getMaterial() == Material.clay || b.getMaterial() == Material.ground
-                    || b.getMaterial() == Material.clay;
+            case SHOVEL -> b.getMaterial() == Material.clay || b.getMaterial() == Material.ground;
             case WRENCH, WORKBENCH, HOE -> false;
             default -> false;
         };
