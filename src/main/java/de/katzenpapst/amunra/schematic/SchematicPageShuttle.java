@@ -45,10 +45,7 @@ public class SchematicPageShuttle implements ISchematicPage {
 
     @Override
     public int compareTo(final ISchematicPage o) {
-        if (this.getPageID() > o.getPageID()) {
-            return 1;
-        }
-        return -1;
+        return Integer.compare(this.getPageID(), o.getPageID());
     }
 
 }
