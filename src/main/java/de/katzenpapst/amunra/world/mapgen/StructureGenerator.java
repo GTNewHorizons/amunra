@@ -124,7 +124,7 @@ abstract public class StructureGenerator extends MapGenBaseMeta {
 
         final List<SubComponentData> curComponents = this.cloneSubComponentList(subCompData);
 
-        while (true) {
+        do {
             final Iterator<SubComponentData> itr = curComponents.iterator();
             float curValue = 0.0F;
 
@@ -170,10 +170,7 @@ abstract public class StructureGenerator extends MapGenBaseMeta {
                 curValue += entry.probability;
             } // end of while(itr.hasNext())
 
-            if (compList.size() >= limit || curComponents.isEmpty()) {
-                break;
-            }
-        }
+        } while (compList.size() < limit && !curComponents.isEmpty());
 
         return compList;
     }
