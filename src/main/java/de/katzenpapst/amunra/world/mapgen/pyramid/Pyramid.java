@@ -277,8 +277,9 @@ public class Pyramid extends BaseStructureStart {
             for (int z = startZ; z <= stopZ; z++) {
 
                 final int highestGroundBlock = this.getHighestSolidBlockInBB(blocks, metas, chunkX, chunkZ, x, z);
-                if (highestGroundBlock == -1) {
-                    continue; // that should mean that we aren't in the right chunk
+                final boolean isInWrongChunk = highestGroundBlock == -1;
+                if (isInWrongChunk) {
+                    continue;
                 }
 
                 // now fill
