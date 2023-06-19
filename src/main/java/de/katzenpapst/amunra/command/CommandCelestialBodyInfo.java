@@ -67,13 +67,10 @@ public class CommandCelestialBodyInfo extends CommandBase {
                     new ChatComponentTranslation("info.message.celestialbodysearch.some", foundBodies.size(), name));
 
             for (final CelestialBody body : foundBodies) {
-                final StringBuilder sb = new StringBuilder();
 
-                sb.append(body.getLocalizedName());
-                sb.append(" : ");
-                sb.append(body.getName());
+                String sb = body.getLocalizedName() + " : " + body.getName();
 
-                sender.addChatMessage(new ChatComponentText(sb.toString()));
+                sender.addChatMessage(new ChatComponentText(sb));
             }
         }
     }
