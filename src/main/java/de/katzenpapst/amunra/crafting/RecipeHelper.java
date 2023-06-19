@@ -1252,9 +1252,7 @@ public class RecipeHelper {
                     continue;
                 }
                 final ItemDamagePair type = new ItemDamagePair(stack);
-                if (!result.get(slotNr).contains(type)) {
-                    result.get(slotNr).add(type);
-                }
+                result.get(slotNr).add(type);
             }
         }
         return result;
