@@ -338,7 +338,7 @@ public class EntityRobotVillager extends EntityAgeable implements IEntityBreatha
                     b0 = -3;
                 }
 
-                this.villageObj.setReputationForPlayer(((EntityPlayer) p_70604_1_).getCommandSenderName(), b0);
+                this.villageObj.setReputationForPlayer(p_70604_1_.getCommandSenderName(), b0);
 
                 if (this.isEntityAlive()) {
                     this.worldObj.setEntityState(this, (byte) 13);
@@ -354,7 +354,7 @@ public class EntityRobotVillager extends EntityAgeable implements IEntityBreatha
 
             if (entity != null) {
                 if (entity instanceof EntityPlayer) {
-                    this.villageObj.setReputationForPlayer(((EntityPlayer) entity).getCommandSenderName(), -2);
+                    this.villageObj.setReputationForPlayer(entity.getCommandSenderName(), -2);
                 } else if (entity instanceof IMob) {
                     this.villageObj.endMatingSeason();
                 }

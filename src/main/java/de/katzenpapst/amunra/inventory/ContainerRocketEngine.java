@@ -34,7 +34,7 @@ public class ContainerRocketEngine extends ContainerWithPlayerInventory {
 
     @Override
     public boolean canInteractWith(EntityPlayer player) {
-        return ((TileEntityMothershipEngineAbstract) this.tileEntity).isUseableByPlayer(player);
+        return this.tileEntity.isUseableByPlayer(player);
     }
 
 }

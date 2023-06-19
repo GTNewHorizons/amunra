@@ -39,7 +39,7 @@ public class EntitySentry extends EntityFlyingMob implements IEntityBreathable {
 
         final EntityLaserArrow attack = new EntityLaserArrow(
                 this.worldObj,
-                (EntityLivingBase) this,
+                this,
                 new Vector3(this),
                 (EntityLivingBase) target);
         attack.setDamage(0.5F);

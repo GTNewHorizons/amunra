@@ -9,7 +9,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import de.katzenpapst.amunra.block.BlockMachineMeta;
 import de.katzenpapst.amunra.block.SubBlockMachine;
 import de.katzenpapst.amunra.helper.CoordHelper;
 import de.katzenpapst.amunra.tile.TileEntityBlockScale;
@@ -45,7 +44,7 @@ public class BlockScale extends SubBlockMachine {
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        final int realMeta = ((BlockMachineMeta) this.parent).getRotationMeta(meta);
+        final int realMeta = this.parent.getRotationMeta(meta);
 
         final ForgeDirection sideFD = ForgeDirection.getOrientation(side);
 

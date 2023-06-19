@@ -11,7 +11,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import de.katzenpapst.amunra.AmunRa;
 import de.katzenpapst.amunra.GuiIds;
-import de.katzenpapst.amunra.block.BlockMachineMeta;
 import de.katzenpapst.amunra.helper.CoordHelper;
 import de.katzenpapst.amunra.tile.TileEntityMothershipController;
 
@@ -39,7 +38,7 @@ public class BlockMothershipController extends AbstractBlockMothershipRestricted
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        final int realMeta = ((BlockMachineMeta) this.parent).getRotationMeta(meta);
+        final int realMeta = this.parent.getRotationMeta(meta);
 
         // assuming East is output and South is front
         final ForgeDirection front = CoordHelper.rotateForgeDirection(ForgeDirection.SOUTH, realMeta);

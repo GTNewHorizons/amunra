@@ -103,7 +103,7 @@ abstract public class ContainerWithPlayerInventory extends Container {
                     final Slot curSlot = this.inventorySlots.get(i);
                     if (curSlot instanceof SlotSpecific) {
                         // attempt merge
-                        if (((SlotSpecific) curSlot).isItemValid(stack) && this.mergeSingleSlot(stack, curSlot)) {
+                        if (curSlot.isItemValid(stack) && this.mergeSingleSlot(stack, curSlot)) {
                             found = true;
                             break;
                         }
@@ -127,7 +127,7 @@ abstract public class ContainerWithPlayerInventory extends Container {
             }
 
             if (stack.stackSize == 0) {
-                slot.putStack((ItemStack) null);
+                slot.putStack(null);
             } else {
                 slot.onSlotChanged();
             }

@@ -13,7 +13,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import de.katzenpapst.amunra.AmunRa;
 import de.katzenpapst.amunra.GuiIds;
-import de.katzenpapst.amunra.block.BlockMachineMeta;
 import de.katzenpapst.amunra.block.SubBlockMachine;
 import de.katzenpapst.amunra.helper.CoordHelper;
 import de.katzenpapst.amunra.proxy.ARSidedProxy.ParticleType;
@@ -48,7 +47,7 @@ public class BlockGravitation extends SubBlockMachine {
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        final int realMeta = ((BlockMachineMeta) this.parent).getRotationMeta(meta);
+        final int realMeta = this.parent.getRotationMeta(meta);
 
         final ForgeDirection front = CoordHelper.rotateForgeDirection(ForgeDirection.SOUTH, realMeta);
         final ForgeDirection back = CoordHelper.rotateForgeDirection(ForgeDirection.NORTH, realMeta);

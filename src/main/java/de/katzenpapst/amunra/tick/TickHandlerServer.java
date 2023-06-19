@@ -88,7 +88,7 @@ public class TickHandlerServer {
                             if (parent == null) {
                                 // jumped off mid-transit
                                 if (e instanceof EntityLivingBase) {
-                                    ((EntityLivingBase) e).attackEntityFrom(DamageSourceAR.dsFallOffShip, 9001);
+                                    e.attackEntityFrom(DamageSourceAR.dsFallOffShip, 9001);
                                 } else {
                                     e.worldObj.removeEntity(e);
                                 }
@@ -96,9 +96,7 @@ public class TickHandlerServer {
                                     || parent.getTierRequirement() > AmunRa.config.mothershipMaxTier) {
                                         // crash into
                                         if (e instanceof EntityLivingBase) {
-                                            ((EntityLivingBase) e).attackEntityFrom(
-                                                    DamageSourceAR.getDSCrashIntoPlanet(parent),
-                                                    9001);
+                                            e.attackEntityFrom(DamageSourceAR.getDSCrashIntoPlanet(parent), 9001);
                                         } else {
                                             e.worldObj.removeEntity(e);
                                         }

@@ -17,7 +17,7 @@ public class ContainerAtomBattery extends ContainerWithPlayerInventory {
 
     @Override
     public boolean canInteractWith(EntityPlayer player) {
-        return ((TileEntityIsotopeGenerator) this.tileEntity).isUseableByPlayer(player);
+        return this.tileEntity.isUseableByPlayer(player);
     }
 
 }

@@ -1,6 +1,5 @@
 package de.katzenpapst.amunra.entity;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.projectile.EntityFireball;
@@ -27,7 +26,7 @@ public class EntityOsirisBossFireball extends EntityFireball {
             }
 
             this.worldObj.newExplosion(
-                    (Entity) null,
+                    null,
                     this.posX,
                     this.posY,
                     this.posZ,
