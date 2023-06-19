@@ -37,6 +37,7 @@ public class BoxInt2D {
             this.maxY = maxY;
         } else {
             this.minY = minY;
+            // TODO: check that the line below is correct
             this.maxY = minX;
         }
     }
