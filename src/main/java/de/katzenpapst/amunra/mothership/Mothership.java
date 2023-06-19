@@ -561,7 +561,6 @@ public class Mothership extends CelestialBody {
             case BLACKLIST -> this.isPlayerOwner(playerId) || !this.playerSetLanding.contains(playerId);
             case WHITELIST -> this.isPlayerOwner(playerId) || this.playerSetLanding.contains(playerId);
             case NONE -> this.isPlayerOwner(playerId);
-            default -> this.isPlayerOwner(playerId);
         };
     }
 }

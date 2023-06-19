@@ -169,7 +169,6 @@ public class GuiHelper {
             case NITROGEN -> "gas.nitrogen.name";
             case OXYGEN -> "gas.oxygen.name";
             case WATER -> "tile.water.name";
-            default -> "item.baseItem.tricorder.message.unknownGas";
         };
     }
 

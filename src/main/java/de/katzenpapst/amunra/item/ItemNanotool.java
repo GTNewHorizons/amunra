@@ -179,7 +179,6 @@ public class ItemNanotool extends ItemAbstractBatteryUser implements ITool, IToo
             case HOE -> Mode.SHEARS;
             case SHEARS -> Mode.WRENCH;
             case WRENCH -> Mode.WORKBENCH;
-            default -> Mode.PICKAXE;
         };
 
     }
@@ -264,7 +263,6 @@ public class ItemNanotool extends ItemAbstractBatteryUser implements ITool, IToo
                     || b == Blocks.tripwire;
             case SHOVEL -> b.getMaterial() == Material.clay || b.getMaterial() == Material.ground;
             case WRENCH, WORKBENCH, HOE -> false;
-            default -> false;
         };
     }
 
@@ -277,7 +275,6 @@ public class ItemNanotool extends ItemAbstractBatteryUser implements ITool, IToo
             case SHOVEL -> "item.nanotool.mode.shovel";
             case WORKBENCH -> "item.nanotool.mode.workbench";
             case WRENCH -> "item.nanotool.mode.wrench";
-            default -> "";
         };
     }
 
