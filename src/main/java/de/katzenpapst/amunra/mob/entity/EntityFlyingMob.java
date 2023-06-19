@@ -181,7 +181,7 @@ public abstract class EntityFlyingMob extends EntityFlying implements IMob, IAnt
             final byte b0 = (byte) (this.attackCounter > 10 ? 1 : 0);
 
             if (b1 != b0) {
-                this.dataWatcher.updateObject(16, Byte.valueOf(b0));
+                this.dataWatcher.updateObject(16, b0);
             }
         }
     }

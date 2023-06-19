@@ -313,7 +313,7 @@ public class EntityRobotVillager extends EntityAgeable implements IEntityBreatha
     }
 
     public void setProfession(final int par1) {
-        this.dataWatcher.updateObject(16, Integer.valueOf(par1));
+        this.dataWatcher.updateObject(16, par1);
 
     }
 

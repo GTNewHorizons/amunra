@@ -112,7 +112,7 @@ public class EntityARVillager extends EntityAgeable implements IEntityBreathable
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(16, Integer.valueOf(0));
+        this.dataWatcher.addObject(16, 0);
     }
 
     @Override
