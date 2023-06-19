@@ -33,7 +33,7 @@ public class ARChannelHandler extends FMLIndexedMessageToMessageCodec<IPacket> {
     }
 
     @Override
-    public void encodeInto(ChannelHandlerContext ctx, IPacket msg, ByteBuf target) throws Exception {
+    public void encodeInto(ChannelHandlerContext ctx, IPacket msg, ByteBuf target) {
         msg.encodeInto(ctx, target);
     }
 

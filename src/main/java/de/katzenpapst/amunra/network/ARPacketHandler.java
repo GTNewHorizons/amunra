@@ -15,7 +15,7 @@ import micdoodle8.mods.galacticraft.core.network.IPacket;
 public class ARPacketHandler extends SimpleChannelInboundHandler<IPacket> {
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, IPacket msg) throws Exception {
+    protected void channelRead0(ChannelHandlerContext ctx, IPacket msg) {
         final INetHandler netHandler = ctx.channel().attr(NetworkRegistry.NET_HANDLER).get();
         final EntityPlayer player = GalacticraftCore.proxy.getPlayerFromNetHandler(netHandler);
 
