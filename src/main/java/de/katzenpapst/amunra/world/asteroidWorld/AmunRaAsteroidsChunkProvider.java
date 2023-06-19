@@ -1,6 +1,7 @@
 package de.katzenpapst.amunra.world.asteroidWorld;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -509,9 +510,7 @@ public class AmunRaAsteroidsChunkProvider extends ChunkProviderGenerate {
         final Chunk curChunk = new Chunk(this.worldObj, ids, meta, p_73154_1_, p_73154_2_);
         final byte[] chunkBiomeArray = curChunk.getBiomeArray();
 
-        for (int i = 0; i < chunkBiomeArray.length; ++i) {
-            chunkBiomeArray[i] = (byte) BiomeGenBaseAsteroids.asteroid.biomeID;
-        }
+        Arrays.fill(chunkBiomeArray, (byte) BiomeGenBaseAsteroids.asteroid.biomeID);
 
         this.generateSkylightMap(curChunk, p_73154_1_, p_73154_2_);
 
