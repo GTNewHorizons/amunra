@@ -66,7 +66,7 @@ public class GuiShuttleDock extends GuiContainerGC {
                 (this.height - this.ySize) / 2 + 57,
                 18,
                 27,
-                new ArrayList<String>(),
+                new ArrayList<>(),
                 this.width,
                 this.height,
                 this);

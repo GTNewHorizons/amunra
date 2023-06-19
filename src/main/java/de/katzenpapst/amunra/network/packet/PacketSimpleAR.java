@@ -291,8 +291,7 @@ public class PacketSimpleAR extends Packet implements IPacket {
                             }
 
                             if (!spaceStationData.containsKey(homePlanetID)) {
-                                spaceStationData
-                                        .put(homePlanetID, new HashMap<String, GuiCelestialSelection.StationDataGUI>());
+                                spaceStationData.put(homePlanetID, new HashMap<>());
                             }
 
                             spaceStationData.get(homePlanetID).put(

@@ -75,7 +75,7 @@ public class GuiArtificialGravity extends GuiContainerGC implements ITextBoxCall
             (this.height - this.ySize) / 2 + 87,
             52,
             9,
-            new ArrayList<String>(),
+            new ArrayList<>(),
             this.width,
             this.height,
             this);
