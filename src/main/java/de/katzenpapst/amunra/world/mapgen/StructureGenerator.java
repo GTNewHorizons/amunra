@@ -136,9 +136,7 @@ abstract public class StructureGenerator extends MapGenBaseMeta {
                 final SubComponentData entry = itr.next();
                 final String typeName = entry.clazz.getCanonicalName();
 
-                if (typeAmountMapping.get(typeName) == null) {
-                    typeAmountMapping.put(typeName, 0);
-                }
+                typeAmountMapping.putIfAbsent(typeName, 0);
 
                 int curAmount = typeAmountMapping.get(typeName);
 
