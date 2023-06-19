@@ -62,14 +62,7 @@ public class SkyProviderDynamic extends IRenderHandler {
 
         @Override
         public int compareTo(final BodyRenderTask other) {
-
-            if (this.zIndex > other.zIndex) {
-                return -1;
-            }
-            if (this.zIndex < other.zIndex) {
-                return 1;
-            }
-            return 0;
+            return Double.compare(other.zIndex, this.zIndex);
         }
     }
 
