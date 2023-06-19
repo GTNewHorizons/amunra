@@ -326,7 +326,7 @@ public class Mothership extends CelestialBody {
 
         SolarSystem curSys = null;
         CelestialBody body = null;
-        CelestialBody moon = null;
+        Moon moon = null;
 
         final String[] parts = bodyName.split(Pattern.quote(nameSeparator));
 
@@ -346,7 +346,7 @@ public class Mothership extends CelestialBody {
                 case 2 -> {
                     moon = GalaxyRegistry.getRegisteredMoons().get(parts[i]);
                     // sanity checks
-                    if (!((Moon) moon).getParentPlanet().equals(body)) {
+                    if (!moon.getParentPlanet().equals(body)) {
                         throw new RuntimeException("Moon " + moon.getName() + " is not in " + bodyName);
                     }
                     // at this point, we are done anyway

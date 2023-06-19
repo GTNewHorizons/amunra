@@ -187,9 +187,8 @@ public class ShuttleTeleportHelper {
                 player.mcServer.getConfigurationManager().updateTimeAndWeatherForPlayer(player, (WorldServer) worldNew);
                 player.mcServer.getConfigurationManager().syncPlayerInventory(player);
 
-                for (final Object o : player.getActivePotionEffects()) {
-                    final PotionEffect var10 = (PotionEffect) o;
-                    player.playerNetServerHandler.sendPacket(new S1DPacketEntityEffect(player.getEntityId(), var10));
+                for (final PotionEffect effect : player.getActivePotionEffects()) {
+                    player.playerNetServerHandler.sendPacket(new S1DPacketEntityEffect(player.getEntityId(), effect));
                 }
 
                 player.playerNetServerHandler.sendPacket(
