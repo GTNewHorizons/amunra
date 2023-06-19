@@ -69,11 +69,7 @@ abstract public class GuiContainerTabbed extends GuiContainerGC {
             final int btnIndex = TAB_BTN_OFFSET + newIndex;
             this.getActiveTab().onTabActivated();
             for (final TabButton btn : this.tabButtons) {
-                if (btn.id == btnIndex) {
-                    btn.isActive = true;
-                } else {
-                    btn.isActive = false;
-                }
+                btn.isActive = btn.id == btnIndex;
             }
         }
     }

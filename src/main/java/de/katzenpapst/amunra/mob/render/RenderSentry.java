@@ -35,11 +35,7 @@ public class RenderSentry extends RenderLiving {
         GL11.glDisable(GL11.GL_ALPHA_TEST);
         GL11.glBlendFunc(GL11.GL_ONE, GL11.GL_ONE);
 
-        if (p_77032_1_.isInvisible()) {
-            GL11.glDepthMask(false);
-        } else {
-            GL11.glDepthMask(true);
-        }
+        GL11.glDepthMask(!p_77032_1_.isInvisible());
 
         final char c0 = 61680;
         final int j = c0 % 65536;

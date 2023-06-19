@@ -157,10 +157,7 @@ public class TileEntityMothershipEngineIon extends TileEntityMothershipEngineAbs
     @Override
     protected boolean isItemFuel(final ItemStack itemstack) {
         final FluidStack containedFluid = FluidContainerRegistry.getFluidForFilledItem(itemstack);
-        if (containedFluid != null && containedFluid.getFluid() == this.fuel) {
-            return true;
-        }
-        return false;
+        return containedFluid != null && containedFluid.getFluid() == this.fuel;
     }
 
     @Override
@@ -185,11 +182,7 @@ public class TileEntityMothershipEngineIon extends TileEntityMothershipEngineAbs
 
     @Override
     public boolean canConnect(final ForgeDirection direction, final NetworkType type) {
-        if (direction == null || ForgeDirection.UNKNOWN.equals(direction) || type != NetworkType.POWER) {
-            return false;
-        }
-
-        return true;// for now direction == this.getElectricInputDirection();
+        return direction != null && !ForgeDirection.UNKNOWN.equals(direction) && type == NetworkType.POWER;
     }
 
     @Override

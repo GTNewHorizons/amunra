@@ -545,12 +545,8 @@ public class ItemNanotool extends ItemAbstractBatteryUser implements ITool, IToo
     public boolean doesSneakBypassUse(World world, int x, int y, int z, EntityPlayer player) {
         final ItemStack stack = player.inventory.getCurrentItem();
 
-        if (this.hasEnoughEnergyAndMode(stack, this.energyCostUseSmall, Mode.WRENCH)
-                && Minecraft.getMinecraft().objectMouseOver.typeOfHit == MovingObjectType.BLOCK) {
-            return true;
-        }
-
-        return false;
+        return this.hasEnoughEnergyAndMode(stack, this.energyCostUseSmall, Mode.WRENCH)
+                && Minecraft.getMinecraft().objectMouseOver.typeOfHit == MovingObjectType.BLOCK;
     }
 
     // try this

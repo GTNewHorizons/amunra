@@ -244,13 +244,12 @@ public class ShuttleTeleportHelper {
         // this part is relevant, I think this code should still be able to teleport just the player
 
         if (!usingShuttle) {
-            // just the player/parachest?
-            if (type.useParachute() && playerStats.extendedInventory.getStackInSlot(4) != null
-                    && playerStats.extendedInventory.getStackInSlot(4).getItem() instanceof ItemParaChute) {
-                GCPlayerHandler.setUsingParachute(player, playerStats, true);
-            } else {
-                GCPlayerHandler.setUsingParachute(player, playerStats, false);
-            }
+            // just the player/parachute?
+            final boolean usingParachute = type.useParachute()
+                    && playerStats.extendedInventory.getStackInSlot(4) != null
+                    && playerStats.extendedInventory.getStackInSlot(4).getItem() instanceof ItemParaChute;
+            GCPlayerHandler.setUsingParachute(player, playerStats, usingParachute);
+
             if (playerStats.rocketStacks != null && playerStats.rocketStacks.length > 0) {
                 // I think this just puts the rocket and the launch pads into the inventory
                 for (int stack = 0; stack < playerStats.rocketStacks.length; stack++) {

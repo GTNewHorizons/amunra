@@ -210,10 +210,7 @@ public class BoxHouseComponent extends GridVillageComponent {
         }
 
         if ((z == startZ || z == stopZ) && x > startX + 1 && x < stopX - 1 && (x - startX) % 2 == 0) {
-            if (z == startZ && (x == doorPos + 1 || x == doorPos - 1)) {
-                return false;
-            }
-            return true;
+            return z != startZ || (x != doorPos + 1 && x != doorPos - 1);
         }
 
         return false;

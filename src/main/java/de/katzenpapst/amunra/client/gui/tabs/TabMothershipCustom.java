@@ -51,11 +51,7 @@ public class TabMothershipCustom extends AbstractTab implements ITextBoxCallback
     public void drawScreen(final int mouseX, final int mouseY, final float ticks) {
         for (final DynamicTexturedButton btn : this.textureButtons) {
             if (btn == null) continue;
-            if (btn.getTexture().equals(this.ship.getBodyIcon())) {
-                btn.setSelected(true);
-            } else {
-                btn.setSelected(false);
-            }
+            btn.setSelected(btn.getTexture().equals(this.ship.getBodyIcon()));
         }
 
         super.drawScreen(mouseX, mouseY, ticks);

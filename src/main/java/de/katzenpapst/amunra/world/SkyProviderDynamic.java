@@ -1184,14 +1184,11 @@ public class SkyProviderDynamic extends IRenderHandler {
          * pi/2 => half waning pi => new 3/2pi => half waxing 0=2pi => full
          */
 
-        boolean canBeBehindTheSun = false;
+        boolean canBeBehindTheSun = body instanceof Planet && !body.equals(this.curBodyPlanet)
+                && body.getRelativeDistanceFromCenter().unScaledDistance
+                        > this.curBodyPlanet.getRelativeDistanceFromCenter().unScaledDistance;
 
         // canBeBehindTheSun might be true
-        if (body instanceof Planet && !body.equals(this.curBodyPlanet)
-                && body.getRelativeDistanceFromCenter().unScaledDistance
-                        > this.curBodyPlanet.getRelativeDistanceFromCenter().unScaledDistance) {
-            canBeBehindTheSun = true;
-        }
 
         if (!canBeBehindTheSun || phaseAngle < PI_HALF || phaseAngle > PI_DOUBLE - PI_HALF) {
             // this means, body is behind the current body

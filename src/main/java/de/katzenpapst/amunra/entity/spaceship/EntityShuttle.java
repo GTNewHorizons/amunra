@@ -577,10 +577,7 @@ public class EntityShuttle extends EntityTieredRocket {
                 }
             }
 
-            boolean isInZeroG = false;
-            if (this.worldObj.provider instanceof IZeroGDimension) {
-                isInZeroG = true;
-            }
+            boolean isInZeroG = this.worldObj.provider instanceof IZeroGDimension;
 
             // let's look downward
             // this.posY is about 3 blocks above the baseline

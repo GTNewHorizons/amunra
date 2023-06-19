@@ -452,10 +452,7 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
         // can fill from everywhere except back
         final int metadata = this.getRotationMeta();
 
-        if (CoordHelper.rotateForgeDirection(ForgeDirection.NORTH, metadata).equals(from)) {
-            return false;
-        }
-        return true;
+        return !CoordHelper.rotateForgeDirection(ForgeDirection.NORTH, metadata).equals(from);
     }
 
     @Override
