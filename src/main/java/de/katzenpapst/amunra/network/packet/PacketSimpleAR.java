@@ -305,15 +305,13 @@ public class PacketSimpleAR extends Packet implements IPacket {
                     }
 
                     if (FMLClientHandler.instance().getClient().theWorld != null) {
-                        if (!(FMLClientHandler.instance().getClient().currentScreen instanceof GuiShuttleSelection)) {
+                        if (!(FMLClientHandler.instance().getClient().currentScreen instanceof final GuiShuttleSelection gui)) {
                             final GuiShuttleSelection gui = new GuiShuttleSelection(
                                     MapMode.TRAVEL,
                                     possibleCelestialBodies);
                             gui.spaceStationMap = spaceStationData;
                             FMLClientHandler.instance().getClient().displayGuiScreen(gui);
                         } else {
-                            final GuiShuttleSelection gui = (GuiShuttleSelection) FMLClientHandler.instance()
-                                    .getClient().currentScreen;
                             gui.setPossibleBodies(possibleCelestialBodies);
                             gui.spaceStationMap = spaceStationData;
                         }

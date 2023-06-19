@@ -369,12 +369,11 @@ public class GuiShuttleSelection extends GuiARCelestialSelection {
             try {
                 Integer dimensionID = null;
 
-                if (this.selectedBody instanceof Satellite) {
+                if (this.selectedBody instanceof final Satellite selectedSatellite) {
                     if (this.spaceStationMap == null) {
                         AmunRa.LOGGER.error("Please report as a BUG: spaceStationIDs was null.");
                         return false;
                     }
-                    final Satellite selectedSatellite = (Satellite) this.selectedBody;
                     final Integer mapping = this.spaceStationMap.get(this.getSatelliteParentID(selectedSatellite))
                             .get(this.selectedStationOwner).getStationDimensionID();
                     // No need to check lowercase as selectedStationOwner is taken from keys.

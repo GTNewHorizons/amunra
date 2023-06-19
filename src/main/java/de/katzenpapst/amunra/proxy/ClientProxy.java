@@ -260,11 +260,10 @@ public class ClientProxy extends ARSidedProxy {
      */
     @Override
     public void handlePlayerArtificalGravity(final EntityPlayer player, final double gravity) {
-        if (player instanceof EntityPlayerSP) {
+        if (player instanceof final EntityPlayerSP p) {
             if (!Minecraft.getMinecraft().thePlayer.equals(player)) {
                 return;
             }
-            final EntityPlayerSP p = (EntityPlayerSP) player;
 
             if (this.hasActiveGravityDisabler(p)) {
                 return;
