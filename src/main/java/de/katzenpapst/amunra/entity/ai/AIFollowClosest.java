@@ -65,9 +65,11 @@ public class AIFollowClosest extends EntityAIBase {
      */
     @Override
     public boolean continueExecuting() {
-        return !this.closestEntity.isEntityAlive() ? false
-                : this.theWatcher.getDistanceSqToEntity(this.closestEntity)
-                        > this.maxDistanceForPlayer * this.maxDistanceForPlayer ? false : this.lookTime > 0;
+        final boolean maxDistanceExceeded = this.theWatcher.getDistanceSqToEntity(this.closestEntity)
+                > this.maxDistanceForPlayer * this.maxDistanceForPlayer;
+        final boolean stillSearching = this.lookTime > 0;
+
+        return stillSearching && this.closestEntity.isEntityAlive() && !maxDistanceExceeded;
     }
 
     /**
