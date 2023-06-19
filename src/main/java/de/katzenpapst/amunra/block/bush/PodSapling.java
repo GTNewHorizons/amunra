@@ -21,8 +21,8 @@ public class PodSapling extends AbstractSapling {
     protected boolean canGenerateHere(final World world, final Random rand, final int x, final int y, final int z,
             final int height, final double outerRadius) {
         for (int curY = -1; curY < height + 3; curY++) {
-            for (int curX = (int) -outerRadius; curX <= +outerRadius; curX++) {
-                for (int curZ = (int) -outerRadius; curZ <= +outerRadius; curZ++) {
+            for (int curX = (int) -outerRadius; curX <= outerRadius; curX++) {
+                for (int curZ = (int) -outerRadius; curZ <= outerRadius; curZ++) {
                     if (curY == -1) {
                         final Block block = world.getBlock(curX + x, curY + y, curZ + z);
                         // check if the ground is dirt or grass
@@ -57,8 +57,8 @@ public class PodSapling extends AbstractSapling {
         }
 
         for (int curY = -1; curY < this.height + 3; curY++) {
-            for (int curX = (int) -outerRadius; curX <= +outerRadius; curX++) {
-                for (int curZ = (int) -outerRadius; curZ <= +outerRadius; curZ++) {
+            for (int curX = (int) -outerRadius; curX <= outerRadius; curX++) {
+                for (int curZ = (int) -outerRadius; curZ <= outerRadius; curZ++) {
                     // some kind of sinus function?
                     if (Math.pow(curX / outerRadius, 2) + Math.pow((curY - centerOffset) / heightHalf, 2)
                             + Math.pow(curZ / outerRadius, 2) <= 1) {
