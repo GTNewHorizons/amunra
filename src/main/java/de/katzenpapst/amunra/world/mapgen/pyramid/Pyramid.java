@@ -270,7 +270,6 @@ public class Pyramid extends BaseStructureStart {
         final int stopZ = myBB.getZSize();
 
         final int xCenter = (int) Math.ceil((stopX - startX) / 2 + startX);
-
         final int radius = xCenter;
 
         for (int x = startX; x <= stopX; x++) {
