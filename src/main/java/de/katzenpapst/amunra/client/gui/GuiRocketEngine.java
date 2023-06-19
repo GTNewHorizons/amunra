@@ -58,14 +58,12 @@ public class GuiRocketEngine extends GuiContainerGC {
 
     @Override
     protected void actionPerformed(final GuiButton par1GuiButton) {
-        switch (par1GuiButton.id) {
-            case 0:
-                GalacticraftCore.packetPipeline.sendToServer(
-                        new PacketSimple(
-                                EnumSimplePacket.S_UPDATE_DISABLEABLE_BUTTON,
-                                new Object[] { this.tileEngine.xCoord, this.tileEngine.yCoord, this.tileEngine.zCoord,
-                                        0 }));
-                break;
+        if (par1GuiButton.id == 0) {
+            GalacticraftCore.packetPipeline.sendToServer(
+                    new PacketSimple(
+                            EnumSimplePacket.S_UPDATE_DISABLEABLE_BUTTON,
+                            new Object[] { this.tileEngine.xCoord, this.tileEngine.yCoord, this.tileEngine.zCoord,
+                                    0 }));
         }
     }
 

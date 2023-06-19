@@ -135,13 +135,11 @@ public class GuiArtificialGravity extends GuiContainerGC implements ITextBoxCall
 
     @Override
     protected void actionPerformed(GuiButton btn) {
-        switch (btn.id) {
-            case BTN_ENABLE:
-                GalacticraftCore.packetPipeline.sendToServer(
-                        new PacketSimple(
-                                EnumSimplePacket.S_UPDATE_DISABLEABLE_BUTTON,
-                                new Object[] { this.tile.xCoord, this.tile.yCoord, this.tile.zCoord, 0 }));
-                break;
+        if (btn.id == BTN_ENABLE) {
+            GalacticraftCore.packetPipeline.sendToServer(
+                    new PacketSimple(
+                            EnumSimplePacket.S_UPDATE_DISABLEABLE_BUTTON,
+                            new Object[] { this.tile.xCoord, this.tile.yCoord, this.tile.zCoord, 0 }));
         }
     }
 

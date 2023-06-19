@@ -49,14 +49,12 @@ public class GuiAtomBattery extends GuiContainerGC {
 
     @Override
     protected void actionPerformed(GuiButton button) {
-        switch (button.id) {
-            case 0:
-                GalacticraftCore.packetPipeline.sendToServer(
-                        new PacketSimple(
-                                EnumSimplePacket.S_UPDATE_DISABLEABLE_BUTTON,
-                                new Object[] { this.generatorTile.xCoord, this.generatorTile.yCoord,
-                                        this.generatorTile.zCoord, 0 }));
-                break;
+        if (button.id == 0) {
+            GalacticraftCore.packetPipeline.sendToServer(
+                    new PacketSimple(
+                            EnumSimplePacket.S_UPDATE_DISABLEABLE_BUTTON,
+                            new Object[] { this.generatorTile.xCoord, this.generatorTile.yCoord,
+                                    this.generatorTile.zCoord, 0 }));
         }
     }
 
