@@ -158,15 +158,13 @@ abstract public class StructureGenerator extends MapGenBaseMeta {
                     final boolean isMaximumReached = entry.maxAmount > 0 && curAmount >= entry.maxAmount;
 
                     if (isMaximumReached || cmp == null) {
-                        // enough of this one
                         itr.remove();
                         total = this.getProbabilityMaximum(curComponents);
                     }
-
                     break;
                 }
                 curValue += entry.probability;
-            } // end of while(itr.hasNext())
+            }
 
         } while (compList.size() < limit && !curComponents.isEmpty());
 
