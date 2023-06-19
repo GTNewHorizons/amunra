@@ -328,7 +328,7 @@ public class BlockARChest extends BlockContainer
             ++numSameNeighbours;
         }
 
-        return numSameNeighbours <= 1 && (this.isThereANeighborChest(worldIn, x - 1, y, z) ? false
+        return numSameNeighbours < 2 && (this.isThereANeighborChest(worldIn, x - 1, y, z) ? false
                 : !this.isThereANeighborChest(worldIn, x + 1, y, z) && !this.isThereANeighborChest(worldIn, x, y, z - 1)
                         && !this.isThereANeighborChest(worldIn, x, y, z + 1));
     }
