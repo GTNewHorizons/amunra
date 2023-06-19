@@ -297,10 +297,9 @@ public class TileEntityARChest extends TileEntity implements IInventory {
                             this.xCoord + 1 + f,
                             this.yCoord + 1 + f,
                             this.zCoord + 1 + f));
-            final Iterator<?> iterator = list.iterator();
 
-            while (iterator.hasNext()) {
-                final EntityPlayer entityplayer = (EntityPlayer) iterator.next();
+            for (Object o : list) {
+                final EntityPlayer entityplayer = (EntityPlayer) o;
 
                 if (entityplayer.openContainer instanceof ContainerChest) {
                     final IInventory iinventory = ((ContainerChest) entityplayer.openContainer)

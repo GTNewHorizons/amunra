@@ -2,7 +2,6 @@ package de.katzenpapst.amunra.mob.entity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 import net.minecraft.entity.Entity;
@@ -148,12 +147,8 @@ public class EntityRobotVillager extends EntityAgeable implements IEntityBreatha
             if (this.timeUntilReset <= 0) {
                 if (this.needsInit) {
                     if (this.buyingList.size() > 1) {
-                        @SuppressWarnings("unchecked")
-                        final Iterator<MerchantRecipe> iterator = this.buyingList.iterator();
 
-                        while (iterator.hasNext()) {
-                            final MerchantRecipe merchantrecipe = iterator.next();
-
+                        for (MerchantRecipe merchantrecipe : (Iterable<MerchantRecipe>) this.buyingList) {
                             if (merchantrecipe.isRecipeDisabled()) {
                                 merchantrecipe.func_82783_a(this.rand.nextInt(6) + this.rand.nextInt(6) + 2);
                             }
