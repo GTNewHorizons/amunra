@@ -202,10 +202,7 @@ public class TerrainGenerator {
         if (x < min) {
             return min;
         }
-        if (x > max) {
-            return max;
-        }
-        return x;
+        return Math.min(x, max);
     }
 
     protected double fade(final double n) {

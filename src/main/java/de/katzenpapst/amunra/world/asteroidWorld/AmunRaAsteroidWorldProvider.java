@@ -82,7 +82,7 @@ abstract public class AmunRaAsteroidWorldProvider extends WorldProviderAsteroids
     public float getSunBrightness(final float partialTicks) {
         final float factor = this.worldObj.getSunBrightnessBody(partialTicks)
                 + this.getAmunBrightnessFactor(partialTicks);
-        return factor > 1.0f ? 1.0f : factor;
+        return Math.min(factor, 1.0f);
     }
 
     /**
