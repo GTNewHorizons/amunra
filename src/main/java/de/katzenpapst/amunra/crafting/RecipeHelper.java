@@ -1228,11 +1228,7 @@ public class RecipeHelper {
 
     public static void addNasaWorkbenchRecipe(final INasaWorkbenchRecipe recipe) {
         final Item item = recipe.getRecipeOutput().getItem();
-        Vector<INasaWorkbenchRecipe> recipeArray = nasaWorkbenchRecipes.get(item);
-        if (recipeArray == null) {
-            recipeArray = new Vector<>();
-            nasaWorkbenchRecipes.put(item, recipeArray);
-        }
+        Vector<INasaWorkbenchRecipe> recipeArray = nasaWorkbenchRecipes.computeIfAbsent(item, k -> new Vector<>());
         recipeArray.addElement(recipe);
     }
 
