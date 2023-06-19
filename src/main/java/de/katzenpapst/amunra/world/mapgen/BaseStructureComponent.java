@@ -106,13 +106,13 @@ abstract public class BaseStructureComponent {
      * @param box
      * @param block   / protected boolean drawArea(Block[] blocks, byte[] metas, StructureBoundingBox chunkBB,
      *                StructureBoundingBox box, BlockMetaPair block) {
-     * 
+     *
      *                StructureBoundingBox actualBox = intersectBoundingBoxes(chunkBB, box); if(actualBox == null) {
      *                return false; } for(int x=actualBox.minX; x<=actualBox.maxX; x++) { for(int y=actualBox.minY;
      *                y<=actualBox.maxY; y++) { for(int z=actualBox.minZ; z<=actualBox.maxZ; z++) { int xOffset =
      *                getXWithOffset(x, z); int zOffset = getZWithOffset(x, z); int relX = CoordHelper.abs2rel(xOffset);
      *                int relZ = CoordHelper.abs2rel(zOffset); placeBlockRel(blocks, metas, relX, y, relZ, block); } } }
-     * 
+     *
      *                return true; }
      */
 
@@ -337,8 +337,6 @@ abstract public class BaseStructureComponent {
                                     CoordHelper.abs2rel(z, chunkZ)),
                             minimum);
 
-                    // sum += Math.max(par1World.getTopSolidOrLiquidBlock(x, z),
-                    // par1World.provider.getAverageGroundLevel());
                     ++total;
                 }
             }

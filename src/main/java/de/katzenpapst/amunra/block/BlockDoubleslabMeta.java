@@ -102,8 +102,6 @@ public class BlockDoubleslabMeta extends BlockBasicMeta {
 
     @Override
     public void register() {
-        // try to checking what the slabMetablock has
-        // slabMetablock.getAllSubBlocks()
         for (int i = 0; i < this.slabMetablock.getAllSubBlocks().length; i++) {
             final SubBlock sb = this.slabMetablock.getSubBlock(i);
             if (sb != null) {

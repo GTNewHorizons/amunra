@@ -39,7 +39,6 @@ import micdoodle8.mods.galacticraft.api.prefab.core.BlockMetaPair;
 public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableResource, IPlantableBlock,
         ITerraformableBlock, IMassiveBlock, IPartialSealableBlock {
 
-    // protected ArrayList<SubBlock> subBlocks = null;
     protected SubBlock[] subBlocksArray;
     protected final Map<String, Integer> nameMetaMap = new HashMap<>();
 
@@ -54,7 +53,6 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
         super(mat); // todo replace this
         this.subBlocksArray = new SubBlock[numSubBlocks];
         this.blockNameFU = name;
-        // subBlocks = new ArrayList<SubBlock>(initialCapacity);
         this.setBlockName(name);
     }
 

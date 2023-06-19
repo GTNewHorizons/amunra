@@ -216,20 +216,15 @@ public class ARItems {
         ARBlocks.subGold.setSmeltItem(new ItemStack(Items.gold_ingot, 1));
 
         // alu
-        // GCCoreUtil.registerGalacticraftItem("ingotAluminum",
-        // GCItems.basicItem, 5);
         ARBlocks.subAlu.setSmeltItem(new ItemStack(GCItems.basicItem, 1, 5));
 
         // copper
-        // GCCoreUtil.registerGalacticraftItem("ingotCopper", GCItems.basicItem, 3);
         ARBlocks.subCopper.setSmeltItem(new ItemStack(GCItems.basicItem, 1, 3));
 
         // iron
         ARBlocks.subIron.setSmeltItem(new ItemStack(Items.iron_ingot, 1));
 
         // tin
-        // GCCoreUtil.registerGalacticraftItem("ingotTin", GCItems.basicItem,
-        // 4);
         ARBlocks.subTin.setSmeltItem(new ItemStack(GCItems.basicItem, 1, 4));
 
         // desh

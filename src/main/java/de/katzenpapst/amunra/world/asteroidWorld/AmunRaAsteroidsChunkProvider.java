@@ -508,11 +508,7 @@ public class AmunRaAsteroidsChunkProvider extends ChunkProviderGenerate {
         final Block[] ids = new Block[65536];
         final byte[] meta = new byte[65536];
         this.generateTerrain(p_73154_1_, p_73154_2_, ids, meta, false);
-        // this.biomesForGeneration =
-        // this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, par1 * 16, par2 * 16,
-        // 16, 16);
 
-        // long time2 = System.nanoTime();
         final Chunk curChunk = new Chunk(this.worldObj, ids, meta, p_73154_1_, p_73154_2_);
         final byte[] chunkBiomeArray = curChunk.getBiomeArray();
 

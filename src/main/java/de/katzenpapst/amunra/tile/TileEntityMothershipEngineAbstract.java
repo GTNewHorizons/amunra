@@ -123,7 +123,7 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
 
     /**
      * Calculates tank capacity based on the boosters
-     * 
+     *
      * @return
      */
     abstract protected int getTankCapacity();
@@ -189,8 +189,6 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
     protected void startSound() {
         this.shouldPlaySound = true;
         this.soundStarted = true;
-        // AmunRa.proxy.playTileEntitySound(this, new ResourceLocation(GalacticraftCore.TEXTURE_PREFIX +
-        // "shuttle.shuttle"));
     }
 
     protected void stopSound() {
@@ -878,7 +876,7 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
 
     /**
      * This should return how much fuel units are consumed per AU travelled, in millibuckets
-     * 
+     *
      * @return
      */
     // abstract public int getFuelUsagePerAU();

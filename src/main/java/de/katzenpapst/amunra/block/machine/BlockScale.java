@@ -73,7 +73,6 @@ public class BlockScale extends SubBlockMachine {
     public void onNeighborBlockChange(World worldIn, int x, int y, int z, Block neighbor) {
         if (worldIn.getTileEntity(x, y, z) instanceof TileEntityBlockScale tileScale) {
             tileScale.doUpdate();
-            // world.markBlockForUpdate(x, y, z);
         }
     }
 

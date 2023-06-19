@@ -107,21 +107,12 @@ public class EntityAlienBug extends EntityMob implements IEntityNonOxygenBreathe
     }
 
     @Override
-    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_) {
-        // not yet
-        /*
-         * super.dropFewItems(hitByPlayer, lootingLevel); if (hitByPlayer && (this.rand.nextInt(3) == 0 ||
-         * this.rand.nextInt(1 + lootingLevel) > 0)) { this.dropItem(Items.spider_eye, 1); }
-         */
-    }
+    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_) {}
 
     @Override
     public boolean isOnLadder() {
         return this.isBesideClimbableBlock();
     }
-
-    // @Override
-    // public void setInWeb() {}
 
     @Override
     public EnumCreatureAttribute getCreatureAttribute() {
@@ -131,7 +122,6 @@ public class EntityAlienBug extends EntityMob implements IEntityNonOxygenBreathe
     @Override
     public boolean isPotionApplicable(PotionEffect p_70687_1_) {
         return true;
-        // return potionEffect.getPotionID() == Potion.poison.id ? false : super.isPotionApplicable(potionEffect);
     }
 
     /**
@@ -160,24 +150,7 @@ public class EntityAlienBug extends EntityMob implements IEntityNonOxygenBreathe
 
     @Override
     public IEntityLivingData onSpawnWithEgg(IEntityLivingData p_110161_1_) {
-        final Object moreDataWhat = super.onSpawnWithEgg(p_110161_1_);
-
-        /*
-         * if (this.worldObj.rand.nextInt(100) == 0) { EntitySkeleton entityskeleton = new
-         * EntitySkeleton(this.worldObj); entityskeleton.setLocationAndAngles(this.posX, this.posY, this.posZ,
-         * this.rotationYaw, 0.0F); entityskeleton.onSpawnWithEgg((IEntityLivingData)null);
-         * this.worldObj.spawnEntityInWorld(entityskeleton); entityskeleton.mountEntity(this); }
-         */
-
-        /*
-         * if (moreDataWhat == null) { moreDataWhat = new AlienSpider.GroupData(); // WTF is this?! // gets a random
-         * effect or something? if (this.worldObj.difficultySetting == EnumDifficulty.HARD &&
-         * this.worldObj.rand.nextFloat() < 0.1F * this.worldObj.func_147462_b(this.posX, this.posY, this.posZ)) {
-         * ((AlienSpider.GroupData)moreDataWhat).setRandomPotionEffect(this.worldObj.rand); } } if (moreDataWhat
-         * instanceof AlienSpider.GroupData) { int i = ((AlienSpider.GroupData)moreDataWhat).potionEffectId; if (i > 0
-         * && Potion.potionTypes[i] != null) { this.addPotionEffect(new PotionEffect(i, Integer.MAX_VALUE)); } }
-         */
-        return (IEntityLivingData) moreDataWhat;
+        return super.onSpawnWithEgg(p_110161_1_);
     }
 
     @Override
@@ -187,17 +160,8 @@ public class EntityAlienBug extends EntityMob implements IEntityNonOxygenBreathe
 
     @Override
     public boolean canBreatheIn(final ArrayList<IAtmosphericGas> atmosphere, final boolean isInSealedArea) {
-        // maybe make them afraid of oxygen? maybe later
+        // TODO: maybe make them afraid of oxygen? maybe later
 
         return atmosphere.contains(IAtmosphericGas.METHANE);
     }
-
-    /*
-     * public static class GroupData implements IEntityLivingData { public int potionEffectId; public void
-     * setRandomPotionEffect(Random rand) { int i = rand.nextInt(5); if (i <= 1) { this.potionEffectId =
-     * Potion.moveSpeed.id; } else if (i <= 2) { this.potionEffectId = Potion.damageBoost.id; } else if (i <= 3) {
-     * this.potionEffectId = Potion.regeneration.id; } else if (i <= 4) { this.potionEffectId = Potion.invisibility.id;
-     * } } }
-     */
-
 }

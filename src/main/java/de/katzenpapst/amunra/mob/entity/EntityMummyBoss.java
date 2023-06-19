@@ -124,8 +124,6 @@ public class EntityMummyBoss extends EntityMob
 
         final double startX = target.posX - this.posX;
         final double startY = target.posY - this.posY - target.height - 1.5D;// target.boundingBox.minY +
-        // (double)(target.height / 2.0F) - (this.posY +
-        // (double)(this.height / 2.0F));
         final double startZ = target.posZ - this.posZ;
 
         final EntityOsirisBossFireball entitylargefireball = new EntityOsirisBossFireball(
@@ -135,7 +133,6 @@ public class EntityMummyBoss extends EntityMob
                 startY,
                 startZ);
 
-        // entitylargefireball.field_92057_e = 1;
         entitylargefireball.damage = 10.0F;
         final double d8 = 0.0D;
         final Vec3 vec3 = this.getLook(1.0F);

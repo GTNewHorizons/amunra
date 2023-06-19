@@ -28,21 +28,7 @@ public class RenderMothershipBooster extends TileEntitySpecialRenderer {
 
         // I hope this works
         final Tessellator tess = Tessellator.instance;
-        // Block block = entity.getBlockType();
-        // int meta = entity.getBlockMetadata();
-
-        // var3.startDrawingQuads();
-        // TextureManager renderEngine = Minecraft.getMinecraft().renderEngine;
         GL11.glEnable(GL11.GL_TEXTURE_2D);
-        // GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        // renderEngine.bindTexture(AmunRa.instance.starAmun.getBodyIcon());
-
-        // ResourceLocation tmp = entity.topFallback;//AmunRa.instance.starAmun.getBodyIcon();
-
-        /*
-         * renderFaceYNeg = 0 renderFaceYPos = 1 renderFaceZNeg = 2 renderFaceZPos = 3 renderFaceXNeg = 4 renderFaceXPos
-         * = 5
-         */
 
         // HACK
         Minecraft.getMinecraft().renderEngine.bindTexture(this.texture);

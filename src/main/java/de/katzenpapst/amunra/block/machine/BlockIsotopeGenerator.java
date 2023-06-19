@@ -36,7 +36,6 @@ public class BlockIsotopeGenerator extends SubBlockMachine {
     }
 
     public static boolean isSideEnergyOutput(final int side) {
-        // wait, wat?
         return false;
     }
 
@@ -52,13 +51,11 @@ public class BlockIsotopeGenerator extends SubBlockMachine {
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
         final int realMeta = ((BlockMachineMeta) this.parent).getRotationMeta(meta);
-        // we have the front thingy at front.. but what is front?
-        // east is the output
-        // I think front is south
-        final ForgeDirection front = CoordHelper.rotateForgeDirection(ForgeDirection.SOUTH, realMeta);
-        // ForgeDirection output = CoordHelper.rotateForgeDirection(ForgeDirection.EAST, realMeta);// also north and
-        // west
 
+        // assuming East is output and South is front
+        final ForgeDirection front = CoordHelper.rotateForgeDirection(ForgeDirection.SOUTH, realMeta);
+
+        // west
         if (side == ForgeDirection.UP.ordinal() || side == ForgeDirection.DOWN.ordinal()) {
             return this.iconBlank;
         }

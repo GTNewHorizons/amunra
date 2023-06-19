@@ -41,8 +41,6 @@ public class PyramidRoom extends BaseStructureComponent {
 
         final BlockMetaPair floorMat = ((Pyramid) this.parent).getFloorMaterial();
 
-        // StructureBoundingBox myBB = new StructureBoundingBox(roomBB);
-        // int groundLevel = this.parent.getGroundLevel()+6;
         this.floorLevel = this.parent.getGroundLevel() + 7;
         if (!this.roomHeightFixed) {
             this.roomBB.minY += this.floorLevel;

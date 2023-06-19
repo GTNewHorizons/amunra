@@ -19,8 +19,6 @@ public class RenderSentry extends RenderLiving {
     private static final ResourceLocation TEXTURE_HIGHLIGHT = new ResourceLocation(
             AmunRa.ASSETPREFIX,
             "textures/entity/sentry_highlight.png");
-    // private static final ResourceLocation ghastShootingTextures = new
-    // ResourceLocation("textures/entity/ghast/ghast_shooting.png");
 
     public RenderSentry() {
         super(new ModelSentry(), 0.5F);

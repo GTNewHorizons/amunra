@@ -68,9 +68,6 @@ abstract public class AbstractPermissionTab extends AbstractTab
     @Override
     public boolean actionPerformed(final GuiButton btn) {
         if (btn == this.addBtn) {
-            //
-            // AmunRa.packetPipeline.sendToServer(new PacketSimpleAR(EnumSimplePacket.S_ADD_MOTHERSHIP_PLAYER,
-            // this.tile.getMothership().getID(), textBoxUsername.text));
             this.addUsername(this.tile.getMothership(), this.textBoxUsername.text);
             this.textBoxUsername.text = "";
             this.addBtn.enabled = false;

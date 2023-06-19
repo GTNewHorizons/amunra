@@ -60,12 +60,7 @@ public class ShuttleTeleportHelper {
 
     public static Entity transferEntityToDimension(final Entity entity, final int dimensionID,
             final WorldServer world) {
-        // boolean transferInv = true;
-        // EntityAutoRocket ridingRocket = null;
         if (!world.isRemote) {
-            // GalacticraftCore.packetPipeline.sendToAll(new PacketSimple(EnumSimplePacket.C_UPDATE_PLANETS_LIST,
-            // WorldUtil.getPlanetList()));
-
             final MinecraftServer mcServer = FMLCommonHandler.instance().getMinecraftServerInstance();
 
             if (mcServer != null) {
@@ -166,8 +161,6 @@ public class ShuttleTeleportHelper {
                         .getChunkCoordIntPair();
                 AmunRa.LOGGER.debug("Loading first chunk in new dimension.");
                 ((WorldServer) worldNew).theChunkProviderServer.loadChunk(pair.chunkXPos, pair.chunkZPos);
-                // entity.setLocationAndAngles(spawnPos.x, spawnPos.y, spawnPos.z, entity.rotationYaw,
-                // entity.rotationPitch);
                 worldNew.updateEntityWithOptionalForce(entity, false);
                 entity.setLocationAndAngles(
                         spawnPos.x,
@@ -387,12 +380,7 @@ public class ShuttleTeleportHelper {
 
         player.mountEntity(shuttle);
 
-        // shuttle.landing = true;
-        // shuttle.launchPhase = EnumLaunchPhase.LAUNCHED.ordinal();
         shuttle.setLanding();
-
-        // playerStats.rocketItem = null;
-
     }
 
     /**
@@ -422,9 +410,6 @@ public class ShuttleTeleportHelper {
                     if (celestialBody == null) {
                         celestialBody = GalacticraftCore.satelliteSpaceStation;
                     }
-                    // weird string?
-                    // map.put(celestialBody.getName() + "$" + data.getOwner() + "$" + data.getSpaceStationName() + "$"
-                    // + id + "$" + data.getHomePlanet(), id);
                     result.put(
                             celestialBody.getName() + "$"
                                     + data.getOwner()
@@ -474,7 +459,7 @@ public class ShuttleTeleportHelper {
 
     /**
      * Replacement for WorldUtil.getReachableCelestialBodiesForName which works on motherships
-     * 
+     *
      * @param name
      * @return
      */

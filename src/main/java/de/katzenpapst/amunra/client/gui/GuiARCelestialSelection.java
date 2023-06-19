@@ -156,10 +156,6 @@ public class GuiARCelestialSelection extends GuiCelestialSelection {
                 (this.height - btnHeight) / 2 + 2 + btnOffset,
                 0xFFFFFFFF);
 
-        // this.drawSplitString(GCCoreUtil.translate("gui.message.clickAgain.0.name"), width -
-        // GuiCelestialSelection.BORDER_WIDTH - GuiCelestialSelection.BORDER_EDGE_WIDTH - 182 + 41,
-        // GuiCelestialSelection.BORDER_WIDTH + GuiCelestialSelection.BORDER_EDGE_WIDTH + 1 - 38 + sliderPos, 79,
-        // ColorUtil.to32BitColor(255, 150, 150, 150), false, false);
         this.fontRendererObj.drawSplitString(
                 this.messageText,
                 (this.width - boxWidth) / 2 + 4,
@@ -561,24 +557,12 @@ public class GuiARCelestialSelection extends GuiCelestialSelection {
     }
 
     public static int getWidthForMothershipStatic(final Mothership celestialBody) {
-        // CelestialBody parent = celestialBody.getParent();
-        // boolean isScreenWtf = false;
         if (Minecraft.getMinecraft().currentScreen instanceof GuiShuttleSelection
                 && (celestialBody != ((GuiShuttleSelection) Minecraft.getMinecraft().currentScreen).selectedBody
                         || ((GuiShuttleSelection) Minecraft.getMinecraft().currentScreen).selectionCount != 1)) {
-            // isScreenWtf = true;
             return 4;
-            // return 6;
         }
         return 6;
-        /*
-         * if(parent instanceof Star) { // like planet return isScreenWtf ? 4 : 6; } if(parent instanceof Planet) { //
-         * like moon return isScreenWtf ? 4 : 6; } if() return celestialBody instanceof Star ? 8 : (celestialBody
-         * instanceof Planet ? 4 : (celestialBody instanceof IChildBody ? 4 : (celestialBody instanceof Satellite ? 4 :
-         * 2))); return celestialBody instanceof Star ? 12 : (celestialBody instanceof Planet ? 6 : (celestialBody
-         * instanceof IChildBody ? 6 : (celestialBody instanceof Satellite ? 6 : 2)));
-         */
-        // return 2;
     }
 
     public void mothershipListUpdated() {
@@ -723,8 +707,6 @@ public class GuiARCelestialSelection extends GuiCelestialSelection {
         }
         // hackfix for mothership parent selection
         final CelestialBody prevSelection = this.selectedBody;
-        // int prevTicksSelection = this.ticksSinceSelection;
-        // int prevTicksUnSelection = this.ticksSinceUnselection;
         super.mouseClicked(mouseX, mouseY, mouseButton);
         if (prevSelection instanceof Mothership && this.selectedBody != prevSelection) {
             // not sure why, but...
@@ -737,8 +719,6 @@ public class GuiARCelestialSelection extends GuiCelestialSelection {
             this.preSelectZoom = this.zoom;
             this.preSelectPosition = this.position;
             this.ticksSinceSelection = 0;
-            // this.ticksSinceUnselection = prevTicksUnSelection;
-            // this.ticksSinceSelection = prevTicksSelection;
             this.doneZooming = false;
         }
 

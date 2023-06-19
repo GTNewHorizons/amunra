@@ -38,12 +38,7 @@ public class TileEntityGravitation extends TileBaseElectricBlock implements IInv
     public TileEntityGravitation() {
         this.isBoxShown = false;
 
-        // gravityVector = new Vector3(0.0, -0.05D, 0.0);
         this.gravity = -0.05D;
-        // Vector3 center = new Vector3(xCoord+0.5D, yCoord+0.5D, zCoord+0.5D);
-
-        // gravityBox = AxisAlignedBB.getBoundingBox(center.x - range, center.y - 0.5, center.z - range, center.x +
-        // range, center.y + range, center.z + range);
         this.gravityBox = AxisAlignedBB.getBoundingBox(-5.0, 0, -5.0, +5.0, +5.0, +5.0);
 
         this.updateEnergyConsumption();

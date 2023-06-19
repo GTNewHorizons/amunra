@@ -143,12 +143,9 @@ public class AmunRa {
     public Moon moonMaahes;
     public Moon moonThoth;
     public Moon moonSeth;
-
     public Moon moonKebe;
 
     public static CreativeTabs arTab;
-
-    // protected BlockBasicMeta basicMultiBlock;
     private int nextID = 0;
 
     public static int chestRenderId;
@@ -364,7 +361,7 @@ public class AmunRa {
 
         this.registerCreature(EntityAlienBug.class, "alienBug", 0x40201e, 0x312c2b);
 
-        this.registerCreature(EntityMummyBoss.class, "osirisBoss", 0x40201e, 0xffff0b);// ffff0b
+        this.registerCreature(EntityMummyBoss.class, "osirisBoss", 0x40201e, 0xffff0b);
 
         // register trading stuff
         this.registerTrading();
@@ -461,20 +458,20 @@ public class AmunRa {
                                 .addRecipe(
                                         new ItemStack(Items.iron_ingot, 2),
                                         new ItemStack(Items.emerald, 4),
-                                        new ItemStack(GCItems.basicItem, 1, 11))// 11 = iron
+                                        new ItemStack(GCItems.basicItem, 1, 11)) // 11 = iron
 
                                 .addRecipe(
                                         new ItemStack(GCItems.basicItem, 2, 5),
                                         new ItemStack(Items.emerald, 4),
-                                        new ItemStack(GCItems.basicItem, 1, 8))// 8 = alu
+                                        new ItemStack(GCItems.basicItem, 1, 8)) // 8 = alu
                                 .addRecipe(
                                         new ItemStack(GCItems.basicItem, 2, 4),
                                         new ItemStack(Items.emerald, 4),
-                                        new ItemStack(GCItems.basicItem, 1, 7))// 7 = tin
+                                        new ItemStack(GCItems.basicItem, 1, 7)) // 7 = tin
                                 .addRecipe(
                                         new ItemStack(GCItems.basicItem, 2, 3),
                                         new ItemStack(Items.emerald, 4),
-                                        new ItemStack(GCItems.basicItem, 1, 6))// 6 = copper
+                                        new ItemStack(GCItems.basicItem, 1, 6)) // 6 = copper
         );
 
         RobotVillagerProfession.addProfession(
@@ -484,19 +481,19 @@ public class AmunRa {
                                 .addRecipe(
                                         new ItemStack(Items.dye, 1, 4),
                                         new ItemStack(Items.emerald, 4),
-                                        new ItemStack(GCItems.basicItem, 9, 12))// solar thingys
+                                        new ItemStack(GCItems.basicItem, 9, 12)) // solar thingys
                                 .addRecipe(
                                         new ItemStack(Blocks.redstone_torch),
                                         new ItemStack(Items.emerald, 6),
-                                        new ItemStack(GCItems.basicItem, 3, 13))// basic wafer
+                                        new ItemStack(GCItems.basicItem, 3, 13)) // basic wafer
                                 .addRecipe(
                                         new ItemStack(Items.repeater),
                                         new ItemStack(Items.emerald, 8),
-                                        new ItemStack(GCItems.basicItem, 2, 14))// advanced wafer
+                                        new ItemStack(GCItems.basicItem, 2, 14)) // advanced wafer
                                 .addRecipe(
                                         new ItemStack(Items.ender_pearl),
                                         new ItemStack(Items.emerald, 10),
-                                        ARItems.baseItem.getItemStack("waferEnder", 1))// ender wafer
+                                        ARItems.baseItem.getItemStack("waferEnder", 1)) // ender wafer
 
         );
 
@@ -542,7 +539,7 @@ public class AmunRa {
         this.planetBaal.setRelativeSize(2.2F);
         GalaxyRegistry.registerPlanet(this.planetBaal);
 
-        // .. and its moons
+        // the moons of the gas giant
         // ring, aka innermost moon
         // the regular moon has a distance of 13
         this.moonBaalRings = this.createMoon("baalRings", "micromoon.png", 1.58, 9, 100);
@@ -566,8 +563,6 @@ public class AmunRa {
         this.moonNeper.setTierRequired(config.planetDefaultTier);
         this.moonNeper.setRelativeSize(0.89F);
         GalacticraftRegistry.registerTeleportType(NeperWorldProvider.class, new TeleportTypeOverworld());
-        // GalacticraftRegistry.registerTeleportType(WorldProviderMoon.class, new TeleportTypeMoon());
-        // GalacticraftRegistry.registerTeleportType(WorldProviderSurface.class, new TeleportTypeOverworld());
         GalaxyRegistry.registerMoon(this.moonNeper);
 
         // just some dead rock. iah was a moon god
@@ -584,7 +579,7 @@ public class AmunRa {
         GalacticraftRegistry.registerTeleportType(MehenWorldProvider.class, new TeleportTypeAsteroids());
         GalaxyRegistry.registerPlanet(this.asteroidBeltMehen);
 
-        // another gas giant?
+        // another gas giant
         this.planetSekhmet = this.createPlanet("sekhmet", "planet-gas02.png", Math.PI * 0.6, 1.6, 1.8);
         this.planetSekhmet.setParentSolarSystem(this.systemAmunRa);
         this.planetSekhmet.setRelativeSize(2.42F);
@@ -635,7 +630,7 @@ public class AmunRa {
         this.planetAnubis.setTierRequired(config.planetDefaultTier);
         GalaxyRegistry.registerPlanet(this.planetAnubis);
 
-        // ..with a moon nonetheless
+        // the moon of the small rocky planet
         this.moonKebe = this.createMoon("kebe", "moon.png", 5.1, 19, 253);
         this.moonKebe.setRelativeSize(0.32F);
         this.moonKebe.setParentPlanet(this.planetAnubis);

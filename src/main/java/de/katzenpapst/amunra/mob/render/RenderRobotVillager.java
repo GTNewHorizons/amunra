@@ -56,25 +56,17 @@ public class RenderRobotVillager extends RenderLiving {
         }
         //
         GL11.glPushMatrix();
-        // texturemanager.bindTexture(texturemanager.getResourceLocation(p_78443_2_.getItemSpriteNumber()));
-
-        // this.bindTexture(new ResourceLocation(AmunRa.instance.ASSETPREFIX,
-        // "textures/entity/icons/refinery_front.png"));
         this.bindTexture(prof.getIcon());
         TextureUtil.func_152777_a(false, false, 1.0F);
         final Tessellator tessellator = Tessellator.instance;
 
         final float scale = 0.45F;
 
-        // float f4 = -0.25F;
-
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
         GL11.glTranslatef(-scale / 2, 0.10F, -0.20F);
 
         GL11.glScalef(scale, scale, scale);
 
-        //////
-        // p_78439_0_ is a tesselator
         tessellator.startDrawingQuads();
         tessellator.setNormal(0.0F, 0.0F, 1.0F);
 

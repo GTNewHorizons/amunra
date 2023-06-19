@@ -252,10 +252,6 @@ public class GuiArtificialGravity extends GuiContainerGC implements ITextBoxCall
 
         // buttons
         final int yOffsetBtns = -10 + 3;
-        // applyButton = new GuiButton(BTN_APPLY, guiX + 110, guiY + 50+yOffsetBtns, 50, 20,
-        // GCCoreUtil.translate("gui.message.mothership.apply"));
-        // resetButton = new GuiButton(BTN_RESET, guiX + 110, guiY + 70+yOffsetBtns, 50, 20,
-        // GCCoreUtil.translate("gui.message.mothership.reset"));
         this.disableButton = new GuiButton(
                 BTN_ENABLE,
                 guiX + 110,
@@ -343,9 +339,6 @@ public class GuiArtificialGravity extends GuiContainerGC implements ITextBoxCall
                             + ": "
                             + EnergyDisplayHelper.getEnergyDisplayS(this.tile.storage.getMaxExtract())
                             + "/t");
-            // electricityDesc.add(EnumColor.YELLOW + GCCoreUtil.translate("gui.energyStorage.desc.1") + ((int)
-            // Math.floor(this.collector.getEnergyStoredGC()) + " / " + (int)
-            // Math.floor(this.collector.getMaxEnergyStoredGC())));
             this.electricInfoRegion.tooltipStrings = electricityDesc;
 
             this.fontRendererObj.drawString(

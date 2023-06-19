@@ -127,19 +127,12 @@ abstract public class EntityBaseLaserArrow extends Entity implements IProjectile
         targetPos = new Vector3(target);
 
         if (aabb != null) {
-            // targetPos.x += aabb.maxX-aabb.minX;
             targetPos.y += aabb.maxY - aabb.minY;
-            // targetPos.z += aabb.maxZ-aabb.minZ;
-            // targetPos = new Vector3(aabb.maxX-aabb.minX, aabb.maxY-aabb.minY, aabb.maxZ-aabb.minZ);
         }
-        // targetPos.y += target.height/2.0;
 
         final Vector3 thisToTarget = targetPos.difference(startVec);
-        // setThrowableHeading normalizes the vector already
         this.yOffset = 0.0F;
         this.setThrowableHeading(thisToTarget.x, thisToTarget.y, thisToTarget.z, this.getSpeed(), 0.0F);
-        // do I still need setLocationAndAngles now?
-        // meh
         this.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, this.rotationPitch);
     }
 

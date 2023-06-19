@@ -13,9 +13,6 @@ import de.katzenpapst.amunra.tile.TileEntityMothershipEngineAbstract;
 public class RenderMothershipJet extends TileEntitySpecialRenderer {
 
     protected ResourceLocation texture;
-    // protected static final ResourceLocation textureActive = new ResourceLocation(AmunRa.ASSETPREFIX,
-    // "textures/model/jet-burning.png");
-
     protected final IModelCustom model;
 
     public RenderMothershipJet(final IModelCustom leModel, final ResourceLocation texture) {

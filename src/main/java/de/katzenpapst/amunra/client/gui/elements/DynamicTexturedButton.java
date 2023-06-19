@@ -76,8 +76,6 @@ public class DynamicTexturedButton extends GuiButton {
                 GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
                 mc.getTextureManager().bindTexture(this.texture);
                 this.drawFullSizedTexturedRect(this.xPosition + 2, this.yPosition + 2, this.width - 4, this.height - 4);
-                // this.drawCenteredString(fontrenderer, this.displayString, this.xPosition + this.width / 2,
-                // this.yPosition + (this.height - 8) / 2, l);
             }
         }
     }

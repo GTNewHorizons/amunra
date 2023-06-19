@@ -201,8 +201,6 @@ public class TileEntityIsotopeGenerator extends TileBaseUniversalElectricalSourc
         }
 
         return this.getElectricalOutputDirections().contains(direction);
-        // return true;// just allow power cables to connect from anywhere //direction ==
-        // this.getElectricalOutputDirectionMain();
     }
 
     @Override

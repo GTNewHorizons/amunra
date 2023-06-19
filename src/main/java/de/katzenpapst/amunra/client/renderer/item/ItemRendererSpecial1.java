@@ -13,7 +13,7 @@ import de.katzenpapst.amunra.client.renderer.model.ModelShuttleDock;
 
 /**
  * Dock, Hydroponics...
- * 
+ *
  * @author katzenpapst
  *
  */
@@ -48,19 +48,11 @@ public class ItemRendererSpecial1 implements IItemRenderer {
                 GL11.glTranslated(-0.5, -0.5, -0.5);
                 break;
             case EQUIPPED:
-                // GL11.glTranslated(0.5, -0.0, 0.5);
-                // GL11.glScaled(0.65, 0.65, 0.65);
-                // GL11.glRotated(90, 0, 1, 0);
                 break;
             case EQUIPPED_FIRST_PERSON:
-                // GL11.glTranslated(0.0, -0.7, 0.0);
-                // GL11.glScaled(0.65, 0.65, 0.65);
-                // GL11.glRotated(90, 0, 1, 0);
                 break;
             case INVENTORY:
                 GL11.glTranslated(0.0, -0.12, 0.0);
-                // GL11.glScaled(0.65, 0.65, 0.65);
-                // GL11.glRotated(180, 0, 1, 0);
                 break;
             default:
                 break;

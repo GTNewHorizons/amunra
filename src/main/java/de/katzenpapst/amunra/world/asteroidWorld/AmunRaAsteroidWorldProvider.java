@@ -31,12 +31,6 @@ abstract public class AmunRaAsteroidWorldProvider extends WorldProviderAsteroids
     protected AsteroidSaveData datafile;
     protected double solarMultiplier = -1D;
 
-    // @Override
-    // public void registerWorldChunkManager()
-    // {
-    // this.worldChunkMgr = new WorldChunkManagerAsteroids(this.worldObj, 0F);
-    // }
-
     @Override
     abstract public CelestialBody getCelestialBody();
 

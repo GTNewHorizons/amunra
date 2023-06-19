@@ -59,8 +59,6 @@ public class CrystalFormation extends WorldGenerator {
     protected boolean isSolidBlock(final World world, final int x, final int y, final int z, final boolean down) {
         final ForgeDirection dir = down ? ForgeDirection.DOWN : ForgeDirection.UP;
         return world.isSideSolid(x, y, z, dir);
-        // world.getBlock(x, y, z).isOpaqueCube();
-        // return !world.isAirBlock(x, y, z);
     }
 
     protected int getLowestBlock(final World world, final int x, final int y, final int z) {

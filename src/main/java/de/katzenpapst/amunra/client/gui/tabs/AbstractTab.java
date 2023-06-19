@@ -70,14 +70,7 @@ abstract public class AbstractTab {
     }
 
     public void drawScreen(final int mouseX, final int mouseY, final float ticks) {
-        // GL11.glDisable(GL12.GL_RESCALE_NORMAL);
         RenderHelper.disableStandardItemLighting();
-        // GL11.glDisable(GL11.GL_LIGHTING);
-        // GL11.glDisable(GL11.GL_DEPTH_TEST);
-        // super.drawScreen(mouseX, mouseY, partialTicks);
-
-        // GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        // GL11.glEnable(GL12.GL_RESCALE_NORMAL);
 
         for (final GuiButton box : this.buttonList) {
             box.drawButton(this.mc, mouseX, mouseY);
@@ -88,9 +81,6 @@ abstract public class AbstractTab {
         }
 
         this.drawExtraScreenElements(mouseX, mouseY, ticks);
-        /*
-         * for(GuiElementTextBox box: textBoxList) { box.drawButton(mc, mouseX, mouseY); }
-         */
         RenderHelper.enableGUIStandardItemLighting();
     }
 

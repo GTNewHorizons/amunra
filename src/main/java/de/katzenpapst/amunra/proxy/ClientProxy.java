@@ -178,8 +178,6 @@ public class ClientProxy extends ARSidedProxy {
 
         RenderingRegistry.registerEntityRenderingHandler(EntityShuttleFake.class, new RenderEntityFake());
 
-        // RenderingRegistry.registerEntityRenderingHandler(TileEntityMothershipEngine.class, new
-        // RenderMothershipEngine(engineModel));
         ClientRegistry.bindTileEntitySpecialRenderer(
                 TileEntityMothershipEngineJet.class,
                 new RenderMothershipJet(

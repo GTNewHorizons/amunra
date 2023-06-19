@@ -76,8 +76,6 @@ public class GuiMothershipSelection extends GuiARCelestialSelection {
         TRAVEL_TOO_LONG
     }
 
-    // protected CelestialBody travelCacheForStart;
-    // protected Map<CelestialBody, Long> travelTimeCache;
     protected Map<CelestialBody, MothershipWorldProvider.TransitDataWithDuration> transitDataCache;
 
     public GuiMothershipSelection(final List<CelestialBody> possibleBodies, final TileEntityMothershipController title,
@@ -240,8 +238,6 @@ public class GuiMothershipSelection extends GuiARCelestialSelection {
                 this.height - 11 - GuiCelestialSelection.BORDER_WIDTH + 2,
                 124,
                 4)) {
-            // GCCoreUtil.translate("gui.message.mothership.travelTimeRemain")
-            // ;
             this.showTooltip(
                     GCCoreUtil.translateWithFormat(
                             "gui.message.mothership.travelTimeRemain",
@@ -276,12 +272,8 @@ public class GuiMothershipSelection extends GuiARCelestialSelection {
     }
 
     protected void drawMothershipGuiParts(final int mousePosX, final int mousePosY) {
-        // int offset=0;
-        // String str;
 
         GL11.glColor4f(0.0F, 0.6F, 1.0F, 1);
-        // this.mc.renderEngine.bindTexture(GuiCelestialSelection.guiMain1);
-        // this.mc.renderEngine.bindTexture(guiExtra);
         /*
          * int canCreateLength = Math.max(0,
          * this.drawSplitString(GCCoreUtil.translate("gui.message.canCreateMothership.name"), 0, 0, 91, 0, true, true) -
@@ -527,12 +519,6 @@ public class GuiMothershipSelection extends GuiARCelestialSelection {
                     0xFFFFFFFF);
             for (final MothershipFuelDisplay f : fuelReqs.getData().keySet()) {
                 offset += 10;
-
-                // GuiHelper.formatMetric(tData.fuelReqData.get(f), f.getUnit());
-                // this will make a 10x10 box
-
-                // ItemStack item = f.getItem().getItemStack(1);
-                // drawItemForFuel(offsetX - 90, offsetY + offset, item);
 
                 this.drawIcon(this.offsetX - 90, this.offsetY + offset, f);
                 GL11.glColor4f(1.0F, 1.0F, 1.0F, 1);

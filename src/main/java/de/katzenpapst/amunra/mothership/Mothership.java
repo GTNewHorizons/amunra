@@ -58,8 +58,6 @@ public class Mothership extends CelestialBody {
 
     protected long travelTimeTotal;
     protected long travelTimeRemaining;
-    // protected long timestampDeparture;
-    // protected long timestampArrival;
 
     protected boolean inTransit = false;
 
@@ -166,7 +164,7 @@ public class Mothership extends CelestialBody {
 
     /**
      * Returns the parent, if stationary
-     * 
+     *
      * @return
      */
     public CelestialBody getParent() {
@@ -178,7 +176,7 @@ public class Mothership extends CelestialBody {
 
     /**
      * Returns the previous parent, if in transit
-     * 
+     *
      * @return
      */
     public CelestialBody getSource() {
@@ -190,7 +188,7 @@ public class Mothership extends CelestialBody {
 
     /**
      * Returns the destination or the parent if stationary
-     * 
+     *
      * @return
      */
     public CelestialBody getDestination() {
@@ -225,7 +223,7 @@ public class Mothership extends CelestialBody {
 
     /**
      * This should only ever be called from the the MothershipWorldProvider!
-     * 
+     *
      * @return
      */
     public boolean endTransit() {
@@ -252,7 +250,7 @@ public class Mothership extends CelestialBody {
 
     /**
      * Gets the MothershipWorldProvider of this mothership. Will probably load the world if it isn't. Server only.
-     * 
+     *
      * @return
      */
     // @ SideOnly(Side.SERVER)
@@ -267,7 +265,7 @@ public class Mothership extends CelestialBody {
 
     /**
      * Basically checks if the current world is the world of this MS, if yes, returns the provider. Client only.
-     * 
+     *
      * @return
      */
     @SideOnly(Side.CLIENT)

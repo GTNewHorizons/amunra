@@ -536,7 +536,7 @@ public class ARBlocks {
                 0,
                 new BlockIsotopeGenerator(
                         "isotopeGeneratorBasic",
-                        AmunRa.TEXTUREPREFIX + "machine_nuclear", // AmunRa.TEXTUREPREFIX + "machine_nuclear"
+                        AmunRa.TEXTUREPREFIX + "machine_nuclear",
                         GalacticraftCore.TEXTURE_PREFIX + "machine_output",
                         GalacticraftCore.TEXTURE_PREFIX + "machine_blank",
                         0.5F));
@@ -545,7 +545,7 @@ public class ARBlocks {
                 1,
                 new BlockIsotopeGenerator(
                         "isotopeGeneratorAdvanced",
-                        AmunRa.TEXTUREPREFIX + "machine_nuclear_advanced", // AmunRa.TEXTUREPREFIX + "machine_nuclear"
+                        AmunRa.TEXTUREPREFIX + "machine_nuclear_advanced",
                         AsteroidsModule.TEXTURE_PREFIX + "machine_output",
                         AsteroidsModule.TEXTURE_PREFIX + "machine",
                         5.0F));
@@ -576,8 +576,7 @@ public class ARBlocks {
                 new MothershipEngineJetRocket(
                         "mothershipEngineRocketJet",
                         AsteroidsModule.TEXTURE_PREFIX + "machine",
-                        AmunRa.TEXTUREPREFIX + "mothership-jet-rocket"// AsteroidsModule.TEXTURE_PREFIX + "machine"
-                ));
+                        AmunRa.TEXTUREPREFIX + "mothership-jet-rocket"));
 
         blockMsEngineIonJet = metaBlockMothershipEngineJet.addSubBlock(
                 1,

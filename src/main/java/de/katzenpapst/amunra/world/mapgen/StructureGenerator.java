@@ -251,9 +251,6 @@ abstract public class StructureGenerator extends MapGenBaseMeta {
             final int origZChunkCoord, final Block[] blocks, final byte[] metadata) {
         this.worldObj = world;
         this.chunkProvider = chunkProvider;
-        // this.rand.setSeed(world.getSeed());
-        // final long r0 = this.rand.nextLong();
-        // final long r1 = this.rand.nextLong();
 
         for (int xChunkCoord = origXChunkCoord - this.range; xChunkCoord
                 <= origXChunkCoord + this.range; ++xChunkCoord) {
@@ -295,9 +292,6 @@ abstract public class StructureGenerator extends MapGenBaseMeta {
             final int origZChunkCoord) {
         this.worldObj = world;
         this.chunkProvider = chunkProvider;
-        // this.rand.setSeed(world.getSeed());
-        // final long r0 = this.rand.nextLong();
-        // final long r1 = this.rand.nextLong();
 
         for (int xChunkCoord = origXChunkCoord - this.range; xChunkCoord
                 <= origXChunkCoord + this.range; ++xChunkCoord) {

@@ -61,17 +61,11 @@ public class TickHandlerServer {
                 final World world = server.worldServerForDimension(0);
                 TickHandlerServer.mothershipData = (MothershipWorldData) world.mapStorage
                         .loadData(MothershipWorldData.class, MothershipWorldData.saveDataID);
-                // AmunRa.instance.mothershipRegistry = TickHandlerServer.mothershipData;
                 if (TickHandlerServer.mothershipData == null) {
-                    // TickHandlerServer.ssData = ProceduralGalaxy.instance.getSolarSystemManager();//new
-                    // SolarSystemManager();
                     TickHandlerServer.mothershipData = new MothershipWorldData(MothershipWorldData.saveDataID);
-                    // AmunRa.instance.mothershipRegistry = TickHandlerServer.mothershipData;
                     world.mapStorage.setData(MothershipWorldData.saveDataID, TickHandlerServer.mothershipData);
                 }
             } else {
-                // server.worldServerForDimension(0).getTotalWorldTime()
-                // this works
                 // tick all the motherships
                 TickHandlerServer.mothershipData.tickAllMotherships();
             }
@@ -84,7 +78,6 @@ public class TickHandlerServer {
             final WorldServer world = (WorldServer) event.world;
 
             if (world.provider instanceof MothershipWorldProvider) {
-                // ((MothershipWorldProvider)world.provider).update();
                 final Object[] entityList = world.loadedEntityList.toArray();
 
                 for (final Object o : entityList) {

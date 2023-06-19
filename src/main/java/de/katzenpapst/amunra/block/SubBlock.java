@@ -94,7 +94,6 @@ public class SubBlock extends Block implements IDetectableResource, IPlantableBl
         if (parent instanceof Block) {
             this.parent = parent;
         }
-        // else throw some shit?
     }
 
     public IMetaBlock getParent() {

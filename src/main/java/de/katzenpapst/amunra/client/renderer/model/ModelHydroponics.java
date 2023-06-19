@@ -88,8 +88,6 @@ public class ModelHydroponics {
         tess.draw();
 
         // now try doing the wheat
-        // tess.setBrightness(te.getBlockType().getMixedBrightnessForBlock(te.getWorldObj(), te.xCoord, te.yCoord,
-        // te.zCoord));
         if (growthStatus >= 0) {
 
             tess.setColorOpaque_F(1.0F, 1.0F, 1.0F);

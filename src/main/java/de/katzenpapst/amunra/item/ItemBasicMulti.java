@@ -26,10 +26,6 @@ import micdoodle8.mods.galacticraft.core.proxy.ClientProxyCore;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 
 public class ItemBasicMulti extends Item implements ItemBlockDesc.IBlockShiftDesc {
-    // public static final String[] names = { "solar_module_0", "solar_module_1", "rawSilicon", "ingotCopper",
-    // "ingotTin", "ingotAluminum", "compressedCopper", "compressedTin", "compressedAluminum", "compressedSteel",
-    // "compressedBronze", "compressedIron", "waferSolar", "waferBasic", "waferAdvanced", "dehydratedApple",
-    // "dehydratedCarrot", "dehydratedMelon", "dehydratedPotato", "frequencyModule" };
 
     // protected IIcon[] icons = new IIcon[ItemBasic.names.length];
     protected ArrayList<SubItem> subItems = null;

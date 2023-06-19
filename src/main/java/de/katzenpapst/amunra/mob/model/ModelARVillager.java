@@ -47,9 +47,6 @@ public class ModelARVillager extends ModelVillager {
         this.leftVillagerLeg.mirror = true;
         this.leftVillagerLeg.setRotationPoint(2.0F, 12.0F + par2, 0.0F);
         this.leftVillagerLeg.addBox(-2.0F, 0.0F, -2.0F, 4, 12, 4, scaleOrSo + 0.0002F);
-        // this.brain = new ModelRenderer(this).setTextureSize(par3, par4);
-        // this.brain.setRotationPoint(0.0F, 0.0F + par2, 0.0F);
-        // this.brain.setTextureOffset(32, 0).addBox(-4.0F, -16.0F, -4.0F, 8, 8, 8, par1 + 0.5F);
 
         final float antennaOffset = -6.0F;
 
@@ -124,11 +121,6 @@ public class ModelARVillager extends ModelVillager {
         this.leftVillagerLeg.rotateAngleY = 0.0F;
 
         for (int i = 0; i < this.tailBoxes.length; i++) {
-            // float val = MathHelper.sin(totalTimeMaybe * 0.9F + (float)i * 0.15F * (float)Math.PI) * (float)Math.PI *
-            // 0.2F * (float)Math.abs(i - 2);
-            // float val = MathHelper.cos(limbSwingTime * 0.6662F) * 1.4F * limbSwingAmount * 0.5F;
-            // float val2 = this.leftVillagerLeg.rotateAngleX = MathHelper.cos(limbSwingTime * 0.6662F + (float)Math.PI)
-            // * 1.4F * limbSwingAmount * 0.5F;
             final float curPos = offsets[i];
             this.tailBoxes[i].rotationPointZ = curPos * test * 2 + 5 * test - 2;
         }
@@ -141,8 +133,6 @@ public class ModelARVillager extends ModelVillager {
         this.setRotationAngles(p_78088_2_, p_78088_3_, p_78088_4_, p_78088_5_, p_78088_6_, p_78088_7_, p_78088_1_);
         this.villagerHead.render(p_78088_7_);
         this.villagerBody.render(p_78088_7_);
-        // this.rightVillagerLeg.render(someConstant);
-        // this.leftVillagerLeg.render(someConstant);
         this.villagerArms.render(p_78088_7_);
 
         for (ModelRenderer element : this.tailBoxes) {

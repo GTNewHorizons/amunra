@@ -16,10 +16,6 @@ public class AnubisChunkProvider extends AmunraChunkProvider {
 
     protected GridVillageGenerator gVillage = new GridVillageGenerator();
 
-    // PyramidGenerator pyramid = new PyramidGenerator();
-
-    // Pyramid testPyramid = new Pyramid();
-
     public AnubisChunkProvider(final World world, final long seed, final boolean mapFeaturesEnabled) {
         super(world, seed, mapFeaturesEnabled);
 
@@ -83,14 +79,9 @@ public class AnubisChunkProvider extends AmunraChunkProvider {
         super.populate(p_73153_1_, p_73153_2_, p_73153_3_);
 
         this.gVillage.populate(this, this.worldObj, p_73153_2_, p_73153_3_);
-        // this.pyramid.populate(this, worldObj, chunkX, chunkZ);
-
-        // this.villageTest.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
     }
 
     @Override
-    public void recreateStructures(int p_82695_1_, int p_82695_2_) {
-        // this.villageTest.func_151539_a(this, this.worldObj, par1, par2, (Block[]) null);
-    }
+    public void recreateStructures(int p_82695_1_, int p_82695_2_) {}
 
 }

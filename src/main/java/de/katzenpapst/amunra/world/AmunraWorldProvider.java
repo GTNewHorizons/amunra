@@ -126,8 +126,6 @@ public abstract class AmunraWorldProvider extends WorldProviderSpace implements 
     @Override
     public Vec3 getSkyColor(final Entity cameraEntity, final float partialTicks) {
         final Vector3 skyColorBase = this.getSkyColor();
-        // return Vec3.createVectorHelper(skyColor.floatX(), skyColor.floatY(), skyColor.floatZ());
-        // return new Vector3(0.60588, 0.7745, 1);
         final float celestialAngle = this.worldObj.getCelestialAngle(partialTicks);
         float dayFactor = MathHelper.cos(celestialAngle * (float) Math.PI * 2.0F) * 2.0F + 0.5F;
 

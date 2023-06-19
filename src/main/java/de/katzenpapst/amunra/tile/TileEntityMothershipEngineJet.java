@@ -19,16 +19,12 @@ import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 
 /**
  * This is supposed to be used for any jet blocks
- * 
+ *
  * @author katzenpapst
  *
  */
 public class TileEntityMothershipEngineJet extends TileEntityMothershipEngineAbstract {
 
-    // public static final int MAX_LENGTH = 10;
-    // protected PositionedSoundRecord leSound;
-
-    // protected final MothershipFuel fuelType;
     protected MothershipFuelDisplay fuelType = null;
     public static Fluid jetFuel;
 

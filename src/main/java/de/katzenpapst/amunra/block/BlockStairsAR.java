@@ -29,7 +29,6 @@ public class BlockStairsAR extends BlockStairs implements IMassiveBlock {
     private final BlockMetaPair sourceBlock;
 
     public BlockStairsAR(final BlockMetaPair sourceBlock) {
-        // protected constructor? WTF IS THIS SHIT?!!?!
         super(sourceBlock.getBlock(), sourceBlock.getMetadata());
         this.sourceBlock = sourceBlock;
     }

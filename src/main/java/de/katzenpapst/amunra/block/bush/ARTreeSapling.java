@@ -82,23 +82,15 @@ public class ARTreeSapling extends AbstractSapling {
             final Block block2 = world.getBlock(x, y - 1, z);
             final int meta2 = world.getBlockMetadata(x, y - 1, z);
 
-            final boolean isSoil = this.canPlaceOn(new BlockMetaPair(block2, (byte) meta2), 0);// block2.canSustainPlant(world,
-            // x, y - 1, z,
-            // ForgeDirection.UP,
-            // (IPlantable)this);
+            final boolean isSoil = this.canPlaceOn(new BlockMetaPair(block2, (byte) meta2), 0);
             if (isSoil && y < 256 - curTreeHeight - 1) {
                 block2.onPlantGrow(world, x, y - 1, z, x, y, z);
-
-                // int width = (int)Math.ceil((this.canopyWidth-1)/2);
 
                 // generate the leaves first
                 for (int curY = y + stemHeight; curY <= y + stemHeight + this.canopyHeight; ++curY) {
                     for (int curX = x - halfWidth; curX <= x + halfWidth; ++curX) {
 
                         for (int curZ = z - halfWidth; curZ <= z + halfWidth; ++curZ) {
-                            // check the ellipsoid stuff
-                            // if(Math.pow((curX-x)/halfWidth,2) + Math.pow((curY1-y-canopyCenter)/halfHeight, 2) +
-                            // Math.pow((curZ-z)/halfWidth, 2) <= 1) {
                             final double eFactor = this.getEllipsoidFactor(
                                     curX - x,
                                     curY - y - this.canopyCenter,

@@ -156,12 +156,7 @@ public abstract class EntityFlyingMob extends EntityFlying implements IMob, IAnt
                 ++this.attackCounter;
 
                 if (this.attackCounter == 20) {
-                    // another one. WTF is this?
-                    // this.worldObj.playSoundAtEntity(this, AmunRa.TEXTUREPREFIX + "mob.sentryblock.fire",
-                    // getSoundVolume(), 1.0F);
                     this.worldObj.playSoundAtEntity(this, this.getFiringSound(), this.getSoundVolume(), 1.0F);
-                    // this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1008, (int)this.posX, (int)this.posY,
-                    // (int)this.posZ, 0);
                     // this seems to be an actual attack
                     this.performAttack(this.targetedEntity, accelX, accelY, accelZ);
 

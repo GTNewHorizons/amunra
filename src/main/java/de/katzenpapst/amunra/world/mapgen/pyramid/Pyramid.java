@@ -115,9 +115,6 @@ public class Pyramid extends BaseStructureStart {
                 1,
                 1);
 
-        // WeightedRandomChestContent desh = new WeightedRandomChestContent(new ItemStack(MarsItems.deshPickaxe, 0, 2),
-        // 1, 1, 1);
-
         final WeightedRandomChestContent desh = new WeightedRandomChestContent(
                 new ItemStack(MarsItems.marsItemBasic, 0, 0),
                 1,
@@ -246,10 +243,7 @@ public class Pyramid extends BaseStructureStart {
         super.generateChunk(chunkX, chunkZ, blocks, metas);
 
         // now generate the actual pyramid
-        final StructureBoundingBox chunkBB = CoordHelper.getChunkBB(chunkX, chunkZ);// new StructureBoundingBox((chunkX
-                                                                                    // << 4),
-        // (chunkX<< 4), (chunkX+1 << 4)-1,
-        // (chunkX+1 << 4)-1);
+        final StructureBoundingBox chunkBB = CoordHelper.getChunkBB(chunkX, chunkZ);
         final StructureBoundingBox myBB = this.getStructureBoundingBox();
 
         if (!chunkBB.intersectsWith(myBB)) {
@@ -265,12 +259,9 @@ public class Pyramid extends BaseStructureStart {
                     chunkBB,
                     fallbackGround);
             if (this.groundLevel == -1) {
-                this.groundLevel = fallbackGround; // but this shouldn't even happen...
+                this.groundLevel = fallbackGround; // this shouldn't ever happen
             }
         }
-
-        // BlockMetaPair glassPane = new BlockMetaPair(Blocks.glass_pane, (byte) 0);
-        // BlockMetaPair air = new BlockMetaPair(Blocks.air, (byte) 0);
 
         // draw floor first
         final int startX = 0;
@@ -279,7 +270,6 @@ public class Pyramid extends BaseStructureStart {
         final int stopZ = myBB.getZSize();
 
         final int xCenter = (int) Math.ceil((stopX - startX) / 2 + startX);
-        // int zCenter = (int)Math.ceil((stopZ-startZ)/2+startZ);
 
         final int radius = xCenter;
 
@@ -300,9 +290,6 @@ public class Pyramid extends BaseStructureStart {
                 this.placeBlockRel2BB(blocks, metas, chunkX, chunkZ, x, this.groundLevel, z, this.floorMaterial);
 
                 for (int y = 0; y <= radius; y++) {
-
-                    // if(y >= 12) continue; // FOR DEBUG TESTING
-
                     if (x >= startX + y && x <= stopX - y && z >= startZ + y && z <= stopZ - y) {
                         if (z == startZ + y || z == stopZ - y || x == startX + y || x == stopX - y) {
                             // wall

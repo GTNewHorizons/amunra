@@ -52,9 +52,6 @@ public class SolarField extends GridVillageComponent {
         for (int x = startX; x < stopX; x++) {
             for (int z = startZ; z < stopZ; z++) {
 
-                // int x = this.translateX(rawX, rawZ);
-                // int z = this.translateZ(rawX, rawZ);
-
                 final int highestGroundBlock = this.getHighestSolidBlockInBB(blocks, metas, chunkX, chunkZ, x, z);
                 if (highestGroundBlock == -1) {
                     continue; // that should mean that we aren't in the right chunk

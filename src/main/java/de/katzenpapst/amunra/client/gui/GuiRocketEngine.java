@@ -29,8 +29,6 @@ public class GuiRocketEngine extends GuiContainerGC {
     protected final TileEntityMothershipEngineAbstract tileEngine;
 
     protected GuiButton buttonEnable;
-    // private GuiElementInfoRegion electricInfoRegion = new GuiElementInfoRegion((this.width - this.xSize) / 2 + 107,
-    // (this.height - this.ySize) / 2 + 101, 56, 9, new ArrayList<String>(), this.width, this.height, this);
     protected GuiElementInfoRegion tankInfo;
 
     protected boolean isEngineObstructed;

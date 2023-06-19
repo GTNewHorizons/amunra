@@ -156,15 +156,8 @@ public class Volcano extends BaseStructureStart {
                             height = (int) (heightAtCalderaBorder - (height - heightAtCalderaBorder));
                         }
 
-                        double noise = this.testGrad.getNoise(x, z);
-
-                        // noise has less effect the closer to the shaft we come
-                        // noise *= (distance*distance)/this.radius*4;
-                        // noise *= (distance/radius)*18;
-                        noise *= 8;
-                        height += Math.round(noise);
+                        height += Math.round(this.testGrad.getNoise(x, z) * 8);
                     }
-                    // height += MathHelper.getRandomIntegerInRange(rand, -1, 1);
 
                     if (height > 255) {
                         height = 255;
@@ -173,19 +166,13 @@ public class Volcano extends BaseStructureStart {
                         height = lowestBlock;
                     }
 
-                    // int height = (int)((1-sqDistance/sqRadius)*maxVolcanoHeight);
-
                     if (distance < this.shaftRadius + 2) {
                         for (int y = this.maxDepth + 1; y < height; y++) {
 
                             if (distance <= this.shaftRadius) {
                                 placeBlockAbs(blocks, metas, x, y, z, chunkX, chunkZ, this.fluid);
                             } else {
-                                // if(y == groundLevel+height-1) {
-                                // this.placeBlockAbs(blocks, metas, x, y, z, chunkX, chunkZ, fluid);
-                                // } else {
                                 placeBlockAbs(blocks, metas, x, y, z, chunkX, chunkZ, this.shaftMaterial);
-                                // }
                             }
                         }
 

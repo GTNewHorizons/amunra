@@ -106,10 +106,9 @@ public class BlockGrassMeta extends BlockBasicMeta implements IGrowable {
                     blockAboveX += random.nextInt(3) - 1;
                     blockAboveY += (random.nextInt(3) - 1) * random.nextInt(3) / 2;
                     blockAboveZ += random.nextInt(3) - 1;
-                    if (worldIn.getBlock(blockAboveX, blockAboveY - 1, blockAboveZ) == this && // I hope I can use
-                                                                                               // "this"
-                                                                                               // here
-                            worldIn.getBlockMetadata(blockAboveX, blockAboveY, blockAboveZ) == meta
+                    // TODO: check that the following can be used here
+                    if (worldIn.getBlock(blockAboveX, blockAboveY - 1, blockAboveZ) == this
+                            && worldIn.getBlockMetadata(blockAboveX, blockAboveY, blockAboveZ) == meta
                             && !worldIn.getBlock(blockAboveX, blockAboveY, blockAboveZ).isNormalCube()) {
                         ++grassNearby;
                         continue;

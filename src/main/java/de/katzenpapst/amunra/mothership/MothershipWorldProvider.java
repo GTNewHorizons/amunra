@@ -311,7 +311,7 @@ public class MothershipWorldProvider extends WorldProviderSpace implements IZero
     /**
      * Does the last minute MS check and starts the transit here and in the MS object. Returns true if this worked This
      * should only ever happen on server
-     * 
+     *
      * @param cheat if true, no checks are performed, no engines are actually started, the ship is moved anyway
      */
     public boolean startTransit(final CelestialBody target, final boolean cheat) {
@@ -610,7 +610,7 @@ public class MothershipWorldProvider extends WorldProviderSpace implements IZero
 
     /**
      * This should recalculate the size and mass of the ship, and find all the engines
-     * 
+     *
      * @param notifyClients whenever to send a packet to notify clients afterwards
      */
     public void updateMothership(final boolean notifyClients) {
@@ -760,8 +760,6 @@ public class MothershipWorldProvider extends WorldProviderSpace implements IZero
         final NBTTagCompound nbt = new NBTTagCompound();
         this.writeToNBT(nbt);
 
-        // AmunRa.packetPipeline.sendToDimension(new PacketSimpleAR(EnumSimplePacket.C_MOTHERSHIP_DATA, dimensionId,
-        // nbt), dimensionId);
         AmunRa.packetPipeline
                 .sendTo(new PacketSimpleAR(EnumSimplePacket.C_MOTHERSHIP_DATA, this.dimensionId, nbt), player);
     }

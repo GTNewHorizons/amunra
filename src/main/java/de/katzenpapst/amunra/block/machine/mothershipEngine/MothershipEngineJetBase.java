@@ -47,7 +47,6 @@ public abstract class MothershipEngineJetBase extends AbstractBlockMothershipRes
     public void onNeighborBlockChange(World worldIn, int x, int y, int z, Block neighbor) {
         if (worldIn.getTileEntity(x, y, z) instanceof TileEntityMothershipEngineAbstract tileEngine) {
             tileEngine.scheduleUpdate();
-            // worldIn.markBlockForUpdate(x, y, z);
         }
     }
 

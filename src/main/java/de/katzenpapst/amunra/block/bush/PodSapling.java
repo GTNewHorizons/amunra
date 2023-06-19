@@ -59,10 +59,9 @@ public class PodSapling extends AbstractSapling {
         for (int curY = -1; curY < this.height + 3; curY++) {
             for (int curX = (int) -outerRadius; curX <= +outerRadius; curX++) {
                 for (int curZ = (int) -outerRadius; curZ <= +outerRadius; curZ++) {
-                    // some kind of a sinus function?
+                    // some kind of sinus function?
                     if (Math.pow(curX / outerRadius, 2) + Math.pow((curY - centerOffset) / heightHalf, 2)
                             + Math.pow(curZ / outerRadius, 2) <= 1) {
-                        // Block block1 = world.getBlock(curX+x, curY+y, curZ+z);
 
                         if (curY > -1 && Math.pow(curX / innerRadius, 2)
                                 + Math.pow((curY - centerOffset) / innerHeightRadius, 2)

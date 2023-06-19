@@ -161,7 +161,7 @@ public class EntityShuttle extends EntityTieredRocket {
 
     /**
      * Return the full item representation of the entity, including type, fuel, and whatever else
-     * 
+     *
      * @return
      */
     public ItemStack getItemRepresentation() {
@@ -388,8 +388,6 @@ public class EntityShuttle extends EntityTieredRocket {
             final Vector3 pos = tileDock.getExitPosition();
             player.rotationYaw = tileDock.getExitRotation();
             player.setPositionAndUpdate(pos.x, pos.y, pos.z);
-            // player.setPositionAndRotation(pos.x, pos.y, pos.z, 0, 0);
-            // player.setPosition(pos.x, pos.y, pos.z);
         } else {
             // try not doing this?
             // check for safe positions
@@ -407,7 +405,6 @@ public class EntityShuttle extends EntityTieredRocket {
                 player.setPositionAndUpdate(this.posX + 2, yPos, this.posZ);
             }
         }
-        // return new Vector3(this.posX, this.posY, this.posZ);
     }
 
     protected boolean isSafeForPlayer(final double x, final double y, final double z) {
@@ -769,9 +766,6 @@ public class EntityShuttle extends EntityTieredRocket {
 
     @Override
     protected void readEntityFromNBT(final NBTTagCompound nbt) {
-        // EnumShuttleMode.
-        // this.shuttleMode = EnumShuttleMode.values()[nbt.getInteger("ShuttleMode")];
-        // this.setShuttleMode(shuttleMode);
         this.numTanks = nbt.getInteger("NumTanks");
         if (nbt.hasKey("dockPosition")) {
             final NBTTagCompound dockPosNbt = nbt.getCompoundTag("dockPosition");

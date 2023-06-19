@@ -92,9 +92,7 @@ public class HorusChunkProvider extends AmunraChunkProvider {
         super.populate(p_73153_1_, p_73153_2_, p_73153_3_);
 
         this.pyramid.populate(this, this.worldObj, p_73153_2_, p_73153_3_);
-        // this.pyramid.populate(this, worldObj, chunkX, chunkZ);
 
-        // this.villageTest.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
     }
 
 }

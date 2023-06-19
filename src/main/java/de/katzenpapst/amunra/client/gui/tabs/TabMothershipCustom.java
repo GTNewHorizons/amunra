@@ -36,10 +36,6 @@ public class TabMothershipCustom extends AbstractTab implements ITextBoxCallback
 
     private GuiElementTextBox nameField;
 
-    // private String changedName;
-
-    // private ResourceLocation changedIcon;
-
     private final DynamicTexturedButton[] textureButtons = new DynamicTexturedButton[6];
 
     protected List<ResourceLocation> mothershipTextures;
@@ -49,9 +45,6 @@ public class TabMothershipCustom extends AbstractTab implements ITextBoxCallback
         super(parent, mc, width, height, xSize, ySize);
         this.ship = tile.getMothership();
         this.mothershipTextures = AmunRa.instance.getPossibleMothershipTextures();
-
-        // changedName = ship.getLocalizedName();
-        // changedIcon = ship.getBodyIcon();
     }
 
     @Override
@@ -86,26 +79,14 @@ public class TabMothershipCustom extends AbstractTab implements ITextBoxCallback
         final int guiX = (this.width - this.xSize) / 2;
         final int guiY = (this.height - this.ySize) / 2;
 
-        // this.applyButton = new GuiButton(0, guiX + 120 - 50, guiY + 95, 48, 20,
-        // GCCoreUtil.translate("gui.message.mothership.apply"));
-        // this.resetButton = new GuiButton(1, guiX + 120, guiY + 95, 48, 20,
-        // GCCoreUtil.translate("gui.message.mothership.reset"));
-
-        // int id, ITextBoxCallback parentGui, int x, int y, int width, int height, String initialText, boolean
-        // numericOnly, int maxLength, boolean centered
         this.nameField = new GuiElementTextBox(2, this, guiX + 4, guiY + 4 + 20, 168, 20, "", false, 14, true);
 
         this.texturesPrev = new GuiButton(3, guiX + 6, guiY + 26 + 20, 20, 20, GCCoreUtil.translate("<"));
         this.texturesNext = new GuiButton(4, guiX + 150, guiY + 26 + 20, 20, 20, GCCoreUtil.translate(">"));
 
-        // testBtn = new DynamicTexturedButton(5, guiX + 6 + 20, guiY+26, 20, 20, mothershipTextures.get(0));
-
-        // addButton(this.applyButton);
-        // addButton(this.resetButton);
         this.addTextBox(this.nameField);
         this.addButton(this.texturesPrev);
         this.addButton(this.texturesNext);
-        //
         this.initTextureButtons(5, guiX + 2, guiY + 20);
 
     }
@@ -175,8 +156,6 @@ public class TabMothershipCustom extends AbstractTab implements ITextBoxCallback
     public void onIntruderInteraction(final GuiElementTextBox textBox) {}
 
     public void setGuiEnabled(final boolean set) {
-        // applyButton.enabled = set;
-        // resetButton.enabled = set;
         this.texturesPrev.enabled = set;
         this.texturesNext.enabled = set;
         for (final DynamicTexturedButton btn : this.textureButtons) {
@@ -186,10 +165,7 @@ public class TabMothershipCustom extends AbstractTab implements ITextBoxCallback
         this.nameField.enabled = set;
     }
 
-    public void resetData() {
-        // this.changedIcon = this.tile.getMothership().getBodyIcon();
-        // this.changedName = this.tile.getMothership().getLocalizedName();
-    }
+    public void resetData() {}
 
     @Override
     public boolean actionPerformed(final GuiButton btn) {

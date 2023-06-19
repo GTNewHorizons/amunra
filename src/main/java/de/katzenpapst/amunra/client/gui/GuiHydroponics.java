@@ -250,9 +250,6 @@ public class GuiHydroponics extends GuiContainerGC {
                     this.tile.getEnergyStoredGC(),
                     this.tile.getMaxEnergyStoredGC(),
                     electricityDesc);
-            // electricityDesc.add(EnumColor.YELLOW + GCCoreUtil.translate("gui.energyStorage.desc.1") + ((int)
-            // Math.floor(this.collector.getEnergyStoredGC()) + " / " + (int)
-            // Math.floor(this.collector.getMaxEnergyStoredGC())));
             this.electricInfoRegion.tooltipStrings = electricityDesc;
         }
     }

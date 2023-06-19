@@ -14,11 +14,6 @@ import de.katzenpapst.amunra.tile.TileEntityARChest;
 
 public class RenderARChest extends TileEntitySpecialRenderer {
 
-    // private static final ResourceLocation treasureChestTexture = new ResourceLocation(MarsModule.ASSET_PREFIX,
-    // "textures/model/treasure.png");
-    // private static final ResourceLocation treasureLargeChestTexture = new ResourceLocation(MarsModule.ASSET_PREFIX,
-    // "textures/model/treasurelarge.png");
-
     private final ModelChest chestModel = new ModelChest();
     private final ModelLargeChest largeChestModel = new ModelLargeChest();
 

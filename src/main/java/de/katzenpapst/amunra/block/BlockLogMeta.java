@@ -58,7 +58,8 @@ public class BlockLogMeta extends BlockBasicMeta {
 
     @Override
     public int getRenderType() {
-        return 31; // ..?
+        // TODO: figure out why exactly it's 31 and put it into the javadoc of this function
+        return 31;
     }
 
     @Override

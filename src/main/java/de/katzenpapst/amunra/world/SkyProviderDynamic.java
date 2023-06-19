@@ -440,8 +440,6 @@ public class SkyProviderDynamic extends IRenderHandler {
         GL11.glShadeModel(GL11.GL_FLAT);
 
         GL11.glEnable(GL11.GL_TEXTURE_2D);
-        // renderSystem(partialTicks, world, tessellator1, mc);
-        // OpenGlHelper.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE, GL11.GL_ONE, GL11.GL_ZERO);
         GL11.glPushMatrix();
         someXoffset = 0.0F;
         someYoffset = 0.0F;
@@ -471,7 +469,6 @@ public class SkyProviderDynamic extends IRenderHandler {
 
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         GL11.glDisable(GL11.GL_BLEND);
-        // OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 
         GL11.glEnable(GL11.GL_ALPHA_TEST);
         GL11.glEnable(GL11.GL_FOG);
@@ -773,7 +770,7 @@ public class SkyProviderDynamic extends IRenderHandler {
 
     /**
      * Hack for motherships >_>
-     * 
+     *
      * @param body
      * @return
      */
@@ -906,17 +903,13 @@ public class SkyProviderDynamic extends IRenderHandler {
                 GL11.glRotatef(90.0F, 0, 1.0F, 0);
             } else {
                 // rotate back, so that the parent planet is at the same position
-                // GL11.glRotatef(90.0F, 0, 0.0F, 1.0F);
                 GL11.glRotatef(-90.0F, 1.0F, 0.0F, 0.0F);
-                // GL11.glRotated(360.0D * (curOrbitalAngle / PI_DOUBLE - currentCelestialAngle) - 90.0D, 1.0D, 0.0D,
-                // 0.0D);
             }
         }
 
         // now do moons
         GL11.glPushMatrix();
         // try to rotate it
-        // planetAxisAngle = -90.0F;
         if (!this.isAsteroidBelt) {
             GL11.glRotatef(planetAxisAngle, 0, 1.0F, 0);
         }
@@ -1158,9 +1151,6 @@ public class SkyProviderDynamic extends IRenderHandler {
         GL11.glTranslatef(0, 0, 0);
 
         tessellator1.startDrawingQuads();
-        // planetSkyColor
-        // tessellator1.setColorRGBA_F((float)planetSkyColor.xCoord, (float)planetSkyColor.yCoord,
-        // (float)planetSkyColor.zCoord, 1.0F);
         tessellator1.setColorRGBA_F(1.0F, 1.0F, 1.0F, 1.0F);
         tessellator1.addVertexWithUV(-scale, zIndex, -scale, 0, 0);
         tessellator1.addVertexWithUV(scale, zIndex, -scale, 1, 0);
@@ -1170,11 +1160,9 @@ public class SkyProviderDynamic extends IRenderHandler {
 
         // actual planet END
 
-        // phase overlay
         if (usePhaseOverlay) {
             this.drawPhaseOverlay(phaseAngle, body, scale + 0.01D, tessellator1, zIndex);
         }
-        // phase overlay END
 
         final RingsRenderInfo ringTex = AmunRa.config.ringMap.get(body.getName());
         if (ringTex != null) {

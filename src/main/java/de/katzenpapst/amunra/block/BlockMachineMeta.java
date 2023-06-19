@@ -323,12 +323,7 @@ public class BlockMachineMeta extends BlockTileGC implements ItemBlockDesc.IBloc
             float hitY, float hitZ) {
         final int meta = world.getBlockMetadata(x, y, z);
 
-        // do the wrench stuff, too
-        // ORIG BEGIN
-        /**
-         * Check if the player is holding a wrench or an electric item. If so, call the wrench event.
-         */
-        // handle the wrench stuff in the metablock
+        // Check if the player is holding a wrench or an electric item. If so, call the wrench event.
         if (this.isUsableWrench(entityPlayer, entityPlayer.inventory.getCurrentItem(), x, y, z)) {
             this.damageWrench(entityPlayer, entityPlayer.inventory.getCurrentItem(), x, y, z);
 
@@ -346,7 +341,6 @@ public class BlockMachineMeta extends BlockTileGC implements ItemBlockDesc.IBloc
             }
             return sb.onMachineActivated(world, x, y, z, entityPlayer, side, hitX, hitY, hitZ);
         }
-        // ORIG END
         return false;
     }
 
@@ -367,8 +361,6 @@ public class BlockMachineMeta extends BlockTileGC implements ItemBlockDesc.IBloc
         }
         super.breakBlock(world, x, y, z, block, metadata);
     }
-
-    //////////////////////////////////////////////////// EVENTS ////////////////////////////////////////////////////
 
     @Override
     public int getExpDrop(IBlockAccess world, int metadata, int fortune) {

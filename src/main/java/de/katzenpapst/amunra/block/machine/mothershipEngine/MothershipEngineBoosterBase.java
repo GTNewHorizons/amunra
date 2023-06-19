@@ -52,7 +52,6 @@ public class MothershipEngineBoosterBase extends AbstractBlockMothershipRestrict
 
     @Override
     protected void openGui(World world, int x, int y, int z, EntityPlayer entityPlayer) {
-        // try this
         if (world.isRemote) {
             return;
         }
@@ -76,7 +75,6 @@ public class MothershipEngineBoosterBase extends AbstractBlockMothershipRestrict
         this.activeTextureName = activeTexture;
     }
 
-    // TileEntityMothershipEngineBooster.java
     @Override
     public TileEntity createTileEntity(World world, int metadata) {
         return new TileEntityMothershipEngineBooster();
@@ -108,8 +106,7 @@ public class MothershipEngineBoosterBase extends AbstractBlockMothershipRestrict
             tileEngine.scheduleUpdate();
         } else if (leTile instanceof TileEntityMothershipEngineBooster tileBooster) {
             tileBooster.updateMaster(false);
-            // attept to continue the process
-            // find next
+            // attempt to continue the process
             final Vector3int pos = tileBooster.getPossibleNextBooster();
             if (pos != null) {
                 worldIn.notifyBlockOfNeighborChange(pos.x, pos.y, pos.z, tileBooster.blockType);

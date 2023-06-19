@@ -37,22 +37,12 @@ public class EntitySentry extends EntityFlyingMob implements IEntityBreathable {
     @Override
     protected void performAttack(Entity target, double accelX, double accelY, double accelZ) {
 
-        // EntityLargeFireball entitylargefireball = new EntityLargeFireball(this.worldObj, this, startX, startY,
-        // startZ);
-        // entitylargefireball.field_92057_e = this.explosionStrength;
-        /*
-         * double size = 4.0D; Vec3 vec3 = this.getLook(1.0F); double x = this.posX + vec3.xCoord * size; double y =
-         * this.posY + (double)(this.height / 2.0F) + 0.5D; double z = this.posZ + vec3.zCoord * size;
-         */
-
         final EntityLaserArrow attack = new EntityLaserArrow(
                 this.worldObj,
                 (EntityLivingBase) this,
                 new Vector3(this),
-                (EntityLivingBase) target);// new EntityLaserArrow(this.worldObj, (EntityLivingBase)this,
-                                           // (EntityLivingBase)target, 0.0F);
+                (EntityLivingBase) target);
         attack.setDamage(0.5F);
-        // attack.setDoesFireDamage(false);
         this.worldObj.spawnEntityInWorld(attack);
 
     }

@@ -16,8 +16,6 @@ public class PyramidHouseComponent extends GridVillageComponent {
         // now, how to get the height?
         final StructureBoundingBox chunkBB = CoordHelper.getChunkBB(chunkX, chunkZ);// new StructureBoundingBox((chunkX
                                                                                     // << 4),
-        // (chunkX<< 4), (chunkX+1 << 4)-1,
-        // (chunkX+1 << 4)-1);
         final int fallbackGround = this.parent.getWorldGroundLevel();
         if (this.groundLevel == -1) {
             this.groundLevel = getAverageGroundLevel(
@@ -35,9 +33,6 @@ public class PyramidHouseComponent extends GridVillageComponent {
         final BlockMetaPair wall = ((GridVillageStart) this.parent).getWallMaterial();
         final BlockMetaPair floor = ((GridVillageStart) this.parent).getFloorMaterial();
         final BlockMetaPair padding = ((GridVillageStart) this.parent).getFillMaterial();
-        // BlockMetaPair path = ((GridVillageStart)this.parent).getPathMaterial();
-        // BlockMetaPair glassPane = new BlockMetaPair(Blocks.glass_pane, (byte) 0);
-        // BlockMetaPair air = new BlockMetaPair(Blocks.air, (byte) 0);
 
         // draw floor first
         final int startX = 0;
@@ -46,7 +41,6 @@ public class PyramidHouseComponent extends GridVillageComponent {
         final int stopZ = myBB.getZSize() - 1;
 
         final int xCenter = (int) Math.ceil((stopX - startX) / 2 + startX);
-        // int zCenter = (int)Math.ceil((stopZ-startZ)/2+startZ);
 
         final int radius = xCenter;
 
@@ -75,19 +69,10 @@ public class PyramidHouseComponent extends GridVillageComponent {
                             || (x == startX + y || x == stopX - y) && z >= startZ + y && z <= stopZ - y) {
                         this.placeBlockRel2BB(blocks, metas, chunkX, chunkZ, x, this.groundLevel + y + 1, z, wall);
                     }
-                    /*
-                     * if((x >= startX+y && x <= stopX-y) && (z >= startZ+y && z <= stopZ-y)) { placeBlockRel2BB(blocks,
-                     * metas, chunkX, chunkZ, x, groundLevel+y+1, z, wall); } if((x >= startX+y && x <= stopX-y-1) && (z
-                     * >= startZ+y+1 && z <= stopZ-y-y)) { placeBlockRel2BB(blocks, metas, chunkX, chunkZ, x,
-                     * groundLevel, z, air); }
-                     */
                 }
-
             }
-
         }
 
         return true;
-
     }
 }

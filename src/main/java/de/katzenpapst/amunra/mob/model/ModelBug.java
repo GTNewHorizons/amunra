@@ -173,11 +173,7 @@ public class ModelBug extends ModelBase {
         this.body.render(p_78088_7_);
         this.head.render(p_78088_7_);
         this.tail1.render(p_78088_7_);
-        // lefthand2.render(f5);
-        // lefthand1.render(f5);
         this.leftarm.render(p_78088_7_);
-        // righthand2.render(f5);
-        // righthand1.render(f5);
         this.rightarm.render(p_78088_7_);
         this.legLeft3.render(p_78088_7_);
         this.legLeft2.render(p_78088_7_);

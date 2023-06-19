@@ -257,8 +257,6 @@ public class GuiShuttleSelection extends GuiARCelestialSelection {
                         - 95
                         + i * 93 / (double) recipe.getInput().size()
                         + 5);
-                // int yPos = GuiCelestialSelection.BORDER_WIDTH + GuiCelestialSelection.BORDER_EDGE_WIDTH + 154 +
-                // canCreateOffset;
                 final int requiredAmount = e.getValue();
 
                 if (next instanceof ItemStack) {

@@ -149,10 +149,6 @@ public class GuiAtomBattery extends GuiContainerGC {
                 this.generatorTile.getEnergyStoredGC(),
                 this.generatorTile.getMaxEnergyStoredGC(),
                 electricityDesc);
-        // electricityDesc.add(GCCoreUtil.translate("gui.energyStorage.desc.0"));
-        // electricityDesc.add(EnumColor.YELLOW + GCCoreUtil.translate("gui.energyStorage.desc.1") + ((int)
-        // Math.floor(this.solarPanel.getEnergyStoredGC()) + " / " + (int)
-        // Math.floor(this.solarPanel.getMaxEnergyStoredGC())));
         this.electricInfoRegion.tooltipStrings = electricityDesc;
 
         if (this.generatorTile.getEnergyStoredGC() > 0) {

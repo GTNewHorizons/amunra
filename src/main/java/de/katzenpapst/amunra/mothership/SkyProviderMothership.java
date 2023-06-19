@@ -206,11 +206,6 @@ public class SkyProviderMothership extends SkyProviderDynamic {
         // I need the actual time here
         this.transitOffset = partialTicks + world.getWorldTime() - this.curWorldTime;
 
-        // renderStars(0);
-
-        // renderStarLines(speedSlow, renderListStarLinesSlow);
-        // renderStarLines(speedMedium, renderListStarLinesMedium);
-        // renderStarLines(speedFast, renderListStarLinesFast);
         this.renderStarLines(this.transitOffset);
 
     }

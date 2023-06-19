@@ -52,9 +52,6 @@ abstract public class BaseStructureStart extends BaseStructureComponent {
         this.startX = this.rand.nextInt(16);
         this.startZ = this.rand.nextInt(16);
 
-        // int startBlockX = chunkX*16 + this.startX;
-        // int startBlockZ = chunkZ*16 + this.startZ;
-
         this.populatorsByChunk = new PopulatorByChunkMap();
     }
 

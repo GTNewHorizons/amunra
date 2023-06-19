@@ -47,14 +47,10 @@ public class CraftingHandler {
                 indexGun = i;
             } else if (curItem.getItem() instanceof ItemBattery || curItem.getItem() instanceof ItemBaseBattery) {
                 indexBattery = i;
-            } /*
-               * else { return; // wrong recipe }
-               */
+            }
         }
 
         if (indexBattery != -1) {
-            // float energyInOldBattery =
-            // ((ItemBattery)GCItems.battery).getElectricityStored(event.craftMatrix.getStackInSlot(indexBattery));
             final ItemStack newBattery = event.craftMatrix.getStackInSlot(indexBattery);
             if (indexGun != -1) {
                 // there is another gun in the ingredients, so this is recharging
@@ -71,7 +67,6 @@ public class CraftingHandler {
 
             }
             // always set the energy of the battery from the ingredients to the finished gun
-            // gun.setElectricity(event.crafting, energyInOldBattery);
             gun.setUsedBattery(event.crafting, newBattery);
         }
 
