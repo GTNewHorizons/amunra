@@ -27,8 +27,12 @@ public class MothershipEngineJetIon extends MothershipEngineJetBase {
         if (world.getTileEntity(x, y, z) instanceof TileEntityMothershipEngineIon tileEngine) {
             return tileEngine;
         }
-        // TODO throw exception instead
-        return null;
+
+        final String errorMessage = composeMessageForIllegalArgumentException(
+                TileEntityMothershipEngineIon.class,
+                world.getTileEntity(x, y, z).getClass());
+
+        throw new IllegalArgumentException(errorMessage);
     }
 
     @Override

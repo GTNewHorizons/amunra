@@ -5,6 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 import de.katzenpapst.amunra.AmunRa;
@@ -40,10 +41,16 @@ public abstract class MothershipEngineJetBase extends AbstractBlockMothershipRes
             return tileEngine;
         }
 
-        throw new IllegalArgumentException(
-                "Expected " + TileEntityMothershipEngineAbstract.class
-                        + " but got "
-                        + world.getTileEntity(x, y, z).getClass());
+        final String errorMessage = composeMessageForIllegalArgumentException(
+                TileEntityMothershipEngineAbstract.class,
+                world.getTileEntity(x, y, z).getClass());
+
+        throw new IllegalArgumentException(errorMessage);
+    }
+
+    protected String composeMessageForIllegalArgumentException(
+            Class<? extends TileEntityMothershipEngineAbstract> expected, Class<? extends TileEntity> actual) {
+        return "Expected " + expected + " but got " + actual;
     }
 
     @Override
