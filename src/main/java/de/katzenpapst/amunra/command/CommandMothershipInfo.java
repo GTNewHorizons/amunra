@@ -37,7 +37,7 @@ public class CommandMothershipInfo extends CommandBase {
             playerMS = (Mothership) shipProvider.getCelestialBody();
         }
 
-        if (data.size() <= 0) {
+        if (data.size() == 0) {
             sender.addChatMessage(new ChatComponentText("No registered motherships"));
         } else {
             sender.addChatMessage(new ChatComponentText(data.size() + " registered motherships"));

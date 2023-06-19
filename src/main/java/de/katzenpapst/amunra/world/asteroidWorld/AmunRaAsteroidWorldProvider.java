@@ -286,7 +286,7 @@ abstract public class AmunRaAsteroidWorldProvider extends WorldProviderAsteroids
         }
 
         final int max = Math.max(count, targets.size());
-        if (max <= 0) return null;
+        if (max == 0) return null;
 
         final ArrayList<BlockVec3> returnValues = new ArrayList<>();
         int i = 0;
