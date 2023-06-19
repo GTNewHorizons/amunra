@@ -226,7 +226,7 @@ public class AmunRaAsteroidsChunkProvider extends ChunkProviderGenerate {
                         // The next line is called 3136 times per chunk generated. getNoise is a little slow.
                         if (this.randFromPointPos(x, z)
                                 < (this.asteroidDensity.getNoise(x, z) + .4) / ASTEROID_CHANCE) {
-                            random.setSeed(x + z * 3067);
+                            random.setSeed(x + z * 3067L);
                             final int y = random.nextInt(rangeY) + MIN_ASTEROID_Y;
                             final int size = random.nextInt(rangeSize) + MIN_ASTEROID_RADIUS;
 
