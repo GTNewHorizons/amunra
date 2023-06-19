@@ -62,7 +62,7 @@ public class TabButton extends GuiButton {
             OpenGlHelper.glBlendFunc(770, 771, 1, 0);
             GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 
-            this.drawTexturedModalRect(this.xPosition, this.yPosition, 0, 0 + hoverState * 28, 30, 28);
+            this.drawTexturedModalRect(this.xPosition, this.yPosition, 0, hoverState * 28, 30, 28);
 
             this.mouseDragged(mc, mouseX, mouseY);
 

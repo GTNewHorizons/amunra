@@ -40,7 +40,7 @@ public class RenderSentry extends RenderLiving {
         final char c0 = 61680;
         final int j = c0 % 65536;
         final int k = c0 / 65536;
-        OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, j / 1.0F, k / 1.0F);
+        OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, j, k);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         return 1;
     }
