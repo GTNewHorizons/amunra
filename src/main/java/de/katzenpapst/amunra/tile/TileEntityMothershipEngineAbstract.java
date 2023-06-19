@@ -590,7 +590,6 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
         final TileEntity worldTile = this.worldObj.getTileEntity(x, y, z);
 
         if (!booster.getBlock().equals(worldBlock) || booster.getMetadata() != worldMeta
-                || worldTile == null
                 || !(worldTile instanceof TileEntityMothershipEngineBooster)
                 || ((TileEntityMothershipEngineBooster) worldTile).hasMaster()) {
             return false;
@@ -622,7 +621,6 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
         final TileEntity worldTile = this.worldObj.getTileEntity(x, y, z);
 
         if (!booster.getBlock().equals(worldBlock) || booster.getMetadata() != worldMeta
-                || worldTile == null
                 || !(worldTile instanceof TileEntityMothershipEngineBooster)
                 || !((TileEntityMothershipEngineBooster) worldTile).isMaster(this.xCoord, this.yCoord, this.zCoord)) {
             return false;

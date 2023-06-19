@@ -41,7 +41,7 @@ public class MothershipEngineBoosterBase extends AbstractBlockMothershipRestrict
     public boolean onMachineActivated(final World world, final int x, final int y, final int z,
             final EntityPlayer entityPlayer, final int side, final float hitX, final float hitY, final float hitZ) {
         final TileEntity leTile = world.getTileEntity(x, y, z);
-        if (leTile == null || !(leTile instanceof TileEntityMothershipEngineBooster tile)) {
+        if (!(leTile instanceof TileEntityMothershipEngineBooster tile)) {
             return false;
         }
         if (tile.hasMaster()) {
