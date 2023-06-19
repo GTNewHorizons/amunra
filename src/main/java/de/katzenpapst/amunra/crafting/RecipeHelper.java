@@ -1049,10 +1049,8 @@ public class RecipeHelper {
     /**
      * Adds recipes for rocket chest permutations, with meta = 0 for 0 chests, 1 for 1 chest, etc
      *
-     * @param rocket     the item which will be crafted
-     * @param input      the input hashmap
-     * @param chestAlu   itemstack of the "chest"
-     * @param chestSlot1 the 3 slot positions for the 3 "chests"
+     * @param rocket the item which will be crafted
+     * @param input  the input hashmap
      */
     public static void addRocketRecipeWithChestPermutations(final Item rocket,
             final HashMap<Integer, ItemStack> input) {

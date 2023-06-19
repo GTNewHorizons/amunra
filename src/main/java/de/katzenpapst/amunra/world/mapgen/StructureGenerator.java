@@ -237,7 +237,7 @@ abstract public class StructureGenerator extends MapGenBaseMeta {
      * @param origXChunkCoord x coord of the currently generating chunk
      * @param origZChunkCoord z coord of the currently generating chunk
      * @param blocks          blocks array
-     * @param metas           metas array
+     * @param metadata        metadata array
      */
     @Override
     public void generate(final IChunkProvider chunkProvider, final World world, final int origXChunkCoord,
