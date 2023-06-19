@@ -84,7 +84,7 @@ abstract public class ContainerWithPlayerInventory extends Container {
         final int numSlotsAdded = containerInvSize - 36;
 
         // seems like inventorySlots is EVERYTHING
-        // and slotNr might be relate to EVERYTHING as well
+        // and slotNr might relate to EVERYTHING as well
 
         if (slot != null && slot.getHasStack()) {
             final ItemStack stack = slot.getStack();

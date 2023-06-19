@@ -19,7 +19,7 @@ public class GuiSchematicShuttle extends GuiContainer implements ISchematicResul
 
     // for now, copypasta from the t2 rocket
     /*
-     * so it seems like the relevant data is: - the texture - the ySize - the item to build - the Container Should be
+     * So it seems like the relevant data is: - the texture - the ySize - the item to build - the Container Should be
      * easy enough to abstract that
      */
     public static final ResourceLocation shuttleSchematicTexture = new ResourceLocation(

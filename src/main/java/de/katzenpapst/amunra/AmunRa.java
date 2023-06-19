@@ -544,7 +544,7 @@ public class AmunRa {
         this.moonKhonsu.setRelativeSize(0.45F);
         GalaxyRegistry.registerMoon(this.moonKhonsu);
 
-        // this will have an oxygen atmosphere. neper was some kind of a grain god, so
+        // this will have an oxygen atmosphere. neper was some kind of grain god, so
         this.moonNeper = this.createMoon("neper", "planet-life-o2.png", 1.58, 14.9, 140);
         this.moonNeper.atmosphere.add(IAtmosphericGas.NITROGEN);
         this.moonNeper.atmosphere.add(IAtmosphericGas.OXYGEN);

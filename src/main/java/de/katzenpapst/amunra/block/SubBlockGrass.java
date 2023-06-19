@@ -70,8 +70,8 @@ public class SubBlockGrass extends SubBlock {
     }
 
     /**
-     * Return true if the current conditions are good for this grasses survival, usually light stuff The Multiblock will
-     * replace it with this.getDirtBlock() Will also be called for dirt neighbors of this in order to check if this
+     * Return true if the current conditions are good for this grasses' survival, usually light stuff The Multiblock
+     * will replace it with this.getDirtBlock() Will also be called for dirt neighbors of this in order to check if this
      * *could* live there
      */
     public boolean canLiveHere(final World world, final int x, final int y, final int z) {

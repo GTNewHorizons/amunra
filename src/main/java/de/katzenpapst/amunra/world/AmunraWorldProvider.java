@@ -22,7 +22,7 @@ public abstract class AmunraWorldProvider extends WorldProviderSpace implements 
     protected float solarLevel = -1;
 
     /**
-     * Gravity relative to OW. 1.35 seems to be the last value where you can jump up blocks. walking up stairs seems to
+     * Gravity relative to OW. 1.35 seems to be the last value where you can jump up blocks. walking upstairs seems to
      * work on any gravity
      */
     protected abstract float getRelativeGravity();
@@ -158,14 +158,14 @@ public abstract class AmunraWorldProvider extends WorldProviderSpace implements 
 
     /**
      * The current sun brightness factor for this dimension. 0.0f means no light at all, and 1.0f means maximum
-     * sunlight. This will be used for the "calculateSkylightSubtracted" which is for Sky light value calculation. No
+     * sunlight. This will be used for the "calculateSkylightSubtracted" which is for Skylight value calculation. No
      * idea what this actually influences
      *
      * @return The current brightness factor
      */
     @Override
     public float getSunBrightnessFactor(float par1) {
-        // I *think* that I could use this to make eclipses etc work
+        // I think that I could use this to make eclipses and similar things to work
         float factor = this.worldObj.getSunBrightnessFactor(par1) + this.getAmunBrightnessFactor(par1);
 
         if (factor > 1.0F) {

@@ -250,7 +250,7 @@ public class ARBlocks {
                 .setHarvestInfo("pickaxe", 2).setHardness(3).setResistance(5);
 
         subCryo = (SubBlockOre) new SubBlockOre("oreCryo", "amunra:ore-cryo")
-                // no idea for a oredictname for this one...
+                // no idea for an oredictname for this one...
                 .setHarvestInfo("pickaxe", 3).setHardness(3).setResistance(5);
 
         subDesh = (SubBlockOre) new SubBlockOre("oreDesh", "amunra:ore-desh").setOredictNames("oreDesh")

@@ -5,7 +5,7 @@
 - babel fish! crafted with freq module to a translation module
 - connected block textures
 - auto-refilling oxygen tanks
-- oxygen mask which works under water
+- oxygen mask which works underwater
 - dyed oxygen masks (so that vos6434 calms down^^)
 - GC equipment items which use energy to do special things
 - GC equipment "armor stand", which equips/unequips everything onto you on rightclick, and also recharges things
@@ -19,9 +19,9 @@
 - constricting attack for mummy? or some other advanced feature of that boss
 - bodies for amun?
 - chests, maybe made of basalt, maybe with advanced protection features, maybe not
-- Some sort of a "harvesting beam", to collect gasses from a gas giant
+- Some sort of "harvesting beam", to collect gasses from a gas giant
 - beamer, allows for safe descent on a body (will error when orbiting unavailable body)
 - allow motherships to move "up" and "down", too
-- some sort of a guardian for robot villages
+- some sort of guardian for robot villages
 - collect something while a mothership is in transit?
 - procedural attackable enemy ships

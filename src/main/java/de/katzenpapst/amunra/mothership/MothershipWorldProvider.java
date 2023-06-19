@@ -107,7 +107,7 @@ public class MothershipWorldProvider extends WorldProviderSpace implements IZero
 
     protected double solarLevel = 1;
 
-    // this is to workaround this case where a player logs in before whe have read from nbt
+    // this is to work around the case where a player logs in before whe have read from nbt
     protected boolean mustSendPacketToClients = false;
     protected boolean haveReadFromNBT = false;
 
@@ -672,10 +672,7 @@ public class MothershipWorldProvider extends WorldProviderSpace implements IZero
         int maxY = -1;
         for (final ExtendedBlockStorage st : storage) {
             if (st == null) continue;
-            /*
-             * yLocation: Contains the bottom-most Y block represented by this ExtendedBlockStorage. Typically a
-             * multiple of 16.
-             */
+
             if (st.getYLocation() < minY) {
                 minY = st.getYLocation();
             }

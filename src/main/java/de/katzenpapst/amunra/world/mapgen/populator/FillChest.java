@@ -28,7 +28,7 @@ public class FillChest extends AbstractPopulator {
                 chest.setInventorySlotContents(i, null);
             }
 
-            // hmm that is an interesting concept
+            // That might be an interesting concept
             final ChestGenHooks info = ChestGenHooks.getInfo(this.chestGenName);
 
             WeightedRandomChestContent

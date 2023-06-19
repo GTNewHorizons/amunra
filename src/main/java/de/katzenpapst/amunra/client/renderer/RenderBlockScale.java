@@ -54,7 +54,7 @@ public class RenderBlockScale extends TileEntitySpecialRenderer {
         final String toDisplay = GuiHelper.formatKilogram(mass);
         final int width = fr.getStringWidth(toDisplay); // 29 pixels
         GL11.glScalef(0.020F, 0.020F, 0.020F);
-        // I think now, translating by 1 means translating by 1 pixel
+        // I think now, "translating by one" means translating by one pixel.
         // I also think the total width is 1/0,02 = 50
         GL11.glTranslatef((50 - width) / 2.0F, yOffset, 0);
         fr.drawString(toDisplay, 0, 0, 0);

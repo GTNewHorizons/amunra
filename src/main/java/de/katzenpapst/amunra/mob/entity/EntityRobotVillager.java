@@ -56,7 +56,7 @@ public class EntityRobotVillager extends EntityAgeable implements IEntityBreatha
     private boolean needsInit;
 
     /*
-     * For now I'll just keep the professions in here
+     * For now, I'll just keep the professions in here
      */
 
     protected static List<ResourceLocation> professionIcons = new ArrayList<>();
@@ -201,15 +201,6 @@ public class EntityRobotVillager extends EntityAgeable implements IEntityBreatha
                 }
             }
         }
-
-        /*
-         * MerchantRecipeList merchantrecipelist; merchantrecipelist = new MerchantRecipeList();
-         * VillagerRegistry.manageVillagerTrades(merchantrecipelist, this, this.getProfession(), this.rand); int k; if
-         * (merchantrecipelist.isEmpty()) { func_146091_a(merchantrecipelist, Items.gold_ingot, this.rand, 1.0F); }
-         * Collections.shuffle(merchantrecipelist); if (this.buyingList == null) { this.buyingList = new
-         * MerchantRecipeList(); } for (int l = 0; l < p_70950_1_ && l < merchantrecipelist.size(); ++l) {
-         * this.buyingList.addToListWithCheck((MerchantRecipe)merchantrecipelist.get(l)); }
-         */
     }
 
     /**

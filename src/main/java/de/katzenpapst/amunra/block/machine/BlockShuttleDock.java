@@ -57,10 +57,6 @@ public class BlockShuttleDock extends SubBlockMachine {
         return AmunRa.dummyRendererId;
     }
 
-    /*
-     * @Override public boolean canReplace(World world, int x, int y, int z, int probablySide, ItemStack stack) { return
-     * this.getSubBlock(stack.getItemDamage()).canReplace(world, x, y, z, probablySide, stack); }
-     */
     @Override
     public boolean canPlaceBlockAt(World worldIn, int x, int y, int z) {
         return worldIn.getBlock(x, y, z).isReplaceable(worldIn, x, y, z)

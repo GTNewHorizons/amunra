@@ -194,7 +194,7 @@ public class Mothership extends CelestialBody {
 
     /**
      * Only do stuff regarding this object itself, send the packets and stuff at someplace else. This should only ever
-     * be called from the the MothershipWorldProvider!
+     * be called from the MothershipWorldProvider!
      *
      * @param target
      * @return
@@ -219,7 +219,7 @@ public class Mothership extends CelestialBody {
     }
 
     /**
-     * This should only ever be called from the the MothershipWorldProvider!
+     * This should only ever be called from the MothershipWorldProvider!
      *
      * @return
      */

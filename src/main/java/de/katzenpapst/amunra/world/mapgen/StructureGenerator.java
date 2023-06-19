@@ -100,8 +100,8 @@ abstract public class StructureGenerator extends MapGenBaseMeta {
 
             return MathHelper.getRandomIntegerInRange(rand, minComponents, maxComponents);
         }
-        // otherwise dunno. Kinda guess something?
 
+        // otherwise guess
         return MathHelper.getRandomIntegerInRange(rand, minComponents, minComponents + subCompData.size());
 
     }

@@ -162,7 +162,7 @@ public class MothershipWorldData extends WorldSavedData {
     public Mothership addMothership(final Mothership ship) {
 
         if (MinecraftServer.getServer() != null && !MinecraftServer.getServer().isDedicatedServer()) {
-            // don't do this on an integrated SSP server, because for these, the list is up to date already
+            // don't do this on an integrated SSP server, because for these, the list is up-to-date already
             this.updateOrbitsFor(ship.getParent());
             // here we have a stupid case where the ship we get is a duplicate of one in the list
             return this.getByMothershipId(ship.getID());

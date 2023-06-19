@@ -144,9 +144,9 @@ public class AstronomyHelper {
     }
 
     /**
-     * Finds the closest common parent of the given bodies. For two moons, it should be their parent planet, for a
-     * planet and it's moon the planet, for two planets in the same solar system or two moons of different planetes in
-     * the same system the star, for objects of different systems null.
+     * Finds the closest common parent of the given bodies. For two moons - their parent planet, for a planet and its
+     * moon - the planet, for two planets in the same solar system or two moons of different planets in the same system
+     * - the star, for objects of different systems - null.
      */
     public static CelestialBody getClosestCommonParent(final CelestialBody body1, final CelestialBody body2) {
 
@@ -157,8 +157,6 @@ public class AstronomyHelper {
         if (body1.equals(body2)) {
             return body1;
         }
-
-        // death by recursion!
 
         // motherships
         if (body1 instanceof Mothership ship1 && !(body2 instanceof Mothership)) {
@@ -252,7 +250,7 @@ public class AstronomyHelper {
     }
 
     /**
-     * Returns a string in the format "solarSystem\planet\moon", for any body which is mothership-orbitable
+     * Returns a string in the format "solarSystem\planet\moon", for any celestial body which is mothership-orbitable
      */
     public static String getOrbitableBodyName(final CelestialBody body) {
 
@@ -397,7 +395,7 @@ public class AstronomyHelper {
     }
 
     /**
-     * Should calculate a thermal level depending on that body's distance from the star in it's system
+     * Should calculate a thermal level depending on that body's distance from the star in its system
      */
     public static float getThermalLevel(CelestialBody body) {
         if (body instanceof Star) {

@@ -45,8 +45,6 @@ public class EntityShuttle extends EntityTieredRocket {
 
     protected int numTanks = 0;
 
-    // protected Vector3int targetDockPosition = null;
-
     // so, apparently, there is no real way to figure out when an entity has been dismounted
     protected Entity prevRiddenByEntity = null;
 
@@ -546,7 +544,6 @@ public class EntityShuttle extends EntityTieredRocket {
     }
 
     protected void checkStandingPosition() {
-        // hm
         // recheck this from time to time anyway
         if (this.worldObj.isRemote || this.doKnowOnWhatImStanding && this.ticksExisted % 40 != 0) {
             return;

@@ -301,7 +301,7 @@ abstract public class BaseStructureComponent {
     }
 
     /**
-     * Get highest block in a column, chunk-relative coordinates
+     * Get the highest block in a column, chunk-relative coordinates
      */
     public static int getHighestSolidBlock(final Block[] blocks, final byte[] metas, final int relX, final int relZ) {
 

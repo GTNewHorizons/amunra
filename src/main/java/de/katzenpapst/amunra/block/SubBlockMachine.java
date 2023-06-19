@@ -32,7 +32,7 @@ public class SubBlockMachine extends SubBlock implements ItemBlockDesc.IBlockShi
     }
 
     /**
-     * Called when the machine is right clicked by the player
+     * Called when the machine is right-clicked by the player
      *
      * @return True if something happens
      */

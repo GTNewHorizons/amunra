@@ -440,7 +440,7 @@ public class Pyramid extends BaseStructureStart {
             case 0 -> { // up aka +z
                 doorBB.minZ = roomBox.maxZ + 1;
                 doorBB.maxZ = doorBB.minZ + 1;
-                // hmm this is for odd
+                // this is for odd
                 doorBB.minX = roomBox.getCenterX() - 1;
                 doorBB.maxX = roomBox.getCenterX() + 1;
             }

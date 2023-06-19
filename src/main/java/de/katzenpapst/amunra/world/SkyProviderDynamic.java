@@ -119,9 +119,9 @@ public class SkyProviderDynamic extends IRenderHandler {
     protected SolarSystem curSystem;
     // the body to render it around
     protected CelestialBody curBody;
-    // this is either the same as curBody, or it's parent, if its a moon
+    // this is either the same as curBody, or it's parent, if it's a moon
     protected CelestialBody curBodyPlanet;
-    // the distance of this body or it's parent from the sun
+    // the distance of this body or its parent from the sun
     protected float curBodyDistance;
     protected float boxWidthHalf = 311;
 
@@ -370,7 +370,7 @@ public class SkyProviderDynamic extends IRenderHandler {
         // AH this seems to be what prevents the stars to be visible at day
         float curBrightness = world.getStarBrightness(partialTicks);
 
-        // here, mars does star rendering
+        // here, Mars does star rendering
 
         GL11.glDisable(GL11.GL_TEXTURE_2D);
         GL11.glShadeModel(GL11.GL_SMOOTH);
@@ -407,7 +407,7 @@ public class SkyProviderDynamic extends IRenderHandler {
         someZoffset = 0.0F;
         GL11.glTranslatef(someXoffset, someYoffset, someZoffset);
         GL11.glRotatef(-90.0F, 0.0F, 1.0F, 0.0F);
-        // rotates the sky by the celestial angle on the x axis
+        // rotates the sky by the celestial angle on the X axis
         // this seems to mean that the x-axis is the rotational axis of the planet
         // does the sun move from -z to z or the other way round?
         if (this.isAsteroidBelt && this.isAsteroidBeltMoon) {
@@ -638,7 +638,7 @@ public class SkyProviderDynamic extends IRenderHandler {
     protected void renderSiblingPlanets(final double curBodyOrbitalAngle, final long curWorldTime,
             final float partialTicks) {
         for (final Planet planet : GalaxyRegistry.getRegisteredPlanets().values()) {
-            // oh well I hope this doesn't kill the performance
+            // I hope this doesn't kill the performance
 
             if (planet.getParentSolarSystem() != this.curSystem || planet.equals(this.curBodyPlanet)
                     || AmunRa.config.bodiesNoRender.contains(planet.getName())) {
@@ -662,7 +662,7 @@ public class SkyProviderDynamic extends IRenderHandler {
     protected void renderChildPlanets(final long curWorldTime, final float partialTicks) {
         double curOrbitalAngle;
         for (final Planet planet : GalaxyRegistry.getRegisteredPlanets().values()) {
-            // oh well I hope this doesn't kill the performance
+            // I hope this doesn't kill the performance
             if (planet.getParentSolarSystem() != this.curSystem || planet.equals(this.curBodyPlanet)
                     || AmunRa.config.bodiesNoRender.contains(planet.getName())) {
                 continue;
@@ -812,7 +812,7 @@ public class SkyProviderDynamic extends IRenderHandler {
                 this.renderSiblingMoons(curOrbitalAngle, curWorldTime, partialTicks);
             }
             case RINGS -> {
-                // do something similar to planet rendering. pretend we render being on the parent body.. kinda
+                // do something similar to planet rendering. pretend we render being on the parent body
                 curOrbitalAngle = this.getOrbitalAngle(
                         this.curBodyPlanet.getRelativeDistanceFromCenter().unScaledDistance,
                         this.curBodyPlanet.getPhaseShift(),

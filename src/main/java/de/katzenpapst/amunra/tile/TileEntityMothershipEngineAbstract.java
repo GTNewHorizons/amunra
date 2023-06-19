@@ -327,7 +327,7 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
                     this.fuelTank.fill(new FluidStack(this.fuel, drained.amount), true);
                     liquid = ((IFluidContainerItem) canister.getItem()).getFluid(canister);
                     if (liquid == null || liquid.amount == 0) {
-                        // this should replace the container with it's empty version
+                        // this should replace the container with its empty version
                         final ItemStack canisterNew = FluidContainerRegistry.drainFluidContainer(canister);
                         if (canisterNew != null) {
                             this.containingItems[0] = canisterNew;
@@ -550,7 +550,7 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
                 return this.xCoord * this.xCoord + Math.pow(player.posZ - maxZ, 2) <= 64.0D;
             } else {
                 // we are between the jet and the last booster on the z axis,
-                // just look if we are not too far away from the x axis
+                // just look if we are not too far away from the X axis
                 return Math.abs(player.posX - this.xCoord) <= 8;
             }
         }
@@ -564,7 +564,7 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
             return this.zCoord * this.zCoord + Math.pow(player.posX - maxX, 2) <= 64.0D;
         } else {
             // we are between the jet and the last booster on the z axis,
-            // just look if we are not too far away from the x axis
+            // just look if we are not too far away from the X axis
             return Math.abs(player.posZ - this.zCoord) <= 8;
         }
     }

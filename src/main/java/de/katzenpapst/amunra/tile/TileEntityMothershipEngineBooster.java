@@ -28,7 +28,7 @@ import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 import micdoodle8.mods.galacticraft.planets.asteroids.AsteroidsModule;
 
 /**
- * This is supposed to be an universal booster TileEntity, used by all booster blocks
+ * This is supposed to be a universal booster TileEntity, used by all booster blocks
  *
  * @author katzenpapst
  *

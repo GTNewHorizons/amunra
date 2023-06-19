@@ -517,7 +517,7 @@ public class PacketSimpleAR extends Packet implements IPacket {
                 if (Mothership.canBeOrbited(targetBody) && (AmunRa.config.maxNumMotherships < 0
                         || TickHandlerServer.mothershipData.getNumMothershipsForPlayer(playerBase)
                                 < AmunRa.config.maxNumMotherships)) {
-                    // the matches consumes the actual items
+                    // the matches consume the actual items
                     if (playerBase.capabilities.isCreativeMode
                             || RecipeHelper.mothershipRecipe.matches(playerBase, true)) {
                         TickHandlerServer.mothershipData.registerNewMothership(playerBase, targetBody);

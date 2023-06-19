@@ -98,7 +98,7 @@ public class EntityLaserArrow extends EntityBaseLaserArrow {
         final Block block = worldObj.getBlock(x, y, z);
         final int meta = worldObj.getBlockMetadata(x, y, z);
 
-        // first tests first
+        // first tests
 
         if (block == Blocks.ice) {
             worldObj.setBlock(x, y, z, Blocks.water, 0, 3);

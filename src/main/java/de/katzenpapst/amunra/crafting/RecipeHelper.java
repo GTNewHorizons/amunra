@@ -855,7 +855,6 @@ public class RecipeHelper {
                 redstone,
                 optional);
         circuitFabricatorRecipes.add(cfr);
-        // oh my
         for (ItemStack element : crystal) {
             for (ItemStack element2 : silicon1) {
                 for (ItemStack element3 : silicon2) {

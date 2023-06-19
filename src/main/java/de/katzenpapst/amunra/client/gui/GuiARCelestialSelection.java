@@ -41,7 +41,7 @@ public class GuiARCelestialSelection extends GuiCelestialSelection {
 
     protected int numPlayersMotherships = -1;
 
-    // the body where the player has started from, or the mothership's parent, if player started from a MS
+    // the body where the player has started from, or the mothership's parent, if player started from an MS
     // can be null
     protected CelestialBody playerParent = null;
 

@@ -75,7 +75,7 @@ public class TileEntityHydroponics extends TileEntityOxygen
 
     /**
      * Make sure this does not exceed the oxygen stored. This should return 0 if no oxygen is stored. Implementing tiles
-     * must respect this or you will generate infinite oxygen.
+     * must respect this, or you will generate infinite oxygen.
      */
     @Override
     public float getOxygenProvide(final ForgeDirection direction) {
@@ -355,7 +355,7 @@ public class TileEntityHydroponics extends TileEntityOxygen
         ItemStack stack;
         switch (realOp) {
             case PLANT_SEED -> {
-                // I hope this works..
+                // I hope it works
                 stack = this.containingItems[1];
                 if (this.plantGrowthStatus == -1.0F && stack != null
                         && stack.stackSize > 0

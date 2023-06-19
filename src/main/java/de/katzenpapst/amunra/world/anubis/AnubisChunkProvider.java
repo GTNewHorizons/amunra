@@ -59,7 +59,7 @@ public class AnubisChunkProvider extends AmunraChunkProvider {
 
     @Override
     protected int getSeaLevel() {
-        return 93;// taken from mars
+        return 93; // taken from Mars
     }
 
     @Override
