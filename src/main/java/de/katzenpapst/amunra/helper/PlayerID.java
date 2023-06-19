@@ -57,7 +57,7 @@ public class PlayerID {
     }
 
     public boolean isSameUser(final EntityPlayer player) {
-        return player == null ? false : this.userUUID.equals(player.getUniqueID());
+        return player != null && this.userUUID.equals(player.getUniqueID());
     }
 
 }

@@ -84,18 +84,17 @@ public class ItemSlabMulti extends ItemBlockMulti {
                     p_77648_5_,
                     p_77648_6_,
                     p_77648_7_)
-                            ? true
-                            : super.onItemUse(
-                                    p_77648_1_,
-                                    p_77648_2_,
-                                    p_77648_3_,
-                                    p_77648_4_,
-                                    p_77648_5_,
-                                    p_77648_6_,
-                                    p_77648_7_,
-                                    p_77648_8_,
-                                    p_77648_9_,
-                                    p_77648_10_);
+                    || super.onItemUse(
+                            p_77648_1_,
+                            p_77648_2_,
+                            p_77648_3_,
+                            p_77648_4_,
+                            p_77648_5_,
+                            p_77648_6_,
+                            p_77648_7_,
+                            p_77648_8_,
+                            p_77648_9_,
+                            p_77648_10_);
         }
     }
 
@@ -142,8 +141,8 @@ public class ItemSlabMulti extends ItemBlockMulti {
         final Block newBlock = p_150936_1_.getBlock(p_150936_2_, p_150936_3_, p_150936_4_);
         final int newMeta = p_150936_1_.getBlockMetadata(p_150936_2_, p_150936_3_, p_150936_4_);
         distinctionMeta = newMeta & 7;
-        return newBlock == this.singleSlab && distinctionMeta == p_150936_7_.getItemDamage() ? true
-                : super.func_150936_a(p_150936_1_, xNew, yNew, zNew, p_150936_5_, p_150936_6_, p_150936_7_);
+        return (newBlock == this.singleSlab && distinctionMeta == p_150936_7_.getItemDamage())
+                || super.func_150936_a(p_150936_1_, xNew, yNew, zNew, p_150936_5_, p_150936_6_, p_150936_7_);
     }
 
     private boolean tryCombiningWithSide(final ItemStack stack, final EntityPlayer player, final World world, int x,

@@ -80,7 +80,7 @@ public class BlockFallingMeta extends BlockBasicMeta {
         }
         // TODO figure out how it works for forge fluids
         final Material material = block.getMaterial();
-        return material == Material.water ? true : material == Material.lava;
+        return material == Material.water || material == Material.lava;
     }
 
 }
