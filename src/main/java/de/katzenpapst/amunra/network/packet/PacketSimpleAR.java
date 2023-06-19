@@ -188,8 +188,8 @@ public class PacketSimpleAR extends Packet implements IPacket {
          */
         C_TELEPORT_SHUTTLE_FAIL(Side.CLIENT, String.class);
 
-        private Side targetSide;
-        private Class<?>[] decodeAs;
+        private final Side targetSide;
+        private final Class<?>[] decodeAs;
 
         EnumSimplePacket(final Side targetSide, final Class<?>... decodeAs) {
             this.targetSide = targetSide;
