@@ -158,7 +158,7 @@ public class ItemShuttle extends Item implements IHoldableItem {
         final int fuelTotal = EntityShuttle.getFuelCapacityFromDamage(dmg);
         if (EntityShuttle.isPreFueled(dmg)) {
             p_77624_3_.add(GCCoreUtil.translate("gui.message.fuel.name") + ": " + fuelTotal + " / " + fuelTotal);
-            p_77624_3_.add(EnumColor.RED + "\u00a7o" + GCCoreUtil.translate("gui.creativeOnly.desc"));
+            p_77624_3_.add(EnumColor.RED + "§o" + GCCoreUtil.translate("gui.creativeOnly.desc"));
         } else {
             int fuelContained = 0;
             if (p_77624_1_.hasTagCompound() && p_77624_1_.getTagCompound().hasKey("RocketFuel")) {
