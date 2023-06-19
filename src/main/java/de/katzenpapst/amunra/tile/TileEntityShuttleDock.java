@@ -87,7 +87,7 @@ public class TileEntityShuttleDock extends TileEntityAdvanced
         EntityShuttle shuttleEntity;
         ItemStack stack;
         switch (op) {
-            case DEPLOY_SHUTTLE:
+            case DEPLOY_SHUTTLE -> {
                 if (this.dockedEntity != null) {
                     return; // doesn't work
                 }
@@ -107,8 +107,8 @@ public class TileEntityShuttleDock extends TileEntityAdvanced
                 }
                 this.setInventorySlotContents(0, stack);
                 this.hasShuttleDocked = true;
-                break;
-            case GET_SHUTTLE:
+            }
+            case GET_SHUTTLE -> {
                 if (this.dockedEntity == null) {
                     return;
                 }
@@ -118,17 +118,14 @@ public class TileEntityShuttleDock extends TileEntityAdvanced
                 }
                 shuttleEntity = (EntityShuttle) this.dockedEntity;
                 stack = shuttleEntity.getItemRepresentation();
-
                 final List<ItemStack> cargo = shuttleEntity.getCargoContents();
                 this.dropItemsAtExit(cargo);
-
                 this.setInventorySlotContents(0, stack);
                 shuttleEntity.setDead();
                 this.dockedEntity = null;
                 this.hasShuttleDocked = false;
-
-                break;
-            case MOUNT_SHUTTLE:
+            }
+            case MOUNT_SHUTTLE -> {
                 if (this.dockedEntity == null) {
                     return;
                 }
@@ -139,10 +136,10 @@ public class TileEntityShuttleDock extends TileEntityAdvanced
                 player.mountEntity(shuttleEntity);
                 GalacticraftCore.packetPipeline
                         .sendTo(new PacketSimple(PacketSimple.EnumSimplePacket.C_CLOSE_GUI, new Object[] {}), player);
-                break;
-            default:
+            }
+            default -> {
                 return;
-
+            }
         }
         this.updateAvailabilityInWorldData();
         this.markDirty();
@@ -223,45 +220,41 @@ public class TileEntityShuttleDock extends TileEntityAdvanced
     }
 
     public Vector3 getShuttlePosition() {
-        switch (this.getRotationMeta()) {
-            case 0:
-                return new Vector3(this.xCoord + 0.5, this.yCoord, this.zCoord - 1.5D);
-            case 2:
-                return new Vector3(this.xCoord - 1.5D, this.yCoord, this.zCoord + 0.5D);
-            case 1:
-                return new Vector3(this.xCoord + 0.5, this.yCoord, this.zCoord + 2.5D);
-            case 3:
-                return new Vector3(this.xCoord + 2.5D, this.yCoord, this.zCoord + 0.5D);
-        }
-        return null;
+        return switch (this.getRotationMeta()) {
+            case 0 -> new Vector3(this.xCoord + 0.5, this.yCoord, this.zCoord - 1.5D);
+            case 2 -> new Vector3(this.xCoord - 1.5D, this.yCoord, this.zCoord + 0.5D);
+            case 1 -> new Vector3(this.xCoord + 0.5, this.yCoord, this.zCoord + 2.5D);
+            case 3 -> new Vector3(this.xCoord + 2.5D, this.yCoord, this.zCoord + 0.5D);
+            default -> null;
+        };
     }
 
     public float getExitRotation() {
-        switch (this.getRotationMeta()) {
-            case 0: // -> +Z (the side which is towards the player)
-                return 0.0F;
-            case 2: // -> -Z
-                return 270.0F;
-            case 1: // -> -X
-                return 180.0F;
-            case 3: // -> +X
-                return 90.0F;
-        }
-        return 0;
+        return switch (this.getRotationMeta()) {
+            case 0 -> // -> +Z (the side which is towards the player)
+                0.0F;
+            case 2 -> // -> -Z
+                270.0F;
+            case 1 -> // -> -X
+                180.0F;
+            case 3 -> // -> +X
+                90.0F;
+            default -> 0;
+        };
     }
 
     public Vector3 getExitPosition() {
-        switch (this.getRotationMeta()) {
-            case 0: // -> +Z (the side which is towards the player)
-                return new Vector3(this.xCoord + 0.5, this.yCoord, this.zCoord + 1.5D);
-            case 2: // -> -Z
-                return new Vector3(this.xCoord + 1.5D, this.yCoord, this.zCoord + 0.5D);
-            case 1: // -> -X
-                return new Vector3(this.xCoord + 0.5, this.yCoord, this.zCoord - 0.5D);
-            case 3: // -> +X
-                return new Vector3(this.xCoord - 0.5D, this.yCoord, this.zCoord + 0.5D);
-        }
-        return null;
+        return switch (this.getRotationMeta()) {
+            case 0 -> // -> +Z (the side which is towards the player)
+                new Vector3(this.xCoord + 0.5, this.yCoord, this.zCoord + 1.5D);
+            case 2 -> // -> -Z
+                new Vector3(this.xCoord + 1.5D, this.yCoord, this.zCoord + 0.5D);
+            case 1 -> // -> -X
+                new Vector3(this.xCoord + 0.5, this.yCoord, this.zCoord - 0.5D);
+            case 3 -> // -> +X
+                new Vector3(this.xCoord - 0.5D, this.yCoord, this.zCoord + 0.5D);
+            default -> null;
+        };
     }
 
     protected void repositionEntity() {
@@ -401,21 +394,19 @@ public class TileEntityShuttleDock extends TileEntityAdvanced
         this.checkTileAt(connectedTiles, this.xCoord, this.yCoord + 2, this.zCoord);
 
         // sides
-        switch (this.getRotationMeta()) {
-            case 0: // -> +Z (the side which is towards the player)
-            case 2: // -> -Z
+        switch (this.getRotationMeta()) { // -> +Z (the side which is towards the player)
+            case 0, 2 -> { // -> -Z
                 this.checkTileAt(connectedTiles, this.xCoord - 1, this.yCoord, this.zCoord);
                 this.checkTileAt(connectedTiles, this.xCoord + 1, this.yCoord, this.zCoord);
                 this.checkTileAt(connectedTiles, this.xCoord - 1, this.yCoord + 1, this.zCoord);
                 this.checkTileAt(connectedTiles, this.xCoord + 1, this.yCoord + 1, this.zCoord);
-                break;
-            case 1: // -> -X
-            case 3: // -> +X
+            } // -> -X
+            case 1, 3 -> { // -> +X
                 this.checkTileAt(connectedTiles, this.xCoord, this.yCoord, this.zCoord - 1);
                 this.checkTileAt(connectedTiles, this.xCoord, this.yCoord, this.zCoord + 1);
                 this.checkTileAt(connectedTiles, this.xCoord, this.yCoord + 1, this.zCoord - 1);
                 this.checkTileAt(connectedTiles, this.xCoord, this.yCoord + 1, this.zCoord + 1);
-                break;
+            }
         }
         // maybe do the edges, too?
 
@@ -475,47 +466,43 @@ public class TileEntityShuttleDock extends TileEntityAdvanced
     @SideOnly(Side.CLIENT)
     public AxisAlignedBB getRenderBoundingBox() {
 
-        switch (this.getRotationMeta()) {
-            case 0:
-                return AxisAlignedBB.getBoundingBox(
-                        this.xCoord,
-                        this.yCoord,
-                        this.zCoord - 1,
-                        this.xCoord + 1,
-                        this.yCoord + 2,
-                        this.zCoord + 1);
-            case 1:
-                return AxisAlignedBB.getBoundingBox(
-                        this.xCoord,
-                        this.yCoord,
-                        this.zCoord,
-                        this.xCoord + 1,
-                        this.yCoord + 2,
-                        this.zCoord + 2);
-            case 2:
-                return AxisAlignedBB.getBoundingBox(
-                        this.xCoord - 1,
-                        this.yCoord,
-                        this.zCoord,
-                        this.xCoord + 1,
-                        this.yCoord + 2,
-                        this.zCoord + 1);
-            case 3:
-                return AxisAlignedBB.getBoundingBox(
-                        this.xCoord,
-                        this.yCoord,
-                        this.zCoord,
-                        this.xCoord + 2,
-                        this.yCoord + 2,
-                        this.zCoord + 1);
-        }
-        return AxisAlignedBB.getBoundingBox(
-                this.xCoord,
-                this.yCoord,
-                this.zCoord,
-                this.xCoord + 1,
-                this.yCoord + 2,
-                this.zCoord + 1);
+        return switch (this.getRotationMeta()) {
+            case 0 -> AxisAlignedBB.getBoundingBox(
+                    this.xCoord,
+                    this.yCoord,
+                    this.zCoord - 1,
+                    this.xCoord + 1,
+                    this.yCoord + 2,
+                    this.zCoord + 1);
+            case 1 -> AxisAlignedBB.getBoundingBox(
+                    this.xCoord,
+                    this.yCoord,
+                    this.zCoord,
+                    this.xCoord + 1,
+                    this.yCoord + 2,
+                    this.zCoord + 2);
+            case 2 -> AxisAlignedBB.getBoundingBox(
+                    this.xCoord - 1,
+                    this.yCoord,
+                    this.zCoord,
+                    this.xCoord + 1,
+                    this.yCoord + 2,
+                    this.zCoord + 1);
+            case 3 -> AxisAlignedBB.getBoundingBox(
+                    this.xCoord,
+                    this.yCoord,
+                    this.zCoord,
+                    this.xCoord + 2,
+                    this.yCoord + 2,
+                    this.zCoord + 1);
+            default -> AxisAlignedBB.getBoundingBox(
+                    this.xCoord,
+                    this.yCoord,
+                    this.zCoord,
+                    this.xCoord + 1,
+                    this.yCoord + 2,
+                    this.zCoord + 1);
+        };
     }
 
     @Override
@@ -681,32 +668,33 @@ public class TileEntityShuttleDock extends TileEntityAdvanced
         // check
 
         switch (this.getRotationMeta()) {
-            case 0:
+            case 0 -> {
                 minX = this.xCoord - 1;
                 maxX = this.xCoord + 1;
                 minZ = this.zCoord - 3;
                 maxZ = this.zCoord - 1;
-                break;
-            case 2:
+            }
+            case 2 -> {
                 minX = this.xCoord - 3;
                 maxX = this.xCoord - 1;
                 minZ = this.zCoord - 1;
                 maxZ = this.zCoord + 1;
-                break;
-            case 1:
+            }
+            case 1 -> {
                 minX = this.xCoord - 1;
                 maxX = this.xCoord + 1;
                 minZ = this.zCoord + 1;
                 maxZ = this.zCoord + 3;
-                break;
-            case 3:
+            }
+            case 3 -> {
                 minX = this.xCoord + 1;
                 maxX = this.xCoord + 3;
                 minZ = this.zCoord - 1;
                 maxZ = this.zCoord + 1;
-                break;
-            default:
+            }
+            default -> {
                 return false;
+            }
         }
 
         return this.areBlocksWithin(minX, minY, minZ, maxX, maxY, maxZ);

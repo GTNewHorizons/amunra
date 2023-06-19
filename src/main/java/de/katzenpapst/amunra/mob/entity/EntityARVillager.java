@@ -252,18 +252,10 @@ public class EntityARVillager extends EntityAgeable implements IEntityBreathable
     @SideOnly(Side.CLIENT)
     public void handleHealthUpdate(byte p_70103_1_) {
         switch (p_70103_1_) {
-            case 12:
-                this.generateRandomParticles("heart");
-                break;
-            case 13:
-                this.generateRandomParticles("angryVillager");
-                break;
-            case 14:
-                this.generateRandomParticles("happyVillager");
-                break;
-            default:
-                super.handleHealthUpdate(p_70103_1_);
-                break;
+            case 12 -> this.generateRandomParticles("heart");
+            case 13 -> this.generateRandomParticles("angryVillager");
+            case 14 -> this.generateRandomParticles("happyVillager");
+            default -> super.handleHealthUpdate(p_70103_1_);
         }
     }
 

@@ -48,26 +48,26 @@ public class GuiHandler implements IGuiHandler {
 
         final TileEntity tile = world.getTileEntity(x, y, z);
 
-        switch (ID) {
-            case GuiIds.GUI_ATOMBATTERY:
-                return new ContainerAtomBattery(player.inventory, (TileEntityIsotopeGenerator) tile);
-            case GuiIds.GUI_MS_ROCKET_ENGINE:
-                return new ContainerRocketEngine(player.inventory, (TileEntityMothershipEngineAbstract) tile);
-            case GuiIds.GUI_MS_SETTINGS:
-                return new ContainerMothershipSettings(player.inventory, (TileEntityMothershipSettings) tile);
-            case GuiIds.GUI_MS_ION_ENGINE:
-                return new ContainerIonEngine(player.inventory, (TileEntityMothershipEngineAbstract) tile);
-            case GuiIds.GUI_CRAFTING:
-                return new ContainerCrafter(player.inventory, world, x, y, z);
-            case GuiIds.GUI_SHUTTLE_DOCK:
-                return new ContainerShuttleDock(player.inventory, (TileEntityShuttleDock) tile);
-            case GuiIds.GUI_HYDROPONICS:
-                return new ContainerHydroponics(player.inventory, (TileEntityHydroponics) tile);
-            case GuiIds.GUI_GRAVITY:
-                return new ContainerArtificalGravity(player.inventory, (IInventory) tile);
-        }
+        return switch (ID) {
+            case GuiIds.GUI_ATOMBATTERY -> new ContainerAtomBattery(
+                    player.inventory,
+                    (TileEntityIsotopeGenerator) tile);
+            case GuiIds.GUI_MS_ROCKET_ENGINE -> new ContainerRocketEngine(
+                    player.inventory,
+                    (TileEntityMothershipEngineAbstract) tile);
+            case GuiIds.GUI_MS_SETTINGS -> new ContainerMothershipSettings(
+                    player.inventory,
+                    (TileEntityMothershipSettings) tile);
+            case GuiIds.GUI_MS_ION_ENGINE -> new ContainerIonEngine(
+                    player.inventory,
+                    (TileEntityMothershipEngineAbstract) tile);
+            case GuiIds.GUI_CRAFTING -> new ContainerCrafter(player.inventory, world, x, y, z);
+            case GuiIds.GUI_SHUTTLE_DOCK -> new ContainerShuttleDock(player.inventory, (TileEntityShuttleDock) tile);
+            case GuiIds.GUI_HYDROPONICS -> new ContainerHydroponics(player.inventory, (TileEntityHydroponics) tile);
+            case GuiIds.GUI_GRAVITY -> new ContainerArtificalGravity(player.inventory, (IInventory) tile);
+            default -> null;
+        };
 
-        return null;
     }
 
     @Override
@@ -79,29 +79,37 @@ public class GuiHandler implements IGuiHandler {
         final TileEntity tile = world.getTileEntity(x, y, z);
 
         switch (ID) {
-            case GuiIds.GUI_ATOMBATTERY:
+            case GuiIds.GUI_ATOMBATTERY -> {
                 return new GuiAtomBattery(player.inventory, (TileEntityIsotopeGenerator) tile);
-            case GuiIds.GUI_MOTHERSHIPCONTROLLER:
+            }
+            case GuiIds.GUI_MOTHERSHIPCONTROLLER -> {
                 final List<CelestialBody> possibleCelestialBodies = new ArrayList<>();
                 return new GuiMothershipSelection(
                         possibleCelestialBodies,
                         (TileEntityMothershipController) tile,
                         world);
-            case GuiIds.GUI_MS_ROCKET_ENGINE:
+            }
+            case GuiIds.GUI_MS_ROCKET_ENGINE -> {
                 return new GuiRocketEngine(player.inventory, (TileEntityMothershipEngineAbstract) tile);
-            case GuiIds.GUI_MS_SETTINGS:
+            }
+            case GuiIds.GUI_MS_SETTINGS -> {
                 return new GuiMothershipSettings(player.inventory, (TileEntityMothershipSettings) tile);
-            case GuiIds.GUI_MS_ION_ENGINE:
+            }
+            case GuiIds.GUI_MS_ION_ENGINE -> {
                 return new GuiIonEngine(player.inventory, (TileEntityMothershipEngineAbstract) tile);
-            case GuiIds.GUI_CRAFTING:
+            }
+            case GuiIds.GUI_CRAFTING -> {
                 return new GuiCrafter(player.inventory, world, x, y, z);
-            case GuiIds.GUI_SHUTTLE_DOCK:
+            }
+            case GuiIds.GUI_SHUTTLE_DOCK -> {
                 return new GuiShuttleDock(player.inventory, (TileEntityShuttleDock) tile);
-            case GuiIds.GUI_HYDROPONICS:
+            }
+            case GuiIds.GUI_HYDROPONICS -> {
                 return new GuiHydroponics(player.inventory, (TileEntityHydroponics) tile);
-            case GuiIds.GUI_GRAVITY:
+            }
+            case GuiIds.GUI_GRAVITY -> {
                 return new GuiArtificialGravity(player.inventory, (TileEntityGravitation) tile);
-
+            }
         }
 
         return null;

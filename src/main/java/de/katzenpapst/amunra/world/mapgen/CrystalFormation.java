@@ -141,30 +141,30 @@ public class CrystalFormation extends WorldGenerator {
                     int meta = 0;
 
                     switch (neighbour) {
-                        case 0:
+                        case 0 -> {
                             block = world.getBlock(curX - 1, curY, curZ);
                             meta = world.getBlockMetadata(curX - 1, curY, curZ);
-                            break;
-                        case 1:
+                        }
+                        case 1 -> {
                             block = world.getBlock(curX + 1, curY, curZ);
                             meta = world.getBlockMetadata(curX + 1, curY, curZ);
-                            break;
-                        case 2:
+                        }
+                        case 2 -> {
                             block = world.getBlock(curX, curY - 1, curZ);
                             meta = world.getBlockMetadata(curX, curY - 1, curZ);
-                            break;
-                        case 3:
+                        }
+                        case 3 -> {
                             block = world.getBlock(curX, curY + 1, curZ);
                             meta = world.getBlockMetadata(curX, curY + 1, curZ);
-                            break;
-                        case 4:
+                        }
+                        case 4 -> {
                             block = world.getBlock(curX, curY, curZ - 1);
                             meta = world.getBlockMetadata(curX, curY, curZ - 1);
-                            break;
-                        case 5:
+                        }
+                        case 5 -> {
                             block = world.getBlock(curX, curY, curZ + 1);
                             meta = world.getBlockMetadata(curX, curY, curZ + 1);
-                            break;
+                        }
                     }
 
                     if (block == this.material.getBlock() && meta == this.material.getMetadata()) {

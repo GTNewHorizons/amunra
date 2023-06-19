@@ -95,26 +95,14 @@ public class ItemJet extends ItemBlockMulti {
          *
          */
 
-        int blockRotation = 0;
-
-        switch (side) {
-            case 0:
-            case 1:
-                blockRotation = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
-                break;
-            case 2:
-                blockRotation = 0;
-                break;
-            case 3:
-                blockRotation = 2;
-                break;
-            case 4:
-                blockRotation = 3;
-                break;
-            case 5:
-                blockRotation = 1;
-                break;
-        }
+        int blockRotation = switch (side) {
+            case 0, 1 -> MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+            case 2 -> 0;
+            case 3 -> 2;
+            case 4 -> 3;
+            case 5 -> 1;
+            default -> 0;
+        };
 
         metadata = ARBlocks.metaBlockMothershipEngineJet.addRotationMeta(stack.getItemDamage(), blockRotation);
 

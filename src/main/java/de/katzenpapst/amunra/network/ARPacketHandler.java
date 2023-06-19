@@ -20,14 +20,9 @@ public class ARPacketHandler extends SimpleChannelInboundHandler<IPacket> {
         final EntityPlayer player = GalacticraftCore.proxy.getPlayerFromNetHandler(netHandler);
 
         switch (FMLCommonHandler.instance().getEffectiveSide()) {
-            case CLIENT:
-                msg.handleClientSide(player);
-                break;
-            case SERVER:
-                msg.handleServerSide(player);
-                break;
-            default:
-                break;
+            case CLIENT -> msg.handleClientSide(player);
+            case SERVER -> msg.handleServerSide(player);
+            default -> {}
         }
     }
 

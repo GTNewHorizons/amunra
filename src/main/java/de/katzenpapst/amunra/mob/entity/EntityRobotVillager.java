@@ -185,13 +185,11 @@ public class EntityRobotVillager extends EntityAgeable implements IEntityBreatha
         final RobotVillagerProfession prof = RobotVillagerProfession.getProfession(this.getProfession());
         final MerchantRecipeList baseList = prof.getRecipeList();
         switch (baseList.size()) {
-            case 0:
+            case 0 -> {
                 return;
-            case 1:
-
-                this.buyingList.add(baseList.get(0));
-                break;
-            default:
+            }
+            case 1 -> this.buyingList.add(baseList.get(0));
+            default -> {
                 // for now have just 1 offer
                 final int numOffers = this.worldObj.rand.nextInt(baseList.size() - 1) + 1;// ensure it's at least 1
                 final HashMap<Integer, Boolean> uniqCache = new HashMap<>();
@@ -203,7 +201,7 @@ public class EntityRobotVillager extends EntityAgeable implements IEntityBreatha
                     uniqCache.put(randOffer, true);
                     this.buyingList.add(baseList.get(randOffer));
                 }
-
+            }
         }
 
         /*
@@ -399,18 +397,10 @@ public class EntityRobotVillager extends EntityAgeable implements IEntityBreatha
     @SideOnly(Side.CLIENT)
     public void handleHealthUpdate(byte p_70103_1_) {
         switch (p_70103_1_) {
-            case 12:
-                this.generateRandomParticles("heart");
-                break;
-            case 13:
-                this.generateRandomParticles("angryVillager");
-                break;
-            case 14:
-                this.generateRandomParticles("happyVillager");
-                break;
-            default:
-                super.handleHealthUpdate(p_70103_1_);
-                break;
+            case 12 -> this.generateRandomParticles("heart");
+            case 13 -> this.generateRandomParticles("angryVillager");
+            case 14 -> this.generateRandomParticles("happyVillager");
+            default -> super.handleHealthUpdate(p_70103_1_);
         }
     }
 

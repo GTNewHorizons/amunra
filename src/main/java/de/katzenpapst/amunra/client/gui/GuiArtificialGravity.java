@@ -376,29 +376,16 @@ public class GuiArtificialGravity extends GuiContainerGC implements ITextBoxCall
         }
 
         switch (textBox.id) {
-            case FIELD_TOP:
-                this.tempBox.maxY = (int) newValue;
-                break;
-            case FIELD_BACK:
-                this.tempBox.maxZ = (int) newValue;
-                break;
-            case FIELD_RIGHT:
-                this.tempBox.maxX = (int) newValue;
-                break;
-            case FIELD_BOTTOM:
-                this.tempBox.minY = (int) newValue * -1;
-                break;
-            case FIELD_FRONT:
-                this.tempBox.minZ = (int) newValue * -1;
-                break;
-            case FIELD_LEFT:
-                this.tempBox.minX = (int) newValue * -1;
-                break;
-            case FIELD_STRENGTH:
-                this.tempGravityStrength = Math.abs(newValue);
-                break;
-            default:
+            case FIELD_TOP -> this.tempBox.maxY = (int) newValue;
+            case FIELD_BACK -> this.tempBox.maxZ = (int) newValue;
+            case FIELD_RIGHT -> this.tempBox.maxX = (int) newValue;
+            case FIELD_BOTTOM -> this.tempBox.minY = (int) newValue * -1;
+            case FIELD_FRONT -> this.tempBox.minZ = (int) newValue * -1;
+            case FIELD_LEFT -> this.tempBox.minX = (int) newValue * -1;
+            case FIELD_STRENGTH -> this.tempGravityStrength = Math.abs(newValue);
+            default -> {
                 return;
+            }
         }
         this.sendDataToServer();
     }
@@ -407,24 +394,16 @@ public class GuiArtificialGravity extends GuiContainerGC implements ITextBoxCall
     public String getInitialText(final GuiElementTextBox textBox) {
         this.tempBox = this.tile.getGravityBox();
 
-        switch (textBox.id) {
-            case FIELD_TOP:
-                return Integer.toString((int) this.tempBox.maxY);
-            case FIELD_BACK:
-                return Integer.toString((int) this.tempBox.maxZ);
-            case FIELD_RIGHT:
-                return Integer.toString((int) this.tempBox.maxX);
-
-            case FIELD_BOTTOM:
-                return Integer.toString((int) this.tempBox.minY * -1);
-            case FIELD_FRONT:
-                return Integer.toString((int) this.tempBox.minZ * -1);
-            case FIELD_LEFT:
-                return Integer.toString((int) this.tempBox.minX * -1);
-            case FIELD_STRENGTH:
-                return Integer.toString((int) Math.abs(this.tempGravityStrength));
-        }
-        return Integer.toString(textBox.id);
+        return switch (textBox.id) {
+            case FIELD_TOP -> Integer.toString((int) this.tempBox.maxY);
+            case FIELD_BACK -> Integer.toString((int) this.tempBox.maxZ);
+            case FIELD_RIGHT -> Integer.toString((int) this.tempBox.maxX);
+            case FIELD_BOTTOM -> Integer.toString((int) this.tempBox.minY * -1);
+            case FIELD_FRONT -> Integer.toString((int) this.tempBox.minZ * -1);
+            case FIELD_LEFT -> Integer.toString((int) this.tempBox.minX * -1);
+            case FIELD_STRENGTH -> Integer.toString((int) Math.abs(this.tempGravityStrength));
+            default -> Integer.toString(textBox.id);
+        };
 
     }
 
@@ -455,14 +434,14 @@ public class GuiArtificialGravity extends GuiContainerGC implements ITextBoxCall
     @Override
     public void onSelectionChanged(final GuiElementCheckbox checkbox, final boolean newSelected) {
         switch (checkbox.id) {
-            case CHECKBOX_VISUAL:
+            case CHECKBOX_VISUAL -> {
                 this.tile.isBoxShown = newSelected;
                 this.sendDataToServer();
-                break;
-            case CHECKBOX_INVERT:
+            }
+            case CHECKBOX_INVERT -> {
                 this.tempIsInverted = newSelected;
                 this.sendDataToServer();
-                break;
+            }
         }
     }
 
@@ -473,13 +452,11 @@ public class GuiArtificialGravity extends GuiContainerGC implements ITextBoxCall
 
     @Override
     public boolean getInitiallySelected(final GuiElementCheckbox checkbox) {
-        switch (checkbox.id) {
-            case CHECKBOX_VISUAL:
-                return this.tile.isBoxShown;
-            case CHECKBOX_INVERT:
-                return this.tempIsInverted;
-        }
-        return false;
+        return switch (checkbox.id) {
+            case CHECKBOX_VISUAL -> this.tile.isBoxShown;
+            case CHECKBOX_INVERT -> this.tempIsInverted;
+            default -> false;
+        };
     }
 
     @Override

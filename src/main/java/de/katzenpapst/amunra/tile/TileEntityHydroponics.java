@@ -354,7 +354,7 @@ public class TileEntityHydroponics extends TileEntityOxygen
         final OperationType realOp = OperationType.values()[op];
         ItemStack stack;
         switch (realOp) {
-            case PLANT_SEED:
+            case PLANT_SEED -> {
                 // I hope this works..
                 stack = this.containingItems[1];
                 if (this.plantGrowthStatus == -1.0F && stack != null
@@ -367,8 +367,8 @@ public class TileEntityHydroponics extends TileEntityOxygen
                     this.containingItems[1] = stack;
                     this.plantSeed();
                 }
-                break;
-            case FERTILIZE:
+            }
+            case FERTILIZE -> {
                 stack = this.containingItems[1];
                 if (this.plantGrowthStatus >= 0.0F && this.plantGrowthStatus < 1.0F
                         && stack != null
@@ -381,12 +381,12 @@ public class TileEntityHydroponics extends TileEntityOxygen
                     this.containingItems[1] = stack;
                     this.fertilize();
                 }
-                break;
-            case HARVEST:
+            }
+            case HARVEST -> {
                 if (this.plantGrowthStatus == 1.0F) {
                     this.harvest(playerBase);
                 }
-                break;
+            }
         }
     }
 

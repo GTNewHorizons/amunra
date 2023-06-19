@@ -332,18 +332,18 @@ public class Mothership extends CelestialBody {
 
         for (int i = 0; i < parts.length; i++) {
             switch (i) {
-                case 0:
+                case 0 -> {
                     curSys = GalaxyRegistry.getRegisteredSolarSystems().get(parts[i]);
                     body = curSys.getMainStar();
-                    break;
-                case 1:
+                }
+                case 1 -> {
                     body = GalaxyRegistry.getRegisteredPlanets().get(parts[i]);
                     // sanity check
                     if (!((Planet) body).getParentSolarSystem().equals(curSys)) {
                         throw new RuntimeException("Planet " + body.getName() + " is not in " + bodyName);
                     }
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     moon = GalaxyRegistry.getRegisteredMoons().get(parts[i]);
                     // sanity checks
                     if (!((Moon) moon).getParentPlanet().equals(body)) {
@@ -351,6 +351,7 @@ public class Mothership extends CelestialBody {
                     }
                     // at this point, we are done anyway
                     return moon;
+                }
             }
         }
         if (body == null) {

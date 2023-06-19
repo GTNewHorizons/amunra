@@ -139,17 +139,13 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
         /*
          * -Z => 0 +Z => 2 -X => 3 +X => 1
          */
-        switch (this.getRotationMeta()) {
-            case 0:
-                return new Vector3(0, 0, -1);
-            case 1:
-                return new Vector3(1, 0, 0);
-            case 2:
-                return new Vector3(0, 0, 1);
-            case 3:
-                return new Vector3(-1, 0, 0);
-        }
-        return new Vector3(0, 0, 0);
+        return switch (this.getRotationMeta()) {
+            case 0 -> new Vector3(0, 0, -1);
+            case 1 -> new Vector3(1, 0, 0);
+            case 2 -> new Vector3(0, 0, 1);
+            case 3 -> new Vector3(-1, 0, 0);
+            default -> new Vector3(0, 0, 0);
+        };
     }
 
     public Vector3 getExhaustPosition(final double scale) {
@@ -159,26 +155,26 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
         final Vector3 result = new Vector3(this.xCoord + 0.5D, this.yCoord + 0.5D, this.zCoord + 0.5D);
 
         switch (this.getRotationMeta()) {
-            case 0:
+            case 0 -> {
                 result.x += random1;
                 result.y += random2;
                 result.z -= offset;
-                break;
-            case 1:
+            }
+            case 1 -> {
                 result.x += offset;
                 result.y += random1;
                 result.z += random2;
-                break;
-            case 2:
+            }
+            case 2 -> {
                 result.x += random1;
                 result.y += random2;
                 result.z += offset;
-                break;
-            case 3:
+            }
+            case 3 -> {
                 result.x -= offset;
                 result.y += random1;
                 result.z += random2;
-                break;
+            }
         }
 
         return result;
@@ -468,21 +464,21 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
 
     public Vector3int getLastBoosterPosition() {
 
-        switch (this.getRotationMeta()) {
-            case 0:
+        return switch (this.getRotationMeta()) {
+            case 0 ->
                 // rotation = 180.0F;// -> Z
-                return new Vector3int(this.xCoord, this.yCoord, this.zCoord + this.numBoosters);
-            case 1:
+                new Vector3int(this.xCoord, this.yCoord, this.zCoord + this.numBoosters);
+            case 1 ->
                 // rotation = 90.0F;// -> -X
-                return new Vector3int(this.xCoord - this.numBoosters, this.yCoord, this.zCoord);
-            case 2:
+                new Vector3int(this.xCoord - this.numBoosters, this.yCoord, this.zCoord);
+            case 2 ->
                 // rotation = 0;// -> -Z
-                return new Vector3int(this.xCoord, this.yCoord, this.zCoord - this.numBoosters);
-            case 3:
+                new Vector3int(this.xCoord, this.yCoord, this.zCoord - this.numBoosters);
+            case 3 ->
                 // rotation = 270.0F;// -> X
-                return new Vector3int(this.xCoord + this.numBoosters, this.yCoord, this.zCoord);
-        }
-        return new Vector3int(this.xCoord, this.yCoord, this.zCoord);
+                new Vector3int(this.xCoord + this.numBoosters, this.yCoord, this.zCoord);
+            default -> new Vector3int(this.xCoord, this.yCoord, this.zCoord);
+        };
     }
 
     @Override
@@ -646,29 +642,21 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
     public boolean isPartOfMultiBlock(final int x, final int y, final int z) {
         // for each axis, the other two coordinates should be the same
         // and the relevant one should be within numBoosters of my coordinate, in the right direction
-        switch (this.getRotationMeta()) {
-            case 0:
+        return switch (this.getRotationMeta()) {
+            case 0 ->
                 // rotation = 180.0F;// -> Z
-                return this.xCoord == x && this.yCoord == y
-                        && this.zCoord + this.numBoosters >= z
-                        && this.zCoord + 1 <= z;
-            case 1:
+                this.xCoord == x && this.yCoord == y && this.zCoord + this.numBoosters >= z && this.zCoord + 1 <= z;
+            case 1 ->
                 // rotation = 90.0F;// -> -X
-                return this.zCoord == z && this.yCoord == y
-                        && this.xCoord - this.numBoosters <= x
-                        && this.xCoord - 1 >= x;
-            case 2:
+                this.zCoord == z && this.yCoord == y && this.xCoord - this.numBoosters <= x && this.xCoord - 1 >= x;
+            case 2 ->
                 // rotation = 0;// -> -Z
-                return this.xCoord == x && this.yCoord == y
-                        && this.zCoord - this.numBoosters <= z
-                        && this.zCoord - 1 >= z;
-            case 3:
+                this.xCoord == x && this.yCoord == y && this.zCoord - this.numBoosters <= z && this.zCoord - 1 >= z;
+            case 3 ->
                 // rotation = 270.0F;// -> X
-                return this.zCoord == z && this.yCoord == y
-                        && this.xCoord + this.numBoosters >= x
-                        && this.xCoord + 1 <= x;
-        }
-        return false;
+                this.zCoord == z && this.yCoord == y && this.xCoord + this.numBoosters >= x && this.xCoord + 1 <= x;
+            default -> false;
+        };
     }
 
     /**
@@ -685,30 +673,30 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
         }
 
         switch (this.getRotationMeta()) {
-            case 0:
+            case 0 -> {
                 // rotation = 180.0F;// -> Z
                 for (int i = 0; i < this.numBoosters; i++) {
                     this.detachBooster(this.xCoord, this.yCoord, this.zCoord + i + 1, notifyClient);
                 }
-                break;
-            case 1:
+            }
+            case 1 -> {
                 // rotation = 90.0F;// -> -X
                 for (int i = 0; i < this.numBoosters; i++) {
                     this.detachBooster(this.xCoord - i - 1, this.yCoord, this.zCoord, notifyClient);
                 }
-                break;
-            case 2:
+            }
+            case 2 -> {
                 // rotation = 0;// -> -Z
                 for (int i = 0; i < this.numBoosters; i++) {
                     this.detachBooster(this.xCoord, this.yCoord, this.zCoord - i - 1, notifyClient);
                 }
-                break;
-            case 3:
+            }
+            case 3 -> {
                 // rotation = 270.0F;// -> X
                 for (int i = 0; i < this.numBoosters; i++) {
                     this.detachBooster(this.xCoord + i + 1, this.yCoord, this.zCoord, notifyClient);
                 }
-                break;
+            }
         }
         this.numBoosters = 0;
         this.fuelTank.setCapacity(0);
@@ -739,30 +727,30 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
 
     protected void notifyClientAboutBoosters(final int prevNumBoosters) {
         switch (this.getRotationMeta()) {
-            case 0:
+            case 0 -> {
                 // rotation = 180.0F;// -> Z
                 for (int i = 0; i < prevNumBoosters; i++) {
                     this.updateBooster(this.xCoord, this.yCoord, this.zCoord + i + 1);
                 }
-                break;
-            case 1:
+            }
+            case 1 -> {
                 // rotation = 90.0F;// -> -X
                 for (int i = 0; i < prevNumBoosters; i++) {
                     this.updateBooster(this.xCoord - i - 1, this.yCoord, this.zCoord);
                 }
-                break;
-            case 2:
+            }
+            case 2 -> {
                 // rotation = 0;// -> -Z
                 for (int i = 0; i < prevNumBoosters; i++) {
                     this.updateBooster(this.xCoord, this.yCoord, this.zCoord - i - 1);
                 }
-                break;
-            case 3:
+            }
+            case 3 -> {
                 // rotation = 270.0F;// -> X
                 for (int i = 0; i < prevNumBoosters; i++) {
                     this.updateBooster(this.xCoord + i + 1, this.yCoord, this.zCoord);
                 }
-                break;
+            }
         }
     }
 
@@ -778,38 +766,38 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
         this.numBoosters = 0;
         // happens on server only, I think
         switch (this.getRotationMeta()) {
-            case 0:
+            case 0 -> {
                 // rotation = 180.0F;// -> Z
                 for (int i = 0; i < MAX_LENGTH; i++) {
                     if (!this.attachBooster(this.xCoord, this.yCoord, this.zCoord + i + 1, notifyClient)) {
                         break;
                     }
                 }
-                break;
-            case 1:
+            }
+            case 1 -> {
                 // rotation = 90.0F;// -> -X
                 for (int i = 0; i < MAX_LENGTH; i++) {
                     if (!this.attachBooster(this.xCoord - i - 1, this.yCoord, this.zCoord, notifyClient)) {
                         break;
                     }
                 }
-                break;
-            case 2:
+            }
+            case 2 -> {
                 // rotation = 0;// -> -Z
                 for (int i = 0; i < MAX_LENGTH; i++) {
                     if (!this.attachBooster(this.xCoord, this.yCoord, this.zCoord - i - 1, notifyClient)) {
                         break;
                     }
                 }
-                break;
-            case 3:
+            }
+            case 3 -> {
                 // rotation = 270.0F;// -> X
                 for (int i = 0; i < MAX_LENGTH; i++) {
                     if (!this.attachBooster(this.xCoord + i + 1, this.yCoord, this.zCoord, notifyClient)) {
                         break;
                     }
                 }
-                break;
+            }
         }
         this.fuelTank.setCapacity(this.getTankCapacity());
         if (this.fuelTank.getCapacity() < this.fuelTank.getFluidAmount()) {

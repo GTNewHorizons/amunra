@@ -266,18 +266,18 @@ abstract public class AmunRaAsteroidWorldProvider extends WorldProviderAsteroids
         for (final AsteroidData roid : this.asteroids) {
             final BlockVec3 test = roid.centre;
             switch (facing) {
-                case 2:
+                case 2 -> {
                     if (z - 16 < test.z) continue;
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     if (z + 16 > test.z) continue;
-                    break;
-                case 4:
+                }
+                case 4 -> {
                     if (x - 16 < test.x) continue;
-                    break;
-                case 5:
+                }
+                case 5 -> {
                     if (x + 16 > test.x) continue;
-                    break;
+                }
             }
             final int dx = x - test.x;
             final int dz = z - test.z;
@@ -295,18 +295,10 @@ abstract public class AmunRaAsteroidWorldProvider extends WorldProviderAsteroids
             final BlockVec3 coords = target.clone();
             AmunRa.LOGGER.debug("Found nearby asteroid at {}", target);
             switch (facing) {
-                case 2:
-                    coords.z += offset;
-                    break;
-                case 3:
-                    coords.z -= offset;
-                    break;
-                case 4:
-                    coords.x += offset;
-                    break;
-                case 5:
-                    coords.x -= offset;
-                    break;
+                case 2 -> coords.z += offset;
+                case 3 -> coords.z -= offset;
+                case 4 -> coords.x += offset;
+                case 5 -> coords.x -= offset;
             }
             returnValues.add(coords);
             i++;

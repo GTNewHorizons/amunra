@@ -24,25 +24,25 @@ public class RenderBlockScale extends TileEntitySpecialRenderer {
         GL11.glTranslated(p_147500_2_, p_147500_4_, p_147500_6_);
         final int rotation = scaleEntity.getRotationMeta();
         switch (rotation) {
-            case 0:
+            case 0 -> {
                 GL11.glRotatef(180, 0, 1, 0);
                 GL11.glTranslatef(0.0F, 1.0F, -1.01F);
                 GL11.glRotatef(180, 0, 0, 1);
-                break;
-            case 1:
+            }
+            case 1 -> {
                 GL11.glTranslatef(1.0F, 1.0F, -0.01F);
                 GL11.glRotatef(180, 0, 0, 1);
-                break;
-            case 2:
+            }
+            case 2 -> {
                 GL11.glRotatef(-90, 0, 1, 0);
                 GL11.glTranslatef(1.0F, 1.0F, -1.01F);
                 GL11.glRotatef(180, 0, 0, 1);
-                break;
-            case 3:
+            }
+            case 3 -> {
                 GL11.glRotatef(90, 0, 1, 0);
                 GL11.glTranslatef(-0.0F, 1.0F, -0.01F);
                 GL11.glRotatef(180, 0, 0, 1);
-                break;
+            }
         }
 
         // now try to draw some text onto the block

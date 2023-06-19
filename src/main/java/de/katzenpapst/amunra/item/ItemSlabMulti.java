@@ -118,24 +118,12 @@ public class ItemSlabMulti extends ItemBlockMulti {
             return true;
         }
         switch (p_150936_5_) {
-            case 0:
-                --p_150936_3_;
-                break;
-            case 1:
-                ++p_150936_3_;
-                break;
-            case 2:
-                --p_150936_4_;
-                break;
-            case 3:
-                ++p_150936_4_;
-                break;
-            case 4:
-                --p_150936_2_;
-                break;
-            case 5:
-                ++p_150936_2_;
-                break;
+            case 0 -> --p_150936_3_;
+            case 1 -> ++p_150936_3_;
+            case 2 -> --p_150936_4_;
+            case 3 -> ++p_150936_4_;
+            case 4 -> --p_150936_2_;
+            case 5 -> ++p_150936_2_;
         }
 
         final Block newBlock = p_150936_1_.getBlock(p_150936_2_, p_150936_3_, p_150936_4_);
@@ -148,24 +136,12 @@ public class ItemSlabMulti extends ItemBlockMulti {
     private boolean tryCombiningWithSide(final ItemStack stack, final EntityPlayer player, final World world, int x,
             int y, int z, final int side) {
         switch (side) {
-            case 0:
-                --y;
-                break;
-            case 1:
-                ++y;
-                break;
-            case 2:
-                --z;
-                break;
-            case 3:
-                ++z;
-                break;
-            case 4:
-                --x;
-                break;
-            case 5:
-                ++x;
-                break;
+            case 0 -> --y;
+            case 1 -> ++y;
+            case 2 -> --z;
+            case 3 -> ++z;
+            case 4 -> --x;
+            case 5 -> ++x;
         }
 
         final Block block = world.getBlock(x, y, z);

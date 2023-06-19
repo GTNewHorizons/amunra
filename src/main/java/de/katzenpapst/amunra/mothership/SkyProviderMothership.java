@@ -207,19 +207,11 @@ public class SkyProviderMothership extends SkyProviderDynamic {
     protected void renderStarLines(final float curTime) {
         float angle = 0;
         switch (this.jetDirection) {
-            case 0:
-                angle = 180.0F;
-                break;
-            case 1:
-                angle = 90.0F;
-                break;
-            case 2:
-                angle = 0;
-                break;
-            case 3:
-                angle = 270.0F;
-                break;
-            case -1:
+            case 0 -> angle = 180.0F;
+            case 1 -> angle = 90.0F;
+            case 2 -> angle = 0;
+            case 3 -> angle = 270.0F;
+            case -1 -> {
                 // means we haven't got this from the worldprovider yet
                 // keep bothering it until it gets the packet
                 if (((MothershipWorldProvider) this.worldProvider).getTheoreticalTransitData() != null) {
@@ -227,7 +219,7 @@ public class SkyProviderMothership extends SkyProviderDynamic {
                             .getTheoreticalTransitData().direction;
                 }
                 return;
-
+            }
         }
 
         final Random starLineRand = new Random(10842L);

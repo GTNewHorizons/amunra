@@ -41,18 +41,14 @@ public class ConnectionPacketAR {
         }
 
         switch (packetId) {
-            case ID_MOTHERSHIP_LIST:
-
+            case ID_MOTHERSHIP_LIST -> {
                 if (TickHandlerServer.mothershipData == null) {
                     TickHandlerServer.mothershipData = new MothershipWorldData(MothershipWorldData.saveDataID);
                 }
-
                 TickHandlerServer.mothershipData.readFromNBT(nbt);
-                break;
-            case ID_CONFIG_OVERRIDE:
-                AmunRa.config.setServerOverrideData(nbt);
-                break;
-            default:
+            }
+            case ID_CONFIG_OVERRIDE -> AmunRa.config.setServerOverrideData(nbt);
+            default -> {}
         }
         /*
          * if (payload.readInt() != 3519) { GCLog.severe("Packet completion problem for connection packet " + packetId +

@@ -83,33 +83,32 @@ public class TileEntityGravitation extends TileBaseElectricBlock implements IInv
          * +-----------------+--------------> X ^ minVec
          */
 
-        switch (rotationMeta) {
-            case 0: // identity
-                return CoordHelper.cloneAABB(in); // correct
-            case 1: // rotate 180°
+        return switch (rotationMeta) {
+            case 0 -> // identity
+                CoordHelper.cloneAABB(in); // correct
+            case 1 -> // rotate 180°
                 // minX <- maxX
                 // maxX <- minX
                 // minZ <- maxZ
                 // maxZ <- minZ
-                return AxisAlignedBB
-                        .getBoundingBox(in.maxX * -1, in.minY, in.maxZ * -1, in.minX * -1, in.maxY, in.minZ * -1);
+                AxisAlignedBB.getBoundingBox(in.maxX * -1, in.minY, in.maxZ * -1, in.minX * -1, in.maxY, in.minZ * -1);
             // correct
-            case 2: // rotate 270° in uhrzeigersinn
+            case 2 -> // rotate 270° in uhrzeigersinn
                 // wrong
                 // minX <- maxZ
                 // maxX <- minZ
                 // minZ <- minX
                 // maxZ <- maxX
-                return AxisAlignedBB.getBoundingBox(in.minZ, in.minY, in.maxX * -1, in.maxZ, in.maxY, in.minX * -1);
-            case 3: // rotate 90°
+                AxisAlignedBB.getBoundingBox(in.minZ, in.minY, in.maxX * -1, in.maxZ, in.maxY, in.minX * -1);
+            case 3 -> // rotate 90°
                 // minX <- minZ
                 // maxX <- maxZ
                 // minZ <- maxX
                 // maxZ <- minX
-                return AxisAlignedBB.getBoundingBox(in.maxZ * -1, in.minY, in.minX, in.minZ * -1, in.maxY, in.maxX);
-        }
+                AxisAlignedBB.getBoundingBox(in.maxZ * -1, in.minY, in.minX, in.minZ * -1, in.maxY, in.maxX);
+            default -> in;
+        };
 
-        return in;
     }
 
     @Override

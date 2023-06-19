@@ -98,14 +98,15 @@ public class TileEntityMothershipEngineIon extends TileEntityMothershipEngineAbs
         if (stack == null) return false;
 
         switch (index) {
-            case 0:
+            case 0 -> {
                 final FluidStack containedFluid = FluidContainerRegistry.getFluidForFilledItem(stack);
                 if (containedFluid != null && containedFluid.getFluid() == this.fuel) {
                     return true;
                 }
-                break;
-            case 1:
+            }
+            case 1 -> {
                 return ItemElectricBase.isElectricItem(stack.getItem());
+            }
         }
         return false;
     }

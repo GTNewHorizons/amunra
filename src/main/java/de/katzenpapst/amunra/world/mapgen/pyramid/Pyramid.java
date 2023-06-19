@@ -420,70 +420,48 @@ public class Pyramid extends BaseStructureStart {
     }
 
     protected StructureBoundingBox getRoomEntranceBox(final int position, final StructureBoundingBox roomBox) {
-        int direction = 0; // 0 = up, 1 = right, 2 = down, 3 = left
-        switch (position) {
-            case 1:
-                direction = Math.random() > 0.5 ? 0 : 1;
-                break;
-            case 2:
-            case 3:
-                direction = 0;
-                break;
-            case 4:
-                direction = Math.random() > 0.5 ? 0 : 3;
-                break;
-            case 5:
-            case 6:
-                direction = 3;
-                break;
-            case 7:
-                direction = Math.random() > 0.5 ? 3 : 2;
-                break;
-            case 8:
-            case 9:
-                direction = 2;
-                break;
-            case 10:
-                direction = Math.random() > 0.5 ? 1 : 2;
-                break;
-            case 11:
-            case 12:
-                direction = 1;
-                break;
-        }
+        int direction = switch (position) {
+            case 1 -> Math.random() > 0.5 ? 0 : 1;
+            case 2, 3 -> 0;
+            case 4 -> Math.random() > 0.5 ? 0 : 3;
+            case 5, 6 -> 3;
+            case 7 -> Math.random() > 0.5 ? 3 : 2;
+            case 8, 9 -> 2;
+            case 10 -> Math.random() > 0.5 ? 1 : 2;
+            case 11, 12 -> 1;
+            default -> 0; // 0 = up, 1 = right, 2 = down, 3 = left
+        };
 
         final StructureBoundingBox doorBB = new StructureBoundingBox();
         doorBB.minY = 0;
         doorBB.maxY = 255;
 
         switch (direction) {
-            case 0: // up aka +z
+            case 0 -> { // up aka +z
                 doorBB.minZ = roomBox.maxZ + 1;
                 doorBB.maxZ = doorBB.minZ + 1;
                 // hmm this is for odd
                 doorBB.minX = roomBox.getCenterX() - 1;
                 doorBB.maxX = roomBox.getCenterX() + 1;
-                break;
-            case 1: // right aka +x
+            }
+            case 1 -> { // right aka +x
                 doorBB.minX = roomBox.maxX + 1;
                 doorBB.maxX = doorBB.minX + 1;
-
                 doorBB.minZ = roomBox.getCenterZ() - 1;
                 doorBB.maxZ = roomBox.getCenterZ() + 1;
-                break;
-            case 2: // down aka -z
+            }
+            case 2 -> { // down aka -z
                 doorBB.maxZ = roomBox.minZ - 1;
                 doorBB.minZ = doorBB.maxZ - 1;
-
                 doorBB.minX = roomBox.getCenterX() - 1;
                 doorBB.maxX = roomBox.getCenterX() + 1;
-                break;
-            case 3: // left aka -x
+            }
+            case 3 -> { // left aka -x
                 doorBB.maxX = roomBox.minX - 1;
                 doorBB.minX = doorBB.maxX - 1;
-
                 doorBB.minZ = roomBox.getCenterZ() - 1;
                 doorBB.maxZ = roomBox.getCenterZ() + 1;
+            }
         }
 
         return doorBB;
@@ -506,82 +484,81 @@ public class Pyramid extends BaseStructureStart {
         bb.maxY = 255;
         final int tempRoomWidth = this.smallRoomWidth - 1;
         switch (position) {
-            case 1:
+            case 1 -> {
                 bb.minX = myBB.minX + this.innerRoomOffset;
                 bb.maxX = bb.minX + tempRoomWidth;
                 bb.minZ = myBB.minZ + this.innerRoomOffset;
                 bb.maxZ = bb.minZ + tempRoomWidth;
-                break;
-            case 2:
+            }
+            case 2 -> {
                 bb.minX = myBB.minX + this.innerRoomOffset + offsetBetweenRooms + tempRoomWidth;
                 bb.minZ = myBB.minZ + this.innerRoomOffset;
                 bb.maxX = bb.minX + tempRoomWidth;
                 bb.maxZ = bb.minZ + tempRoomWidth;
-                break;
-            case 3:
+            }
+            case 3 -> {
                 bb.maxX = myBB.maxX - this.innerRoomOffset - offsetBetweenRooms - tempRoomWidth + 1;
                 bb.minX = bb.maxX - tempRoomWidth;
                 bb.minZ = myBB.minZ + this.innerRoomOffset;
                 bb.maxZ = bb.minZ + tempRoomWidth;
-                break;
-            case 4:
+            }
+            case 4 -> {
                 bb.maxX = myBB.maxX - this.innerRoomOffset + 1;
                 bb.minX = bb.maxX - tempRoomWidth;
                 bb.minZ = myBB.minZ + this.innerRoomOffset;
                 bb.maxZ = bb.minZ + tempRoomWidth;
-                break;
-            case 5:
+            }
+            case 5 -> {
                 bb.minZ = myBB.minZ + this.innerRoomOffset + offsetBetweenRooms + tempRoomWidth;
                 bb.maxZ = bb.minZ + tempRoomWidth;
                 bb.maxX = myBB.maxX - this.innerRoomOffset + 1;
                 bb.minX = bb.maxX - tempRoomWidth;
-                break;
-            case 6:
+            }
+            case 6 -> {
                 bb.maxZ = myBB.maxZ - this.innerRoomOffset - (offsetBetweenRooms + tempRoomWidth) + 1;
                 bb.minZ = bb.maxZ - tempRoomWidth;
                 bb.maxX = myBB.maxX - this.innerRoomOffset + 1;
                 bb.minX = bb.maxX - tempRoomWidth;
-                break;
-            case 7:
+            }
+            case 7 -> {
                 bb.maxZ = myBB.maxZ - this.innerRoomOffset + 1;
                 bb.minZ = bb.maxZ - tempRoomWidth;
                 bb.maxX = myBB.maxX - this.innerRoomOffset + 1;
                 bb.minX = bb.maxX - tempRoomWidth;
-                break;
-            case 8:
+            }
+            case 8 -> {
                 bb.maxZ = myBB.maxZ - this.innerRoomOffset + 1;
                 bb.minZ = bb.maxZ - tempRoomWidth;
                 bb.maxX = myBB.maxX - this.innerRoomOffset - (offsetBetweenRooms + tempRoomWidth) + 1;
                 bb.minX = bb.maxX - tempRoomWidth;
-                break;
-            case 9:
+            }
+            case 9 -> {
                 bb.maxZ = myBB.maxZ - this.innerRoomOffset + 1;
                 bb.minZ = bb.maxZ - tempRoomWidth;
                 bb.minX = myBB.minX + this.innerRoomOffset + offsetBetweenRooms + tempRoomWidth;
                 bb.maxX = bb.minX + tempRoomWidth;
-                break;
-            case 10:
+            }
+            case 10 -> {
                 bb.minX = myBB.minX + this.innerRoomOffset;
                 bb.maxX = bb.minX + tempRoomWidth;
                 bb.maxZ = myBB.maxZ - this.innerRoomOffset + 1;
                 bb.minZ = bb.maxZ - tempRoomWidth;
-                break;
-            case 11:
+            }
+            case 11 -> {
                 bb.minX = myBB.minX + this.innerRoomOffset;
                 bb.maxX = bb.minX + tempRoomWidth;
                 bb.maxZ = myBB.maxZ - this.innerRoomOffset - (offsetBetweenRooms + tempRoomWidth) + 1;
                 bb.minZ = bb.maxZ - tempRoomWidth;
-                break;
-            case 12:
+            }
+            case 12 -> {
                 bb.minX = myBB.minX + this.innerRoomOffset;
                 bb.maxX = bb.minX + tempRoomWidth;
                 bb.minZ = myBB.minZ + this.innerRoomOffset + offsetBetweenRooms + tempRoomWidth;
                 bb.maxZ = bb.minZ + tempRoomWidth;
-                break;
-            default:
+            }
+            default ->
                 // bad
                 throw new IllegalArgumentException("Pyramid room position " + position + " is invalid");
-
         }
 
         return bb;

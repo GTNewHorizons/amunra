@@ -140,74 +140,40 @@ public class RenderArtificalGravity extends TileEntitySpecialRenderer {
 
     private void setColorForRotation(final Side side, final int rotationMeta) {
         switch (side) {
-            case BACK:
+            case BACK -> {
                 switch (rotationMeta) {
-                    case 3:
-                        GL11.glColor4d(0.87, 0.87, 0.0, 1.0);
-                        break;
-                    case 2:
-                        GL11.glColor4d(0.0, 0.0, 0.87, 1.0);
-                        break;
-                    case 0:
-                        GL11.glColor4d(0.0, 0.87, 0.0, 1.0);
-                        break;
-                    case 1:
-                    default:
-                        GL11.glColor4d(0.87, 0.0, 0.87, 1.0);
+                    case 3 -> GL11.glColor4d(0.87, 0.87, 0.0, 1.0);
+                    case 2 -> GL11.glColor4d(0.0, 0.0, 0.87, 1.0);
+                    case 0 -> GL11.glColor4d(0.0, 0.87, 0.0, 1.0);
+                    case 1 -> GL11.glColor4d(0.87, 0.0, 0.87, 1.0);
+                    default -> GL11.glColor4d(0.87, 0.0, 0.87, 1.0);
                 }
-                break;
-            case FRONT:
+            }
+            case FRONT -> {
                 switch (rotationMeta) {
-                    case 0:
-                        GL11.glColor4d(0.87, 0.0, 0.87, 1.0);
-                        break;
-                    case 1:
-                        GL11.glColor4d(0.0, 0.87, 0.0, 1.0);
-                        break;
-                    case 2:
-                        GL11.glColor4d(0.87, 0.87, 0.0, 1.0);
-                        break;
-                    case 3:
-                        GL11.glColor4d(0.0, 0.0, 0.87, 1.0);
-                        break;
+                    case 0 -> GL11.glColor4d(0.87, 0.0, 0.87, 1.0);
+                    case 1 -> GL11.glColor4d(0.0, 0.87, 0.0, 1.0);
+                    case 2 -> GL11.glColor4d(0.87, 0.87, 0.0, 1.0);
+                    case 3 -> GL11.glColor4d(0.0, 0.0, 0.87, 1.0);
                 }
-
-                break;
-            case LEFT:
+            }
+            case LEFT -> {
                 switch (rotationMeta) {
-                    case 0:
-                        GL11.glColor4d(0.0, 0.0, 0.87, 1.0);
-                        break;
-                    case 1:
-                        GL11.glColor4d(0.87, 0.87, 0.0, 1.0);
-                        break;
-                    case 2:
-                        GL11.glColor4d(0.87, 0.0, 0.87, 1.0);
-                        break;
-                    case 3:
-                        GL11.glColor4d(0.0, 0.87, 0.0, 1.0);
-                        break;
+                    case 0 -> GL11.glColor4d(0.0, 0.0, 0.87, 1.0);
+                    case 1 -> GL11.glColor4d(0.87, 0.87, 0.0, 1.0);
+                    case 2 -> GL11.glColor4d(0.87, 0.0, 0.87, 1.0);
+                    case 3 -> GL11.glColor4d(0.0, 0.87, 0.0, 1.0);
                 }
-                break;
-            case RIGHT:
+            }
+            case RIGHT -> {
                 switch (rotationMeta) {
-                    case 0:
-                        GL11.glColor4d(0.87, 0.87, 0.0, 1.0);
-                        break;
-                    case 1:
-                        GL11.glColor4d(0.0, 0.0, 0.87, 1.0);
-                        break;
-                    case 2:
-                        GL11.glColor4d(0.0, 0.87, 0.0, 1.0);
-                        break;
-                    case 3:
-                        GL11.glColor4d(0.87, 0.0, 0.87, 1.0);
-                        break;
+                    case 0 -> GL11.glColor4d(0.87, 0.87, 0.0, 1.0);
+                    case 1 -> GL11.glColor4d(0.0, 0.0, 0.87, 1.0);
+                    case 2 -> GL11.glColor4d(0.0, 0.87, 0.0, 1.0);
+                    case 3 -> GL11.glColor4d(0.87, 0.0, 0.87, 1.0);
                 }
-                break;
-            default:
-                break;
-
+            }
+            default -> {}
         }
     }
 

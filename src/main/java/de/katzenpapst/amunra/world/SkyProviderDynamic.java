@@ -784,11 +784,10 @@ public class SkyProviderDynamic extends IRenderHandler {
         double curOrbitalAngle = 0;
 
         switch (this.rType) {
-            case STAR:
+            case STAR ->
                 // only child planets
                 this.renderChildPlanets(curWorldTime, partialTicks);
-                break;
-            case PLANET:
+            case PLANET -> {
                 // star, sibling planets and child moons
                 // get my own angle
                 curOrbitalAngle = this.getOrbitalAngle(
@@ -797,24 +796,22 @@ public class SkyProviderDynamic extends IRenderHandler {
                         curWorldTime,
                         partialTicks,
                         AstronomyHelper.yearFactor);
-
                 this.renderMainStar();
                 this.renderSiblingPlanets(curOrbitalAngle, curWorldTime, partialTicks);
                 this.renderChildMoons(curWorldTime, partialTicks);
-                break;
-            case MOON:
+            }
+            case MOON -> {
                 curOrbitalAngle = this.getOrbitalAngle(
                         this.curBody.getRelativeOrbitTime(), // debug?
                         this.curBody.getPhaseShift(),
                         curWorldTime,
                         partialTicks,
                         AstronomyHelper.monthFactor);
-
                 this.renderMainStar();
                 this.renderParentPlanet(curOrbitalAngle);
                 this.renderSiblingMoons(curOrbitalAngle, curWorldTime, partialTicks);
-                break;
-            case RINGS:
+            }
+            case RINGS -> {
                 // do something similar to planet rendering. pretend we render being on the parent body.. kinda
                 curOrbitalAngle = this.getOrbitalAngle(
                         this.curBodyPlanet.getRelativeDistanceFromCenter().unScaledDistance,
@@ -822,12 +819,10 @@ public class SkyProviderDynamic extends IRenderHandler {
                         curWorldTime,
                         partialTicks,
                         AstronomyHelper.yearFactor);
-
                 this.renderMainStar();
                 this.renderRingsParentPlanet(this.curBodyPlanet);
                 this.renderSiblingMoons(curOrbitalAngle, curWorldTime, partialTicks);
-
-                break;
+            }
         }
         return curOrbitalAngle;
     }

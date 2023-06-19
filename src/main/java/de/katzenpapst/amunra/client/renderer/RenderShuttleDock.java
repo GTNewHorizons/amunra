@@ -34,26 +34,20 @@ public class RenderShuttleDock extends TileEntitySpecialRenderer {
 
         // Minecraft.getMinecraft().renderEngine.bindTexture(texture);
 
-        float rotation = 0.0F;
+        float rotation = switch (dock.getRotationMeta()) {
+            case 0 -> 90.0F;// 180.0F;// -> Z
+            case 1 -> 270.0F;// 90.0F;// -> -X
+            case 2 -> 180.0F;// 0;// -> -Z
+            case 3 -> 0.0F;
+            default -> 0.0F;
 
-        /*
-         * 2 -> -Z 1 -> -X 3 -> +X 0 -> +Z
-         */
+            /*
+             * 2 -> -Z 1 -> -X 3 -> +X 0 -> +Z
+             */
 
-        switch (dock.getRotationMeta()) {
-            case 0:
-                rotation = 90.0F;// 180.0F;// -> Z
-                break;
-            case 1:
-                rotation = 270.0F;// 90.0F;// -> -X
-                break;
-            case 2:
-                rotation = 180.0F;// 0;// -> -Z
-                break;
-            case 3:
-                rotation = 0.0F;// 270.0F;// -> X
-                break;
-        }
+            // 270.0F;// -> X
+        };
+
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         GL11.glTranslatef(0.5F, 0.0F, 0.5F);
         GL11.glRotatef(rotation, 0, 1, 0);

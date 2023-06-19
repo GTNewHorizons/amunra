@@ -414,7 +414,7 @@ public class GuiMothershipSelection extends GuiARCelestialSelection {
         final long travelTime = !tData.isEmpty() ? tData.duration : -1;
 
         switch (failReason) {
-            case ALREADY_ORBITING:
+            case ALREADY_ORBITING -> {
                 this.smallFontRenderer.drawSplitString(
                         GCCoreUtil.translate("gui.message.mothership.alreadyOrbiting"),
                         this.offsetX - 90,
@@ -422,13 +422,13 @@ public class GuiMothershipSelection extends GuiARCelestialSelection {
                         90,
                         0xFFFFFFFF);
                 offset += 10;
-                break;
-            case NONE:
+            }
+            case NONE -> {
                 offset = this.drawTravelDistance(offset, travelDistance);
                 offset = this.drawTravelTime(offset, travelDistance, travelTime);
                 offset = this.drawFuelReqs(offset, mousePosX, mousePosY, tData.fuelReqData);
-                break;
-            case NOT_ENOUGH_FUEL:
+            }
+            case NOT_ENOUGH_FUEL -> {
                 offset = this.drawTravelDistance(offset, travelDistance);
                 offset = this.drawTravelTime(offset, travelDistance, travelTime);
                 offset = this.drawFuelReqs(offset, mousePosX, mousePosY, tData.fuelReqData);
@@ -439,8 +439,8 @@ public class GuiMothershipSelection extends GuiARCelestialSelection {
                         90,
                         0xFFFF8080);
                 offset += 10;
-                break;
-            case NOT_ENOUGH_THRUST:
+            }
+            case NOT_ENOUGH_THRUST -> {
                 offset = this.drawTravelDistance(offset, travelDistance);
                 offset = this.drawTravelTime(offset, travelDistance, travelTime);
                 offset = this.drawFuelReqs(offset, mousePosX, mousePosY, tData.fuelReqData);
@@ -451,8 +451,8 @@ public class GuiMothershipSelection extends GuiARCelestialSelection {
                         90,
                         0xFFFF8080);
                 offset += 10;
-                break;
-            case NOT_ORBITABLE:
+            }
+            case NOT_ORBITABLE -> {
                 this.smallFontRenderer.drawSplitString(
                         GCCoreUtil.translate("gui.message.mothership.unreachableBody"),
                         this.offsetX - 90,
@@ -460,8 +460,8 @@ public class GuiMothershipSelection extends GuiARCelestialSelection {
                         90,
                         0xFFFF8080);
                 offset += 10;
-                break;
-            case TRAVEL_TOO_LONG:
+            }
+            case TRAVEL_TOO_LONG -> {
                 offset = this.drawTravelDistance(offset, travelDistance);
                 offset = this.drawTravelTime(offset, travelDistance, travelTime);
                 offset = this.drawFuelReqs(offset, mousePosX, mousePosY, tData.fuelReqData);
@@ -472,10 +472,8 @@ public class GuiMothershipSelection extends GuiARCelestialSelection {
                         90,
                         0xFFFF8080);
                 offset += 10;
-
-                break;
-            default:
-                break;
+            }
+            default -> {}
         }
     }
 

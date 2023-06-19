@@ -217,17 +217,12 @@ public class ClientProxy extends ARSidedProxy {
         }
         EntityFX resultEntity = null;
         switch (type) {
-            case PT_MOTHERSHIP_JET_FLAME:
-                resultEntity = new EntityFXMothershipJetFire(world, pos, motion);
-                break;
-            case PT_MOTHERSHIP_ION_FLAME:
-                resultEntity = new EntityFXMothershipIonFlame(world, pos, motion, 2.5F);
-                break;
-            case PT_GRAVITY_DUST:
-                resultEntity = new EntityFXGravityDust(world, pos, motion);
-                break;
-            default:
+            case PT_MOTHERSHIP_JET_FLAME -> resultEntity = new EntityFXMothershipJetFire(world, pos, motion);
+            case PT_MOTHERSHIP_ION_FLAME -> resultEntity = new EntityFXMothershipIonFlame(world, pos, motion, 2.5F);
+            case PT_GRAVITY_DUST -> resultEntity = new EntityFXGravityDust(world, pos, motion);
+            default -> {
                 return;
+            }
         }
 
         resultEntity.prevPosX = resultEntity.posX;

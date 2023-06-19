@@ -91,19 +91,14 @@ public class ItemRendererSpecial1 implements IItemRenderer {
     public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
         if (this.handleRenderType(item, type)) {
             switch (type) {
-                case EQUIPPED:
-                case EQUIPPED_FIRST_PERSON:
-                case INVENTORY:
-                case ENTITY:
+                case EQUIPPED, EQUIPPED_FIRST_PERSON, INVENTORY, ENTITY -> {
                     if (item.getItemDamage() == ARBlocks.blockShuttleDock.getMetadata()) {
                         this.renderDock(type, (RenderBlocks) data[0], item);
                     } else if (item.getItemDamage() == ARBlocks.blockHydro.getMetadata()) {
                         this.renderHydroponics(type, (RenderBlocks) data[0], item);
                     }
-
-                    break;
-                default:
-                    break;
+                }
+                default -> {}
             }
         }
 

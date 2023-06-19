@@ -154,19 +154,11 @@ public class ItemRendererShuttle implements IItemRenderer {
     @Override
     public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
         switch (type) {
-            case EQUIPPED:
-                this.renderSpaceship(type, (RenderBlocks) data[0], item, -0.5f, -0.5f, -0.5f);
-                break;
-            case EQUIPPED_FIRST_PERSON:
-                this.renderSpaceship(type, (RenderBlocks) data[0], item, -0.5f, -0.5f, -0.5f);
-                break;
-            case INVENTORY:
-                this.renderSpaceship(type, (RenderBlocks) data[0], item, -0.5f, -0.5f, -0.5f);
-                break;
-            case ENTITY:
-                this.renderSpaceship(type, (RenderBlocks) data[0], item, -0.5f, -0.5f, -0.5f);
-                break;
-            default:
+            case EQUIPPED -> this.renderSpaceship(type, (RenderBlocks) data[0], item, -0.5f, -0.5f, -0.5f);
+            case EQUIPPED_FIRST_PERSON -> this.renderSpaceship(type, (RenderBlocks) data[0], item, -0.5f, -0.5f, -0.5f);
+            case INVENTORY -> this.renderSpaceship(type, (RenderBlocks) data[0], item, -0.5f, -0.5f, -0.5f);
+            case ENTITY -> this.renderSpaceship(type, (RenderBlocks) data[0], item, -0.5f, -0.5f, -0.5f);
+            default -> {}
         }
     }
 

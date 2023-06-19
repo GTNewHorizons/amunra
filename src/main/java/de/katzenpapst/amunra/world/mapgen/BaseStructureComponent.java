@@ -43,19 +43,17 @@ abstract public class BaseStructureComponent {
     }
 
     protected int translateX(final int x, final int z) {
-        switch (this.coordMode) {
-            case 0:
-            case 2:
-                return x; // keep them as-is
-            case 1:
+        return switch (this.coordMode) {
+            case 0, 2 -> x; // keep them as-is
+            case 1 ->
                 // translate z to "relative to bb", then do what getXWithOffset did
-                return this.structBB.maxX - (z - this.structBB.minZ);
-            case 3:
+                this.structBB.maxX - (z - this.structBB.minZ);
+            case 3 ->
                 // similar to above
-                return this.structBB.minX + z - this.structBB.minZ;
-        }
+                this.structBB.minX + z - this.structBB.minZ;
+            default -> x;
+        };
 
-        return x;
     }
 
     protected int translateZ(final int x, final int z) {
@@ -256,22 +254,22 @@ abstract public class BaseStructureComponent {
             /*
              * case 0: return unrotated;
              */
-            case 1:
+            case 1 -> {
                 if (unrotated == n) return e;
                 if (unrotated == e) return s;
                 if (unrotated == w) return n;
                 if (unrotated == s) return w;
-                break;
-            case 2:
+            }
+            case 2 -> {
                 if (unrotated == n) return s;
                 if (unrotated == s) return n;
-                break; // unrotated will be returned anyway
-            case 3:
+            } // unrotated will be returned anyway
+            case 3 -> {
                 if (unrotated == e) return s;
                 if (unrotated == w) return n;
                 if (unrotated == s) return e;
                 if (unrotated == n) return w;
-                break;
+            }
         }
         return unrotated;
     }

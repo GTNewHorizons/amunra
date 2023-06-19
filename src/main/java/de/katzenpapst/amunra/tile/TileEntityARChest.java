@@ -181,28 +181,26 @@ public class TileEntityARChest extends TileEntity implements IInventory {
             this.adjacentChestChecked = false;
         } else if (this.adjacentChestChecked) {
             switch (direction) {
-                case 0:
+                case 0 -> {
                     if (this.adjacentChestZPos != par1TileEntityChest) {
                         this.adjacentChestChecked = false;
                     }
-
-                    break;
-                case 1:
+                }
+                case 1 -> {
                     if (this.adjacentChestXNeg != par1TileEntityChest) {
                         this.adjacentChestChecked = false;
                     }
-
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     if (this.adjacentChestZNeg != par1TileEntityChest) {
                         this.adjacentChestChecked = false;
                     }
-
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     if (this.adjacentChestXPos != par1TileEntityChest) {
                         this.adjacentChestChecked = false;
                     }
+                }
             }
         }
     }

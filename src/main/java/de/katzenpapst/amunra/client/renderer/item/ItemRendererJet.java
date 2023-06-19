@@ -46,27 +46,26 @@ public class ItemRendererJet implements IItemRenderer {
         final IModelCustom model = this.models[item.getItemDamage()];
 
         switch (type) {
-            case ENTITY:
+            case ENTITY -> {
                 GL11.glScaled(0.53, 0.53, 0.53);
                 GL11.glTranslated(0.0, 1.0, 1.0);
-                break;
-            case EQUIPPED:
+            }
+            case EQUIPPED -> {
                 GL11.glScaled(0.53, 0.53, 0.53);
                 GL11.glTranslated(2.0, 0.8, 1.5);
                 GL11.glRotated(90, 0, 1, 0);
-                break;
-            case EQUIPPED_FIRST_PERSON:
+            }
+            case EQUIPPED_FIRST_PERSON -> {
                 GL11.glScaled(0.53, 0.53, 0.53);
                 GL11.glTranslated(1.9, 1.0, 1.0);
                 GL11.glRotated(90, 0, 1, 0);
-                break;
-            case INVENTORY:
+            }
+            case INVENTORY -> {
                 GL11.glTranslated(0.5, 0.35, 0.0);
                 GL11.glScaled(0.53, 0.53, 0.53);
                 GL11.glRotated(180, 0, 1, 0);
-                break;
-            default:
-                break;
+            }
+            default -> {}
         }
         GL11.glPushMatrix();
         GL11.glEnable(GL11.GL_TEXTURE_2D);
@@ -80,14 +79,9 @@ public class ItemRendererJet implements IItemRenderer {
     public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
         if (this.handleRenderType(item, type)) {
             switch (type) {
-                case EQUIPPED:
-                case EQUIPPED_FIRST_PERSON:
-                case INVENTORY:
-                case ENTITY:
-                    this.renderJet(type, (RenderBlocks) data[0], item, -0.5f, -0.5f, -0.5f);
-                    break;
-                default:
-                    break;
+                case EQUIPPED, EQUIPPED_FIRST_PERSON, INVENTORY, ENTITY -> this
+                        .renderJet(type, (RenderBlocks) data[0], item, -0.5f, -0.5f, -0.5f);
+                default -> {}
             }
         }
     }

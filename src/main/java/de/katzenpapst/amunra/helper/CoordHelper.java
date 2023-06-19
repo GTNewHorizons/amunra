@@ -67,7 +67,7 @@ public class CoordHelper {
 
     /**
      * This should transform a ForgeDirection according to rotation metadata
-     * 
+     *
      * @param rotationMetadata this should be ONLY the rotation metadata, ANDed and byteshifted, if necessary: 0 2-+-3 1
      */
     public static ForgeDirection rotateForgeDirection(final ForgeDirection dir, final int rotationMetadata) {
@@ -81,48 +81,50 @@ public class CoordHelper {
     }
 
     private static int rotateForgeDirectionOrdinal(final int dirOrdinal, final int rotationMeta) {
-        switch (rotationMeta) {
-            case 0: // identity
-                return dirOrdinal;
-            case 1: // rotate 180°
+        return switch (rotationMeta) {
+            case 0 -> // identity
+                dirOrdinal;
+            case 1 -> // rotate 180°
                 switch (dirOrdinal) {
-                    case 2: // N
-                        return 3; // S
-                    case 3: // S
-                        return 2; // N
-                    case 4: // W
-                        return 5; // E
-                    case 5: // E
-                        return 4; // W
-                }
-                return -1;
-            case 2: // rotate 270°
+                    case 2 -> // N
+                        3; // S
+                    case 3 -> // S
+                        2; // N
+                    case 4 -> // W
+                        5; // E
+                    case 5 -> // E
+                        4;
+                    default -> // W
+                        -1;
+                };
+            case 2 -> // rotate 270°
                 switch (dirOrdinal) {
-                    case 2: // N
-                        return 4; // W
-                    case 3: // S
-                        return 5; // E
-                    case 4: // W
-                        return 3; // S
-                    case 5: // E
-                        return 2; // N
-                }
-                return -1;
-            case 3: // rotate 90°
+                    case 2 -> // N
+                        4; // W
+                    case 3 -> // S
+                        5; // E
+                    case 4 -> // W
+                        3; // S
+                    case 5 -> // E
+                        2;
+                    default -> // N
+                        -1;
+                };
+            case 3 -> // rotate 90°
                 switch (dirOrdinal) {
-                    case 2: // N
-                        return 5; // E
-                    case 3: // S
-                        return 4; // W
-                    case 4: // W
-                        return 2; // N
-                    case 5: // E
-                        return 3; // S
-                }
-                return -1;
-
-        }
-        return dirOrdinal;
+                    case 2 -> // N
+                        5; // E
+                    case 3 -> // S
+                        4; // W
+                    case 4 -> // W
+                        2; // N
+                    case 5 -> // E
+                        3;
+                    default -> // S
+                        -1;
+                };
+            default -> dirOrdinal;
+        };
     }
 
 }
