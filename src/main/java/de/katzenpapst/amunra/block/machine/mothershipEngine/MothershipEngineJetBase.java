@@ -39,8 +39,11 @@ public abstract class MothershipEngineJetBase extends AbstractBlockMothershipRes
         if (world.getTileEntity(x, y, z) instanceof TileEntityMothershipEngineAbstract tileEngine) {
             return tileEngine;
         }
-        // TODO throw exception instead
-        return null;
+
+        throw new IllegalArgumentException(
+                "Expected " + TileEntityMothershipEngineAbstract.class
+                        + " but got "
+                        + world.getTileEntity(x, y, z).getClass());
     }
 
     @Override
