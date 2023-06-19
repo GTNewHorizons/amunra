@@ -1,6 +1,7 @@
 package de.katzenpapst.amunra.block;
 
 import java.util.Random;
+import java.util.stream.Stream;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -310,27 +311,19 @@ public class BlockARChest extends BlockContainer
         if (!this.canDoublechest) {
             return super.canPlaceBlockAt(worldIn, x, y, z);
         }
-        int numSameNeighbours = 0;
 
-        if (this.isSameBlock(worldIn, x - 1, y, z)) {
-            ++numSameNeighbours;
-        }
+        final long neighborChestCount = Stream.of(
+                this.isSameBlock(worldIn, x - 1, y, z),
+                this.isSameBlock(worldIn, x + 1, y, z),
+                this.isSameBlock(worldIn, x, y, z - 1),
+                this.isSameBlock(worldIn, x, y, z + 1)).filter(c -> c).count();
 
-        if (this.isSameBlock(worldIn, x + 1, y, z)) {
-            ++numSameNeighbours;
-        }
+        final boolean neighboursHaveNeighborChest = this.isThereANeighborChest(worldIn, x - 1, y, z)
+                || this.isThereANeighborChest(worldIn, x + 1, y, z)
+                || this.isThereANeighborChest(worldIn, x, y, z - 1)
+                || this.isThereANeighborChest(worldIn, x, y, z + 1);
 
-        if (this.isSameBlock(worldIn, x, y, z - 1)) {
-            ++numSameNeighbours;
-        }
-
-        if (this.isSameBlock(worldIn, x, y, z + 1)) {
-            ++numSameNeighbours;
-        }
-
-        return numSameNeighbours < 2 && (this.isThereANeighborChest(worldIn, x - 1, y, z) ? false
-                : !this.isThereANeighborChest(worldIn, x + 1, y, z) && !this.isThereANeighborChest(worldIn, x, y, z - 1)
-                        && !this.isThereANeighborChest(worldIn, x, y, z + 1));
+        return neighborChestCount < 2 && !neighboursHaveNeighborChest;
     }
 
     /**
