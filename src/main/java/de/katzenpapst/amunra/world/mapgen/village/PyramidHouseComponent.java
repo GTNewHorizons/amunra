@@ -40,9 +40,7 @@ public class PyramidHouseComponent extends GridVillageComponent {
         final int startZ = 0;
         final int stopZ = myBB.getZSize() - 1;
 
-        final int xCenter = (int) Math.ceil((stopX - startX) / 2 + startX);
-
-        final int radius = xCenter;
+        final int radius = (int) Math.ceil((stopX - startX) / 2 + startX);
 
         for (int x = startX; x <= stopX; x++) {
             for (int z = startZ; z <= stopZ; z++) {

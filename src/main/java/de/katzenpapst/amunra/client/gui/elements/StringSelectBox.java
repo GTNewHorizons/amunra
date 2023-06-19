@@ -128,8 +128,6 @@ public class StringSelectBox extends GuiButton {
                 final int curYoffset = i * this.textSize;
                 final int actualIndex = i + this.scrollOffset;
 
-                final int colorText = colorGreen;
-
                 if (actualIndex == this.selectedStringIndex) {
                     this.drawGradientRect(
                             this.xPosition + 1,
@@ -144,7 +142,7 @@ public class StringSelectBox extends GuiButton {
                         this.strings.get(actualIndex),
                         this.xPosition + 2,
                         curYoffset + this.yPosition,
-                        colorText);
+                        colorGreen);
             }
 
             if (this.maxLines < this.strings.size()) {

@@ -449,8 +449,7 @@ public class TileEntityARChest extends TileEntity implements IInventory {
                 return false;
             }
 
-            final EntityOcelot var5 = (EntityOcelot) var4.next();
-            var6 = var5;
+            var6 = (EntityOcelot) var4.next();
         } while (!var6.isSitting());
 
         return true;
