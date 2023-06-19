@@ -87,14 +87,10 @@ public class ItemJet extends ItemBlockMulti {
     public boolean placeBlockAt(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side,
             float hitX, float hitY, float hitZ, int metadata) {
 
-        /**
-         * 0 -> +Y 1 -> -Y 2 -> -Z 3 -> +Z 4 -> -X 5 -> +X
-         * <p>
-         *
-         ** value | motion direction | ------+----------------- + 0 | +Z | 1 | -X | 2 | -Z | 3 | +X |
-         *
+        /*
+         * 0 -> +Y 1 -> -Y 2 -> -Z 3 -> +Z 4 -> -X 5 -> +X value | motion direction | ------+----------------- + 0 | +Z
+         * | 1 | -X | 2 | -Z | 3 | +X |
          */
-
         int blockRotation = switch (side) {
             case 0, 1 -> MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
             case 2 -> 0;

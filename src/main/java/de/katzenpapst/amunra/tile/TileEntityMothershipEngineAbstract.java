@@ -824,12 +824,6 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
     abstract public MothershipFuelRequirements getFuelRequirements(long duration);
 
     /**
-     * This should return how much fuel units are consumed per AU travelled, in millibuckets
-     *
-     * @return
-     */
-
-    /**
      * Will be called on all which return true from isInUse on transit end
      */
     @Override

@@ -1108,10 +1108,9 @@ public class SkyProviderDynamic extends IRenderHandler {
         double startOffset = 0;
         double stopOffset = 0;
 
-        /**
+        /*
          * pi/2 => half waning pi => new 3/2pi => half waxing 0=2pi => full
          */
-
         boolean canBeBehindTheSun = body instanceof Planet && !body.equals(this.curBodyPlanet)
                 && body.getRelativeDistanceFromCenter().unScaledDistance
                         > this.curBodyPlanet.getRelativeDistanceFromCenter().unScaledDistance;

@@ -132,12 +132,6 @@ public abstract class AmunraWorldProvider extends WorldProviderSpace implements 
             dayFactor = 1.0F;
         }
 
-        // but why?
-        /**
-         * int i = MathHelper.floor_double(cameraEntity.posX); int j = MathHelper.floor_double(cameraEntity.posY); int k
-         * = MathHelper.floor_double(cameraEntity.posZ); int l = ForgeHooksClient.getSkyBlendColour(this.worldObj, i, j,
-         * k);
-         */
         float red = skyColorBase.floatX();
         float green = skyColorBase.floatY();
         float blue = skyColorBase.floatZ();

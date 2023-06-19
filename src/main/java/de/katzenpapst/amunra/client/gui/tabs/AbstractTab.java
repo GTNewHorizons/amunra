@@ -145,11 +145,6 @@ abstract public class AbstractTab {
     }
 
     /**
-     * Handles keyboard input. / public void handleKeyboardInput() { if (Keyboard.getEventKeyState()) {
-     * this.keyTyped(Keyboard.getEventCharacter(), Keyboard.getEventKey()); } }
-     */
-
-    /**
      * This function is what controls the hotbar shortcut check when you press a number key when hovering a stack.
      */
     protected boolean checkHotbarKeys(final int keyCode) {

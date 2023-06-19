@@ -1016,15 +1016,6 @@ public class RecipeHelper {
     }
 
     /**
-     * Helper function to add all reloading recipes for all rayguns and batteries...
-     */
-    /*
-     * private static void initRaygunReloadingRecipes(ItemStack[] guns, ItemStack[] batteries) { for(ItemStack gun:
-     * guns) { for(ItemStack battery: batteries) { GameRegistry.addShapelessRecipe(gun, new Object[]{gun, battery}); } }
-     * }
-     */
-
-    /**
      * adds a crafting recipe for a gun and reloading recipes
      *
      * @param recipe the very last argument must be the battery

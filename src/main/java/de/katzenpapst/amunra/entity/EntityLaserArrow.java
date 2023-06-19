@@ -117,7 +117,7 @@ public class EntityLaserArrow extends EntityBaseLaserArrow {
             if (blockId > 0) {
                 final Block b = Block.getBlockById(blockId);
                 if (b != Blocks.air) {
-                    /**
+                    /*
                      * Sets the block ID and metadata at a given location. Args: X, Y, Z, new block ID, new metadata,
                      * flags. Flag 1 will cause a block update. Flag 2 will send the change to clients (you almost
                      * always want this). Flag 4 prevents the block from being re-rendered, if this is a client world.
