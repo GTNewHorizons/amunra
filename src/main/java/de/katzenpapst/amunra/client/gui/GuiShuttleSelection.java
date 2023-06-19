@@ -394,8 +394,7 @@ public class GuiShuttleSelection extends GuiARCelestialSelection {
                                 this.selectedStationOwner);
                         return false;
                     }
-                    final int spacestationID = mapping;
-                    dimensionID = spacestationID;
+                    dimensionID = mapping;
                 } else {
                     dimensionID = this.selectedBody.getDimensionID();
                 }
