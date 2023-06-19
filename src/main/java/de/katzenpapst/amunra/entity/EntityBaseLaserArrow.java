@@ -298,9 +298,7 @@ abstract public class EntityBaseLaserArrow extends Entity implements IProjectile
             double d0 = 0.0D;
             float f1;
 
-            for (int l = 0; l < list.size(); ++l) {
-                final Entity entity1 = list.get(l);
-
+            for (final Entity entity1 : list) {
                 if (entity1.canBeCollidedWith() && (entity1 != this.shootingEntity || this.ticksInAir >= 5)) {
                     f1 = 0.3F;
                     final AxisAlignedBB axisalignedbb1 = entity1.boundingBox.expand(f1, f1, f1);
