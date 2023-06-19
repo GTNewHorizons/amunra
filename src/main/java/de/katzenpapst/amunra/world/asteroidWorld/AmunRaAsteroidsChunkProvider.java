@@ -41,7 +41,7 @@ import micdoodle8.mods.galacticraft.planets.asteroids.world.gen.SpecialAsteroidB
 
 /**
  * This is copypaste from ChunkProviderAsteroids. I would have extended that class, but everything there is private
- * 
+ *
  * @author katzenpapst
  *
  */
@@ -458,7 +458,7 @@ public class AmunRaAsteroidsChunkProvider extends ChunkProviderGenerate {
         }
     }
 
-    private final void setOtherAxisFrequency(final float frequency) {
+    private void setOtherAxisFrequency(final float frequency) {
         this.asteroidSkewX.frequencyY = frequency;
         this.asteroidSkewX.frequencyZ = frequency;
 
@@ -469,7 +469,7 @@ public class AmunRaAsteroidsChunkProvider extends ChunkProviderGenerate {
         this.asteroidSkewZ.frequencyY = frequency;
     }
 
-    private final int clamp(int x, final int min, final int max) {
+    private int clamp(int x, final int min, final int max) {
         if (x < min) {
             x = min;
         } else if (x > max) {
@@ -478,7 +478,7 @@ public class AmunRaAsteroidsChunkProvider extends ChunkProviderGenerate {
         return x;
     }
 
-    private final double clamp(double x, final double min, final double max) {
+    private double clamp(double x, final double min, final double max) {
         if (x < min) {
             x = min;
         } else if (x > max) {
@@ -487,12 +487,12 @@ public class AmunRaAsteroidsChunkProvider extends ChunkProviderGenerate {
         return x;
     }
 
-    private final int getTerrainHeightFor(final float yMod, final int asteroidY, final int asteroidSize) {
+    private int getTerrainHeightFor(final float yMod, final int asteroidY, final int asteroidSize) {
         return (int) (asteroidY - asteroidSize / 4 + yMod * 1.5F);
     }
 
-    private final int getTerrainHeightAt(final int x, final int z, final float[] yModArray, final int xMin,
-            final int zMin, final int zSize, final int asteroidY, final int asteroidSize) {
+    private int getTerrainHeightAt(final int x, final int z, final float[] yModArray, final int xMin, final int zMin,
+            final int zSize, final int asteroidY, final int asteroidSize) {
         final int index = (x - xMin) * zSize - zMin;
         if (index < yModArray.length && index >= 0) {
             final float yMod = yModArray[index];
