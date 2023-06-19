@@ -2,11 +2,9 @@ package de.katzenpapst.amunra.client.gui;
 
 import java.nio.FloatBuffer;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
@@ -567,13 +565,7 @@ public class GuiARCelestialSelection extends GuiCelestialSelection {
 
     public void mothershipListUpdated() {
         // remove all the ships from the tick list
-        final Iterator<Entry<CelestialBody, Integer>> it = this.celestialBodyTicks.entrySet().iterator();
-        while (it.hasNext()) {
-            final Entry<CelestialBody, Integer> entry = it.next();
-            if (entry.getKey() instanceof Mothership) {
-                it.remove();
-            }
-        }
+        this.celestialBodyTicks.entrySet().removeIf(entry -> entry.getKey() instanceof Mothership);
         // fill the new data in
         final MothershipWorldData msData = TickHandlerServer.mothershipData;
         for (final Mothership ms : msData.getMotherships().values()) {
