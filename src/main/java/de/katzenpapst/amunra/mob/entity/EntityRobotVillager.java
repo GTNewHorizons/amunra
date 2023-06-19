@@ -185,9 +185,7 @@ public class EntityRobotVillager extends EntityAgeable implements IEntityBreatha
         final RobotVillagerProfession prof = RobotVillagerProfession.getProfession(this.getProfession());
         final MerchantRecipeList baseList = prof.getRecipeList();
         switch (baseList.size()) {
-            case 0 -> {
-                return;
-            }
+            case 0 -> {}
             case 1 -> this.buyingList.add(baseList.get(0));
             default -> {
                 // for now have just 1 offer
