@@ -24,8 +24,8 @@ import micdoodle8.mods.galacticraft.api.recipe.INasaWorkbenchRecipe;
 
 public class NEIAmunRaConfig implements IConfigureNEI {
 
-    private static Map<Map<Integer, PositionedStack>, PositionedStack> circuitFabricatorRecipes = new HashMap<>();
-    private static Map<List<PositionedStack>, PositionedStack> shuttleRecipes = new HashMap<>();
+    private static final Map<Map<Integer, PositionedStack>, PositionedStack> circuitFabricatorRecipes = new HashMap<>();
+    private static final Map<List<PositionedStack>, PositionedStack> shuttleRecipes = new HashMap<>();
 
     public NEIAmunRaConfig() {
 
@@ -115,7 +115,7 @@ public class NEIAmunRaConfig implements IConfigureNEI {
     /**
      *
      * @param slotGem
-     * 
+     *
      * @param redstone
      * @param optional
      * @param output   / private void addCircuitFabricatorRecipe(ItemStack slotGem, ItemStack redstone, ItemStack

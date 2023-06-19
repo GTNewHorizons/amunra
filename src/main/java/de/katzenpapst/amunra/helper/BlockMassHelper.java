@@ -17,7 +17,7 @@ import de.katzenpapst.amunra.block.IMassiveBlock;
 
 public class BlockMassHelper {
 
-    private static Map<BlockMetaPairHashable, Float> blockMassMap = new HashMap<>();
+    private static final Map<BlockMetaPairHashable, Float> blockMassMap = new HashMap<>();
 
     public static float getBlockMass(final World world, final Block block, final int meta, final int x, final int y,
             final int z) {

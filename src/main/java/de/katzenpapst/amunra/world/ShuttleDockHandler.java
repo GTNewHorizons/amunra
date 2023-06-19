@@ -21,7 +21,7 @@ public class ShuttleDockHandler extends WorldSavedData {
     public static final String saveDataID = "ShuttleDock";
 
     // map: dimensionID => (map: position => isAvailable)
-    private static Map<Integer, Map<Vector3int, Boolean>> tileMap = new HashMap<>();
+    private static final Map<Integer, Map<Vector3int, Boolean>> tileMap = new HashMap<>();
 
     public ShuttleDockHandler(final String id) {
         super(id);

@@ -108,7 +108,7 @@ public class SkyProviderDynamic extends IRenderHandler {
     // angle of the system in the sky
     private static float planetAxisAngle = -19.0F;
     // angle of the moons' orbits relative to the equator
-    private static float moonAxisAngle = 10.0F;
+    private static final float moonAxisAngle = 10.0F;
 
     private final double parentSunFactor = 6.0D;
     private final double parentPlanetFactor = 80.0D;
