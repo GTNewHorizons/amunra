@@ -701,7 +701,7 @@ public class EntityShuttle extends EntityTieredRocket {
                 player);
         // do not use this for the shuttle
         stats.usingPlanetSelectionGui = false;
-        stats.savedPlanetList = new String(dimensionList);
+        stats.savedPlanetList = dimensionList;
 
         if (useFakeEntity) {
             final Entity fakeEntity = new EntityShuttleFake(
