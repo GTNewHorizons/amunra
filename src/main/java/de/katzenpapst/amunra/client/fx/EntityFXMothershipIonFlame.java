@@ -16,9 +16,7 @@ public class EntityFXMothershipIonFlame extends EntityFX {
     public EntityFXMothershipIonFlame(final World world, final Vector3 pos, final Vector3 motion, final float scale) {
         super(world, pos.x, pos.y, pos.z, motion.x, motion.y, motion.z);
 
-        // setParticleTextureIndex(82); // same as happy villager
         this.particleScale = 2.0F;
-        // setRBGColorF(0x88, 0x00, 0x88);
 
         // this is needed because the vanilla code adds a y component
         this.motionX = motion.x + (float) (Math.random() * 2.0D - 1.0D) * 0.4F;
@@ -31,7 +29,6 @@ public class EntityFXMothershipIonFlame extends EntityFX {
         this.motionY = this.motionY / f1 * f * 0.4D;
         this.motionZ = this.motionZ / f1 * f * 0.4D;
 
-        // stealing stuff from GC
         this.particleRed = 50F / 255F + this.rand.nextFloat() / 3;
         this.particleGreen = 1.0F;
         this.particleBlue = 1.0F;
@@ -62,21 +59,10 @@ public class EntityFXMothershipIonFlame extends EntityFX {
             return;
         }
 
-        // after a while, vary my other coordinates slightly
-
-        this.setParticleTextureIndex(/* 128 + 7 - this.particleAge * 8 / this.particleMaxAge */167);
-        // this.motionY += 0.001D;
-
+        // TODO: check if the two functions below are necessary. Previously, there was the commented-out code of
+        // slightly moving particles and changing their color.
+        this.setParticleTextureIndex(167);
         this.moveEntity(this.motionX, this.motionY, this.motionZ);
-
-        // this.particleGreen += 0.01F;
-        /*
-         * if (this.posY == this.prevPosY) { this.motionX *= 1.1D; this.motionZ *= 1.1D; }
-         */
-        /*
-         * this.motionX *= 0.9599999785423279D; this.motionY *= 0.9599999785423279D; this.motionZ *=
-         * 0.9599999785423279D;
-         */
     }
 
     @Override

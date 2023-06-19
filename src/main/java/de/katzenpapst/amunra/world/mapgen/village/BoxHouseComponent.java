@@ -20,8 +20,6 @@ public class BoxHouseComponent extends GridVillageComponent {
         // now, how to get the height?
         final StructureBoundingBox chunkBB = CoordHelper.getChunkBB(chunkX, chunkZ);// new StructureBoundingBox((chunkX
                                                                                     // << 4),
-        // (chunkX<< 4), (chunkX+1 << 4)-1,
-        // (chunkX+1 << 4)-1);
         final int fallbackGround = this.parent.getWorldGroundLevel();
         if (this.groundLevel == -1) {
             this.groundLevel = getAverageGroundLevel(
@@ -70,12 +68,6 @@ public class BoxHouseComponent extends GridVillageComponent {
                 // now try spawing villagers...
                 if (x == xCenter && z == zCenter) {
                     this.spawnVillager(x, this.groundLevel, z);
-                    /*
-                     * EntityCreature villager = new EntityRobotVillager(this.parent.getWorld());
-                     * villager.onSpawnWithEgg(null);// NO IDEA int xOffset = getXWithOffset(x, z); //y =
-                     * getYWithOffset(y); int zOffset = getZWithOffset(x, z); this.parent.spawnLater(villager, xOffset,
-                     * groundLevel, zOffset);
-                     */
                 }
 
                 // now walls, most complex part
@@ -95,7 +87,6 @@ public class BoxHouseComponent extends GridVillageComponent {
                             // just place a wall, for now
                             this.placeBlockRel2BB(blocks, metas, chunkX, chunkZ, x, this.groundLevel + y, z, mat);
                         }
-                        // if(x == Math.fstopX-startX)
                     } else { // end of wall check
                         // this is interior
                         this.placeBlockRel2BB(blocks, metas, chunkX, chunkZ, x, this.groundLevel + y, z, air);
@@ -123,7 +114,6 @@ public class BoxHouseComponent extends GridVillageComponent {
                                     z,
                                     GCBlocks.glowstoneTorch,
                                     rotateTorchMetadata(2, this.coordMode));
-                            //
                         } else if (z == startZ + 1 && x == xCenter && y == 2) {
                             this.placeBlockRel2BB(
                                     blocks,
@@ -149,11 +139,6 @@ public class BoxHouseComponent extends GridVillageComponent {
                                     rotateTorchMetadata(4, this.coordMode));
                             // rotate to -z?
                         }
-                        /*
-                         * if(y==0 && x == startX+1 && z == startZ+1) { // random crafting table
-                         * placeBlockRel2BB(blocks, metas,chunkX, chunkZ, x, groundLevel+y, z, Blocks.crafting_table,
-                         * 0); }
-                         */
                     }
                 }
                 // finally, roof
@@ -182,19 +167,15 @@ public class BoxHouseComponent extends GridVillageComponent {
             // place the other stuff anyway...
             this.placeBlockRel2BB(blocks, metas, chunkX, chunkZ, xCenter, this.groundLevel - 1, startZ - 1, path);
             this.placeBlockRel2BB(blocks, metas, chunkX, chunkZ, xCenter, this.groundLevel - 2, startZ - 1, padding);
-            // int highestBlock = getHighestSolidBlockInBB(blocks, metas, chunkX, chunkZ, x, z);
-
         }
 
         return true;
-
     }
 
     protected void spawnVillager(final int x, final int y, final int z) {
         final EntityCreature villager = new EntityRobotVillager(this.parent.getWorld());
         villager.onSpawnWithEgg(null);// NO IDEA
         final int xOffset = this.getXWithOffset(x, z);
-        // y = getYWithOffset(y);
         final int zOffset = this.getZWithOffset(x, z);
         this.parent.spawnLater(villager, xOffset, y, zOffset);
     }

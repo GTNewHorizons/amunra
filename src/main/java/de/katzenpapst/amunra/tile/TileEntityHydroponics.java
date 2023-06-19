@@ -109,10 +109,6 @@ public class TileEntityHydroponics extends TileEntityOxygen
 
     }
 
-    /*
-     * @Override protected ItemStack[] getContainingItems() { // TO DO Auto-generated method stub return null; }
-     */
-
     @Override
     public boolean shouldUseEnergy() {
 

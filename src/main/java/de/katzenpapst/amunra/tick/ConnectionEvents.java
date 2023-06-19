@@ -10,15 +10,6 @@ import micdoodle8.mods.galacticraft.core.util.MapUtil;
 public class ConnectionEvents {
 
     private boolean clientConnected;
-    /*
-     * // wtf does this do? static { EnumConnectionState.field_150761_f.put(PacketSimpleAR.class,
-     * EnumConnectionState.PLAY); EnumConnectionState.PLAY.field_150770_i.put(2595, PacketSimpleAR.class); }
-     */
-
-    /*
-     * @SubscribeEvent public void onPlayerLogout(PlayerLoggedOutEvent event) {
-     * ChunkLoadingCallback.onPlayerLogout(event.player); }
-     */
 
     @SubscribeEvent
     public void onConnectionReceived(final ServerConnectionFromClientEvent event) {

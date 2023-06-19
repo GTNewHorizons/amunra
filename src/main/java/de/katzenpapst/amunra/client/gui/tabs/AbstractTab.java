@@ -165,16 +165,11 @@ abstract public class AbstractTab {
         return false;
     }
 
-    protected void handleMouseClick(final Slot slotIn, final int slotId, final int clickedButton, final int clickType) {
-        /*
-         * if (slotIn != null) { slotId = slotIn.slotNumber; }
-         * this.mc.playerController.windowClick(this.inventorySlots.windowId, slotId, clickedButton, clickType,
-         * this.mc.thePlayer);
-         */
-    }
+    protected void handleMouseClick(final Slot slotIn, final int slotId, final int clickedButton,
+            final int clickType) {}
 
     public boolean keyTyped(final char keyChar, final int keyID) {
-        if (keyID != Keyboard.KEY_ESCAPE /* && keyID != this.mc.gameSettings.keyBindInventory.getKeyCode() */) {
+        if (keyID != Keyboard.KEY_ESCAPE) {
             // do the fields
             for (final GuiElementTextBox box : this.textBoxList) {
                 if (box.keyTyped(keyChar, keyID)) {

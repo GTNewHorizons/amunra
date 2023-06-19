@@ -104,7 +104,7 @@ public class EntityPorcodon extends EntityAnimal implements IEntityBreathable, I
 
     @Override
     protected Item getDropItem() {
-        return null;// this.isBurning() ? Items.cooked_porkchop : Items.porkchop;
+        return null;
     }
 
     @Override

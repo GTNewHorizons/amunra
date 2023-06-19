@@ -308,8 +308,6 @@ public class ShuttleTeleportHelper {
             spawnPos.y = ((IExitHeight) world.provider).getYCoordinateToTeleport() - 10;
         }
 
-        // boolean landInDock = false;
-
         Vector3int dock = null;
         Vector3 itemDropPosition = spawnPos.clone();
         // is the world a mothership or a space station?
@@ -399,7 +397,6 @@ public class ShuttleTeleportHelper {
             result.put(body.getName(), planetId);
             // seems like you can only have sats for reachable bodies
             // try the sats
-            // List<Satellite> sats = GalaxyRegistry.getSatellitesForCelestialBody(body);
             for (final Integer element : WorldUtil.registeredSpaceStations.keySet()) {
                 final SpaceStationWorldData data = SpaceStationWorldData
                         .getStationData(playerBase.worldObj, element, null);
@@ -535,19 +532,9 @@ public class ShuttleTeleportHelper {
 
             }
 
-            // SpaceStationWorldData.getStationData(world, stationID, player)
-            /*
-             * playerBody = GalacticraftCore.satelliteSpaceStation; HashMap<String, Integer> map = new HashMap<String,
-             * Integer>(); final SpaceStationWorldData data = SpaceStationWorldData.getStationData(playerBase.worldObj,
-             * playerBase.dimension, null); map.put(playerBody.getName() + "$" + data.getOwner() + "$" +
-             * data.getSpaceStationName() + "$" + playerBase.dimension + "$" + data.getHomePlanet(),
-             * playerBase.dimension); // TEMP! CelestialBody parent = ((Satellite)playerBody).getParentPlanet();
-             * map.putAll(getArrayOfChildren(playerBase, parent)); return map;
-             */
             return new HashMap<>();
         }
 
-        //
         if (playerBody instanceof Mothership) {
             playerBody = ((Mothership) playerBody).getParent();
 

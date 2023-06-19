@@ -47,7 +47,6 @@ public class RenderSentry extends RenderLiving {
 
     @Override
     protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_) {
-        // this.preRenderCallback((EntitySentry)entity, partialTickTime);
         GL11.glScalef(1.0F, 1.0F, 1.0F);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
     }

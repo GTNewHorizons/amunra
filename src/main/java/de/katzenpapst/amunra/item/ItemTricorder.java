@@ -32,7 +32,6 @@ public class ItemTricorder extends SubItem {
         if (!worldIn.isRemote) {
             return itemStackIn;
         }
-        // god, sometimes I hate java...
         final DecimalFormat twoDForm = new DecimalFormat("#.##");
 
         float gravity = 1;
@@ -40,15 +39,12 @@ public class ItemTricorder extends SubItem {
         double solarLevel = 1;
         int dayLength = -1;
         final List<String> atmospheres = new ArrayList<>();
-        // do stuff
+
         if (worldIn.provider instanceof IGalacticraftWorldProvider) {
             gravity = ((IGalacticraftWorldProvider) worldIn.provider).getGravity();
             // convert
             gravity = 1.0F - gravity / 0.08F;
             thermalLevel = ((IGalacticraftWorldProvider) worldIn.provider).getThermalLevelModifier();
-            // solarLevel = ((IGalacticraftWorldProvider)world.provider).getSolarSize()
-            // dayLength = ((IGalacticraftWorldProvider)world.provider).get
-            // ((IGalacticraftWorldProvider)world.provider).isGasPresent(gas)
         }
 
         if (worldIn.provider instanceof ISolarLevel) {
@@ -110,14 +106,6 @@ public class ItemTricorder extends SubItem {
                     new ChatComponentTranslation("item.baseItem.tricorder.message.atmosphere", builder.toString()));
         }
 
-        //
-
-        /*
-         * public float getGravity() { return 0.08F * (1-getRelativeGravity()); val = 0.08F * (1-x); 1-x = val/0,08 x =
-         * 1-val/0,08 }
-         */
-
-        // player.addChatComponentMessage(p_146105_1_);
         return itemStackIn;
     }
 

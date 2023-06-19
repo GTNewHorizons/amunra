@@ -42,21 +42,6 @@ abstract public class BaseStructureComponent {
         this.coordMode = coordMode;
     }
 
-    /**
-     * "Spawns" an entity. Does not check
-     *
-     * @param entityToSpawn
-     * @param x
-     * @param z
-     */
-    /*
-     * protected void spawnEntity(Class<? extends EntityLiving> entityToSpawn, int x, int z) { EntityLiving ent = null;
-     * try { ent = entityToSpawn.getConstructor(World.class).newInstance(this.parent.getWorld()); } catch (Throwable e)
-     * { e.printStackTrace(); return; } ent.onSpawnWithEgg(null);// NO IDEA int xOffset = getXWithOffset(x, z); //y =
-     * getYWithOffset(y); int zOffset = getZWithOffset(x, z); this.parent.spawnLater(ent, xOffset, groundLevel,
-     * zOffset); }
-     */
-
     protected int translateX(final int x, final int z) {
         switch (this.coordMode) {
             case 0:
@@ -85,7 +70,6 @@ abstract public class BaseStructureComponent {
     protected int getHighestSolidBlockInBB(final Block[] blocks, final byte[] metas, final int chunkX, final int chunkZ,
             final int x, final int z) {
         final int xOffset = this.getXWithOffset(x, z);
-        // y = getYWithOffset(y);
         final int zOffset = this.getZWithOffset(x, z);
 
         final int relX = CoordHelper.abs2rel(xOffset, chunkX);
@@ -174,35 +158,28 @@ abstract public class BaseStructureComponent {
     protected boolean placeBlockRel2BB(final Block[] blocks, final byte[] metas, final int chunkX, final int chunkZ,
             final int x, final int y, final int z, final BlockMetaPair block) {
         final int xOffset = this.getXWithOffset(x, z);
-        // y = getYWithOffset(y);
         final int zOffset = this.getZWithOffset(x, z);
 
         final int relX = CoordHelper.abs2rel(xOffset, chunkX);
         final int relZ = CoordHelper.abs2rel(zOffset, chunkZ);
-        /*
-         * if(relX < 0 || relX >= 16 || relZ < 0 || relZ >= 16) { return false; }
-         */
+
         return placeBlockRel(blocks, metas, relX, y, relZ, block);
     }
 
     protected BlockMetaPair getBlockRel2BB(final Block[] blocks, final byte[] metas, final int chunkX, final int chunkZ,
             final int x, final int y, final int z) {
         final int xOffset = this.getXWithOffset(x, z);
-        // y = getYWithOffset(y);
         final int zOffset = this.getZWithOffset(x, z);
 
         final int relX = CoordHelper.abs2rel(xOffset, chunkX);
         final int relZ = CoordHelper.abs2rel(zOffset, chunkZ);
-        /*
-         * if(relX < 0 || relX >= 16 || relZ < 0 || relZ >= 16) { return null; }
-         */
+
         return getBlockRel(blocks, metas, relX, y, relZ);
     }
 
     protected boolean placeBlockRel2BB(final Block[] blocks, final byte[] metas, final int chunkX, final int chunkZ,
             final int x, final int y, final int z, final Block block, final int meta) {
         final int xOffset = this.getXWithOffset(x, z);
-        // y = getYWithOffset(y);
         final int zOffset = this.getZWithOffset(x, z);
 
         final int relX = CoordHelper.abs2rel(xOffset, chunkX);
@@ -236,16 +213,13 @@ abstract public class BaseStructureComponent {
 
         if (this.placeBlockRel2BB(blocks, metas, chunkX, chunkZ, x, y, z, Blocks.standing_sign, (byte) 0)) {
             final int xOffset = this.getXWithOffset(x, z);
-            // y = getYWithOffset(y);
             final int zOffset = this.getZWithOffset(x, z);
             final SetSignText sst = new SetSignText(xOffset, y, zOffset, text);
             this.parent.addPopulator(sst);
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////// STATIC HELPERS //////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Static helpers
 
     /**
      * For doors, in a sense, and furnaces
@@ -258,7 +232,6 @@ abstract public class BaseStructureComponent {
 
     public static int rotateTorchMetadata(final int unrotated, final int coordMode) {
         // error with coordMode=1, everything is just the wrong way round
-
         return rotateStairlikeMetadata(unrotated - 1, coordMode) + 1;
     }
 
@@ -323,8 +296,8 @@ abstract public class BaseStructureComponent {
         int sum = 0;
         int total = 0;
 
-        final int chunkX = CoordHelper.blockToChunk(chunkBB.minX);// chunkBB.minX / 16;
-        final int chunkZ = CoordHelper.blockToChunk(chunkBB.minZ);// chunkBB.minZ / 16;
+        final int chunkX = CoordHelper.blockToChunk(chunkBB.minX);
+        final int chunkZ = CoordHelper.blockToChunk(chunkBB.minZ);
 
         for (int z = totalBB.minZ; z <= totalBB.maxZ; ++z) {
             for (int x = totalBB.minX; x <= totalBB.maxX; ++x) {
@@ -359,7 +332,6 @@ abstract public class BaseStructureComponent {
             if (curBlock == null) {
                 continue;
             }
-            // int meta = metas[index];
             if (curBlock.getMaterial().blocksMovement() && curBlock.getMaterial() != Material.leaves) {
                 return y + 1;
             }

@@ -84,12 +84,6 @@ public class SkyProviderMothership extends SkyProviderDynamic {
 
     }
 
-    /*
-     * protected void renderMothershipParent() { double distanceToParent = 1; float zIndex = (float)
-     * (20/distanceToParent); float distance = (float) (curBodyPlanet.getRelativeSize() / distanceToParent); // my
-     * parent this.nearBodiesToRender.add( new BodyRenderTask(curBodyPlanet, 0, zIndex, distance, (float) Math.PI) ); }
-     */
-
     @Override
     protected void renderSystem(final float partialTicks, final WorldClient world, final Tessellator tess,
             final Minecraft mc) {
@@ -211,8 +205,6 @@ public class SkyProviderMothership extends SkyProviderDynamic {
     }
 
     protected void renderStarLines(final float curTime) {
-        //// BEGIN
-
         float angle = 0;
         switch (this.jetDirection) {
             case 0:
@@ -263,12 +255,10 @@ public class SkyProviderMothership extends SkyProviderDynamic {
 
             // project the lines onto the cylinder's circles if necessary
             if (zBase < -this.skyBoxLength || zBase + length > this.skyBoxLength) {
-                // zBase = skyRadius
                 x1 = x1 / zBase * this.skyBoxLength;
                 y1 = y1 / zBase * this.skyBoxLength;
                 x2 = x2 / zBase * this.skyBoxLength;
                 y2 = y2 / zBase * this.skyBoxLength;
-                // zBase = skyRadius;
             }
 
             // paint
@@ -285,6 +275,5 @@ public class SkyProviderMothership extends SkyProviderDynamic {
         tess.draw();
 
         GL11.glPopMatrix();
-        //// END
     }
 }

@@ -106,13 +106,8 @@ abstract public class BaseStructureStart extends BaseStructureComponent {
     }
 
     public void addPopulator(final AbstractPopulator p) {
-        // ok I can't do that
-        // this.worldObj.getChunkFromBlockCoords(p_72938_1_, p_72938_2_)
         final int chunkX = CoordHelper.blockToChunk(p.getX());// p.getX() >> 4;
         final int chunkZ = CoordHelper.blockToChunk(p.getZ());
-
-        // p_72938_1_ >> 4, p_72938_2_ >>
-        // 16
 
         final Long chunkKey = ChunkCoordIntPair.chunkXZ2Int(chunkX, chunkZ);
         if (!this.populatorsByChunk.containsKey(chunkKey)) {
@@ -140,7 +135,6 @@ abstract public class BaseStructureStart extends BaseStructureComponent {
     }
 
     public int getWorldGroundLevel() {
-        // ((ChunkProviderSpace)worldObj.getChunkProvider()).g
         // NO IDEA
         return this.worldObj.provider.getAverageGroundLevel();
     }

@@ -41,8 +41,6 @@ public class Mothership extends CelestialBody {
         BLACKLIST // everyone except people on list
     }
 
-    // protected List<PlayerID> playerList = new ArrayList<PlayerID>();
-
     protected Set<PlayerID> playerSetLanding = new HashSet<>();
     protected Set<PlayerID> playerSetUsage = new HashSet<>();
 
@@ -103,7 +101,6 @@ public class Mothership extends CelestialBody {
     public void setPlayerListLanding(final Collection<PlayerID> list) {
         this.playerSetLanding.clear();
         this.playerSetLanding.addAll(list);
-        // playerSetLanding = list;
     }
 
     public Set<PlayerID> getPlayerListUsage() {
@@ -277,21 +274,9 @@ public class Mothership extends CelestialBody {
         return null;
     }
 
-    /*
-     * public double getSpeed() { // 0.001 makes sun <--> earth have 1kt (50 seconds), and earth<-->ra 13,15Mt (182
-     * hours) return 0.001D; // for now }
-     */
-
     public double getTravelDistanceTo(final CelestialBody target) {
         return AstronomyHelper.getDistance(this.currentParent, target);
     }
-    /*
-     * public int getTravelTimeTo(CelestialBody target) { return getTravelTimeTo(getTravelDistanceTo(target),
-     * this.getSpeed()); }
-     */
-    /*
-     * public int getTravelTimeTo(double distance, double speed) { return (int) Math.ceil(distance/speed) + 80; }
-     */
 
     /**
      * For rendering bars and such
@@ -348,7 +333,6 @@ public class Mothership extends CelestialBody {
         for (int i = 0; i < parts.length; i++) {
             switch (i) {
                 case 0:
-                    //
                     curSys = GalaxyRegistry.getRegisteredSolarSystems().get(parts[i]);
                     body = curSys.getMainStar();
                     break;
@@ -430,21 +414,10 @@ public class Mothership extends CelestialBody {
         result.setDimensionInfo(data.getInteger("dim"));
         result.isReachable = true;
 
-        // float distance = setFloat("orbitDistance", this.getRelativeDistanceFromCenter().unScaledDistance);
-
         result.readSettingsFromNBT(data);
 
         return result;
     }
-
-    /*
-     * public void readFromNBT(NBTTagCompound data) { String parentId = data.getString("parentName"); CelestialBody
-     * foundParent = findBodyByNamePath(parentId); String prevParentId = data.getString("prevParentName");
-     * if(!prevParentId.isEmpty()) { previousParent = findBodyByNamePath(prevParentId); } currentParent = foundParent;
-     * inTransit = data.getBoolean("inTransit"); travelTimeRemaining = data.getInteger("travelTimeRemaining");
-     * travelTimeTotal = data.getInteger("travelTimeTotal"); msName = data.getString("name");
-     * setDimensionInfo(data.getInteger("dim")); isReachable = true; }
-     */
 
     public void writeToNBT(final NBTTagCompound data) {
         data.setString("owner", this.owner.getUUID().toString());
@@ -480,7 +453,6 @@ public class Mothership extends CelestialBody {
 
         NBTTagList list = data.getTagList("playerList", Constants.NBT.TAG_COMPOUND);
         this.playerSetLanding = new HashSet<>();
-        // playerList.clear();
         for (int i = 0; i < list.tagCount(); i++) {
             final NBTTagCompound playerData = list.getCompoundTagAt(i);
             final PlayerID pd = new PlayerID(playerData);

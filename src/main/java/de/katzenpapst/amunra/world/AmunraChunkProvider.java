@@ -70,27 +70,7 @@ abstract public class AmunraChunkProvider extends ChunkProviderSpace {
      */
     @Override
     public void makeCrater(final int craterX, final int craterZ, final int chunkX, final int chunkZ, final int size,
-            final Block[] chunkArray, final byte[] metaArray) {
-        /*
-         * final double centerFalloff = 0.01; final double borderFalloff = 0.02; final double centerHeightFactor = 0.5;
-         * final double borderHeightFactor = 1; final double craterHeight = 9; final double borderStartLimit = 0.75;
-         * double height = this.getSeaLevel(); double sizeSq = size * size; for (int x = 0; x <
-         * AmunraChunkProvider.CHUNK_SIZE_X; x++) { for (int z = 0; z < AmunraChunkProvider.CHUNK_SIZE_Z; z++) { double
-         * xDev = craterX - (chunkX + x); double zDev = craterZ - (chunkZ + z); if (xDev * xDev + zDev * zDev < sizeSq)
-         * { xDev /= size; zDev /= size; // this is the distance from the crater's center, normed to size, squared final
-         * double radiusSq = xDev * xDev + zDev * zDev; //final double borderFactor = radiusSq/sizeSq; final double
-         * radius = Math.sqrt(radiusSq); double yDev = 0; // 0.2/((x^2+0.2)) + 0.2/(((x-3)^2+0.2)) // center // yDev +=
-         * centerHeightFactor*centerFalloff/(radiusSq+centerFalloff); // border yDev +=
-         * borderHeightFactor*borderFalloff/(Math.pow(borderStartLimit-radius, 2)+borderFalloff); yDev *= craterHeight;
-         * yDev = height-(craterHeight-yDev); int highestY = this.getHighestNonAir(chunkArray, x, z); //if(radius >
-         * borderStartLimit && yDev < highestY) { // yDev = this.fuckYouLerp(yDev, highestY, radius-borderStartLimit);
-         * //} if(yDev>127) { yDev = 127; } if(yDev > highestY) { for(int y=(int)yDev;y>highestY;y--) { if (Blocks.air
-         * == chunkArray[this.getIndex(x, y, z)]) { chunkArray[this.getIndex(x, y, z)] = getStoneBlock().getBlock();
-         * metaArray[this.getIndex(x, y, z)] = getStoneBlock().getMetadata(); } } } else { for (int y = highestY; y >
-         * yDev; y--) { if (Blocks.air != chunkArray[this.getIndex(x, y, z)]) { chunkArray[this.getIndex(x, y, z)] =
-         * Blocks.air; metaArray[this.getIndex(x, y, z)] = 0; } } } } } }
-         */
-    }
+            final Block[] chunkArray, final byte[] metaArray) {}
 
     /**
      * Because private...

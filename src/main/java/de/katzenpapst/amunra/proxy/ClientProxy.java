@@ -169,7 +169,6 @@ public class ClientProxy extends ARSidedProxy {
 
         RenderingRegistry
                 .registerEntityRenderingHandler(EntityOsirisBossFireball.class, new RenderFireball((float) 2.0));
-        // RenderingRegistry.registerEntityRenderingHandler(EntityProjectileTNT.class, new RenderProjectileTNT());
 
         RenderingRegistry.registerEntityRenderingHandler(EntityBaseLaserArrow.class, new RenderLaserArrow());
         RenderingRegistry.registerEntityRenderingHandler(
@@ -302,7 +301,6 @@ public class ClientProxy extends ARSidedProxy {
                 fu *= GRAVITY_POS_FACTOR;
             }
 
-            // p.addVelocity(gravity.x, gravity.y, gravity.z);
             p.motionY += fu;
 
         }

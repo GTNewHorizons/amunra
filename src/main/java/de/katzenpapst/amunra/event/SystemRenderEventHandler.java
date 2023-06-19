@@ -26,7 +26,6 @@ public class SystemRenderEventHandler {
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void onRingRender(final CelestialBodyRenderEvent.CelestialRingRenderEvent.Pre renderEvent) {
-        // sky: D:\Code\Galacticraft\src\main\java\micdoodle8\mods\galacticraft\planets\mars\client\SkyProviderMars.java
         if (renderEvent.celestialBody.equals(AmunRa.instance.asteroidBeltMehen)
                 || renderEvent.celestialBody.equals(AmunRa.instance.moonBaalRings)) {
             this.drawAsteroidRings(renderEvent, renderEvent.celestialBody);

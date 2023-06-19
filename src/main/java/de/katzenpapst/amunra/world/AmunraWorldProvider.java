@@ -47,11 +47,6 @@ public abstract class AmunraWorldProvider extends WorldProviderSpace implements 
         return this.getRelativeGravity();
     }
 
-    /*
-     * @Override public boolean hasBreathableAtmosphere() { //return this.isGasPresent(IAtmosphericGas.OXYGEN) &&
-     * !this.isGasPresent(IAtmosphericGas.CO2); <- WTF return this.isGasPresent(IAtmosphericGas.OXYGEN); }
-     */
-
     @Override
     public boolean canSpaceshipTierPass(final int tier) {
         return tier >= AmunRa.config.planetDefaultTier;
@@ -143,22 +138,12 @@ public abstract class AmunraWorldProvider extends WorldProviderSpace implements 
          * = MathHelper.floor_double(cameraEntity.posZ); int l = ForgeHooksClient.getSkyBlendColour(this.worldObj, i, j,
          * k);
          */
-        float red = skyColorBase.floatX();// (float)(l >> 16 & 255) / 255.0F;
-        float green = skyColorBase.floatY();// (float)(l >> 8 & 255) / 255.0F;
-        float blue = skyColorBase.floatZ();// (float)(l & 255) / 255.0F;
+        float red = skyColorBase.floatX();
+        float green = skyColorBase.floatY();
+        float blue = skyColorBase.floatZ();
         red *= dayFactor;
         green *= dayFactor;
         blue *= dayFactor;
-        /*
-         * float rainStrength = this.worldObj.getRainStrength(partialTicks); float f8; float f9; if (rainStrength >
-         * 0.0F) { f8 = (red * 0.3F + green * 0.59F + blue * 0.11F) * 0.6F; f9 = 1.0F - rainStrength * 0.75F; red = red
-         * * f9 + f8 * (1.0F - f9); green = green * f9 + f8 * (1.0F - f9); blue = blue * f9 + f8 * (1.0F - f9); } f8 =
-         * this.worldObj.getWeightedThunderStrength(partialTicks); if (f8 > 0.0F) { f9 = (red * 0.3F + green * 0.59F +
-         * blue * 0.11F) * 0.2F; float f10 = 1.0F - f8 * 0.75F; red = red * f10 + f9 * (1.0F - f10); green = green * f10
-         * + f9 * (1.0F - f10); blue = blue * f10 + f9 * (1.0F - f10); } if (this.worldObj.lastLightningBolt > 0) { f9 =
-         * (float)this.worldObj.lastLightningBolt - partialTicks; if (f9 > 1.0F) { f9 = 1.0F; } f9 *= 0.45F; red = red *
-         * (1.0F - f9) + 0.8F * f9; green = green * (1.0F - f9) + 0.8F * f9; blue = blue * (1.0F - f9) + 1.0F * f9; }
-         */
 
         return Vec3.createVectorHelper(red, green, blue);
     }

@@ -57,8 +57,6 @@ public class MothershipWorldProvider extends WorldProviderSpace implements IZero
 
         // the direction in which the ship will travel, relevant for skybox rendering
         public int direction = 0;
-        // the max speed the ship can reach
-        // public double speed = 0;
         // the max thrust the engines can reach, maybe to indicate how many more blocks you can add?
         public double thrust = 0;
         // optional, how much fuel we would need
@@ -66,13 +64,11 @@ public class MothershipWorldProvider extends WorldProviderSpace implements IZero
 
         public TransitData(final int direction, final double thrust) {
             this.direction = direction;
-            // this.speed = speed;
             this.thrust = thrust;
         }
 
         public TransitData() {
             this.direction = 0;
-            // this.speed = -1;
             this.thrust = 0;
         }
 
@@ -82,13 +78,11 @@ public class MothershipWorldProvider extends WorldProviderSpace implements IZero
 
         public void readFromNBT(final NBTTagCompound nbt) {
             this.direction = nbt.getInteger("direction");
-            // this.speed = nbt.getDouble("speed");
             this.thrust = nbt.getDouble("thrust");
         }
 
         public void writeToNBT(final NBTTagCompound nbt) {
             nbt.setInteger("direction", this.direction);
-            // nbt.setDouble("speed", this.speed);
             nbt.setDouble("thrust", this.thrust);
         }
     }
@@ -172,7 +166,6 @@ public class MothershipWorldProvider extends WorldProviderSpace implements IZero
         if (this.mothershipObj == null) {
             throw new RuntimeException("Mothership with dim ID " + dim + " has no celestial body. This is bad!");
         }
-        // this.spaceStationDimensionID = id;
         super.setDimension(dim);
     }
 
@@ -261,7 +254,6 @@ public class MothershipWorldProvider extends WorldProviderSpace implements IZero
 
         final float a = this.worldObj.getCelestialAngle(0F);
         // TODO: adjust this according to size of planet below. Or don't? I can say, we get closer for smaller planets
-        // :D
         return a < 0.42F || a > 0.58F;
     }
 
@@ -765,7 +757,6 @@ public class MothershipWorldProvider extends WorldProviderSpace implements IZero
     }
 
     public void readFromNBT(final NBTTagCompound nbt) {
-        // updateMothership();
         this.totalMass = nbt.getFloat("totalMass");
         this.totalNumBlocks = nbt.getLong("totalNumBlocks");
 
@@ -841,7 +832,6 @@ public class MothershipWorldProvider extends WorldProviderSpace implements IZero
 
     @Override
     public ChunkCoordinates getSpawnPoint() {
-        // WorldInfo info = worldObj.worldInfo;
         return new ChunkCoordinates(0, 64, 0);
     }
 

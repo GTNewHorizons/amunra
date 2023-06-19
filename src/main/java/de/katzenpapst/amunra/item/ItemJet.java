@@ -30,11 +30,9 @@ public class ItemJet extends ItemBlockMulti {
 
     public ItemJet(final BlockMachineMeta blockMothershipEngineRocket, final String assetName) {
         super(blockMothershipEngineRocket);
-        // blockMeta = blockMothershipEngineRocket.getMetadata();
         this.setMaxDamage(0);
         this.setHasSubtypes(true);
         this.setMaxStackSize(1); // why?
-        // this.setTextureName(AmunRa.instance.TEXTUREPREFIX + assetName);
         this.setUnlocalizedName(assetName);
     }
 
@@ -61,7 +59,6 @@ public class ItemJet extends ItemBlockMulti {
                 this.icons[i] = register.registerIcon(sb.getItemIconName());
             }
         }
-        // this.itemIcon = reg.registerIcon(this.getIconString());
     }
 
     @Override
@@ -79,7 +76,6 @@ public class ItemJet extends ItemBlockMulti {
     @SideOnly(Side.CLIENT)
     public IIcon getIconFromDamage(int p_77617_1_) {
         return this.icons[p_77617_1_];
-        // return ((BlockMachineMeta)field_150939_a).getSubBlock(dmg).getIcon(1, 0);
     }
 
     @Override
@@ -121,8 +117,6 @@ public class ItemJet extends ItemBlockMulti {
         }
 
         metadata = ARBlocks.metaBlockMothershipEngineJet.addRotationMeta(stack.getItemDamage(), blockRotation);
-
-        // metadata = BlockMachineMeta.addRotationMeta(blockMeta, blockRotation);
 
         if (!world.setBlock(x, y, z, this.field_150939_a, metadata, 3)) {
             return false;

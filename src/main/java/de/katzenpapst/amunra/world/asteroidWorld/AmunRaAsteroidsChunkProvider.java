@@ -162,7 +162,6 @@ public class AmunRaAsteroidsChunkProvider extends ChunkProviderGenerate {
         final BlockMetaPair oreTitanium = new BlockMetaPair(AsteroidBlocks.blockBasic, (byte) 4);
         final BlockMetaPair oreIron = new BlockMetaPair(AsteroidBlocks.blockBasic, (byte) 5);
 
-        // BlockMetaPair oreDiamond = new BlockMetaPair(Blocks.diamond_ore, (byte)0);
         final BlockMetaPair oreSilicon = new BlockMetaPair(GCBlocks.basicBlock, (byte) 8);
         final BlockMetaPair oreMeteorIron = new BlockMetaPair(GCBlocks.basicBlock, (byte) 12);
 
@@ -424,7 +423,6 @@ public class AmunRaAsteroidsChunkProvider extends ChunkProviderGenerate {
                 final int indexBaseX = x * CHUNK_SIZE_Y << 4;
 
                 for (int z = zMin; z < zMax; z++) {
-                    // float sizeModY = sizeYArray[indexXZ + z];
                     float sizeY = size + sizeYArray[indexXZ + z];
                     sizeY *= sizeY;
                     int distanceZ = asteroidZ - (z + chunkZ);
@@ -503,7 +501,6 @@ public class AmunRaAsteroidsChunkProvider extends ChunkProviderGenerate {
 
     @Override
     public Chunk provideChunk(int p_73154_1_, int p_73154_2_) {
-        // long time1 = System.nanoTime();
         this.rand.setSeed(p_73154_1_ * 341873128712L + p_73154_2_ * 132897987541L);
         final Block[] ids = new Block[65536];
         final byte[] meta = new byte[65536];
@@ -516,18 +513,8 @@ public class AmunRaAsteroidsChunkProvider extends ChunkProviderGenerate {
             chunkBiomeArray[i] = (byte) BiomeGenBaseAsteroids.asteroid.biomeID;
         }
 
-        // long time3 = System.nanoTime();
         this.generateSkylightMap(curChunk, p_73154_1_, p_73154_2_);
-        // long time4 = System.nanoTime();
-        // if (ConfigManagerCore.enableDebug)
-        // {
-        // BlockVec3 vec = new BlockVec3(par1, par2, 0);
-        // if (chunksDone.contains(vec)) System.out.println("Done chunk already at "+par1+","+par2);
-        // else chunksDone.add(vec);
-        // System.out.println("Chunk gen: " + timeString(time1, time4) + " at "+par1+","+par2 + " - L"+this.largeCount+
-        // " H"+this.largeAsteroids.size()+ " Terrain:"+timeString(time1, time2)+ " Biomes:"+timeString(time2,time3)+ "
-        // Light:"+timeString(time3, time4));
-        // }
+
         return curChunk;
     }
 
@@ -631,10 +618,7 @@ public class AmunRaAsteroidsChunkProvider extends ChunkProviderGenerate {
                     else if (!(this.worldObj.getBlock(px - 2, y, pz) instanceof BlockAir)) count = 3;// 1
                     else if (!(this.worldObj.getBlock(px - 3, y, pz) instanceof BlockAir)) count = 5;// 2
                     else if (!(this.worldObj.getBlock(px - 4, y, pz) instanceof BlockAir)) count = 6;// 3
-                    /*
-                     * if x-1 is not air, then count is 1 if x-1 is air, and then count is 3 if
-                     */
-                    // int blockCount = this.getCountInNegXDirection(par1IChunkProvider, px, y, pz, 4, true);
+
                     count = this.adjustBrightnessValue(count);
 
                     this.worldObj.setLightValue(EnumSkyBlock.Block, px - 1, y, pz, count);// +1
@@ -755,12 +739,6 @@ public class AmunRaAsteroidsChunkProvider extends ChunkProviderGenerate {
     }
 
     public void generateSkylightMap(final Chunk chunk, final int cx, final int cz) {
-        /*
-         * World w = chunk.worldObj; // does this do anything? boolean flagXChunk = w.getChunkProvider().chunkExists(cx
-         * - 1, cz); boolean flagZUChunk = w.getChunkProvider().chunkExists(cx, cz + 1); boolean flagZDChunk =
-         * w.getChunkProvider().chunkExists(cx, cz - 1); boolean flagXZUChunk = w.getChunkProvider().chunkExists(cx - 1,
-         * cz + 1); boolean flagXZDChunk = w.getChunkProvider().chunkExists(cx - 1, cz - 1);
-         */
         for (int j = 0; j < 16; j++) {
             if (chunk.getBlockStorageArray()[j] == null)
                 chunk.getBlockStorageArray()[j] = new ExtendedBlockStorage(j << 4, false);
@@ -825,12 +803,7 @@ public class AmunRaAsteroidsChunkProvider extends ChunkProviderGenerate {
                                 if (z > 0 && !(chunk.getBlock(x - 4, y, z - 1) instanceof BlockAir)) count++;
                                 if (z < 15 && !(chunk.getBlock(x - 4, y, z + 1) instanceof BlockAir)) count++;
                             }
-                            // this does something about light, again?
-                            // if (count > 12) count = 12;
                             count = this.adjustBrightnessValue(count);
-                            // making the 15 in 15-count lower means brighter?
-                            // count = 0;
-                            // func_150807_a -> 15 = darkest, 0 => brightest
                             chunk.func_150807_a(x - 1, y, z, GCBlocks.brightAir, 15 - count);
                             final ExtendedBlockStorage extendedblockstorage = chunk.getBlockStorageArray()[y >> 4];
                             if (extendedblockstorage != null) {

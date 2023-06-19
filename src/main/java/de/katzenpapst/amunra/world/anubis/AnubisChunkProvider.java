@@ -22,11 +22,9 @@ public class AnubisChunkProvider extends AmunraChunkProvider {
         this.gVillage.addComponentType(BoxHouseComponent.class, 0.9F, 2, 4);
         this.gVillage.addComponentType(SolarField.class, 0.7F, 2, 6);
         this.gVillage.addComponentType(DomedHouseComponent.class, 0.7F, 2, 4);
-        // gVillage.addComponentType(PyramidHouseComponent.class, 0.7F, 2, 4);
 
         // TODO fill in with caves and villages
         this.worldGenerators.add(this.gVillage);
-        // this.worldGenerators.add(this.pyramid);
     }
 
     @Override

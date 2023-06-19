@@ -137,15 +137,6 @@ public class EntityLaserArrow extends EntityBaseLaserArrow {
         } else {
             WorldHelper.setFireToBlock(worldObj, x, y, z, this.posX, this.posY, this.posZ);
         }
-        // OxygenUtil.isInOxygenBlock(world, bb)
-        // if(Blocks.fire.getFlammability(world, x, y, z, face))
-        // if(block.isFlammable(world, x, y, z, face))
-
-        /*
-         * if(worldObj.getBlock(x, y+1, z) == Blocks.air) { //OxygenUtil.isAABBInBreathableAirBlock(world, bb) // no
-         * oxygen check for now worldObj.setBlock(x, y+1, z, Blocks.fire, 0, 3); }
-         */
-
     }
 
     protected void setFireToBlock(final World worldObj, final int x, final int y, final int z) {
@@ -200,8 +191,7 @@ public class EntityLaserArrow extends EntityBaseLaserArrow {
     @Override
     protected DamageSource getDamageSource() {
         if (this.shootingEntity == null) {
-            return DamageSourceAR.causeLaserDamage("ar_heatray", this, this);// ("laserArrow", this,
-                                                                             // this).setProjectile();
+            return DamageSourceAR.causeLaserDamage("ar_heatray", this, this);
         }
         return DamageSourceAR.causeLaserDamage("ar_heatray", this, this.shootingEntity);
     }

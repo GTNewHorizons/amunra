@@ -137,18 +137,8 @@ public class GuiShuttleSelection extends GuiARCelestialSelection {
         final boolean valid = amount >= requiredAmount;
 
         final int color = valid | this.mc.thePlayer.capabilities.isCreativeMode ? 0xFF00FF00 : 0xFFFF0000;
-        this.smallFontRenderer.drawString(
-                str,
-                xPos + 8 - this.smallFontRenderer.getStringWidth(str) / 2,
-                // offset + GuiCelestialSelection.BORDER_WIDTH + GuiCelestialSelection.BORDER_EDGE_WIDTH + 154 +
-                // canCreateOffset
-                yPos + 16,
-                color);
-
-        /*
-         * posY = c+154; drawStr=c+170 c = posY-154 drawStr = posY-154+170 drawStr = posY+16
-         */
-
+        this.smallFontRenderer
+                .drawString(str, xPos + 8 - this.smallFontRenderer.getStringWidth(str) / 2, yPos + 16, color);
     }
 
     /*

@@ -108,8 +108,6 @@ public class TileEntityMothershipEngineIon extends TileEntityMothershipEngineAbs
                 return ItemElectricBase.isElectricItem(stack.getItem());
         }
         return false;
-
-        // return (slotID == 0 && itemstack != null && itemstack.getItem() == GCItems.fuelCanister);
     }
 
     public float getFuelUsagePerTick() {
@@ -120,11 +118,9 @@ public class TileEntityMothershipEngineIon extends TileEntityMothershipEngineAbs
         return 10.0F;
     }
 
-    // public int getFuelUsageForDistance
-
     @Override
     public boolean shouldUseEnergy() {
-        return false;// !this.getDisabled(0);
+        return false;
     }
 
     @Override

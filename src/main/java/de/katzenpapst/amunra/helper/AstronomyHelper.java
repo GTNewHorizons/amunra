@@ -73,7 +73,7 @@ public class AstronomyHelper {
         return new AngleDistance(projectedAngle, distanceToPlanet);
     }
 
-    ////// helper functions for celestial body angle calculation //////
+    // Helper functions for celestial body angle calculation
     /**
      * Returns the current angle of a celestial body
      *
@@ -125,10 +125,6 @@ public class AstronomyHelper {
 
         final double sinBeta = Math.sin(innerAngle);
 
-        // distFromThisToOtherBody = x
-        // curBodyDistance = d
-        // otherBodyDistance = r
-
         // gamma
         final double angleAroundCurBody = Math.asin(body2distance * sinBeta / distanceBetweenBodies);
 
@@ -141,9 +137,7 @@ public class AstronomyHelper {
         final double delta = Math.asin(sinBeta / distanceBetweenBodies * body1distance);
 
         final double angleSum = innerAngle + delta + angleAroundCurBody;
-        // double otherAngleSum =innerAngle+delta+(Math.PI-angleAroundCurBody);
         if (Math.abs(Math.abs(angleSum) / Math.PI - 1) < 0.001) {
-            // aka angleSUm = 180 or -180
             return angleAroundCurBody;
         }
         return Math.PI - angleAroundCurBody;
@@ -482,7 +476,6 @@ public class AstronomyHelper {
 
         // v = a * t * K
         // x = 1/2 a*t² * K
-        // // t = sqrt(x*2/a)
         // t = sqrt( 2*x / (a*K) )
         double time = Math.sqrt(2 * halfDistance / (accel * AmunRa.config.mothershipSpeedFactor));
 

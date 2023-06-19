@@ -70,7 +70,6 @@ public class ModelBug extends ModelBase {
         this.leftarm.setRotationPoint(-5F, 0F, -7F);
         this.leftarm.setTextureSize(64, 64);
         this.leftarm.mirror = true;
-        // setRotation(leftarm, -1.570796F, 0F, 0F);
         this.setRotation(this.leftarm, -1.570796F, 0.5F, 0F);
         this.leftarm.addChild(this.lefthand1);
         this.leftarm.addChild(this.lefthand2);
@@ -98,7 +97,6 @@ public class ModelBug extends ModelBase {
         this.rightarm.setRotationPoint(5F, 0F, -7F);
         this.rightarm.setTextureSize(64, 64);
         this.rightarm.mirror = true;
-        // setRotation(rightarm, -1.570796F, 0F, 0F);
         this.setRotation(this.rightarm, -1.570796F, -0.5F, 0F);
         this.rightarm.mirror = false;
         this.rightarm.addChild(this.righthand1);
@@ -110,7 +108,6 @@ public class ModelBug extends ModelBase {
         this.legLeft3.setRotationPoint(-7F, 1F, 4F);
         this.legLeft3.setTextureSize(64, 64);
         this.legLeft3.mirror = true;
-        // setRotation(legLeft3, 0F, 0F, 1.134464F);
         this.setRotation(this.legLeft3, 0.3F, 0F, 1.134464F);
 
         this.legLeft2 = new ModelRenderer(this, 42, 0);
@@ -125,7 +122,6 @@ public class ModelBug extends ModelBase {
         this.legLeft1.setRotationPoint(-7F, 1F, -4F);
         this.legLeft1.setTextureSize(64, 64);
         this.legLeft1.mirror = true;
-        // setRotation(legLeft1, 0F, 0F, 1.134464F);
         this.setRotation(this.legLeft1, -0.3F, 0F, 1.134464F);
 
         // right legs
@@ -135,7 +131,6 @@ public class ModelBug extends ModelBase {
         this.legRight3.setRotationPoint(7F, 1F, 4F);
         this.legRight3.setTextureSize(64, 64);
         this.legRight3.mirror = true;
-        // setRotation(legRight3, 0F, 0F, -1.134464F);
         this.setRotation(this.legRight3, 0.3F, 0F, -1.134464F);
         this.legRight3.mirror = false;
 
@@ -154,7 +149,6 @@ public class ModelBug extends ModelBase {
         this.legRight1.setRotationPoint(7F, 1F, -4F);
         this.legRight1.setTextureSize(64, 64);
         this.legRight1.mirror = true;
-        // setRotation(legRight1, 0F, 0F, -1.134464F);
         this.setRotation(this.legRight1, -0.3F, 0F, -1.134464F);
         this.legRight1.mirror = false;
     }
@@ -184,7 +178,6 @@ public class ModelBug extends ModelBase {
     }
 
     @Override
-    // public void setRotationAngles(float time, float walkSpeed, float appendageRotation, float rotationYaw, float
     // rotationPitch, float scale, Entity entity)
     public void setRotationAngles(float p_78087_1_, float p_78087_2_, float p_78087_3_, float p_78087_4_,
             float p_78087_5_, float p_78087_6_, Entity p_78087_7_) {
@@ -204,7 +197,6 @@ public class ModelBug extends ModelBase {
         this.setRotation(this.rightarm, -1.570796F, -0.5F, 0F);
 
         this.setRotation(this.leftarm, -1.570796F, 0.5F, 0F);
-        // setRotation(lefthand1, -0.3F, 0F, 1.134464F);
         this.setRotation(this.lefthand1, 1.570796F, 0F, 0F);
         this.setRotation(this.lefthand2, 1.570796F, 0F, 0F);
 
@@ -216,13 +208,11 @@ public class ModelBug extends ModelBase {
 
         final float leg1Y = -(MathHelper.cos(p_78087_1_ * 0.6662F * 2.0F + 0.0F) * 0.4F) * p_78087_2_;
         final float leg3Y = -(MathHelper.cos(p_78087_1_ * 0.6662F * 2.0F + (float) Math.PI) * 0.4F) * p_78087_2_;
-        // float leg6Y = -(MathHelper.cos(time * 0.6662F * 2.0F + ((float)Math.PI / 2F)) * 0.4F) * walkSpeed;
         final float leg7Y = -(MathHelper.cos(p_78087_1_ * 0.6662F * 2.0F + (float) Math.PI * 3F / 2F) * 0.4F)
                 * p_78087_2_;
 
         final float leg1Z = Math.abs(MathHelper.sin(p_78087_1_ * 0.6662F + 0.0F) * 0.4F) * p_78087_2_;
         final float leg3Z = Math.abs(MathHelper.sin(p_78087_1_ * 0.6662F + (float) Math.PI) * 0.4F) * p_78087_2_;
-        // float leg5Z = Math.abs(MathHelper.sin(time * 0.6662F + ((float)Math.PI / 2F)) * 0.4F) * walkSpeed;
         final float leg7Z = Math.abs(MathHelper.sin(p_78087_1_ * 0.6662F + (float) Math.PI * 3F / 2F) * 0.4F)
                 * p_78087_2_;
 
@@ -250,17 +240,6 @@ public class ModelBug extends ModelBase {
         this.leftarm.rotateAngleX -= MathHelper.sin(p_78087_3_ * 0.067F) * 0.05F;
         this.lefthand1.rotateAngleZ -= MathHelper.cos(p_78087_3_ * 0.5F) * 0.5F - 0.5F;
         this.lefthand2.rotateAngleZ += MathHelper.cos(p_78087_3_ * 0.5F) * 0.5F - 0.5F;
-        /*
-         * this.spiderLeg1.rotateAngleY += leg1Y; this.spiderLeg2.rotateAngleY += -leg1Y; this.spiderLeg3.rotateAngleY
-         * += leg3Y; this.spiderLeg4.rotateAngleY += -leg3Y; this.spiderLeg5.rotateAngleY += leg6Y;
-         * this.spiderLeg6.rotateAngleY += -leg6Y; this.spiderLeg7.rotateAngleY += leg7Y; this.spiderLeg8.rotateAngleY
-         * += -leg7Y; this.spiderLeg1.rotateAngleZ += leg1Z; this.spiderLeg2.rotateAngleZ += -leg1Z;
-         * this.spiderLeg3.rotateAngleZ += leg3Z; this.spiderLeg4.rotateAngleZ += -leg3Z; this.spiderLeg5.rotateAngleZ
-         * += leg5Z; this.spiderLeg6.rotateAngleZ += -leg5Z; this.spiderLeg7.rotateAngleZ += leg7Z;
-         * this.spiderLeg8.rotateAngleZ += -leg7Z;
-         */
-
-        // this.legLeft1.rotateAngleZ = f / (180F / (float)Math.PI);
 
         super.setRotationAngles(p_78087_1_, p_78087_2_, p_78087_3_, p_78087_4_, p_78087_5_, p_78087_6_, p_78087_7_);
     }

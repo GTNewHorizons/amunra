@@ -47,7 +47,6 @@ public class ItemRendererShuttle implements IItemRenderer {
         if (type == ItemRenderType.INVENTORY) {
             final int numChests = EntityShuttle.getNumChestsFromDamage(item.getItemDamage());
             final int numTanks = EntityShuttle.getNumTanksFromDamage(item.getItemDamage());
-            // int index = Math.min(Math.max(item.getItemDamage(), 0), EnumRocketType.values().length - 1);
             if (numChests > 0) {
                 final ModelChest modelChest = this.chestModel;
                 FMLClientHandler.instance().getClient().renderEngine.bindTexture(chestTexture);
@@ -81,7 +80,6 @@ public class ItemRendererShuttle implements IItemRenderer {
                     GL11.glTranslatef(0.7F, 0.0F, 0.0F);
                 }
 
-                // GL11.glScalef(0.5F, 0.5F, 0.5F);
                 GL11.glScalef(0.61F, 0.71F, 1.0F);
 
                 tessellator.startDrawingQuads();

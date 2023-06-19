@@ -55,7 +55,6 @@ public class RenderShuttleDock extends TileEntitySpecialRenderer {
                 break;
         }
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        // rotation = 0;
         GL11.glTranslatef(0.5F, 0.0F, 0.5F);
         GL11.glRotatef(rotation, 0, 1, 0);
 

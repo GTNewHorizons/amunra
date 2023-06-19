@@ -15,16 +15,8 @@ public class ContainerRocketEngine extends ContainerWithPlayerInventory {
 
     public ContainerRocketEngine(final InventoryPlayer par1InventoryPlayer,
             final TileEntityMothershipEngineAbstract tile) {
-
         super(tile);
-
-        /*
-         * this.inventory = p_i1824_1_; this.slotIndex = p_i1824_2_; this.xDisplayPosition = p_i1824_3_;
-         * this.yDisplayPosition = p_i1824_4_;
-         */
-        // inv, slotIndex, x, y
         this.initSlots(tile);
-
         this.initPlayerInventorySlots(par1InventoryPlayer);
     }
 

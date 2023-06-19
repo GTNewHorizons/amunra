@@ -25,9 +25,6 @@ public abstract class ItemAbstractRaygun extends ItemAbstractBatteryUser {
         this.setUnlocalizedName(assetName);
         this.setTextureName(AmunRa.TEXTUREPREFIX + assetName);
         this.maxStackSize = 1;
-
-        // batteryInUse = new ItemStack(GCItems.battery, 1);
-        // batteryInUse.getTagCompound()
     }
 
     @Override
@@ -46,7 +43,6 @@ public abstract class ItemAbstractRaygun extends ItemAbstractBatteryUser {
         if (!this.chargeMode) {
             return;
         }
-        // int j = this.getMaxItemUseDuration(itemStack) - itemInUseCount;
 
         this.fire(p_77615_1_, p_77615_3_, p_77615_2_);
     }
@@ -109,7 +105,6 @@ public abstract class ItemAbstractRaygun extends ItemAbstractBatteryUser {
                     this.getFiringSound(),
                     1.0F,
                     1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
-            // LaserArrow entityarrow = new LaserArrow(world, entityPlayer);
             this.spawnProjectile(itemStack, entityPlayer, world);
         }
         return true;
@@ -145,18 +140,11 @@ public abstract class ItemAbstractRaygun extends ItemAbstractBatteryUser {
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister register) {
         this.itemIcon = register.registerIcon(this.getIconString());
-        // this.itemEmptyIcon = iconRegister.registerIcon(this.getIconString() + "_empty");
     }
 
     @Override
     public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining) {
         return super.getIcon(stack, renderPass, player, usingItem, useRemaining);
-
-        /*
-         * final int count2 = useRemaining / 2; switch (count2 % 5) { case 0: if (useRemaining == 0) { return
-         * this.icons[0]; } return this.icons[4]; case 1: return this.icons[3]; case 2: return this.icons[2]; case 3:
-         * return this.icons[1]; case 4: return this.icons[0]; } return this.icons[0];
-         */
     }
 
 }

@@ -55,10 +55,6 @@ public class EntityCryoArrow extends EntityBaseLaserArrow {
             this.playSound("random.fizz", 0.7F, 1.6F + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.4F);
             this.worldObj.setBlock(x, y, z, Blocks.obsidian);
         }
-
-        // this.worldObj.setBlock(x, y, z, Blocks.ice);
-
-        //
     }
 
     public EntityCryoArrow(final World par1World, final EntityLivingBase par2EntityLivingBase) {
@@ -88,18 +84,11 @@ public class EntityCryoArrow extends EntityBaseLaserArrow {
     @Override
     protected void onImpactEntity(final MovingObjectPosition mop) {
         if (mop.entityHit instanceof EntityLivingBase entityLiving) {
-            // setPotionEffect(Potion.poison.id, 30, 2, 1.0F);
             if (entityLiving.isBurning()) {
                 entityLiving.extinguish();
             }
             entityLiving.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 3));
-
-            // how?
-            // ((EntityLivingBase)mop).getEntityAttribute(p_110148_1_)
-            // ((EntityLivingBase)mop.entityHit).addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 500, 3));
         }
-        // mop.entityHit
-        // player.addPotionEffect(new PotionEffect(this.potionId, this.potionDuration * 20, this.potionAmplifier));
     }
 
     @Override
@@ -120,8 +109,7 @@ public class EntityCryoArrow extends EntityBaseLaserArrow {
     @Override
     protected DamageSource getDamageSource() {
         if (this.shootingEntity == null) {
-            return DamageSourceAR.causeLaserDamage("ar_coldray", this, this);// ("laserArrow", this,
-                                                                             // this).setProjectile();
+            return DamageSourceAR.causeLaserDamage("ar_coldray", this, this);
         }
         return DamageSourceAR.causeLaserDamage("ar_coldray", this, this.shootingEntity);
     }

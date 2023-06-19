@@ -78,7 +78,6 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
         this.containingItems = this.readStandardItemsFromNBT(compound);
         if (compound.hasKey("numBoosters")) {
             this.numBoosters = compound.getInteger("numBoosters");
-            // System.out.println("Got data, numBoosters = "+numBoosters);
         }
 
         this.fuelTank.setCapacity(this.getTankCapacity());
@@ -113,7 +112,6 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
         this.writeToNBT(var1);
 
         return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, var1);
-        // return new Packet132TileEntityDat(this.xCoord, this.yCoord, this.zCoord, 1, var1);
     }
 
     @Override
@@ -202,10 +200,6 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
         final Vector3 startPos = this.getCenterPosition();
         final Vector3 minVec = new Vector3(0, 0, 0);
         final Vector3 maxVec = new Vector3(0, 0, 0);
-
-        // startPos is right in the center of the block
-        // startPos.translate(exDir.clone().scale(0.5));
-        // now startPos is in the center of the output side
 
         minVec.y = startPos.y - 0.5;
         maxVec.y = startPos.y + 0.5;
@@ -334,12 +328,8 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
                 final FluidStack drained = ((IFluidContainerItem) canister.getItem())
                         .drain(canister, spaceForFluid, true);
                 if (drained != null && drained.amount > 0) {
-                    //
                     this.fuelTank.fill(new FluidStack(this.fuel, drained.amount), true);
-                    // check how much fluid remains in there
-                    // getFluidForFilledItem doesn't work on IFluidContainerItem
                     liquid = ((IFluidContainerItem) canister.getItem()).getFluid(canister);
-                    // liquid = FluidContainerRegistry.getFluidForFilledItem(canister);
                     if (liquid == null || liquid.amount == 0) {
                         // this should replace the container with it's empty version
                         final ItemStack canisterNew = FluidContainerRegistry.drainFluidContainer(canister);
@@ -347,8 +337,6 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
                             this.containingItems[0] = canisterNew;
                         }
                     }
-                    // if(((IFluidContainerItem)canister.getItem()).)
-                    // FluidContainerRegistry.get
                 }
             } else {
                 // attempt to drain it all at once
@@ -363,27 +351,7 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
                     }
                 }
             }
-
-            // }
         }
-        /*
-         * if (this.containingItems[0].getItem() instanceof ItemCanisterGeneric) { if (this.containingItems[0].getItem()
-         * == GCItems.fuelCanister) { int originalDamage = this.containingItems[0].getItemDamage(); int used =
-         * this.fuelTank.fill(new FluidStack(GalacticraftCore.fluidFuel, ItemCanisterGeneric.EMPTY - originalDamage),
-         * true); if (originalDamage + used == ItemCanisterGeneric.EMPTY) this.containingItems[0] = new
-         * ItemStack(GCItems.oilCanister, 1, ItemCanisterGeneric.EMPTY); else this.containingItems[0] = new
-         * ItemStack(GCItems.fuelCanister, 1, originalDamage + used); } } else { final FluidStack liquid =
-         * FluidContainerRegistry.getFluidForFilledItem(this.containingItems[0]); if (liquid != null) { boolean isFuel =
-         * FluidUtil.testFuel(FluidRegistry.getFluidName(liquid)); if (isFuel) { if (this.fuelTank.getFluid() == null ||
-         * this.fuelTank.getFluid().amount + liquid.amount <= this.fuelTank.getCapacity()) { this.fuelTank.fill(new
-         * FluidStack(GalacticraftCore.fluidFuel, liquid.amount), true); if
-         * (FluidContainerRegistry.isBucket(this.containingItems[0]) &&
-         * FluidContainerRegistry.isFilledContainer(this.containingItems[0])) { final int amount =
-         * this.containingItems[0].stackSize; if (amount > 1) { this.fuelTank.fill(new
-         * FluidStack(GalacticraftCore.fluidFuel, (amount - 1) * FluidContainerRegistry.BUCKET_VOLUME), true); }
-         * this.containingItems[0] = new ItemStack(Items.bucket, amount); } else { this.containingItems[0].stackSize--;
-         * if (this.containingItems[0].stackSize == 0) { this.containingItems[0] = null; } } } } } }
-         */
     }
 
     @Override
@@ -405,12 +373,9 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
             this.exhaustBB = null;
         }
 
-        // }
-
         if (!this.worldObj.isRemote) {
 
             // so, on an actual server-client setup, this actually happens on the server side
-            // System.out.println("Updating on server? "+FMLCommonHandler.instance().getSide());
             if (this.needsUpdate) {
                 this.updateMultiblock();
                 this.needsUpdate = false;
@@ -811,7 +776,6 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
     protected void createMultiblockInternal(final boolean notifyClient) {
         // this should check all the stuff
         this.numBoosters = 0;
-        // this.worldObj.isRemote
         // happens on server only, I think
         switch (this.getRotationMeta()) {
             case 0:
@@ -876,7 +840,6 @@ public abstract class TileEntityMothershipEngineAbstract extends TileBaseElectri
      *
      * @return
      */
-    // abstract public int getFuelUsagePerAU();
 
     /**
      * Will be called on all which return true from isInUse on transit end

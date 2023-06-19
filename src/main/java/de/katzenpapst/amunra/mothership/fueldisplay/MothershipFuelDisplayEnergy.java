@@ -32,7 +32,6 @@ public class MothershipFuelDisplayEnergy extends MothershipFuelDisplay {
     @Override
     public String getDisplayName() {
         return StatCollector.translateToLocal("gui.message.energy");
-        // return stack.getDisplayName();
     }
 
     @Override
@@ -52,7 +51,6 @@ public class MothershipFuelDisplayEnergy extends MothershipFuelDisplay {
 
     @Override
     public String formatValue(final float value) {
-        // EnergyDisplayHelper
         return EnergyDisplayHelper.getEnergyDisplayS(value);
     }
 

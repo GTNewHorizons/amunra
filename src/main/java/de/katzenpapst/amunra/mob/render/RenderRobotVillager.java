@@ -54,7 +54,7 @@ public class RenderRobotVillager extends RenderLiving {
             // something weird happened
             return;
         }
-        //
+
         GL11.glPushMatrix();
         this.bindTexture(prof.getIcon());
         TextureUtil.func_152777_a(false, false, 1.0F);
@@ -75,7 +75,7 @@ public class RenderRobotVillager extends RenderLiving {
         tessellator.addVertexWithUV(1.0D, 1.0D, 0.0D, 1, 1);
         tessellator.addVertexWithUV(0.0D, 1.0D, 0.0D, 0, 1);
         tessellator.draw();
-        /// and stuff
+
         GL11.glPopMatrix();
         GL11.glDisable(GL12.GL_RESCALE_NORMAL);
         TextureUtil.func_147945_b();

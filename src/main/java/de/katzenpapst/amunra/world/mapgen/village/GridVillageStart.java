@@ -107,11 +107,8 @@ public class GridVillageStart extends BaseStructureStart {
                     this.structBB.minZ + effectiveGridSize * gridZ + 1 + this.gridSize);
 
             componentBox.getXSize();
-            //
-            // cmp.setCoordMode(this.rand.nextInt(4));
             comp.setStructureBoundingBox(componentBox);
             comp.setCoordMode(this.rand.nextInt(4));
-            // vComp.setCoordMode(3);
             comp.setParent(this);
             this.componentsByGrid.put(index, (GridVillageComponent) comp);
             gridX++;
@@ -343,10 +340,7 @@ public class GridVillageStart extends BaseStructureStart {
 
         // int effectiveGridSize = this.gridSize+3;
 
-        final StructureBoundingBox chunkBox = CoordHelper.getChunkBB(chunkX, chunkZ);// new
-                                                                                     // StructureBoundingBox(chunkX*16,
-        // chunkZ*16, chunkX*16+15,
-        // chunkZ*16+15);
+        final StructureBoundingBox chunkBox = CoordHelper.getChunkBB(chunkX, chunkZ);
 
         for (int gridX = 0; gridX < this.gridSideLength; gridX++) {
             for (int gridZ = 0; gridZ < this.gridSideLength; gridZ++) {

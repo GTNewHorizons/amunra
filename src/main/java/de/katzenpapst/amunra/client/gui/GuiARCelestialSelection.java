@@ -285,9 +285,6 @@ public class GuiARCelestialSelection extends GuiCelestialSelection {
     protected CelestialBody getBodyToRenderMothershipsAround() {
 
         if (this.selectedBody instanceof Star || this.selectedBody instanceof Planet) {
-            // ship's parent is the body and selectionCount != 1
-            // AND
-            // this.ticksSinceSelection > 35
             if (this.selectionCount != 1 && this.ticksSinceSelection > 35) {
                 return this.selectedBody;
             }
@@ -455,7 +452,6 @@ public class GuiARCelestialSelection extends GuiCelestialSelection {
 
             GL11.glEnd();
         }
-        // List<Mothership> msList = TickHandlerServer.mothershipData.getMothershipsForParent(renderShipsAround);
         GL11.glLineWidth(1);
         GL11.glPopMatrix();
 
@@ -478,20 +474,11 @@ public class GuiARCelestialSelection extends GuiCelestialSelection {
 
             CelestialBody renderShipsAround = this.getBodyToRenderMothershipsAround();
 
-            /*
-             * render them if: - renderShipsAround == lastSelectedBody - renderShipsAround's parent == lastSelectedBody
-             * - renderShipsAround == lastSelectedBody's parent
-             */
-
             if (renderShipsAround != null) {
 
-                // MothershipWorldData msData = TickHandlerServer.mothershipData;
                 final List<Mothership> msList = TickHandlerServer.mothershipData
                         .getMothershipsForParent(renderShipsAround);
-                // int numShips = msList.size();
 
-                // if selectionCount > 0 && this.selectedBody instanceof mothership, also render the moon
-                // use it on matrix0?
                 if (this.selectionCount > 0 && renderShipsAround instanceof Moon
                         && this.selectedBody instanceof Mothership) {
                     this._workaroundDrawMoon(worldMatrix0, (Moon) renderShipsAround, fb, result);
@@ -610,7 +597,7 @@ public class GuiARCelestialSelection extends GuiCelestialSelection {
             }
             final float timeScale = 2.0F;
             float distanceFromCenter = this.getScale(cBody);
-            final float orbitTime = 1 / 0.01F;// 5.0F;
+            final float orbitTime = 1 / 0.01F;
 
             final CelestialBody msParent = ((Mothership) cBody).getParent();
             if (msParent instanceof Star) {
@@ -630,7 +617,6 @@ public class GuiARCelestialSelection extends GuiCelestialSelection {
     }
 
     protected void updatePlayerParent() {
-        //
         CelestialBody body = ShuttleTeleportHelper
                 .getCelestialBodyForDimensionID(this.mc.thePlayer.worldObj.provider.dimensionId);
         if (body instanceof Mothership) {
@@ -640,9 +626,7 @@ public class GuiARCelestialSelection extends GuiCelestialSelection {
     }
 
     protected void updateNumPlayerMotherships() {
-
         this.numPlayersMotherships = TickHandlerServer.mothershipData.getNumMothershipsForPlayer(this.mc.thePlayer);
-        // numPlayersMotherships
     }
 
     @Override

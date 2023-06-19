@@ -105,9 +105,8 @@ public class BlockOreMulti extends BlockBasicMeta {
             double explosionY, double explosionZ) {
         return Math.max(
                 super.getExplosionResistance(exploder, world, x, y, z, explosionX, explosionY, explosionZ),
-                this.getExplosionResistance(exploder) // default resistance, should default to this.blockResistance /
-                                                      // 5.0F
-        );
+                // default resistance, should be this.blockResistance / 5.0F
+                this.getExplosionResistance(exploder));
     }
 
     @Override

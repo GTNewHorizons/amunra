@@ -69,7 +69,6 @@ public class PyramidGenerator extends StructureGenerator {
         p.setSmallRooms(compList);
 
         p.setMainRoom((PyramidRoom) this.generateOneComponent(this.potentialMainRooms, rand4structure));
-        // p.setMainRoom(new PyramidRoom());
 
         return p;
     }

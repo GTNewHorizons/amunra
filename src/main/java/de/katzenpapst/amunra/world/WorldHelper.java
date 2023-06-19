@@ -95,7 +95,6 @@ public class WorldHelper {
             final int meta) {
         final Block old = worldObj.getBlock(x, y, z);
         if (old == Blocks.air) {
-            // System.out.println("setting "+x+"/"+y+"/"+z+" on fire");
             worldObj.setBlock(x, y, z, block, meta, 3);
         }
     }

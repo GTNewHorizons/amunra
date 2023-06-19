@@ -14,10 +14,8 @@ import micdoodle8.mods.galacticraft.core.network.PacketSimple.EnumSimplePacket;
 
 public class SlotSchematicShuttle extends Slot {
 
-    // protected final int index;
     protected final Vector3int pos;
     protected final EntityPlayer player;
-    // protected final ItemStack validItem;
     protected final ItemDamagePair[] validItem;
 
     public SlotSchematicShuttle(final IInventory craftMatrix, final int slotIndex, final int xDisplay,
@@ -29,7 +27,6 @@ public class SlotSchematicShuttle extends Slot {
             final int yDisplay, final Vector3int sparkPosition, final EntityPlayer player,
             final ItemDamagePair... validItems) {
         super(craftMatrix, slotIndex, xDisplay, yDisplay);
-        // this.index = slotIndex;
         // these coords are only for sparks, I think
         this.pos = sparkPosition;
         this.player = player;
@@ -39,8 +36,6 @@ public class SlotSchematicShuttle extends Slot {
     @Override
     public void onSlotChanged() {
         if (this.player instanceof EntityPlayerMP) {
-            // final Object[] toSend = { this.x, this.y, this.z };
-
             for (EntityPlayer element : this.player.worldObj.playerEntities) {
                 final EntityPlayerMP curPlayer = (EntityPlayerMP) element;
 

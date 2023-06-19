@@ -24,9 +24,6 @@ public class SubItemFood extends SubItem {
     /** probably of the set potion effect occurring */
     private float potionEffectProbability;
 
-    // itemRegistry.addObject(367, "rotten_flesh", (new ItemFood(4, 0.1F, true)).setPotionEffect(Potion.hunger.id, 30,
-    // 0, 0.8F).setUnlocalizedName("rottenFlesh").setTextureName("rotten_flesh"));
-
     public SubItemFood(final String name, final String assetName, final int healAmount,
             final float saturationModifier) {
         super(name, assetName);

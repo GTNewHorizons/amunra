@@ -126,7 +126,6 @@ public class TabButton extends GuiButton {
             }
 
             this.zLevel = 300.0F;
-            // GuiElementInfoRegion.itemRenderer.zLevel = 300.0F;
             final int colorSomething = -267386864;
             this.drawGradientRect(
                     tooltipX - 3,
@@ -196,8 +195,6 @@ public class TabButton extends GuiButton {
 
             fontRenderer.drawStringWithShadow(this.displayString, tooltipX, tooltipY, -1);
 
-            // EnumColor.RED
-
             if (extraStrings != null) {
                 for (int i = 0; i < extraStrings.size(); i++) {
                     fontRenderer.drawStringWithShadow(extraStrings.get(i), tooltipX, tooltipY + (i + 1) * 10, 0x7777FF);
@@ -205,12 +202,8 @@ public class TabButton extends GuiButton {
             }
 
             this.zLevel = 0.0F;
-            // GuiElementInfoRegion.itemRenderer.zLevel = 0.0F;
         }
 
-        /*
-         * GL11.glEnable(GL11.GL_LIGHTING); RenderHelper.enableStandardItemLighting();
-         */
         GL11.glEnable(GL11.GL_DEPTH_TEST);
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
     }

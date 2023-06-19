@@ -17,7 +17,6 @@ import micdoodle8.mods.galacticraft.core.world.gen.BiomeGenBaseOrbit;
 public class MothershipChunkProvider extends ChunkProviderGenerate { // for now, just like this
 
     protected final Random rand;
-    // ...sigh...
     protected final World worldObjNonPrivate;
 
     public MothershipChunkProvider(final World par1World, final long par2, final boolean par4) {

@@ -12,7 +12,6 @@ import de.katzenpapst.amunra.client.renderer.model.ModelARChest;
 
 public class BlockRendererARChest implements ISimpleBlockRenderingHandler {
 
-    // private final TileEntityARChest chest = new TileEntityARChest();
     private final ModelARChest chestModel = new ModelARChest();
 
     public BlockRendererARChest() {

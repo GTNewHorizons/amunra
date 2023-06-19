@@ -16,7 +16,6 @@ public class ModelARChest {
     public void render(final BlockARChest chestBlock, final boolean isDouble, final double x, final double y,
             final double z) {
         ModelChest chestModel = null;
-        // ModelLargeChest largeModel = null;
 
         if (!isDouble) {
             chestModel = this.chestModel;
@@ -27,7 +26,6 @@ public class ModelARChest {
         }
 
         GL11.glPushMatrix();
-        // GL11.glEnable(GL12.GL_RESCALE_NORMAL);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         GL11.glTranslatef((float) x, (float) y + 1.0F, (float) z + 1.0F);
         GL11.glScalef(1.0F, -1.0F, -1.0F);
@@ -37,7 +35,6 @@ public class ModelARChest {
 
         chestModel.renderAll();
 
-        // GL11.glDisable(GL12.GL_RESCALE_NORMAL);
         GL11.glPopMatrix();
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
     }

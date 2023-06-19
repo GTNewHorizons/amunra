@@ -25,8 +25,6 @@ import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 
 public class TileEntityGravitation extends TileBaseElectricBlock implements IInventory, IEnergyHandlerGC {
 
-    // protected Vector3 gravityVector;
-
     protected double gravity;
 
     private ItemStack[] containingItems = new ItemStack[1];
@@ -66,8 +64,7 @@ public class TileEntityGravitation extends TileBaseElectricBlock implements IInv
     }
 
     protected AxisAlignedBB getActualGravityBox() {
-        AxisAlignedBB box = this.getRotatedAABB();// AxisAlignedBB.getBoundingBox(center.x - range, center.y - 0.5,
-                                                  // center.z
+        AxisAlignedBB box = this.getRotatedAABB();
         return AxisAlignedBB.getBoundingBox(
                 this.xCoord + box.minX,
                 this.yCoord + box.minY,
@@ -103,14 +100,12 @@ public class TileEntityGravitation extends TileBaseElectricBlock implements IInv
                 // maxX <- minZ
                 // minZ <- minX
                 // maxZ <- maxX
-                // return AxisAlignedBB.getBoundingBox(in.maxZ * -1, in.minY, in.minX, in.minZ * -1, in.maxY, in.maxX);
                 return AxisAlignedBB.getBoundingBox(in.minZ, in.minY, in.maxX * -1, in.maxZ, in.maxY, in.minX * -1);
             case 3: // rotate 90°
                 // minX <- minZ
                 // maxX <- maxZ
                 // minZ <- maxX
                 // maxZ <- minX
-                // return AxisAlignedBB.getBoundingBox(in.minZ, in.minY, in.maxX * -1, in.maxZ, in.maxY, in.minX * -1);
                 return AxisAlignedBB.getBoundingBox(in.maxZ * -1, in.minY, in.minX, in.minZ * -1, in.maxY, in.maxX);
         }
 
@@ -130,24 +125,15 @@ public class TileEntityGravitation extends TileBaseElectricBlock implements IInv
         return !this.getDisabled(0) && this.hasEnoughEnergyToRun;
     }
 
-    /*
-     * public void setGravityVector(Vector3 vec) { //this.gravityVector = vec; gravity = vec.y; }
-     */
-
     public void setGravityForce(final double value) {
         this.gravity = value;
     }
 
     public double getGravityForce() {
         return this.gravity;
-        // return gravityVector;
     }
-    /*
-     * public Vector3 getGravityVector() { return new Vector3(0, gravity, 0); //return gravityVector; }
-     */
 
     public AxisAlignedBB getGravityBox() {
-        // return AxisAlignedBB.getBoundingBox( - range, - 0.5, - range, + range, + range, + range);
         return this.gravityBox;
     }
 
@@ -253,13 +239,8 @@ public class TileEntityGravitation extends TileBaseElectricBlock implements IInv
         super.writeToNBT(nbt);
         NbtHelper.writeInventory(nbt, this.containingItems);
 
-        /*
-         * NBTTagCompound gravityVectorNBT = new NBTTagCompound(); gravityVector.writeToNBT(gravityVectorNBT);
-         */
-
         final NBTTagCompound aabbNBT = NbtHelper.getAsNBT(this.gravityBox);
 
-        // nbt.setTag("gravity", gravityVectorNBT);
         nbt.setDouble("gravforce", this.gravity);
         nbt.setTag("aabb", aabbNBT);
     }

@@ -15,7 +15,6 @@ public class EntityFXMothershipJetFire extends EntityFX {
         super(world, pos.x, pos.y, pos.z, motion.x, motion.y, motion.z);
 
         this.particleScale = 2.0F;
-        // setRBGColorF(0x88, 0x00, 0x88);
 
         // this is needed because the vanilla code adds a y component
         this.motionX = motion.x + (float) (Math.random() * 2.0D - 1.0D) * 0.4F;
@@ -28,7 +27,6 @@ public class EntityFXMothershipJetFire extends EntityFX {
         this.motionY = this.motionY / f1 * f * 0.4D;
         this.motionZ = this.motionZ / f1 * f * 0.4D;
 
-        // stealing stuff from GC
         this.particleRed = 1.0F;
         this.particleGreen = 120F / 255F + this.rand.nextFloat() / 3;
         this.particleBlue = 55F / 255F;

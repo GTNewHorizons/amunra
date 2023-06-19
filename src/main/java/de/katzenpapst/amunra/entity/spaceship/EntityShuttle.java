@@ -61,7 +61,6 @@ public class EntityShuttle extends EntityTieredRocket {
 
     public EntityShuttle(final World world, final double posX, final double posY, final double posZ, final int type) {
         super(world, posX, posY, posZ);
-        // this.rocketType = type;
         this.setSize(1.2F, 3.5F);
         this.yOffset = 1.5F;
         this.decodeItemDamage(type);
@@ -80,10 +79,6 @@ public class EntityShuttle extends EntityTieredRocket {
     }
 
     protected int encodeItemDamage() {
-        /*
-         * if(this.rocketType == EnumRocketType.PREFUELED) { return 15; // 1111 = 12+3 }
-         */
-
         return encodeItemDamage(this.rocketType.ordinal(), this.numTanks);
     }
 
@@ -170,7 +165,6 @@ public class EntityShuttle extends EntityTieredRocket {
         rocket.getTagCompound().setInteger("RocketFuel", this.fuelTank.getFluidAmount());
 
         return rocket;
-        // return new ItemStack(ARItems.shuttleItem, 1, this.encodeItemDamage());
     }
 
     @Override
@@ -207,7 +201,6 @@ public class EntityShuttle extends EntityTieredRocket {
     @Override
     public double getOnPadYOffset() {
         return 1.6D;
-        // return 2.4D;
     }
 
     /**
@@ -580,7 +573,6 @@ public class EntityShuttle extends EntityTieredRocket {
             boolean isInZeroG = this.worldObj.provider instanceof IZeroGDimension;
 
             // let's look downward
-            // this.posY is about 3 blocks above the baseline
             final int bX = (int) (this.posX - 0.5D);
             final int bY = (int) (this.posY - 0.5D - 1);
             final int bZ = (int) (this.posZ - 0.5D);
@@ -603,9 +595,7 @@ public class EntityShuttle extends EntityTieredRocket {
                     this.isOnBareGround = false;
                     this.doKnowOnWhatImStanding = true;
                     if (this.getLandingPad() != dockTile) {
-                        // ((IFuelDock) dockTile).dockEntity(this);
                         this.landEntity((TileEntity) dockTile);
-                        // this.setPad(dockTile);
                     }
                 } else {
                     this.isOnBareGround = true;
@@ -651,9 +641,7 @@ public class EntityShuttle extends EntityTieredRocket {
     }
 
     protected void adjustGroundPosition(final int blockYPos) {
-        // posY = distance-blockYPos
         this.setPosition(this.posX, this.getDistanceFromGround() + blockYPos, this.posZ);
-        // double distance = this.posY-blockYPos;
     }
 
     @Override
@@ -755,7 +743,6 @@ public class EntityShuttle extends EntityTieredRocket {
         if (this.getLandingPad() != null) {
             final Vector3int pos = new Vector3int((TileEntity) this.getLandingPad());
             nbt.setTag("dockPosition", pos.toNBT());
-            // pos.toNBT()
         }
 
         super.writeEntityToNBT(nbt);

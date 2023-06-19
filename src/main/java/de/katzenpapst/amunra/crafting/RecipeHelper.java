@@ -59,7 +59,6 @@ public class RecipeHelper {
             return;
         }
 
-        // ItemStack enderWaferStack = ARItems.baseItem.getItemStack("waferEnder", 1);
         final ItemStack freqModuleStack = new ItemStack(GCItems.basicItem, 1, 19);
         final ItemStack enderWaferStack = ARItems.waferEnder.getItemStack(1);
         final ItemStack lithiumMeshStack = ARItems.lithiumMesh.getItemStack(1);
@@ -67,7 +66,7 @@ public class RecipeHelper {
         final ItemStack lithiumGemStack = ARItems.lithiumGem.getItemStack(1);
         final ItemStack compressedAluStack = new ItemStack(GCItems.basicItem, 1, 8);
         final ItemStack compressedIronStack = new ItemStack(GCItems.basicItem, 1, 11);
-        final ItemStack compressedTinStack = new ItemStack(GCItems.basicItem, 1, 7);// GCItems.basicItem, 7
+        final ItemStack compressedTinStack = new ItemStack(GCItems.basicItem, 1, 7);
         final ItemStack compressedSteelStack = new ItemStack(GCItems.basicItem, 1, 9);
         final ItemStack compressedTitaniumStack = new ItemStack(AsteroidsItems.basicItem, 1, 6);
         final ItemStack button = new ItemStack(Item.getItemFromBlock(Blocks.stone_button), 1);
@@ -75,17 +74,14 @@ public class RecipeHelper {
         final ItemStack cryoDiodeStack = ARItems.cryoDiode.getItemStack(1);
         final ItemStack beamCore = new ItemStack(AsteroidsItems.basicItem, 1, 8);
         final ItemStack waferSolar = new ItemStack(GCItems.basicItem, 1, 12);
-        // ItemStack waferBasic = new ItemStack(GCItems.basicItem, 1, 13);
         final ItemStack waferAdvanced = new ItemStack(GCItems.basicItem, 1, 14);
         final ItemStack thermalControllerStack = ARItems.thermalControl.getItemStack(1);
         final ItemStack thermalStuff = new ItemStack(AsteroidsItems.basicItem, 1, 7); // thermal cloth
-        // ItemStack batteryFull = new ItemStack(GCItems.battery, 1, 0);
         final ItemStack heavyWire = new ItemStack(GCBlocks.aluminumWire, 1, 1);
 
         final ItemStack tinCanStack = new ItemStack(GCItems.canister, 1, 0);// GCItems.basicItem, 7
-        // ItemStack compressedMeteorIron = new ItemStack(GCItems.meteoricIronIngot, 1, 1); // compressedMeteoricIron
 
-        // *** wood ***
+        // Wood
         GameRegistry.addShapelessRecipe(
                 ARBlocks.getItemStack(ARBlocks.blockMethanePlanks, 4),
                 ARBlocks.getItemStack(ARBlocks.blockMethaneLog, 1));
@@ -93,7 +89,7 @@ public class RecipeHelper {
                 ARBlocks.getItemStack(ARBlocks.blockPodPlanks, 4),
                 ARBlocks.getItemStack(ARBlocks.blockPodBark, 1));
 
-        // *** mothership ***
+        // Mothership
         final HashMap<Object, Integer> inputMap = new HashMap<>();
         inputMap.put(compressedTinStack, 64);
         inputMap.put(compressedAluStack, 16);
@@ -101,7 +97,7 @@ public class RecipeHelper {
         inputMap.put(Items.iron_ingot, 24);
         mothershipRecipe = new SpaceStationRecipe(inputMap);
 
-        // *** circuit fabricator recipes ***
+        // Circuit fabricator recipes
         final List<ItemStack> silicons = new ArrayList<>();
         silicons.add(new ItemStack(GCItems.basicItem, 1, 2));
         silicons.addAll(OreDictionary.getOres(ConfigManagerCore.otherModsSilicon));
@@ -136,7 +132,7 @@ public class RecipeHelper {
                 new ItemStack(Items.redstone),
                 lithiumMeshStack);
 
-        // *** compressing ***
+        // Compressing
         CompressorRecipes.addRecipe(
                 ARItems.lightPlating.getItemStack(1),
                 "XYX",
@@ -148,7 +144,7 @@ public class RecipeHelper {
 
         CompressorRecipes.addRecipe(ARItems.compressedGold.getItemStack(1), "XX", 'X', new ItemStack(Items.gold_ingot));
 
-        // *** smelting ***
+        // Smelting
         // cobble to smooth
         GameRegistry.addSmelting(
                 ARBlocks.getItemStack(ARBlocks.blockBasaltCobble, 1),
@@ -168,7 +164,7 @@ public class RecipeHelper {
         // rebar to steel
         GameRegistry.addSmelting(ARItems.ancientRebar.getItemStack(1), ARItems.steelIngot.getItemStack(1), 1.5F);
 
-        // *** raygun reload ***
+        // Raygun reload
         final ItemStack battery = new ItemStack(GCItems.battery, 1, OreDictionary.WILDCARD_VALUE);
         final ItemStack liBattery = new ItemStack(ARItems.batteryLithium, 1, OreDictionary.WILDCARD_VALUE);
         final ItemStack quBattery = new ItemStack(ARItems.batteryQuantum, 1, OreDictionary.WILDCARD_VALUE);
@@ -178,13 +174,10 @@ public class RecipeHelper {
         final ItemStack raygun = new ItemStack(ARItems.raygun, 1, OreDictionary.WILDCARD_VALUE);
         final ItemStack cryogun = new ItemStack(ARItems.cryogun, 1, OreDictionary.WILDCARD_VALUE);
         final ItemStack nanotool = new ItemStack(ARItems.nanotool, 1, OreDictionary.WILDCARD_VALUE);
-        /*
-         * initRaygunReloadingRecipes(new ItemStack[]{ raygun, cryogun }, new ItemStack[]{ battery, liBattery,
-         * quBattery, enBattery, nuBattery });
-         */
+
         final ItemStack[] batteries = { battery, liBattery, quBattery, enBattery, nuBattery };
 
-        // *** regular crafting ***
+        // Regular crafting
 
         // batteries
         // lithium battery
@@ -481,7 +474,7 @@ public class RecipeHelper {
                         'D',
                         lithiumMeshStack));
 
-        // **** chests ****
+        // Chests
         GameRegistry.addRecipe(
                 new ShapedOreRecipe(
                         ARBlocks.getItemStack(ARBlocks.chestAlu, 1),
@@ -500,7 +493,7 @@ public class RecipeHelper {
                         'X',
                         "compressedSteel"));
 
-        // **** mothership things ****
+        // Mothership things
 
         // controller
         GameRegistry.addRecipe(
@@ -615,7 +608,7 @@ public class RecipeHelper {
                         'C',
                         Blocks.glass_pane,
                         'D',
-                        nuBattery, // ItemStack batteryFull = new ItemStack(GCItems.battery, 1, 0);
+                        nuBattery,
                         'E',
                         Blocks.stone_button));
 
@@ -777,8 +770,6 @@ public class RecipeHelper {
         final Map<Integer, ISchematicPage> pagesByPageID = new HashMap<>();
         final Map<Integer, ISchematicPage> pagesByGuiID = new HashMap<>();
 
-        // boolean fail = false;
-
         for (final ISchematicPage page : SchematicRegistry.schematicRecipes) {
 
             final int curPageID = page.getPageID();
@@ -790,8 +781,6 @@ public class RecipeHelper {
                     throw new RuntimeException(
                             "Please change shuttleSchematicsId in the config file. " + curPageID
                                     + " is already in use.");
-                    // FMLRelaunchLog.log(AmunRa.MODID, Level.ERROR, "Possible Page ID conflict:
-                    // "+page.getClass().getName()+" and "+oldPage.getClass().getName()+" on "+curPageID);
                 }
                 AmunRa.LOGGER.warn(
                         "Possible Page ID conflict: {} and {} on {}",
@@ -1264,7 +1253,6 @@ public class RecipeHelper {
 
         final Map<Integer, Set<ItemDamagePair>> result = new HashMap<>();
 
-        // ArrayList<HashSet<ItemDamagePair>> result = new ArrayList<HashSet<ItemDamagePair>>();
         final Vector<INasaWorkbenchRecipe> recipeArray = nasaWorkbenchRecipes.get(expectedOutput);
         for (final INasaWorkbenchRecipe curRecipe : recipeArray) {
 
@@ -1286,9 +1274,4 @@ public class RecipeHelper {
     public static List<CircuitFabricatorRecipe> getCircuitFabricatorRecipes() {
         return circuitFabricatorRecipes;
     }
-    /*
-     * protected static void tryStuff() { // new ShapedOreRecipe(result, recipe) }
-     */
-    /**/
-
 }

@@ -24,7 +24,6 @@ public class EntityOsirisBossFireball extends EntityFireball {
             if (p_70227_1_.entityHit != null && !(p_70227_1_.entityHit instanceof EntityCreeper)) {
                 p_70227_1_.entityHit
                         .attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), this.damage);
-                // ConfigManagerCore.hardMode ? 12.0F : 6.0F
             }
 
             this.worldObj.newExplosion(

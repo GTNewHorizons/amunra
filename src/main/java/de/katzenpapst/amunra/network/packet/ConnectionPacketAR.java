@@ -40,7 +40,6 @@ public class ConnectionPacketAR {
             return;
         }
 
-        // List<Integer> data = new ArrayList<Integer>();
         switch (packetId) {
             case ID_MOTHERSHIP_LIST:
 

@@ -66,7 +66,6 @@ public class CommandShuttleTeleport extends CommandBase {
 
             try {
                 EntityShuttle.toCelestialSelection(playerBase, stats, Integer.MAX_VALUE, false);
-                // WorldUtil.toCelestialSelection(playerBase, stats, Integer.MAX_VALUE);
             } catch (final Exception e) {
                 AmunRa.LOGGER.error("Failed to open celestial selection", e);
                 throw e;

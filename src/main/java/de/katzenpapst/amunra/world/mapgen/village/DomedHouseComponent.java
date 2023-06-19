@@ -18,10 +18,7 @@ public class DomedHouseComponent extends GridVillageComponent {
     public boolean generateChunk(final int chunkX, final int chunkZ, final Block[] blocks, final byte[] metas) {
 
         // now, how to get the height?
-        final StructureBoundingBox chunkBB = CoordHelper.getChunkBB(chunkX, chunkZ);// new StructureBoundingBox((chunkX
-                                                                                    // << 4),
-        // (chunkX<< 4), (chunkX+1 << 4)-1,
-        // (chunkX+1 << 4)-1);
+        final StructureBoundingBox chunkBB = CoordHelper.getChunkBB(chunkX, chunkZ);
         final int fallbackGround = this.parent.getWorldGroundLevel();
         if (this.groundLevel == -1) {
             this.groundLevel = getAverageGroundLevel(
@@ -63,11 +60,8 @@ public class DomedHouseComponent extends GridVillageComponent {
                     continue; // that should mean that we aren't in the right chunk
                 }
 
-                //
-                // double innerRadiusSq = Math.pow(xCenter-x-1, 2)+Math.pow(zCenter-z-1, 2);
                 final double wallRadiusSq = Math.pow(xCenter - x, 2) + Math.pow(zCenter - z, 2);
                 // this works for the outer wall
-                // if( houseRadius+1 >= outerRadiusSq && houseRadius-1 <= outerRadiusSq ) {
                 if (houseRadiusSq + 1 >= wallRadiusSq) {
                     // now fill
                     for (int y = highestGroundBlock - 1; y < this.groundLevel; y++) {
@@ -91,9 +85,8 @@ public class DomedHouseComponent extends GridVillageComponent {
                                 // door
                                 this.placeBlockRel2BB(blocks, metas, chunkX, chunkZ, x, this.groundLevel + y, z, air);
 
-                            } else if (((x == startX || x == stopX) && z == zCenter ||
-                            // (z == startZ && x == xCenter) ||
-                                    z == stopZ && x == xCenter) && y == 1) {
+                            } else if (((x == startX || x == stopX) && z == zCenter || z == stopZ && x == xCenter)
+                                    && y == 1) {
                                         // windows
                                         this.placeBlockRel2BB(
                                                 blocks,
@@ -116,29 +109,9 @@ public class DomedHouseComponent extends GridVillageComponent {
                                                 z,
                                                 wall);
                                     }
-                            // placeBlockRel2BB(blocks, metas, chunkX, chunkZ, x, groundLevel+yWalls, z, wall);
                         } else {
                             // also torches
-                            /*
-                             * if(x == startX+1 && z == zCenter && y == 2) { placeBlockRel2BB(blocks, metas, chunkX,
-                             * chunkZ, x, groundLevel+y, z, GCBlocks.glowstoneTorch, rotateTorchMetadata(1,
-                             * this.coordMode)); } else if(x == stopX-1 && z == zCenter && y == 2) {
-                             * placeBlockRel2BB(blocks, metas,chunkX, chunkZ, x, groundLevel+y, z,
-                             * GCBlocks.glowstoneTorch, rotateTorchMetadata(2, this.coordMode)); // } else if(z ==
-                             * startZ+1 && x == xCenter && y == 2) { placeBlockRel2BB(blocks, metas,chunkX, chunkZ, x,
-                             * groundLevel+y, z, GCBlocks.glowstoneTorch, rotateTorchMetadata(3, this.coordMode)); //
-                             * rotate to -z? } else if(z == stopZ-1 && x == xCenter && y == 2) {
-                             * placeBlockRel2BB(blocks, metas,chunkX, chunkZ, x, groundLevel+y, z,
-                             * GCBlocks.glowstoneTorch, rotateTorchMetadata(4, this.coordMode)); // rotate to -z? } else
-                             * { placeBlockRel2BB(blocks, metas, chunkX, chunkZ, x, groundLevel+y, z, air); }
-                             */
                             this.placeBlockRel2BB(blocks, metas, chunkX, chunkZ, x, this.groundLevel + y, z, air);
-
-                            /*
-                             * if(y==0 && x == startX+1 && z == startZ+1) { // random crafting table
-                             * placeBlockRel2BB(blocks, metas,chunkX, chunkZ, x, groundLevel+y, z,
-                             * Blocks.crafting_table, 0); }
-                             */
                         }
                     }
 
@@ -249,20 +222,16 @@ public class DomedHouseComponent extends GridVillageComponent {
                         this.groundLevel - 2,
                         startZ - 1,
                         padding);
-                // int highestBlock = getHighestSolidBlockInBB(blocks, metas, chunkX, chunkZ, x, z);
-
             }
         }
 
         return true;
-
     }
 
     protected void spawnVillager(final int x, final int y, final int z) {
         final EntityCreature villager = new EntityRobotVillager(this.parent.getWorld());
         villager.onSpawnWithEgg(null);// NO IDEA
         final int xOffset = this.getXWithOffset(x, z);
-        // y = getYWithOffset(y);
         final int zOffset = this.getZWithOffset(x, z);
         this.parent.spawnLater(villager, xOffset, y, zOffset);
     }

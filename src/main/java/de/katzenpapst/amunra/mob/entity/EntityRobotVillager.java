@@ -76,7 +76,6 @@ public class EntityRobotVillager extends EntityAgeable implements IEntityBreatha
         this.setSize(0.6F, 2.35F);
         this.getNavigator().setBreakDoors(true);
         this.getNavigator().setAvoidsWater(true);
-        // this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAIMoveIndoors(this));
         this.tasks.addTask(3, new EntityAIRestrictOpenDoor(this));
         this.tasks.addTask(4, new EntityAIOpenDoor(this, true));
@@ -85,8 +84,6 @@ public class EntityRobotVillager extends EntityAgeable implements IEntityBreatha
         this.tasks.addTask(9, new EntityAIWatchClosest2(this, EntityRobotVillager.class, 15.0F, 0.05F));
         this.tasks.addTask(9, new EntityAIWander(this, 0.3F));
         this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityLiving.class, 15.0F));
-
-        // buyingList = new MerchantRecipeList();
 
         if (profession != -1) {
             this.setProfession(profession);
@@ -195,7 +192,6 @@ public class EntityRobotVillager extends EntityAgeable implements IEntityBreatha
                 this.buyingList.add(baseList.get(0));
                 break;
             default:
-                // int numOffers = worldObj.rand.nextInt(baseList.size());
                 // for now have just 1 offer
                 final int numOffers = this.worldObj.rand.nextInt(baseList.size() - 1) + 1;// ensure it's at least 1
                 final HashMap<Integer, Boolean> uniqCache = new HashMap<>();
@@ -287,13 +283,11 @@ public class EntityRobotVillager extends EntityAgeable implements IEntityBreatha
     public IEntityLivingData onSpawnWithEgg(IEntityLivingData p_110161_1_) {
         p_110161_1_ = super.onSpawnWithEgg(p_110161_1_);
         this.setProfession(RobotVillagerProfession.getRandomProfession(this.worldObj.rand));
-        // VillagerRegistry.applyRandomTrade(this, worldObj.rand);
         return p_110161_1_;
     }
 
     @Override
     protected String getLivingSound() {
-        // return "mob.villager.idle";
         return AmunRa.TEXTUREPREFIX + "mob.robotvillager.idle";
     }
 

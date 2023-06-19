@@ -17,11 +17,6 @@ public class ModelSentry extends ModelBase {
     ModelRenderer bottomarm;
 
     public ModelSentry() {
-        /*
-         * // see net.minecraft.client.model.ModelGhast byte heightOffset = -16; this.body = new ModelRenderer(this, 0,
-         * 0); this.body.addBox(-8.0F, -8.0F, -8.0F, 16, 16, 16); // 16³ box this.body.rotationPointY += (float)(24 +
-         * heightOffset); // why 24?
-         */
         this.body = new ModelRenderer(this, 0, 0);
         this.body.addBox(-8F, -8F, -8F, 16, 16, 16);
         this.body.setRotationPoint(0F, 8F, 0F);

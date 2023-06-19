@@ -33,8 +33,6 @@ abstract public class AbstractPermissionTab extends AbstractTab
 
     protected GuiButton addBtn;
     protected GuiButton rmBtn;
-
-    // protected Set<PlayerID> playerIdList = new HashSet<PlayerID>();
     protected final List<PlayerID> playerIdList = new ArrayList<>();
 
     protected final Map<Mothership.PermissionMode, String> permissionModeMap = new HashMap<>();
@@ -137,7 +135,6 @@ abstract public class AbstractPermissionTab extends AbstractTab
         this.rmBtn.enabled = false;
         this.addBtn.enabled = false;
 
-        /* this.addButton(applyButton); */
         this.addButton(this.modeDropdown);
         this.addButton(this.selectBox);
         this.addButton(this.addBtn);
@@ -169,13 +166,12 @@ abstract public class AbstractPermissionTab extends AbstractTab
             this.fontRendererObj.drawSplitString(this.error, guiX + 102, guiY + 80, 70, 0x404040);
             this.errorTime -= ticks;
         }
-        // this.fontRendererObj.drawString("fooo", guiX+102, guiY+80, 0x404040);
 
         this.fontRendererObj
                 .drawString(GCCoreUtil.translate("container.inventory"), guiX + 8, guiY + this.ySize - 94, 0x404040);
     }
 
-    // DROPDOWN SHIT
+    // DROPDOWN
     @Override
     public boolean canBeClickedBy(final GuiElementDropdown dropdown, final EntityPlayer player) {
         return true;
@@ -187,7 +183,7 @@ abstract public class AbstractPermissionTab extends AbstractTab
     @Override
     public void onIntruderInteraction() {}
 
-    // TEXTBOX SHIT
+    // TEXTBOX
     @Override
     public boolean canPlayerEdit(final GuiElementTextBox textBox, final EntityPlayer player) {
         return true;
@@ -212,7 +208,7 @@ abstract public class AbstractPermissionTab extends AbstractTab
     @Override
     public void onIntruderInteraction(final GuiElementTextBox textBox) {}
 
-    // STRINGSELECTBOX SHIT
+    // STRINGSELECTBOX
     @Override
     public void onSelectionChanged(final StringSelectBox box, final int selection) {
         this.rmBtn.enabled = box.hasSelection();

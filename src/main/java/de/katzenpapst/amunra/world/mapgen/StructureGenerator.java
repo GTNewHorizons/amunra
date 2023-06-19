@@ -321,8 +321,7 @@ abstract public class StructureGenerator extends MapGenBaseMeta {
         final Long key = ChunkCoordIntPair.chunkXZ2Int(xChunkCoord, zChunkCoord);
         BaseStructureStart start = null;
         if (!this.structureMap.containsKey(key)) {
-            start = this.createNewStructure(xChunkCoord, zChunkCoord);// new GridVillageStart(xChunkCoord, zChunkCoord,
-            // this.rand);
+            start = this.createNewStructure(xChunkCoord, zChunkCoord);
             this.structureMap.put(key, start);
         } else {
             start = this.structureMap.get(key);

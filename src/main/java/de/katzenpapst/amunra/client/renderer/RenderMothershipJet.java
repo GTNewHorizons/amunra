@@ -24,7 +24,6 @@ public class RenderMothershipJet extends TileEntitySpecialRenderer {
             final double z, final float partialTicks) {
         GL11.glDisable(GL12.GL_RESCALE_NORMAL);
         GL11.glPushMatrix();
-        // GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         GL11.glTranslatef((float) x + 0.5F, (float) y, (float) z + 0.5F);
 
         float rotation = 0.0F;
@@ -51,18 +50,9 @@ public class RenderMothershipJet extends TileEntitySpecialRenderer {
         GL11.glRotatef(rotation, 0, 1, 0);
         GL11.glTranslatef(0.0F, 1.0F, 1.0F);
 
-        // if(chamber.isInUse()) {
-        // this.bindTexture(textureActive);
         this.bindTexture(this.texture);
-        /*
-         * } else { }
-         */
         this.model.renderAll();
-        /*
-         * GL11.glDisable(GL11.GL_TEXTURE_2D); GL11.glEnable(GL11.GL_BLEND); GL11.glBlendFunc(GL11.GL_SRC_ALPHA,
-         * GL11.GL_ONE_MINUS_SRC_ALPHA); GL11.glColor4f(0.1F, 0.6F, 0.5F, 0.4F); this.model.renderPart("Shield_Torus");
-         * GL11.glEnable(GL11.GL_TEXTURE_2D);
-         */
+
         GL11.glPopMatrix();
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
     }

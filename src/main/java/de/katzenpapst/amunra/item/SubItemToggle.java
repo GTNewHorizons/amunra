@@ -106,7 +106,6 @@ public class SubItemToggle extends SubItem {
         super.addInformation(p_77624_1_, p_77624_2_, p_77624_3_, p_77624_4_);
 
         if (this.getState(p_77624_1_)) {
-            // EnumChatFormatting.GREEN
             p_77624_3_.add(EnumChatFormatting.GREEN + StatCollector.translateToLocal("gui.status.active.name"));
         } else {
             p_77624_3_.add(EnumChatFormatting.RED + StatCollector.translateToLocal("gui.status.disabled.name"));

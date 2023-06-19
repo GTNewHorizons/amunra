@@ -9,7 +9,6 @@ public class ModelRobotVillager extends ModelVillager {
 
     ModelRenderer rightArm;
     ModelRenderer leftArm;
-    // ModelRenderer visor;
 
     float ticks = 0;
     int curVisorPhase = 0;
@@ -29,13 +28,6 @@ public class ModelRobotVillager extends ModelVillager {
         this.villagerNose.setRotationPoint(0.0F, par2 - 1.0F, 0.0F);
         this.villagerNose.setTextureOffset(24, 0).addBox(-1.0F, -1.0F, -1.0F, 2, 4, 2, scaleOrSo + 0.002F);
 
-        /*
-         * visor = new ModelRenderer(this).setTextureSize(textureX, textureY); visor.setRotationPoint(0.0F, par2 - 4.0F,
-         * 0.0F); visor.setTextureOffset(40, 0).addBox(-4.0F, -1.5F, -5.0F, 8, 3, 0, scaleOrSo);
-         * villagerHead.addChild(visor);
-         */
-
-        // this.villagerHead.addChild(this.villagerNose);
         this.villagerBody = new ModelRenderer(this).setTextureSize(textureX, textureY);
         this.villagerBody.setRotationPoint(0.0F, 0.0F + par2, 0.0F);
         this.villagerBody.setTextureOffset(16, 20).addBox(-4.0F, 0.0F, -3.0F, 8, 12, 6, scaleOrSo + 0.003F);
@@ -132,23 +124,13 @@ public class ModelRobotVillager extends ModelVillager {
             float p_78088_6_, float p_78088_7_) {
         this.setRotationAngles(p_78088_2_, p_78088_3_, p_78088_4_, p_78088_5_, p_78088_6_, p_78088_7_, p_78088_1_);
 
-        // animateVisor(timeOrSo);
         this.villagerHead.render(p_78088_7_);
         this.villagerBody.render(p_78088_7_);
         this.rightVillagerLeg.render(p_78088_7_);
         this.leftVillagerLeg.render(p_78088_7_);
-        // this.villagerArms.render(p_78088_7_);
 
         this.rightArm.render(p_78088_7_);
         this.leftArm.render(p_78088_7_);
 
     }
-
-    /*
-     * private void animateVisor(float partialTicks) { ticks += partialTicks; if(ticks > 12) { ticks = ticks -
-     * ((int)(ticks/12))*12; } int yOffset = (int)(ticks); if(curVisorPhase != yOffset) { curVisorPhase = yOffset; //
-     * update rendering if(curVisorPhase < 6) { visor.setTextureOffset(40, curVisorPhase*3); } else {
-     * visor.setTextureOffset(40, (6-curVisorPhase)*3); } } //if(ticks <= 0) { // visor.setTextureOffset(40, 0); //} }
-     */
-
 }

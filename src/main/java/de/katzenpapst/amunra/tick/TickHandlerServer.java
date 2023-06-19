@@ -143,10 +143,10 @@ public class TickHandlerServer {
                             }
                         }
 
-                    } // if (e.worldObj.provider instanceof MothershipWorldProvider) // if (o instanceof Entity)
-                } // for (final Object o : entityList)
-            } // if (world.provider instanceof MothershipWorldProvider)
-        } // (event.phase == Phase.START)
+                    }
+                }
+            }
+        }
     }
 
     @SubscribeEvent
@@ -174,7 +174,6 @@ public class TickHandlerServer {
         if (world.isRemote) {
             return;
         }
-        // player.dismountEntity(shuttle);
         shuttle.riddenByEntity = null;
         player.ridingEntity = null;
         shuttle.setGCPlayerStats(player);

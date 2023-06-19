@@ -42,12 +42,8 @@ abstract public class EntityBaseLaserArrow extends Entity implements IProjectile
     protected int ticksInAir;
     protected boolean inGround;
 
-    // protected boolean canPassThroughWater = false;
-
     final private int expirationTime = 200;
     private final int knockbackStrength = 0;
-
-    // public boolean isHot;
 
     public float getEntityBrightness(final float f) {
         return 1.0F;
@@ -178,8 +174,7 @@ abstract public class EntityBaseLaserArrow extends Entity implements IProjectile
      */
     protected void onImpactEntity(final MovingObjectPosition mop) {
         if (this.doesFireDamage() && !(mop.entityHit instanceof EntityEnderman)) {
-            // hm
-            // usually, stuff doesn't burn here
+            // Usually, stuff doesn't burn here
             if (OxygenUtil.noAtmosphericCombustion(mop.entityHit.worldObj.provider) && !OxygenUtil
                     .isAABBInBreathableAirBlock(mop.entityHit.worldObj, mop.entityHit.boundingBox, false)) {
                 // and the entity isn't in any sealed area
@@ -288,8 +283,6 @@ abstract public class EntityBaseLaserArrow extends Entity implements IProjectile
                         movingobjectposition.hitVec.zCoord);
             }
 
-            // this.rotationPitch += 1F;
-
             Entity entity = null;
             final List<Entity> list = this.worldObj.getEntitiesWithinAABBExcludingEntity(
                     this,
@@ -376,11 +369,6 @@ abstract public class EntityBaseLaserArrow extends Entity implements IProjectile
                         }
                     } else {
                         this.setDead();
-                        /*
-                         * // reflexion? this.motionX *= -0.10000000149011612D; this.motionY *= -0.10000000149011612D;
-                         * this.motionZ *= -0.10000000149011612D; this.rotationYaw += 180.0F; this.prevRotationYaw +=
-                         * 180.0F; this.ticksInAir = 0;
-                         */
                     }
                     // ASD END
                 } else {
@@ -419,7 +407,6 @@ abstract public class EntityBaseLaserArrow extends Entity implements IProjectile
             this.motionX *= f4;
             this.motionY *= f4;
             this.motionZ *= f4;
-            // this.motionY -= WorldUtil.getGravityForEntity(this);
             this.setPosition(this.posX, this.posY, this.posZ);
             this.func_145775_I();
         }

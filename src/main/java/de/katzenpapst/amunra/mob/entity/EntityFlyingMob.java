@@ -143,16 +143,6 @@ public abstract class EntityFlyingMob extends EntityFlying implements IMob, IAnt
             this.renderYawOffset = this.rotationYaw = -((float) Math.atan2(accelX, accelZ)) * 180.0F / (float) Math.PI;
 
             if (this.canEntityBeSeen(this.targetedEntity)) {
-                if (this.attackCounter == 10) {
-                    // WTF?
-                    // 1007 might be some sort of an ID
-                    // playSoundAtEntity(entity, GalacticraftCore.TEXTURE_PREFIX + "ambience.scaryscape", 9.0F, 1.4F)
-                    // this.worldObj.playSoundAtEntity(this, AmunRa.TEXTUREPREFIX + "mob.sentryblock.fire", 1.0F, 1.0F);
-                    // this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1007, (int)this.posX, (int)this.posY,
-                    // (int)this.posZ, 0);
-                    // charging?
-                }
-
                 ++this.attackCounter;
 
                 if (this.attackCounter == 20) {

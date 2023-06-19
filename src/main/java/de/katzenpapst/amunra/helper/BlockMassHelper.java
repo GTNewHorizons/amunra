@@ -59,7 +59,6 @@ public class BlockMassHelper {
         // extra stuff
         if (block == Blocks.snow_layer) {
             return (meta + 1) * 0.025F;
-            // return 0.01F; // meta 0 => one, 1 => two, 2=>3, 3=>4, 4=>5, 5=>6, 7 => 8 => full
         }
         if (block == Blocks.vine) {
             return 0.01F;

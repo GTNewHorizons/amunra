@@ -28,7 +28,6 @@ public class RenderArtificalGravity extends TileEntitySpecialRenderer {
         }
         final int rotationMeta = entity.getRotationMeta();
         GL11.glPushMatrix();
-        // GL11.glTranslated(-0.5, -0.5, -0.5);
 
         AxisAlignedBB box = entity.getRotatedAABB();
         box = AxisAlignedBB.getBoundingBox(box.minX, box.minY, box.minZ, box.maxX + 1, box.maxY + 1, box.maxZ + 1);
@@ -145,15 +144,12 @@ public class RenderArtificalGravity extends TileEntitySpecialRenderer {
                 switch (rotationMeta) {
                     case 3:
                         GL11.glColor4d(0.87, 0.87, 0.0, 1.0);
-                        // setColorForRotation(Side.LEFT, 0);
                         break;
                     case 2:
                         GL11.glColor4d(0.0, 0.0, 0.87, 1.0);
-                        // setColorForRotation(Side.RIGHT, 0);
                         break;
                     case 0:
                         GL11.glColor4d(0.0, 0.87, 0.0, 1.0);
-                        // setColorForRotation(Side.FRONT, 0);
                         break;
                     case 1:
                     default:
@@ -208,7 +204,6 @@ public class RenderArtificalGravity extends TileEntitySpecialRenderer {
                         GL11.glColor4d(0.87, 0.0, 0.87, 1.0);
                         break;
                 }
-                // GL11.glColor4d(0.0, 0.0, 0.87, 1.0);
                 break;
             default:
                 break;

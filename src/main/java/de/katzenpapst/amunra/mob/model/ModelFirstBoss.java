@@ -5,7 +5,6 @@ import net.minecraft.client.model.ModelRenderer;
 
 public class ModelFirstBoss extends ModelBiped {
 
-    // protected ModelRenderer frontmask;
     protected ModelRenderer headTopPart;
     protected ModelRenderer headSidePart1;
     protected ModelRenderer headSidePart2;
@@ -13,17 +12,10 @@ public class ModelFirstBoss extends ModelBiped {
     protected ModelRenderer beard;
 
     public ModelFirstBoss() {
-        // super(0.0F);
         super(0.0F, 0.0F, 64, 64);
 
-        // other stuff
         this.addHelmet();
     }
-
-    /*
-     * public ModelFirstBoss(float scaleOrSo) { super(scaleOrSo); } public ModelFirstBoss(float scaleOrSo, float
-     * someYoffset, int textureX, int textureY) { super(scaleOrSo, someYoffset, textureX, textureY); }
-     */
 
     protected void addHelmet() {
         this.textureWidth = 64;

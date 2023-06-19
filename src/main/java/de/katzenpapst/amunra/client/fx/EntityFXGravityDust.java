@@ -28,11 +28,10 @@ public class EntityFXGravityDust extends EntityFX {
 
         this.setPosition(position.x, position.y, position.z);
 
-        this.motionX = 0;// motion.x;
+        this.motionX = 0;
         this.motionY = motion.y;
-        this.motionZ = 0;// motion.z;
+        this.motionZ = 0;
         final Vector3 color = new Vector3(0.4, 0.4, 0.4);
-        // Vector3 color = new Vector3(1.0, 0.4, 0.4);
         this.particleRed = color.floatX();
         this.particleGreen = color.floatY();
         this.particleBlue = color.floatZ();

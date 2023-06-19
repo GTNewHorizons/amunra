@@ -53,7 +53,6 @@ public class EntityMummyBoss extends EntityMob
         implements IBossDisplayData, IRangedAttackMob, IEntityBreathable, IAmunRaBoss {
 
     protected int deathTicks = 0;
-    // protected long ticks = 0;
     protected Entity targetEntity;
 
     protected ITileDungeonSpawner spawner;
@@ -84,7 +83,6 @@ public class EntityMummyBoss extends EntityMob
             if (!AmunRa.isNHCoreLoaded) {
                 guaranteedLoot.add(ARItems.shuttleSchematic.getItemStack(1));
             }
-            // guaranteedLoot.add(new ItemStack(ARItems.batteryQuantum, 0, 0));
         }
 
         if (extraLoot == null) {
@@ -95,8 +93,6 @@ public class EntityMummyBoss extends EntityMob
             extraLoot.add(new ItemStack(Items.gold_ingot, 1, 0));
             extraLoot.add(new ItemStack(Items.dye, 3, 4));
         }
-
-        // this.getNavigator().getPathSearchRange()
     }
 
     @Override
@@ -151,7 +147,6 @@ public class EntityMummyBoss extends EntityMob
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
                 .setBaseValue(200.0F * ConfigManagerCore.dungeonBossHealthMod);
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25F);
-        //
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(32.0F);
     }
 

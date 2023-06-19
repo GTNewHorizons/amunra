@@ -302,7 +302,6 @@ public class AmunRa {
 
     }
 
-    // stolen from GC....
     public int nextInternalID() {
         this.nextID++;
         return this.nextID - 1;
@@ -432,13 +431,6 @@ public class AmunRa {
                                         new ItemStack(Items.emerald, 16),
                                         new ItemStack(GCItems.oxTankHeavy, 1)));
 
-        /*
-         * can't make the battery work, because it resets on being crafted // register battery refill
-         * RobotVillagerProfession.addProfession(new RobotVillagerProfession( new
-         * ResourceLocation(GalacticraftCore.ASSET_PREFIX, "textures/blocks/coalGenerator.png"), "generator")
-         * .addRecipe(new ItemStack(GCItems.battery, 1, GCItems.battery.getMaxDamage()), new ItemStack(Items.emerald, 8)
-         * , new ItemStack(GCItems.battery, 1, 50)) );
-         */
         RobotVillagerProfession.addProfession(
                 new RobotVillagerProfession(
                         new ResourceLocation(GalacticraftCore.ASSET_PREFIX, "textures/blocks/refinery_front.png"),

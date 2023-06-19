@@ -26,9 +26,6 @@ public class TabMothershipCustom extends AbstractTab implements ITextBoxCallback
 
     private final Mothership ship;
 
-    /*
-     * private GuiButton applyButton; private GuiButton resetButton;
-     */
     private GuiButton texturesPrev;
     private GuiButton texturesNext;
 
@@ -104,7 +101,6 @@ public class TabMothershipCustom extends AbstractTab implements ITextBoxCallback
             } else {
                 btn.enabled = false;
             }
-            // btn.setd
             this.buttonList.add(btn);
             this.textureButtons[i] = btn;
         }
@@ -165,15 +161,6 @@ public class TabMothershipCustom extends AbstractTab implements ITextBoxCallback
 
     @Override
     public boolean actionPerformed(final GuiButton btn) {
-        /*
-         * if(btn.equals(applyButton)) { NBTTagCompound nbt = new NBTTagCompound (); nbt.setString("name", changedName);
-         * nbt.setString("bodyIcon", changedIcon.toString()); this.setGuiEnabled(false);
-         * AmunRa.packetPipeline.sendToServer(new PacketSimpleAR(EnumSimplePacket.S_SET_MOTHERSHIP_SETTINGS,
-         * ship.getID(), nbt)); return true; }
-         */
-        /*
-         * if(btn.equals(resetButton)) { resetData(); return true; }
-         */
         if (btn.equals(this.texturesNext)
                 && this.texButtonOffset + this.textureButtons.length < this.mothershipTextures.size()) {
             this.texButtonOffset++;

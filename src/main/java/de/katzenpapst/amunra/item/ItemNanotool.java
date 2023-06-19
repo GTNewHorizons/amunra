@@ -212,7 +212,6 @@ public class ItemNanotool extends ItemAbstractBatteryUser implements ITool, IToo
         }
 
         return this.icons[this.getModeInt(p_77650_1_)];
-        // return this.getIconFromDamage(stack.getItemDamage());
     }
 
     @Override
@@ -249,7 +248,6 @@ public class ItemNanotool extends ItemAbstractBatteryUser implements ITool, IToo
         }
 
         return super.getDigSpeed(itemstack, block, metadata);
-        // return func_150893_a(itemstack, block);
     }
 
     protected boolean isEffectiveAgainst(final Mode m, final Block b) {
@@ -387,7 +385,6 @@ public class ItemNanotool extends ItemAbstractBatteryUser implements ITool, IToo
     public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_,
             int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
         if (this.hasEnoughEnergyAndMode(p_77648_1_, this.energyCostUseSmall, Mode.HOE)) {
-            // if(this.getMode(stack) == Mode.HOE) {
             if (!p_77648_2_.canPlayerEdit(p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_1_)) {
                 return false;
             }
@@ -404,7 +401,6 @@ public class ItemNanotool extends ItemAbstractBatteryUser implements ITool, IToo
 
             if (event.getResult() == Result.ALLOW) {
                 this.consumePower(p_77648_1_, p_77648_2_, this.energyCostUseSmall);
-                // stack.damageItem(1, player);
                 return true;
             }
 
@@ -427,7 +423,6 @@ public class ItemNanotool extends ItemAbstractBatteryUser implements ITool, IToo
 
             if (p_77648_3_.isRemote) {} else {
                 p_77648_3_.setBlock(p_77648_4_, p_77648_5_, p_77648_6_, block1);
-                // stack.damageItem(1, player);
                 this.consumePower(p_77648_1_, p_77648_2_, this.energyCostUseSmall);
             }
             return true;

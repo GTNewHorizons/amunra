@@ -47,7 +47,6 @@ public class SethChunkProvider extends AmunraChunkProvider {
         this.floorDirtBlock = new BlockMetaPair(Blocks.clay, (byte) 0);
         this.floorGrassBlock = ARBlocks.blockUnderwaterGrass;
         this.waterBlock = new BlockMetaPair(Blocks.water, (byte) 0);
-        // waterBlock = new BlockMetaPair(Blocks.air, (byte) 0); // DEBUG
 
         this.oceanFloorGen = new TerrainGenerator(
                 this.rand,
@@ -164,7 +163,7 @@ public class SethChunkProvider extends AmunraChunkProvider {
 
         for (int i = 0; i < numToGenerate; ++i) {
             final int curX = curChunkMinX + this.rand.nextInt(16) + 8;
-            final int curY = 35;// this.rand.nextInt(120) + 4;
+            final int curY = 35;
             final int curZ = curChunkMinZ + this.rand.nextInt(16) + 8;
             this.crystalGen.generate(this.worldObj, this.rand, curX, curY, curZ);
         }

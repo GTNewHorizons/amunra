@@ -100,7 +100,6 @@ public class TileEntityShuttleDock extends TileEntityAdvanced
                 shuttleItem = (ItemShuttle) stack.getItem();
                 final Vector3 pos = this.getShuttlePosition();
                 shuttleEntity = shuttleItem.spawnRocketEntity(stack, this.worldObj, pos.x, pos.y, pos.z);
-                // shuttleEntity.setPad(this);
                 this.dockEntity(shuttleEntity);
                 stack.stackSize--;
                 if (stack.stackSize <= 0) {
@@ -118,7 +117,6 @@ public class TileEntityShuttleDock extends TileEntityAdvanced
                     return;
                 }
                 shuttleEntity = (EntityShuttle) this.dockedEntity;
-                // if(shuttleEntity.addCargo(stack, doAdd))
                 stack = shuttleEntity.getItemRepresentation();
 
                 final List<ItemStack> cargo = shuttleEntity.getCargoContents();
@@ -217,7 +215,6 @@ public class TileEntityShuttleDock extends TileEntityAdvanced
         this.writeToNBT(nbt);
 
         return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, nbt);
-        // return new Packet132TileEntityDat(this.xCoord, this.yCoord, this.zCoord, 1, var1);
     }
 
     @Override
@@ -301,10 +298,7 @@ public class TileEntityShuttleDock extends TileEntityAdvanced
     }
 
     @Override
-    public void onChunkUnload() {
-        // update this one last time
-        // ShuttleDockHandler.setStoredAvailability(this, isAvailable());
-    }
+    public void onChunkUnload() {}
 
     @Override
     public void updateEntity() {

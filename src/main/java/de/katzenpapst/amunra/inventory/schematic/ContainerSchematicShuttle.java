@@ -221,20 +221,6 @@ public class ContainerSchematicShuttle extends Container {
 
         return resultStack;
     }
-    /*
-     * @Override public ItemStack transferStackInSlot(EntityPlayer player, int slotNr) { // seems like slot validation
-     * happens here // I think this is what happens on shift-click ItemStack stack = null; final Slot slot = (Slot)
-     * this.inventorySlots.get(slotNr); if (slot != null && slot.getHasStack()) { final ItemStack oldStack =
-     * slot.getStack(); stack = oldStack.copy(); if (slotNr <= 21) // 0 <= x <= 21 are "our" slots { // I think
-     * mergeItemStack attemps to merge oldStack into slots in [ 22 ; 58 [ // the bool seems to mean "reverse", in that
-     * case, it will do 58-1 to 22 // the la if (!this.mergeItemStack(oldStack, 22, 58, false)) { return null; } if
-     * (slotNr == 0) { slot.onSlotChange(oldStack, stack); } } else { // seems to be the player inventory for (int i =
-     * 1; i < 19; i++) { Slot testSlot = (Slot) this.inventorySlots.get(i); if (!testSlot.getHasStack() &&
-     * testSlot.isItemValid(stack)) { if (!this.mergeOneItem(oldStack, i, i + 1, false)) { return null; } break; } } }
-     * if (oldStack.stackSize == 0) { slot.putStack((ItemStack) null); } else { slot.onSlotChanged(); } if
-     * (oldStack.stackSize == stack.stackSize) { return null; } slot.onPickupFromSlot(player, oldStack); } return stack;
-     * }
-     */
 
     protected boolean mergeOneItem(final ItemStack stack, final int startSlot, final int endSlotMaybe,
             final boolean wtf) {

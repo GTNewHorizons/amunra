@@ -101,8 +101,8 @@ public class BlockGrassMeta extends BlockBasicMeta implements IGrowable {
             int grassNearby = 0;
 
             while (true) {
-                if (grassNearby < l / 16) // why 1/16??
-                {
+                // TODO: figure out why it's 1/16 and document it here
+                if (grassNearby < l / 16) {
                     blockAboveX += random.nextInt(3) - 1;
                     blockAboveY += (random.nextInt(3) - 1) * random.nextInt(3) / 2;
                     blockAboveZ += random.nextInt(3) - 1;

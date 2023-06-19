@@ -83,31 +83,18 @@ public class GuiMothershipSelection extends GuiARCelestialSelection {
         // possibleBodies should be largely irrelevant here
         // hack
         super(MapMode.VIEW, possibleBodies);
-        // triggerBlock = blockToReturn;
 
         this.world = world;
         this.provider = (MothershipWorldProvider) world.provider;
         this.curMothership = (Mothership) this.provider.getCelestialBody();
-        // this.travelTimeCache = new HashMap<CelestialBody, Double>();
         this.transitDataCache = new HashMap<>();
-        // this.travelTimeCache = new HashMap<CelestialBody, Long>();
     }
-
-    /*
-     * protected long getTravelTimeFor(CelestialBody body) { if(this.travelTimeCache.containsKey(body)) { return
-     * this.travelTimeCache.get(body); } TransitData tData = this.getTransitDataFor(body); double shipThrust =
-     * !tData.isEmpty() ? tData.thrust : provider.getTheoreticalTransitData().thrust; double travelDistance =
-     * curMothership.getTravelDistanceTo(selectedBody); long travelTime =
-     * AstronomyHelper.getTravelTimeAU(provider.getTotalMass(), shipThrust, travelDistance);
-     * this.travelTimeCache.put(body, travelTime); return travelTime; }
-     */
 
     @Override
     public void drawButtons(int mousePosX, int mousePosY) {
         this.possibleBodies = this.shuttlePossibleBodies;
         super.drawButtons(mousePosX, mousePosY);
 
-        // meh
         this.drawMothershipGuiParts(mousePosX, mousePosY);
     }
 
@@ -121,12 +108,10 @@ public class GuiMothershipSelection extends GuiARCelestialSelection {
 
         this.selectAndZoom(this.curMothership.getDestination());
 
-        // if(!curMothership.isInTransit()) {
         AmunRa.packetPipeline.sendToServer(
                 new PacketSimpleAR(
                         PacketSimpleAR.EnumSimplePacket.S_MOTHERSHIP_UPDATE,
                         this.world.provider.dimensionId));
-        // }
     }
 
     @Override
@@ -161,7 +146,6 @@ public class GuiMothershipSelection extends GuiARCelestialSelection {
     }
 
     protected void drawTransitBar(final int length) {
-        // max length = 124
         this.drawTexturedModalRect(
                 this.width / 2 - 90 + 27,
                 this.height - 11 - GuiCelestialSelection.BORDER_WIDTH + 2,
@@ -216,21 +200,13 @@ public class GuiMothershipSelection extends GuiARCelestialSelection {
                 false);
 
         // bar
-        // this.mc.renderEngine.bindTexture(GuiCelestialSelection.guiMain0);
-
         GL11.glColor4f(0.35F, 0.01F, 0.01F, 1);
-        // GL11.glEnable(GL11.GL_BLEND);
 
         this.drawTransitBar(124);
 
         GL11.glColor4f(0.95F, 0.01F, 0.01F, 1);
         this.drawTransitBar(this.curMothership.getScaledTravelTime(124));
 
-        /*
-         * this.drawTexturedModalRect( width/2-90+28, height-11-GuiCelestialSelection.BORDER_WIDTH+2, length,
-         * //displayed w 4, //displayed h 1, // u aka x in tex 0, // v 43, // w in texture 4, // h in texture false,
-         * false);
-         */
         if (this.isMouseWithin(
                 mousePosX,
                 mousePosY,
@@ -435,10 +411,7 @@ public class GuiMothershipSelection extends GuiARCelestialSelection {
         offset += 12;
 
         final double travelDistance = this.curMothership.getTravelDistanceTo(this.selectedBody);
-        // double shipThrust = !tData.isEmpty() ? tData.thrust : provider.getTheoreticalTransitData().thrust;
-
         final long travelTime = !tData.isEmpty() ? tData.duration : -1;
-        // double shipSpeed = !tData.isEmpty() ? tData.speed : provider.getTheoreticalTransitData().speed;
 
         switch (failReason) {
             case ALREADY_ORBITING:
@@ -510,7 +483,6 @@ public class GuiMothershipSelection extends GuiARCelestialSelection {
             final MothershipFuelRequirements fuelReqs) {
 
         if (fuelReqs != null && !fuelReqs.isEmpty()) {
-            // offset += 10;
             this.smallFontRenderer.drawSplitString(
                     GCCoreUtil.translate("gui.message.mothership.fuelReqs") + ":",
                     this.offsetX - 90,
@@ -588,14 +560,12 @@ public class GuiMothershipSelection extends GuiARCelestialSelection {
     }
 
     protected void drawIcon(final int x, final int y, final MothershipFuelDisplay fuelType) {
-
-        final ResourceLocation resourcelocation = this.mc.renderEngine.getResourceLocation(fuelType.getSpriteNumber());// 0
-                                                                                                                       // is
-        // correct
+        // 0 is correct
+        final ResourceLocation resourcelocation = this.mc.renderEngine.getResourceLocation(fuelType.getSpriteNumber());
         this.mc.renderEngine.bindTexture(resourcelocation);
 
-        GL11.glDisable(GL11.GL_LIGHTING); // Forge: Make sure that render states are reset, a renderEffect can derp them
-                                          // up.
+        // Forge: Make sure that render states are reset, a renderEffect can derp them up.
+        GL11.glDisable(GL11.GL_LIGHTING);
         GL11.glEnable(GL11.GL_ALPHA_TEST);
         GL11.glEnable(GL11.GL_BLEND);
 
@@ -638,29 +608,11 @@ public class GuiMothershipSelection extends GuiARCelestialSelection {
         }
 
         if (tData.isEmpty()) {
-            // either not enough fuel, or not enough thrust
-            // TransitData theoreticalData = provider.getTheoreticalTransitData();
-            /*
-             * float mass = provider.getTotalMass(); if(theoreticalData.thrust < mass) { return
-             * TravelFailReason.NOT_ENOUGH_THRUST; }
-             */
-            // seems like not enough fuel
             return TravelFailReason.NOT_ENOUGH_FUEL;
         }
 
-        // double distance = curMothership.getTravelDistanceTo(body);
-
         return TravelFailReason.NONE;
     }
-
-    /*
-     * protected boolean canTravelTo(CelestialBody body, TransitData tData) { // simple stuff if ( body == null || body
-     * == curMothership.getParent() || !Mothership.canBeOrbited(body) ) { return false; } // more complicated stuff
-     * if(tData == null) { tData = getTransitDataFor(this.selectedBody); } if(tData.isEmpty()) { return false; } // most
-     * complicated stuff double distance = curMothership.getTravelDistanceTo(body); int travelTime =
-     * curMothership.getTravelTimeTo(distance, tData.speed); if(travelTime >
-     * AmunRa.instance.confMaxMothershipTravelTime) { return false; } return true; }
-     */
 
     @Override
     protected void mouseClicked(int mouseX, int mouseY, int mouseButton) {

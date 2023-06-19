@@ -211,7 +211,6 @@ public class TileEntityARChest extends TileEntity implements IInventory {
      * Performs the check for adjacent chests to determine if this chest is double or not.
      */
     public void checkForAdjacentChests() {
-        // Block b = this.getBlockType();
         if (!this.canDoublechest()) {
             return;
         }

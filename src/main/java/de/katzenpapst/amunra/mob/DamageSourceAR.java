@@ -34,7 +34,6 @@ public class DamageSourceAR {
 
         @Override
         public IChatComponent func_151519_b(EntityLivingBase p_151519_1_) {
-            // EntityLivingBase entitylivingbase1 = p_151519_1_.func_94060_bK();
             final String s = "death.attack." + this.damageType;
             return new ChatComponentTranslation(
                     s,

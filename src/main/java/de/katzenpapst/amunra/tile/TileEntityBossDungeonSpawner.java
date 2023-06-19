@@ -35,9 +35,6 @@ public class TileEntityBossDungeonSpawner extends TileEntityAdvanced implements 
 
     public TileEntityBossDungeonSpawner() {
         this.bossClass = EntityMummyBoss.class;
-
-        // test
-        // this.setRoom(new Vector3(), size);
     }
 
     public List<Class<? extends EntityLiving>> getDisabledCreatures() {
@@ -128,7 +125,6 @@ public class TileEntityBossDungeonSpawner extends TileEntityAdvanced implements 
         super.readFromNBT(compound);
 
         this.spawned = compound.getBoolean("spawned");
-        // this.playerInRange = this.lastPlayerInRange = nbt.getBoolean("playerInRange");
         this.isBossDefeated = compound.getBoolean("defeated");
 
         try {

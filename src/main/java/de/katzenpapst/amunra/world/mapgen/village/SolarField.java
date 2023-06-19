@@ -17,9 +17,7 @@ public class SolarField extends GridVillageComponent {
     public boolean generateChunk(final int chunkX, final int chunkZ, final Block[] blocks, final byte[] metas) {
 
         // now, how to get the height?
-        final StructureBoundingBox chunkBB = CoordHelper.getChunkBB(chunkX, chunkZ);// new
-                                                                                    // StructureBoundingBox(chunkX*16,
-        // chunkZ*16, chunkX*16+15, chunkZ*16+15);
+        final StructureBoundingBox chunkBB = CoordHelper.getChunkBB(chunkX, chunkZ);
         final int fallbackGround = this.parent.getWorldGroundLevel();
         if (this.groundLevel == -1) {
             this.groundLevel = getAverageGroundLevel(
@@ -34,7 +32,6 @@ public class SolarField extends GridVillageComponent {
         }
 
         final StructureBoundingBox myBB = this.getStructureBoundingBox();
-        // BlockMetaPair mat = ((GridVillageStart)this.parent).getWallMaterial();
         final BlockMetaPair floor = ((GridVillageStart) this.parent).getFloorMaterial();
         final BlockMetaPair padding = ((GridVillageStart) this.parent).getFillMaterial();
 
@@ -44,7 +41,6 @@ public class SolarField extends GridVillageComponent {
         final int startZ = 0;
         final int stopZ = myBB.getZSize();
 
-        // int xCenter = (int)Math.ceil((stopX-startX)/2+startX);
         final int zCenter = (int) Math.ceil((stopZ - startZ) / 2 + startZ);
 
         final int aluWireMetadata = AmunRa.config.villageAdvancedMachines ? 1 : 0;

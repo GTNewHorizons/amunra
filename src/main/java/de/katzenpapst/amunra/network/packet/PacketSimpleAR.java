@@ -62,7 +62,7 @@ public class PacketSimpleAR extends Packet implements IPacket {
 
     public enum EnumSimplePacket {
 
-        // ===================== SERVER =====================
+        // region Server
         /**
          * Teleport the current player in his shuttle. params: - dimension_id: target dimension
          */
@@ -116,8 +116,9 @@ public class PacketSimpleAR extends Packet implements IPacket {
          * min: min of the AABB - BlockVec3 max: max of the AABB - Double gravityStrength
          */
         S_ARTIFICIAL_GRAVITY_SETTINGS(Side.SERVER, BlockVec3.class, BlockVec3.class, BlockVec3.class, Double.class),
+        // endregion Server
 
-        // ===================== CLIENT =====================
+        // region Client
         /**
          * Signals the client that it has to open the shuttle GUI now params: - player_name: name of the player, is it
          * really needed - dimension_list: copied over from GC, I should find a way to get rid of that
@@ -188,6 +189,8 @@ public class PacketSimpleAR extends Packet implements IPacket {
          */
         C_TELEPORT_SHUTTLE_FAIL(Side.CLIENT, String.class);
 
+        // endregion Client
+
         private final Side targetSide;
         private final Class<?>[] decodeAs;
 
@@ -241,9 +244,6 @@ public class PacketSimpleAR extends Packet implements IPacket {
         try {
             if (this.type.getDecodeClasses().length > 0) {
                 this.data = NetworkUtil.decodeData(this.type.getDecodeClasses(), buffer);
-            }
-            if (buffer.readableBytes() > 0) {
-                // GCLog.severe("Galacticraft packet length problem for packet type " + this.type.toString());
             }
         } catch (final Exception e) {
             AmunRa.LOGGER.error("Error handling simple packet type: " + this.type + " " + buffer, e);
@@ -326,7 +326,6 @@ public class PacketSimpleAR extends Packet implements IPacket {
                     mData = new MothershipWorldData(MothershipWorldData.saveDataID);
                     TickHandlerServer.mothershipData = mData;
                 }
-                // mData.updateFromNBT(nbt);
 
                 if (FMLClientHandler.instance()
                         .getClient().currentScreen instanceof GuiShuttleSelection guiShuttleSelection) {
@@ -465,7 +464,6 @@ public class PacketSimpleAR extends Packet implements IPacket {
         switch (this.type) {
             case S_TELEPORT_SHUTTLE: // S_TELEPORT_ENTITY
                 try {
-                    // final WorldProvider provider = WorldUtil.getProviderForNameServer((String) this.data.get(0));
                     final int dim = (int) this.data.get(0);
                     AmunRa.LOGGER.info("Will teleport to ({})", dim);
 

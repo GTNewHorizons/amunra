@@ -61,8 +61,6 @@ public class CommandCelestialBodyInfo extends CommandBase {
             }
         }
         if (foundBodies.isEmpty()) {
-            // GCCoreUtil.translate("gui.energyStorage.desc.0")
-            // sender.addChatMessage(new ChatComponentTranslation("info.message.celestialbodysearch.none", name));
             sender.addChatMessage(new ChatComponentTranslation("info.message.celestialbodysearch.none", name));
         } else {
             sender.addChatMessage(
@@ -77,12 +75,7 @@ public class CommandCelestialBodyInfo extends CommandBase {
 
                 sender.addChatMessage(new ChatComponentText(sb.toString()));
             }
-
         }
-
-        /*
-         * sender. for(Planet p: planets) { p.getLocalizedName() }
-         */
     }
 
     @Override

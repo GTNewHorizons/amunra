@@ -24,8 +24,7 @@ public class GridVillageGenerator extends StructureGenerator {
 
     protected int gridSize = 32;
 
-    protected final Map<Long, GridVillageStart> structureMap = new HashMap<>(); // Long.valueOf(ChunkCoordIntPair.chunkXZ2Int(p_151538_2_,
-    // p_151538_3_)
+    protected final Map<Long, GridVillageStart> structureMap = new HashMap<>();
 
     public void addComponentType(final Class<? extends GridVillageComponent> clazz, final float probability) {
         this.addComponentType(clazz, probability, 0, 0);
@@ -64,22 +63,11 @@ public class GridVillageGenerator extends StructureGenerator {
 
     @Override
     protected BaseStructureStart createNewStructure(final int xChunkCoord, final int zChunkCoord) {
-
         final Random rand4structure = new Random(this.worldObj.getSeed() ^ this.getSalt() ^ xChunkCoord ^ zChunkCoord);
-
         final GridVillageStart start = new GridVillageStart(this.worldObj, xChunkCoord, zChunkCoord, rand4structure);
         final List<BaseStructureComponent> compList = this.generateSubComponents(this.components, rand4structure, 0);
-        /*
-         * ArrayList compList = new ArrayList(); // now prepare the actual component list for(SubComponentData entry:
-         * components) { try { // generate the minimum amount GridVillageComponent cmp = null; int nrGenerated = 0;
-         * boolean shouldGenerateMore = true; // now generate the extra while(shouldGenerateMore) { shouldGenerateMore =
-         * false; if(entry.minAmount > 0 && nrGenerated < entry.minAmount) { shouldGenerateMore = true; } else {
-         * if(rand4structure.nextFloat() < entry.probability) { shouldGenerateMore = true; } } if(shouldGenerateMore) {
-         * cmp = (GridVillageComponent) entry.clazz.getConstructor().newInstance(); compList.add(cmp); //
-         * start.addComponent(cmp); nrGenerated++; } if(nrGenerated >= entry.maxAmount) { break; } } } catch (Throwable
-         * e) { FMLLog.info("Instantiating "+entry.clazz.getCanonicalName()+" failed"); e.printStackTrace(); } }
-         */
         start.setComponents(compList);
+
         return start;
     }
 

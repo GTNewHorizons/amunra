@@ -100,8 +100,6 @@ public class Volcano extends BaseStructureStart {
 
         final double sqRadius = Math.pow(this.radius, 2);
 
-        // int maxVolcanoHeight = (maxHeight+groundLevel);
-
         // after this radius, falloff will be used
         final int faloffRadius = this.radius - this.falloffWidth;
 

@@ -25,7 +25,7 @@ public class RenderHydroponics extends TileEntitySpecialRenderer {
 
             final TileEntity[] connections = OxygenUtil.getAdjacentOxygenConnections(tile);
 
-            // meh
+            // TODO: check if the code in this For is correct
             for (int i = 0; i < connections.length; i++) {
                 final TileEntity cur = connections[i];
                 final ForgeDirection direction = ForgeDirection.values()[i];

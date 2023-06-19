@@ -124,7 +124,7 @@ public class CrystalFormation extends WorldGenerator {
 
         for (int l = 0; l < 1500; ++l) {
             final int curX = x + rand.nextInt(8) - rand.nextInt(8);
-            int curY = actualY; // - rand.nextInt(12);
+            int curY = actualY;
             final int curZ = z + rand.nextInt(8) - rand.nextInt(8);
 
             if (downwards) {

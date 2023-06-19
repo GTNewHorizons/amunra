@@ -20,7 +20,6 @@ public class FillChest extends AbstractPopulator {
 
     @Override
     public boolean populate(final World world) {
-        // world.setBlock(x, y, z, chestBlock.getBlock(), chestBlock.getMetadata(), 2);
         final IInventory chest = (IInventory) world.getTileEntity(this.x, this.y, this.z);
 
         if (chest != null) {

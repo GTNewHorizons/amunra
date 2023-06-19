@@ -68,12 +68,10 @@ public class ItemRendererSpecial1 implements IItemRenderer {
                 break;
             case EQUIPPED:
                 GL11.glTranslated(0.5, -0.0, 0.5);
-                // GL11.glScaled(0.65, 0.65, 0.65);
                 GL11.glRotated(90, 0, 1, 0);
                 break;
             case EQUIPPED_FIRST_PERSON:
                 GL11.glTranslated(0.0, -0.7, 0.0);
-                // GL11.glScaled(0.65, 0.65, 0.65);
                 GL11.glRotated(90, 0, 1, 0);
                 break;
             case INVENTORY:

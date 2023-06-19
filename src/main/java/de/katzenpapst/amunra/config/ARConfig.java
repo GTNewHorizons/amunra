@@ -101,7 +101,6 @@ public class ARConfig {
         final String[] emptySet = {};
 
         // Configuration goes here.
-        // config.getInt(name, category, defaultValue, minValue, maxValue, comment)
         this.dimNeper = config.get("dimension_ids", "Neper", this.dimNeper).getInt();
         this.dimMaahes = config.get("dimension_ids", "Maahes", this.dimMaahes).getInt();
         this.dimAnubis = config.get("dimension_ids", "Anubis", this.dimAnubis).getInt();

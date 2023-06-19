@@ -366,14 +366,6 @@ public class ARBlocks {
         oreCopperAsteroid = metaBlockAsteroidOre.addSubBlock(8, subCopper);
         metaBlockAsteroidOre.register();
 
-        /*
-         * // ICE ORE metaBlockIceOre = new BlockOreMulti("iceMultiOre", "ice_packed", Material.ice);
-         * metaBlockIceOre.setMultiblockHarvestLevel(1).setHardness(0.5F).setResistance(2.5F).setStepSound(Block.
-         * soundTypeGlass); //blockRegistry.addObject(174, "packed_ice", (new
-         * BlockPackedIce()).setHardness(0.5F).setStepSound(soundTypeGlass).setBlockName("icePacked").
-         * setBlockTextureName("ice_packed")); //Blocks.packed_ice.slipperiness; metaBlockIceOre.register();
-         */
-
         metaBlockBossSpawner = new BlockMetaNonOpaqueInternal("bossSpawner", Material.air);
         osirisBossSpawner = metaBlockBossSpawner.addSubBlock(
                 0,
@@ -566,7 +558,7 @@ public class ARBlocks {
 
         metaBlockMachine.register();
 
-        // MOTHERSHIP ENGINES
+        // region Mothership engines
         // jets, aka, the block where the flames come out
         metaBlockMothershipEngineJet = new BlockMothershipJetMeta("machines2", Material.iron);
 
@@ -643,7 +635,7 @@ public class ARBlocks {
                         AsteroidsModule.TEXTURE_PREFIX + "machine_side_warning"));
 
         metaBlockMothershipEngineBooster.register();
-        // MOTHERSHIP ENGINES END
+        // endregion Mothership engines
 
         setLeafDroppingSapling(blockMethaneLeaf, blockMethaneSapling);
 

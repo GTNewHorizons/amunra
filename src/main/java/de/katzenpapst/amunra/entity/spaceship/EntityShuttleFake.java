@@ -14,7 +14,7 @@ import micdoodle8.mods.galacticraft.core.entities.EntityCelestialFake;
 
 /**
  * This is my version of EntityCelestialFake, for special stuff
- * 
+ *
  * @author katzenpapst
  *
  */
@@ -44,7 +44,6 @@ public class EntityShuttleFake extends EntityCelestialFake {
         if ((!this.worldObj.isRemote && this.ticks % 40 == 0)
                 && (this.riddenByEntity != null && this.riddenByEntity instanceof EntityPlayerMP player)) {
             if (this.ticks % 160 == 0 || this.cachedDimList == null) {
-                // System.out.println("would update&send");
                 this.cachedDimList = this.getDimList(player);
             }
 

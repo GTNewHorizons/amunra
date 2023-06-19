@@ -157,10 +157,6 @@ public class ShuttleDockHandler extends WorldSavedData {
                 final World ws = theServer.worldServerForDimension(dimID);
 
                 for (final Vector3int pos : positions.keySet()) {
-                    // int chunkx = CoordHelper.blockToChunk(pos.x);
-                    // int chunkz = CoordHelper.blockToChunk(pos.z);
-                    // ws.checkChunksExist(p_72904_1_, p_72904_2_, p_72904_3_, p_72904_4_, p_72904_5_, p_72904_6_)
-                    // if (ws.getChunkProvider().chunkExists(chunkx, chunkz)) {
                     // seems like there is no real way to figure out if a chunk has actually been really, really, loaded
                     final TileEntity te = ws.getTileEntity(pos.x, pos.y, pos.z);
                     if (te instanceof TileEntityShuttleDock) {
@@ -172,15 +168,7 @@ public class ShuttleDockHandler extends WorldSavedData {
                         if (avail) {
                             return pos;
                         }
-                        // now if this chunk is loaded, and te is still null or wrong, then something's bad
-                        // removeDock(dimID, pos.x, pos.y, pos.z);
                     }
-                    // } else {
-                    // return the stored value
-                    /*
-                     * Boolean avail = positions.get(pos); if(avail) { return pos; }
-                     */
-                    // }
                 }
             }
         }

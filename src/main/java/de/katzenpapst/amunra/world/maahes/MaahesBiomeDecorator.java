@@ -43,7 +43,6 @@ public class MaahesBiomeDecorator extends AmunraBiomeDecorator {
 
             this.grassGen.generate(this.mWorld, this.mWorld.rand, k, i1, l);
         }
-        // doGen = TerrainGen.decorate(currentWorld, randomGenerator, chunk_X, chunk_Z, TREE);
         final int numTrees = Math.round(this.mWorld.rand.nextInt(75) / 100.0F);
         for (int j = 0; j < numTrees; ++j) {
             final int k = this.chunkX + this.mWorld.rand.nextInt(16) + 8;

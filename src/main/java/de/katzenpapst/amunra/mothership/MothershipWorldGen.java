@@ -129,14 +129,7 @@ public class MothershipWorldGen extends WorldGenerator {
                 this.msController.getBlock(),
                 this.msController.getMetadata() | rotationMeta << 2,
                 3);
-        /*
-         * // (-)5, -6 => booster // (-)5, -5 => engine world.setBlock(centerX+5, centerY+1, centerZ-7,
-         * msEngine.getBlock(), msEngine.getMetadata(), 3); world.setBlock(centerX-5, centerY+1, centerZ-7,
-         * msEngine.getBlock(), msEngine.getMetadata(), 3); int jetRotation =
-         * ARBlocks.metaBlockMachine.addRotationMeta(msJet.getMetadata(), 2); world.setBlock(centerX+5, centerY+1,
-         * centerZ-6, msJet.getBlock(), jetRotation, 3); world.setBlock(centerX-5, centerY+1, centerZ-6,
-         * msJet.getBlock(), jetRotation, 3);
-         */
+
         return true;
     }
 }

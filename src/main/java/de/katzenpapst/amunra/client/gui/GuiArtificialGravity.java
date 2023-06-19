@@ -169,7 +169,6 @@ public class GuiArtificialGravity extends GuiContainerGC implements ITextBoxCall
         final int guiX = (this.width - this.xSize) / 2;
         final int guiY = (this.height - this.ySize) / 2;
 
-        // int inputOffset = 28;
         final int offsetX1 = 10;
         final int offsetX2 = 50;
         this.topValueField = new GuiElementTextBox(
@@ -265,9 +264,7 @@ public class GuiArtificialGravity extends GuiContainerGC implements ITextBoxCall
                 guiY + 24,
                 GCCoreUtil.translate("gui.checkbox.show_visual_guide"));
 
-        // this.buttonList.add(applyButton);
         this.buttonList.add(this.disableButton);
-        // this.buttonList.add(resetButton);
         this.buttonList.add(this.checkboxVisualGuide);
 
         this.strengthField = new GuiElementTextBox(

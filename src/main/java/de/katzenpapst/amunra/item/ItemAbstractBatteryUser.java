@@ -28,14 +28,11 @@ public class ItemAbstractBatteryUser extends ItemElectricBase {
         final float maxEnergy = ((ItemElectricBase) bat.getItem()).getMaxElectricityStored(bat);
         theItem.getTagCompound().setFloat("maxEnergy", maxEnergy);
         return maxEnergy;
-        // return 15000; // fallback
     }
 
     @Override
     public void onCreated(ItemStack p_77622_1_, World p_77622_2_, EntityPlayer p_77622_3_) {
-        // important NOT to call the parent for this, because there are crafting recipes
-        // which create non-empty rayguns
-        // this.setElectricity(itemStack, 0);
+        // Do NOT to call the parent for this, because there are crafting recipes that create non-empty rayguns
     }
 
     /**
@@ -61,7 +58,6 @@ public class ItemAbstractBatteryUser extends ItemElectricBase {
             }
         }
 
-        // ItemStack bat = new ItemStack(getUsedBatteryID(theItem), 1, 0);
         if (setEnergy) {
             ((ItemElectricBase) batteryStack.getItem())
                     .setElectricity(batteryStack, this.getElectricityStored(theItem));
@@ -101,10 +97,6 @@ public class ItemAbstractBatteryUser extends ItemElectricBase {
     public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int p_77663_4_, boolean p_77663_5_) {
         final ItemStack battery = this.getUsedBattery(stack, true);
         battery.getItem().onUpdate(battery, worldIn, entityIn, p_77663_4_, p_77663_5_);
-        // do I write the battery back in?
-        // I'm somewhat afraid regarding the efficiency of this
-        // this.setUsedBattery(stack, battery);
-        // maybe this is better
         this.setElectricity(stack, ((ItemElectricBase) battery.getItem()).getElectricityStored(battery));
     }
 
@@ -115,7 +107,6 @@ public class ItemAbstractBatteryUser extends ItemElectricBase {
         super.addInformation(p_77624_1_, p_77624_2_, p_77624_3_, p_77624_4_);
 
         final Item batItem = this.getUsedBatteryID(p_77624_1_);
-        //
         final String s = StatCollector.translateToLocal("item.battery-using-item.powerlevel") + ": "
                 + StatCollector.translateToLocal(batItem.getUnlocalizedName() + ".name");
 

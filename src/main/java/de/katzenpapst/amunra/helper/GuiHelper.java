@@ -45,18 +45,15 @@ public class GuiHelper {
             }
             number = number / Math.pow(1000, numThousands);
             suffix = metricHigh[numThousands - 1];
-            // result = String.valueOf(number)+" "+metricHigh[numThousands-1];
         } else if (numThousands < 0) {
             numThousands *= -1;
             if (numThousands > metricLow.length) {
                 numThousands = metricLow.length;
             }
             number = number / Math.pow(0.001, numThousands);
-            // result = String.valueOf(number)+" "+metricLow[numThousands-1];
             suffix = metricLow[numThousands - 1];
         }
 
-        // String.format
         String result = numberFormat.format(number);
         if (!suffix.isEmpty()) {
             if (addSpace) {

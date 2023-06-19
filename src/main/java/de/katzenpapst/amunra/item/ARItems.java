@@ -175,9 +175,6 @@ public class ARItems {
         batteryNuclear = new ItemNuclearBattery("battery-nuclear", 10000, 0.01F);
         GameRegistry.registerItem(batteryNuclear, batteryNuclear.getUnlocalizedName(), AmunRa.MODID);
 
-        // itemRegistry.addObject(367, "rotten_flesh", (new ItemFood(4, 0.1F, true)).setPotionEffect(Potion.hunger.id,
-        // 30, 0, 0.8F).setUnlocalizedName("rottenFlesh").setTextureName("rotten_flesh"));
-        // Items.rotten_flesh
         initOreDrops();
         registerOreDict();
     }

@@ -27,7 +27,6 @@ import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 
 public class ItemBasicMulti extends Item implements ItemBlockDesc.IBlockShiftDesc {
 
-    // protected IIcon[] icons = new IIcon[ItemBasic.names.length];
     protected ArrayList<SubItem> subItems = null;
 
     protected Map<String, Integer> nameDamageMapping = null;
@@ -103,7 +102,6 @@ public class ItemBasicMulti extends Item implements ItemBlockDesc.IBlockShiftDes
             if (item == null) continue;
 
             item.registerIcons(register);
-            // item.icon = iconRegister.registerIcon(item.getIconString());
         }
     }
 

@@ -131,7 +131,6 @@ public class GuiRocketEngine extends GuiContainerGC {
                 + GuiHelper.formatMetric(this.tileEngine.getThrust(), "N");
         this.fontRendererObj.drawString(displayString, 32, 9 + offsetY, 0x404040);
         offsetY += 10;
-        // this.renderToolTip(itemIn, x, y);
 
         this.tankInfo.tooltipStrings.clear();
         displayString = GCCoreUtil.translate("gui.message.mothership.fuel") + ": "
@@ -139,11 +138,6 @@ public class GuiRocketEngine extends GuiContainerGC {
                 + "/"
                 + GuiHelper.formatMetric(this.tileEngine.fuelTank.getCapacity() / 1000.0F, "B");
         this.tankInfo.tooltipStrings.add(displayString);
-        /*
-         * this.fontRendererObj.drawString(displayString, 32, 9 + offsetY, 0x404040);
-         */
-
-        // this.fontRendererObj.drawString(GCCoreUtil.translate("container.inventory"), 8, this.ySize - 94, 0x404040);
     }
 
     private String getStatus() {

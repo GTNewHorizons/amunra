@@ -29,7 +29,7 @@ import micdoodle8.mods.galacticraft.planets.asteroids.AsteroidsModule;
 
 /**
  * This is supposed to be an universal booster TileEntity, used by all booster blocks
- * 
+ *
  * @author katzenpapst
  *
  */
@@ -357,7 +357,6 @@ public class TileEntityMothershipEngineBooster extends TileBaseUniversalElectric
         this.writeToNBT(var1);
 
         return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, var1);
-        // return new Packet132TileEntityDat(this.xCoord, this.yCoord, this.zCoord, 1, var1);
     }
 
     @Override

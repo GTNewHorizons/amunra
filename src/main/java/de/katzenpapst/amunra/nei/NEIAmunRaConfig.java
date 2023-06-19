@@ -43,14 +43,7 @@ public class NEIAmunRaConfig implements IConfigureNEI {
 
     @Override
     public void loadConfig() {
-        // this is just a copy of the recipe. Couldn't I automate it?
-
-        // this.addCircuitFabricatorRecipe(new ItemStack(Items.diamond), new ItemStack(Items.redstone), new
-        // ItemStack(Items.ender_pearl), ARItems.waferEnder.getItemStack(1));
-        // this.addCircuitFabricatorRecipe(ARItems.lithiumGem.getItemStack(1), new ItemStack(Items.redstone), new
-        // ItemStack(Items.paper), ARItems.lithiumMesh.getItemStack(1));
-
-        // now do the circfab
+        // circfab
         this.initCircuitFabricatorRecipes();
 
         // so at this point I would add the rocket recipe?
@@ -93,9 +86,7 @@ public class NEIAmunRaConfig implements IConfigureNEI {
     private void initCircuitFabricatorRecipes() {
         final List<CircuitFabricatorRecipe> recipes = RecipeHelper.getCircuitFabricatorRecipes();
         for (final CircuitFabricatorRecipe recipe : recipes) {
-            // add it
             final Map<Integer, PositionedStack> input1 = new HashMap<>();
-            // slot 0 = gem
             input1.put(0, new PositionedStack(recipe.getCrystal(), 10, 22));
 
             // silicons
@@ -111,25 +102,6 @@ public class NEIAmunRaConfig implements IConfigureNEI {
             this.registerCircuitFabricatorRecipe(input1, new PositionedStack(recipe.output, 147, 91));
         }
     }
-
-    /**
-     *
-     * @param slotGem
-     *
-     * @param redstone
-     * @param optional
-     * @param output   / private void addCircuitFabricatorRecipe(ItemStack slotGem, ItemStack redstone, ItemStack
-     *                 optional, ItemStack output) { HashMap<Integer, PositionedStack> input1 = new HashMap<Integer,
-     *                 PositionedStack>(); // slot 0 = gem input1.put(0, new PositionedStack(slotGem, 10, 22)); int
-     *                 siliconCount = OreDictionary.getOres(ConfigManagerCore.otherModsSilicon).size(); ItemStack[]
-     *                 silicons = new ItemStack[siliconCount + 1]; silicons[0] = new ItemStack(GCItems.basicItem, 1, 2);
-     *                 for (int j = 0; j < siliconCount; j++) { silicons[j + 1] =
-     *                 OreDictionary.getOres("itemSilicon").get(j); } input1.put(1, new PositionedStack(silicons, 69,
-     *                 51)); input1.put(2, new PositionedStack(silicons, 69, 69)); // redstone input1.put(3, new
-     *                 PositionedStack(redstone, 117, 51)); // optional if(optional != null) { input1.put(4, new
-     *                 PositionedStack(optional, 140, 25)); } this.registerCircuitFabricatorRecipe(input1, new
-     *                 PositionedStack(output, 147, 91)); }
-     */
 
     public void registerCircuitFabricatorRecipe(final Map<Integer, PositionedStack> input,
             final PositionedStack output) {

@@ -86,7 +86,6 @@ public class GuiAtomBattery extends GuiContainerGC {
                         this.width,
                         this.height,
                         this));
-        // List<String> sunGenDesc = new ArrayList<String>();
 
         this.buttonList.add(
                 this.buttonEnableSolar = new GuiButton(
@@ -157,7 +156,6 @@ public class GuiAtomBattery extends GuiContainerGC {
             this.drawTexturedModalRect(xPos + 46, yPos + 19, 176, 10, 20, 20);
         }
 
-        // this.drawTexturedModalRect(var5 + 97, var6 + 25, 187, 0, 54, 7);
         this.drawTexturedModalRect(
                 xPos + 97,
                 yPos + 25,

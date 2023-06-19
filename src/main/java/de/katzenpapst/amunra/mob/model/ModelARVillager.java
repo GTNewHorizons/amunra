@@ -73,12 +73,7 @@ public class ModelARVillager extends ModelVillager {
         this.antenna2.rotateAngleY = (float) Math.PI;
         this.antenna2.rotateAngleZ = (float) Math.PI / 4;
 
-        // OMG
-        // tailBoxes[0] = new ModelRenderer(this).setTextureSize(textureX, textureY);
-        // tailBoxes[0]
-
         // try to do a tail
-        // float curOffset = 0;
         for (int i = 0; i < this.tailBoxes.length; i++) {
             this.tailBoxes[i] = new ModelRenderer(this).setTextureSize(textureX, textureY);
             final int[] curData = tailBoxPositions[i];
@@ -86,15 +81,8 @@ public class ModelARVillager extends ModelVillager {
             final float halfSize = curSize / 2.0F;
             final float curPos = offsets[i];
             this.tailBoxes[i].setRotationPoint(0.0F, 12.0F + par2, curPos - 2);
-            /*
-             * if(i < tailBoxes.length-1) { curOffset += (tailBoxSizes[i+1] * 2); } if(i > 0) { curOffset +=
-             * (tailBoxSizes[i-1]); }
-             */
-            // curOffset += (tailBoxSizes[i]);
             this.tailBoxes[i].setTextureOffset(curData[0], curData[1])
                     .addBox(-halfSize, -curSize + 12.0F, curPos, curSize, curSize, curSize);
-            // curOffset += (2 + curSize);
-            // tailBoxes[i].s
         }
 
         this.villagerHead.addChild(this.antenna1);

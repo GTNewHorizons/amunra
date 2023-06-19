@@ -15,19 +15,6 @@ public class BossRoom extends PyramidRoom {
             final byte[] arrayOfMeta) {
 
         super.generateChunk(chunkX, chunkZ, arrayOfIDs, arrayOfMeta);
-        /*
-         * // try making a room below int roomSize = (roomBB.getXSize()/2) - 8; for(int x = -roomSize; x<=roomSize; x++)
-         * { for(int z = -roomSize; z<=roomSize; z++) { for(int y = this.floorLevel-6; y < this.floorLevel-1;y++) {
-         * placeBlockAbs(arrayOfIDs, arrayOfMeta, this.roomBB.getCenterX()+x, y, this.roomBB.getCenterZ()+z, chunkX,
-         * chunkZ, Blocks.air, (byte) 0); } } } // make a hole in the center int trapdoorMeta = 8 | 0; // 8 = on top, 0
-         * = south, 1 = north placeBlockAbs(arrayOfIDs, arrayOfMeta, this.roomBB.getCenterX(), this.floorLevel-1,
-         * this.roomBB.getCenterZ(), chunkX, chunkZ, Blocks.trapdoor, (byte) trapdoorMeta); // ladder? BlockMetaPair
-         * wallMat = ((Pyramid) this.parent).getWallMaterial(); for(int y = this.floorLevel-6; y <
-         * this.floorLevel-1;y++) { placeBlockAbs(arrayOfIDs, arrayOfMeta, this.roomBB.getCenterX(), y,
-         * this.roomBB.getCenterZ()+1, chunkX, chunkZ, wallMat.getBlock(), (byte) wallMat.getMetadata());
-         * placeBlockAbs(arrayOfIDs, arrayOfMeta, this.roomBB.getCenterX(), y, this.roomBB.getCenterZ(), chunkX, chunkZ,
-         * Blocks.ladder, (byte) 2); }
-         */
         // for now, just this
         this.placeBossSpawner(
                 this.roomBB.getCenterX(),

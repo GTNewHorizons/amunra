@@ -178,12 +178,10 @@ public class MothershipWorldData extends WorldSavedData {
         }
 
         this.maybeRegisterDimension(ship.getDimensionID());
-        // DimensionManager.registerDimension(ship.getDimensionID(), AmunRa.instance.confMothershipProviderID);
 
         this.mothershipIdList.put(ship.getID(), ship);
         this.mothershipsByDimension.put(ship.getDimensionID(), ship);
         this.updateOrbitsFor(ship.getParent());
-        // this.markDirty();// not sure if needed. does the client even save this?
         return ship;
     }
 
@@ -226,7 +224,7 @@ public class MothershipWorldData extends WorldSavedData {
 
     /**
      * Gets a list of CelestialBodies which have motherships.
-     * 
+     *
      * @return a map where the key is the celestial body and the value is the number of motherships around it
      */
     public Map<CelestialBody, Integer> getBodiesWithShips() {
@@ -297,25 +295,6 @@ public class MothershipWorldData extends WorldSavedData {
     }
 
     /**
-     * This should only be called on the client if the server has sent some generic change data
-     * 
-     * @param data
-     */
-    /*
-     * public void updateFromNBT(NBTTagCompound data) { NBTTagList tagList = data.getTagList("MothershipList", 10); for
-     * (int i = 0; i < tagList.tagCount(); i++) { NBTTagCompound mothershipNBT = tagList.getCompoundTagAt(i); int id =
-     * mothershipNBT.getInteger("id"); Mothership m = this.getByMothershipId(id); if(m != null) {
-     * m.updateFromNBT(mothershipNBT); } else { m = Mothership.createFromNBT(mothershipNBT); if(highestId < id) {
-     * highestId = id; } if(DimensionManager.isDimensionRegistered(m.getDimensionID())) {
-     * if(DimensionManager.getProviderType(m.getDimensionID()) != AmunRa.config.mothershipProviderID) { // now that
-     * shouldn't happen throw new RuntimeException("Dimension "+m.getDimensionID()
-     * +" should be registered for an AmunRa Mothership, registered for "+DimensionManager.getProviderType(m.
-     * getDimensionID())+" instead"); } // it's fine otherwise } else {
-     * DimensionManager.registerDimension(m.getDimensionID(), AmunRa.config.mothershipProviderID); }
-     * mothershipIdList.put(m.getID(), m); mothershipsByDimension.put(m.getDimensionID(), m); } } }
-     */
-
-    /**
      * Hack for client-side dimension registration
      */
     protected void maybeRegisterDimension(final int dimId) {
@@ -366,13 +345,8 @@ public class MothershipWorldData extends WorldSavedData {
         // if no changes, but still unsaved changes
         if ((hasChanged || !hasChanged && this.numTicksWithoutSave > 0) && this.numTicksWithoutSave >= 1200) {
             this.numTicksWithoutSave = 0;
-            this.markDirty(); //
+            this.markDirty();
         }
-        /*
-         * if(hasChanged) { NBTTagCompound data = new NBTTagCompound ();
-         * TickHandlerServer.mothershipData.writeToNBT(data); AmunRa.packetPipeline.sendToAll(new
-         * PacketSimpleAR(PacketSimpleAR.EnumSimplePacket.C_UPDATE_MOTHERSHIP_LIST, data)); }
-         */
     }
 
     /**

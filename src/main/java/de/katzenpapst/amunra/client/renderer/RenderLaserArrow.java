@@ -102,10 +102,8 @@ public class RenderLaserArrow extends Render {
             tessellator.addVertexWithUV(-8.0D, 2.0D, 0.0D, f2, f5);
             tessellator.draw();
         }
-        // ?
 
         GL11.glEnable(GL11.GL_LIGHTING);
-        // RenderHelper.enableStandardItemLighting();
         GL11.glDisable(GL11.GL_BLEND);
         GL11.glDisable(GL12.GL_RESCALE_NORMAL);
         GL11.glPopMatrix();

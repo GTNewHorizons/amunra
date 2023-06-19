@@ -78,7 +78,6 @@ public class TileEntityBlockScale extends TileEntity {
         this.massToDisplay = BlockMassHelper
                 .getBlockMass(this.worldObj, b, meta, this.xCoord, this.yCoord + 1, this.zCoord);
         this.worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
-        // this.markDirty();
     }
 
     public float getCurrentMass() {

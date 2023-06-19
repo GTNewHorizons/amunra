@@ -168,19 +168,6 @@ public class Pyramid extends BaseStructureStart {
 
         AmunRa.LOGGER.debug("Generating Pyramid at {}/{}", startX, startZ);
     }
-    /*
-     * protected void initRooms() { for(int i=0;i<12;i++) { PyramidRoom room = new PyramidRoom(); room.setParent(this);
-     * StructureBoundingBox roomBB = this.getSmallRoomBB(i+1); StructureBoundingBox entranceBB =
-     * this.getRoomEntranceBox(i+1, roomBB); room.setBoundingBoxes(entranceBB, roomBB);
-     * //room.setStructureBoundingBox(roomBB); //room.setEntranceBB(entranceBB); roomList[i] = room; } int
-     * innerRoomTotalOffset = innerRingOffset+tunnelWidth+mainRoomOffset; StructureBoundingBox innerRoomBB = new
-     * StructureBoundingBox( this.structBB.minX+innerRoomTotalOffset, this.structBB.minZ+innerRoomTotalOffset,
-     * this.structBB.maxX-innerRoomTotalOffset, this.structBB.maxZ-innerRoomTotalOffset ); StructureBoundingBox
-     * mainEntranceBB = new StructureBoundingBox(); mainEntranceBB.minX = innerRoomBB.getCenterX()-1;
-     * mainEntranceBB.maxX = innerRoomBB.getCenterX()+1; mainEntranceBB.minZ = innerRoomBB.maxZ+1; mainEntranceBB.maxZ =
-     * innerRoomBB.maxZ+4; centralRoom = new PyramidRoom(); centralRoom.setBoundingBoxes(innerRoomBB, mainEntranceBB);
-     * centralRoom.setParent(this); }
-     */
 
     public void setSmallRooms(final List<BaseStructureComponent> roomList) {
         if (roomList.size() < 12) {
@@ -468,7 +455,6 @@ public class Pyramid extends BaseStructureStart {
         final StructureBoundingBox doorBB = new StructureBoundingBox();
         doorBB.minY = 0;
         doorBB.maxY = 255;
-        // boolean isOdd = smallRoomWidth % 2 == 1;
 
         switch (direction) {
             case 0: // up aka +z
