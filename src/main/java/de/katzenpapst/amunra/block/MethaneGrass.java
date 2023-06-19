@@ -11,7 +11,6 @@ import micdoodle8.mods.galacticraft.api.world.IAtmosphericGas;
 
 public class MethaneGrass extends SubBlockGrass {
 
-    // blockIcon = 0 = top
     @SideOnly(Side.CLIENT)
     protected IIcon blockIconSide, blockIconBottom;
 

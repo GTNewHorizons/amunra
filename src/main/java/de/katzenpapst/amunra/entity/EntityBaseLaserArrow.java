@@ -232,8 +232,7 @@ abstract public class EntityBaseLaserArrow extends Entity implements IProjectile
 
     protected DamageSource getDamageSource() {
         if (this.shootingEntity == null) {
-            return DamageSourceAR.causeLaserDamage("ar_laser", this, this);// ("laserArrow", this,
-                                                                           // this).setProjectile();
+            return DamageSourceAR.causeLaserDamage("ar_laser", this, this);
         }
         return DamageSourceAR.causeLaserDamage("ar_laser", this, this.shootingEntity);
     }

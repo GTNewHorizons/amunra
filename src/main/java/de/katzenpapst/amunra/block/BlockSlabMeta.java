@@ -164,7 +164,6 @@ public class BlockSlabMeta extends BlockSlab implements IMetaBlock, IMassiveBloc
 
     @Override
     public void register() {
-        // doubleslabMetablock
         GameRegistry
                 .registerBlock(this, ItemSlabMulti.class, this.getUnlocalizedName(), this, this.doubleslabMetablock);
 

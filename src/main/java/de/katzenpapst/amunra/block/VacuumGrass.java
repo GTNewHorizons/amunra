@@ -10,7 +10,6 @@ import micdoodle8.mods.galacticraft.api.prefab.world.gen.WorldProviderSpace;
 
 public class VacuumGrass extends SubBlockGrass {
 
-    // blockIcon = 0 = top
     @SideOnly(Side.CLIENT)
     protected IIcon blockIconSide, blockIconBottom;
 

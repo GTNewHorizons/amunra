@@ -105,8 +105,6 @@ abstract public class AbstractSapling extends SubBlockBush {
         }
     }
 
-    // abstract protected boolean canGenerateHere(World world, Random rand, int x, int y, int z, int curHeight);
-
     abstract public boolean generate(World world, Random rand, int x, int y, int z, boolean notify);
 
 }
