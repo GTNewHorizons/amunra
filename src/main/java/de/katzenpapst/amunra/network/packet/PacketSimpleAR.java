@@ -447,7 +447,7 @@ public class PacketSimpleAR extends Packet implements IPacket {
         final GCPlayerStats stats = GCPlayerStats.get(playerBase);
 
         String bodyName;
-        Integer mothershipId;
+        int mothershipId;
         Mothership mShip;
         CelestialBody targetBody;
         WorldServer world;
