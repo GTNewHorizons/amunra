@@ -12,10 +12,6 @@
 		"credits": "vos6434 (mothership icons), Byomakuta (asteroid icons), AugiteSoul (random translations/descriptions)",
 		"logoFile": "",
 		"screenshots": [],
-		"parent": "",
-		"requiredMods": ["GalacticraftCore@[3.0.61-GTNH,)", "GalacticraftMars"],
-		"dependencies": ["GalacticraftCore@[3.0.61-GTNH,)", "GalacticraftMars", "dreamcraft", "IronChest", "AdvancedSolarPanel"],
-		"dependants": [],
-		"useDependencyInformation": true
+		"parent": ""
 	}]
 }
