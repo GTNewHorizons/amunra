@@ -43,6 +43,7 @@ public class ItemJet extends ItemBlockMulti {
         return this.field_150939_a.getUnlocalizedName();
     }
 
+    @SideOnly(Side.CLIENT)
     @Override
     public EnumRarity getRarity(ItemStack p_77613_1_) {
         // colors the name

@@ -75,6 +75,7 @@ public class ItemThermalSuit extends Item implements IItemThermal {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public EnumRarity getRarity(ItemStack p_77613_1_) {
         return ClientProxyCore.galacticraftItem;
     }
