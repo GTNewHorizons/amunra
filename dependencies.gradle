@@ -1,10 +1,10 @@
 dependencies {
-    implementation('com.github.GTNewHorizons:Galacticraft:3.3.4-GTNH:dev')
-    implementation('com.github.GTNewHorizons:NotEnoughItems:2.7.28-GTNH:dev')
+    implementation('com.github.GTNewHorizons:Galacticraft:3.3.7-GTNH:dev')
+    implementation('com.github.GTNewHorizons:NotEnoughItems:2.7.57-GTNH:dev')
     implementation('net.industrial-craft:industrialcraft-2:2.2.828-experimental:dev')
 
-    compileOnly('com.github.GTNewHorizons:BuildCraft:7.1.42:api')
-    compileOnly('com.github.GTNewHorizons:EnderIO:2.9.3:api')
+    compileOnly('com.github.GTNewHorizons:BuildCraft:7.1.43:api')
+    compileOnly('com.github.GTNewHorizons:EnderIO:2.9.18:api')
     compileOnly('curse.maven:cofh-lib-220333:2388748')
     compileOnly(deobf('https://s3.amazonaws.com/aidancbrady/mekanism/281-recommended/Mekanism-1.7.10-9.1.0.281.jar'))
 }
