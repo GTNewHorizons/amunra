@@ -82,7 +82,6 @@ tile.oldConcrete.name=Урболит
 tile.oldConcreteOre.oreSteel.name=Урболит содержащий сталь
 tile.oldConcreteOre.oreBone.name=Урболит содержащий окаменелости
 
-
 tile.glowCoral.name=Светящийся коралл
 tile.obsidianbrick.name=Стена из обсидианового кирпича
 tile.obsidianbrick.stairs.name=Ступеньки из обсидианового кирпича
@@ -101,7 +100,6 @@ tile.oreSteel.name=Стальная руда
 tile.oreBone.name=Руда окаменелостей
 
 tile.methaneTallGrass.name=Высокая красная трава
-
 
 tile.basaltregolith.name=Базальтовый реголит
 tile.obsidianGravel.name=Обсидиановый гравий
@@ -132,7 +130,6 @@ tile.hydroponics.plantstatus=Статус растения
 tile.isotopeGeneratorBasic.name=Радиоизотопный генератор
 tile.isotopeGeneratorAdvanced.name=Продвинутый радиоизотопный генератор
 tile.isotopeGenerator.description=Генерирует електрическую енергию из тепла, которая выделяется при распаде радиоактивного материала. Скорость продукции енергии зависет от температуры среды генератора. Из-за высокого периода полураспада использованного материала, этот генератор можно считать бесконечным.
-
 
 item.baseItem.compressedGold.name=Сжатое золото
 item.baseItem.goldFoil.name=Золотая фольга
@@ -277,8 +274,6 @@ gui.message.energy_usage=Энергопотребление
 info.message.celestialbodysearch.none=Небесных тел подходящих на '%s' не найдено found
 info.message.celestialbodysearch.some=Найдено %s небесных тел подходящих на '%s':
 
-
-
 gui.message.misc.planet=Планета
 gui.message.misc.star=Звезда
 gui.message.misc.moon=Спутник
@@ -290,7 +285,13 @@ gui.message.misc.yes=да
 gui.message.misc.no=нет
 gui.message.misc.unit.ticks=Такт
 
+gui.title.gravity=Генератор искусственной гравитации
+gui.title.isotopeGeneratorBasic=Радиоизотопный генератор
+gui.title.isotopeGeneratorAdvanced=Продвинутый радиоизотопный генератор
+gui.title.mothershipEngineIon=Ионный двигатель
+gui.title.hydroponics=Гидропонная система
+gui.title.aluChest=Алюминиевый сундук
+gui.title.steelChest=Стальной сундук
+gui.title.shuttleDock=Шаттл-док
 
 mothership.default.name=Корабль %s
-
-
