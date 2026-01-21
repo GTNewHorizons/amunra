@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 
 import de.katzenpapst.amunra.block.BlockARChest;
 import micdoodle8.mods.galacticraft.api.prefab.core.BlockMetaPair;
+import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 
 public class TileEntityARChest extends TileEntity implements IInventory {
 
@@ -430,7 +431,7 @@ public class TileEntityARChest extends TileEntity implements IInventory {
 
     @Override
     public String getInventoryName() {
-        return this.getBlockType().getLocalizedName();
+        return GCCoreUtil.translate("gui.title." + this.getBlockType().getUnlocalizedName().substring(5));
     }
 
     @Override
