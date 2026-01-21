@@ -918,7 +918,7 @@ public class RecipeHelper {
         final HashMap<Integer, ItemStack> input = new HashMap<>();
 
         if (AmunRa.isNHCoreLoaded && AmunRa.isASPLoaded) {
-            final ItemStack fins = GameRegistry.findItemStack("dreamcraft", "item.HeavyDutyRocketFinsTier4", 1);
+            final ItemStack fins = GameRegistry.findItemStack("dreamcraft", "HeavyDutyRocketFinsTier4", 1);
 
             // top row, single slot
             input.put(1, ARItems.noseCone.getItemStack(1));
@@ -948,7 +948,7 @@ public class RecipeHelper {
             // last row
             input.put(16, shuttleLeg);
             // engine?
-            input.put(17, GameRegistry.findItemStack("dreamcraft", "item.HeavyDutyRocketEngineTier4", 1));
+            input.put(17, GameRegistry.findItemStack("dreamcraft", "HeavyDutyRocketEngineTier4", 1));
             input.put(18, shuttleLeg);
         } else {
             // top row, single slot
