@@ -90,7 +90,7 @@ public class TileEntityHydroponics extends TileEntityOxygen
 
     @Override
     public String getInventoryName() {
-        return GCCoreUtil.translate("tile.hydroponics.name");
+        return GCCoreUtil.translate("gui.title.hydroponics");
     }
 
     @Override

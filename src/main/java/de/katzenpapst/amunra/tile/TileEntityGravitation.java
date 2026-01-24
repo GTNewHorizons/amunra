@@ -280,7 +280,7 @@ public class TileEntityGravitation extends TileBaseElectricBlock implements IInv
 
     @Override
     public String getInventoryName() {
-        return GCCoreUtil.translate("tile.gravity.name");
+        return GCCoreUtil.translate("gui.title.gravity");
     }
 
     @Override

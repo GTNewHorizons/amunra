@@ -129,7 +129,6 @@ tile.isotopeGeneratorBasic.name=Radioisotopengenerator
 tile.isotopeGeneratorAdvanced.name=Verbesserter Radioisotopengenerator
 tile.isotopeGenerator.description=Erzeugt elektrische Energie aus der Wärme, die beim Zerfall des enthaltenen radioaktiven Materials entsteht. Der Energieertrag hängt dabei von der Außentemperatur ab, je wärmer es ist, desto weniger Energie wird produziert. Durch die hohe Halbwertszeit des verwendeten Isotops kann dieser Generator als unerschöpflich betrachtet werden.
 
-
 item.baseItem.compressedGold.name=Gepresstes Gold
 item.baseItem.goldFoil.name=Goldfolie
 item.baseItem.transformer.name=Transformator
@@ -273,8 +272,6 @@ gui.message.energy_usage=Energieverbrauch
 info.message.celestialbodysearch.none=Keine Himmelskörper gefunden, auf die '%s' zutrifft
 info.message.celestialbodysearch.some=Es wurden %s Himmelskörper zu '%s' gefunden:
 
-
-
 gui.message.misc.planet=Planet
 gui.message.misc.star=Stern
 gui.message.misc.moon=Mond
@@ -286,7 +283,13 @@ gui.message.misc.yes=ja
 gui.message.misc.no=nein
 gui.message.misc.unit.ticks=Ticks
 
+gui.title.gravity=Gravitationsgenerator
+gui.title.isotopeGeneratorBasic=Radioisotopengenerator
+gui.title.isotopeGeneratorAdvanced=Verbesserter Radioisotopengenerator
+gui.title.mothershipEngineIon=Ionentriebwerk
+gui.title.hydroponics=Hydrokultur-Einheit
+gui.title.aluChest=Aluminiumtruhe
+gui.title.steelChest=Stahltruhe
+gui.title.shuttleDock=Shuttle-Dock
 
 mothership.default.name=Mutterschiff %s
-
-

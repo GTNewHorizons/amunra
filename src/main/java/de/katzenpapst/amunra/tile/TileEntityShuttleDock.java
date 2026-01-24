@@ -584,7 +584,7 @@ public class TileEntityShuttleDock extends TileEntityAdvanced
 
     @Override
     public String getInventoryName() {
-        return GCCoreUtil.translate("tile.shuttleDock.name");
+        return GCCoreUtil.translate("gui.title.shuttleDock");
     }
 
     @Override

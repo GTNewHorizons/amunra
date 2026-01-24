@@ -276,7 +276,7 @@ public class TileEntityIsotopeGenerator extends TileBaseUniversalElectricalSourc
 
     @Override
     public String getInventoryName() {
-        return GCCoreUtil.translate("tile." + this.getSubBlock().getUnlocalizedName() + ".name");
+        return GCCoreUtil.translate("gui.title." + this.getSubBlock().getUnlocalizedName());
     }
 
     @Override
