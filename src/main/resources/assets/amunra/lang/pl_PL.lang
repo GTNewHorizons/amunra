@@ -78,7 +78,6 @@ tile.oldConcrete.name=Urbolite
 tile.oldConcreteOre.oreSteel.name=Stalowe lozyska Urbolite
 tile.oldConcreteOre.oreBone.name=skamienialosci Urbolite
 
-
 tile.glowCoral.name=Swiecacy Koral
 tile.obsidianbrick.name=Cegly Obsydianu
 tile.obsidianbrick.stairs.name=Schody z Cegiel Obsydianu
@@ -97,7 +96,6 @@ tile.oreSteel.name=Ruda Stalu
 tile.oreBone.name=Ruda Skamienialosci
 
 tile.methaneTallGrass.name=Wysoka Czerwona Trawa
-
 
 tile.basaltregolith.name=Bazalt regolitem
 tile.obsidianGravel.name=Zwir Obsydianu
@@ -128,7 +126,6 @@ tile.hydroponics.plantstatus=Plant status
 tile.isotopeGeneratorBasic.name=Generator radioizotopów
 tile.isotopeGeneratorAdvanced.name=Zaawansowany Generator Radioizotopów
 tile.isotopeGenerator.description=Generuje energie elektryczna z ciepla wytwarzanego przez próchnice zintegrowanego materialu jadrowego. Tempo produkcji energii w zaleznosci od temperatury zewnetrznej. Ze wzgledu na wysoka póltrwania uzytego izotopu Generator ten moze zalozyc niewyczerpanie.
-
 
 item.baseItem.compressedGold.name=Sprezone Zloto
 item.baseItem.goldFoil.name=Zlota folia
@@ -274,8 +271,6 @@ gui.message.energy_usage=Energy Usage
 info.message.celestialbodysearch.none=Brak cial niebieskich '%s' znaleziono
 info.message.celestialbodysearch.some=Znaleziono %s ciala niebieskie dopasowane '%s':
 
-
-
 gui.message.misc.planet=Planeta
 gui.message.misc.star=Gwiazda
 gui.message.misc.moon=Ksiezyc
@@ -287,6 +282,13 @@ gui.message.misc.yes=tak
 gui.message.misc.no=nie
 gui.message.misc.unit.ticks=Ticks
 
+gui.title.gravity=Artificial Gravity Generator
+gui.title.isotopeGeneratorBasic=Generator radioizotopów
+gui.title.isotopeGeneratorAdvanced=Zaawansowany Generator Radioizotopów
+gui.title.mothershipEngineIon=Silnika Rakietowego Ster Strumieniowy Jon
+gui.title.hydroponics=Hydroponics Unit
+gui.title.aluChest=Aluminum Chest
+gui.title.steelChest=Steel Chest
+gui.title.shuttleDock=Shuttle Dock
 
 mothership.default.name=Statek Kosmiczny %s
-

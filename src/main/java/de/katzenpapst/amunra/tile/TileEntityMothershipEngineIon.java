@@ -90,7 +90,7 @@ public class TileEntityMothershipEngineIon extends TileEntityMothershipEngineAbs
 
     @Override
     public String getInventoryName() {
-        return GCCoreUtil.translate("tile.mothershipEngineIon.name");
+        return GCCoreUtil.translate("gui.title.mothershipEngineIon");
     }
 
     @Override
