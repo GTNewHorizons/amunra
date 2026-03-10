@@ -3,16 +3,15 @@ package de.katzenpapst.amunra.client.gui.schematic;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
 import de.katzenpapst.amunra.AmunRa;
 import de.katzenpapst.amunra.inventory.schematic.ContainerSchematicShuttle;
-import de.katzenpapst.amunra.item.ARItems;
 import micdoodle8.mods.galacticraft.api.recipe.ISchematicResultPage;
 import micdoodle8.mods.galacticraft.api.recipe.SchematicRegistry;
+import micdoodle8.mods.galacticraft.core.util.EnumColor;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 
 public class GuiSchematicShuttle extends GuiContainer implements ISchematicResultPage {
@@ -67,11 +66,8 @@ public class GuiSchematicShuttle extends GuiContainer implements ISchematicResul
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-        this.fontRendererObj.drawString(
-                ARItems.shuttleItem.getItemStackDisplayName(new ItemStack(ARItems.shuttleItem, 1, 0)),
-                7,
-                7,
-                0x404040);
+        this.fontRendererObj
+                .drawString(EnumColor.WHITE + GCCoreUtil.translate("schematic.shuttle.name"), 7, -20 + 27, 4210752);
         this.fontRendererObj.drawString(GCCoreUtil.translate("container.inventory"), 8, 127, 0x404040);
     }
 
