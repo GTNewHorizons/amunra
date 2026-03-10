@@ -67,7 +67,7 @@ public class GuiSchematicShuttle extends GuiContainer implements ISchematicResul
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
         this.fontRendererObj
-                .drawString(EnumColor.WHITE + GCCoreUtil.translate("schematic.shuttle.name"), 7, -20 + 27, 4210752);
+                .drawString(EnumColor.WHITE + GCCoreUtil.translate("schematic.shuttle.name"), 7, 7, 0x404040);
         this.fontRendererObj.drawString(GCCoreUtil.translate("container.inventory"), 8, 127, 0x404040);
     }
 
