@@ -1,5 +1,6 @@
 package de.katzenpapst.amunra.item;
 
+import de.katzenpapst.amunra.block.SubBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -13,7 +14,7 @@ import micdoodle8.mods.galacticraft.core.proxy.ClientProxyCore;
 
 /**
  * Item for multiblocks
- * 
+ *
  * @author katzenpapst
  */
 public class ItemBlockMulti extends ItemBlockDesc {
@@ -51,6 +52,10 @@ public class ItemBlockMulti extends ItemBlockDesc {
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIconFromDamage(int p_77617_1_) {
-        return ((IMetaBlock) this.field_150939_a).getSubBlock(p_77617_1_).getIcon(1, 0);
+        SubBlock sb = ((IMetaBlock) this.field_150939_a).getSubBlock(p_77617_1_);
+        if(sb == null){
+            return null;
+        }
+        return sb.getIcon(1, 0);
     }
 }

@@ -114,18 +114,30 @@ public class ItemBasicMulti extends Item implements ItemBlockDesc.IBlockShiftDes
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
+        SubItem subItem = this.getSubItem(stack.getItemDamage());
+        if(subItem == null){
+            return getUnlocalizedName();
+        }
         return this.getUnlocalizedName() + "." + this.getSubItem(stack.getItemDamage()).getUnlocalizedName();
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIconFromDamage(int p_77617_1_) {
-        return this.subItems.get(p_77617_1_).getIconFromDamage(0);
+    public IIcon getIconFromDamage(int damage) {
+        SubItem subItem = this.getSubItem(damage);
+        if(subItem == null){
+            return null;
+        }
+        return subItem.getIconFromDamage(0);
     }
 
     @Override
     public IIcon getIcon(ItemStack stack, int pass) {
-        return this.subItems.get(stack.getItemDamage()).getIcon(stack, pass);
+        SubItem subItem = this.getSubItem(stack.getItemDamage());
+        if(subItem == null){
+            return null;
+        }
+        return subItem.getIcon(stack, pass);
     }
 
     /**
@@ -133,8 +145,12 @@ public class ItemBasicMulti extends Item implements ItemBlockDesc.IBlockShiftDes
      */
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIconIndex(ItemStack p_77650_1_) {
-        return this.subItems.get(p_77650_1_.getItemDamage()).getIconIndex(p_77650_1_);
+    public IIcon getIconIndex(ItemStack stack) {
+        SubItem subItem = this.getSubItem(stack.getItemDamage());
+        if(subItem == null){
+            return null;
+        }
+        return subItem.getIconIndex(stack);
     }
 
     @Override
@@ -152,8 +168,7 @@ public class ItemBasicMulti extends Item implements ItemBlockDesc.IBlockShiftDes
 
     public SubItem getSubItem(final int damage) {
         if (damage >= this.subItems.size() || this.subItems.get(damage) == null) {
-            throw new IllegalArgumentException(
-                    "Requested invalid SubItem " + damage + " from " + this.getUnlocalizedName());
+            return null;
         }
         return this.subItems.get(damage);
     }
@@ -164,43 +179,69 @@ public class ItemBasicMulti extends Item implements ItemBlockDesc.IBlockShiftDes
             boolean p_77624_4_) {
         final SubItem item = this.getSubItem(p_77624_1_.getItemDamage());
 
-        item.addInformation(p_77624_1_, p_77624_2_, p_77624_3_, p_77624_4_);
+        if(item != null){
+            item.addInformation(p_77624_1_, p_77624_2_, p_77624_3_, p_77624_4_);
 
-        String info = item.getItemInfo();
-        if (info != null) {
-            info = GCCoreUtil.translate(info);
-            p_77624_3_
+            String info = item.getItemInfo();
+            if (info != null) {
+                info = GCCoreUtil.translate(info);
+                p_77624_3_
                     .addAll(FMLClientHandler.instance().getClient().fontRenderer.listFormattedStringToWidth(info, 150));
+            }
         }
     }
 
     @Override
-    public ItemStack onEaten(ItemStack p_77654_1_, World p_77654_2_, EntityPlayer p_77654_3_) {
-        return this.getSubItem(p_77654_1_.getItemDamage()).onEaten(p_77654_1_, p_77654_2_, p_77654_3_);
+    public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
+        SubItem subItem = this.getSubItem(stack.getItemDamage());
+        if(subItem == null){
+            return super.onEaten(stack, world, player);
+        }
+        return subItem.onEaten(stack, world, player);
     }
 
     @Override
-    public int getMaxItemUseDuration(ItemStack p_77626_1_) {
-        return this.getSubItem(p_77626_1_.getItemDamage()).getMaxItemUseDuration(p_77626_1_);
+    public int getMaxItemUseDuration(ItemStack stack) {
+        SubItem subItem = this.getSubItem(stack.getItemDamage());
+        if(subItem == null){
+            return super.getMaxItemUseDuration(stack);
+        }
+        return subItem.getMaxItemUseDuration(stack);
     }
 
     @Override
     public EnumAction getItemUseAction(ItemStack stack) {
-        return this.getSubItem(stack.getItemDamage()).getItemUseAction(stack);
+        SubItem subItem = this.getSubItem(stack.getItemDamage());
+        if(subItem == null){
+            return super.getItemUseAction(stack);
+        }
+        return subItem.getItemUseAction(stack);
     }
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer player) {
-        return this.getSubItem(itemStackIn.getItemDamage()).onItemRightClick(itemStackIn, worldIn, player);
+        SubItem subItem = this.getSubItem(itemStackIn.getItemDamage());
+        if(subItem == null){
+            return super.onItemRightClick(itemStackIn, worldIn, player);
+        }
+        return subItem.onItemRightClick(itemStackIn, worldIn, player);
     }
 
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-        return this.getSubItem(stack.getItemDamage()).onLeftClickEntity(stack, player, entity);
+        SubItem subItem = this.getSubItem(stack.getItemDamage());
+        if(subItem == null){
+            return super.onLeftClickEntity(stack, player, entity);
+        }
+        return subItem.onLeftClickEntity(stack, player, entity);
     }
 
     public int getFuelDuration(final int meta) {
-        return this.getSubItem(meta).getFuelDuration();
+        SubItem subItem = this.getSubItem(meta);
+        if(subItem == null){
+            return 0;
+        }
+        return subItem.getFuelDuration();
     }
 
     @Override
