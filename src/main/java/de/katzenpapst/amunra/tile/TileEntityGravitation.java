@@ -343,4 +343,9 @@ public class TileEntityGravitation extends TileBaseElectricBlock implements IInv
         final float maxExtract = (float) (numBlocks * strength);
         this.storage.setMaxExtract(maxExtract);
     }
+
+    @Override
+    public boolean isUseableByPlayer(EntityPlayer entityplayer) {
+        return super.isUseableByPlayer(entityplayer);
+    }
 }
