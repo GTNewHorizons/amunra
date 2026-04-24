@@ -115,7 +115,7 @@ public class ItemBasicMulti extends Item implements ItemBlockDesc.IBlockShiftDes
     @Override
     public String getUnlocalizedName(ItemStack stack) {
         SubItem subItem = this.getSubItem(stack.getItemDamage());
-        if(subItem == null){
+        if (subItem == null) {
             return getUnlocalizedName();
         }
         return this.getUnlocalizedName() + "." + this.getSubItem(stack.getItemDamage()).getUnlocalizedName();
@@ -125,7 +125,7 @@ public class ItemBasicMulti extends Item implements ItemBlockDesc.IBlockShiftDes
     @SideOnly(Side.CLIENT)
     public IIcon getIconFromDamage(int damage) {
         SubItem subItem = this.getSubItem(damage);
-        if(subItem == null){
+        if (subItem == null) {
             return null;
         }
         return subItem.getIconFromDamage(0);
@@ -134,7 +134,7 @@ public class ItemBasicMulti extends Item implements ItemBlockDesc.IBlockShiftDes
     @Override
     public IIcon getIcon(ItemStack stack, int pass) {
         SubItem subItem = this.getSubItem(stack.getItemDamage());
-        if(subItem == null){
+        if (subItem == null) {
             return null;
         }
         return subItem.getIcon(stack, pass);
@@ -147,7 +147,7 @@ public class ItemBasicMulti extends Item implements ItemBlockDesc.IBlockShiftDes
     @SideOnly(Side.CLIENT)
     public IIcon getIconIndex(ItemStack stack) {
         SubItem subItem = this.getSubItem(stack.getItemDamage());
-        if(subItem == null){
+        if (subItem == null) {
             return null;
         }
         return subItem.getIconIndex(stack);
@@ -179,14 +179,14 @@ public class ItemBasicMulti extends Item implements ItemBlockDesc.IBlockShiftDes
             boolean p_77624_4_) {
         final SubItem item = this.getSubItem(p_77624_1_.getItemDamage());
 
-        if(item != null){
+        if (item != null) {
             item.addInformation(p_77624_1_, p_77624_2_, p_77624_3_, p_77624_4_);
 
             String info = item.getItemInfo();
             if (info != null) {
                 info = GCCoreUtil.translate(info);
-                p_77624_3_
-                    .addAll(FMLClientHandler.instance().getClient().fontRenderer.listFormattedStringToWidth(info, 150));
+                p_77624_3_.addAll(
+                        FMLClientHandler.instance().getClient().fontRenderer.listFormattedStringToWidth(info, 150));
             }
         }
     }
@@ -194,7 +194,7 @@ public class ItemBasicMulti extends Item implements ItemBlockDesc.IBlockShiftDes
     @Override
     public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
         SubItem subItem = this.getSubItem(stack.getItemDamage());
-        if(subItem == null){
+        if (subItem == null) {
             return super.onEaten(stack, world, player);
         }
         return subItem.onEaten(stack, world, player);
@@ -203,7 +203,7 @@ public class ItemBasicMulti extends Item implements ItemBlockDesc.IBlockShiftDes
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
         SubItem subItem = this.getSubItem(stack.getItemDamage());
-        if(subItem == null){
+        if (subItem == null) {
             return super.getMaxItemUseDuration(stack);
         }
         return subItem.getMaxItemUseDuration(stack);
@@ -212,7 +212,7 @@ public class ItemBasicMulti extends Item implements ItemBlockDesc.IBlockShiftDes
     @Override
     public EnumAction getItemUseAction(ItemStack stack) {
         SubItem subItem = this.getSubItem(stack.getItemDamage());
-        if(subItem == null){
+        if (subItem == null) {
             return super.getItemUseAction(stack);
         }
         return subItem.getItemUseAction(stack);
@@ -221,7 +221,7 @@ public class ItemBasicMulti extends Item implements ItemBlockDesc.IBlockShiftDes
     @Override
     public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer player) {
         SubItem subItem = this.getSubItem(itemStackIn.getItemDamage());
-        if(subItem == null){
+        if (subItem == null) {
             return super.onItemRightClick(itemStackIn, worldIn, player);
         }
         return subItem.onItemRightClick(itemStackIn, worldIn, player);
@@ -230,7 +230,7 @@ public class ItemBasicMulti extends Item implements ItemBlockDesc.IBlockShiftDes
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
         SubItem subItem = this.getSubItem(stack.getItemDamage());
-        if(subItem == null){
+        if (subItem == null) {
             return super.onLeftClickEntity(stack, player, entity);
         }
         return subItem.onLeftClickEntity(stack, player, entity);
@@ -238,7 +238,7 @@ public class ItemBasicMulti extends Item implements ItemBlockDesc.IBlockShiftDes
 
     public int getFuelDuration(final int meta) {
         SubItem subItem = this.getSubItem(meta);
-        if(subItem == null){
+        if (subItem == null) {
             return 0;
         }
         return subItem.getFuelDuration();

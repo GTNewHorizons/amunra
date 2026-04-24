@@ -28,7 +28,7 @@ public class BlockRendererMultiOre implements ISimpleBlockRenderingHandler {
 
         // and then the overlay
         final SubBlock sb = ((BlockOreMulti) block).getSubBlock(metadata);
-        if(sb != null){
+        if (sb != null) {
             drawBlock(sb, metadata, renderer);
         }
 
@@ -46,7 +46,7 @@ public class BlockRendererMultiOre implements ISimpleBlockRenderingHandler {
         renderer.renderStandardBlock(block, x, y, z);
 
         // block with the overlay
-        if(sb != null){
+        if (sb != null) {
             renderer.renderStandardBlock(sb, x, y, z);
         }
 

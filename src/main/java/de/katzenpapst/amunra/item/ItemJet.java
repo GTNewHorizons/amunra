@@ -79,8 +79,7 @@ public class ItemJet extends ItemBlockMulti {
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIconFromDamage(int damage) {
-        if(damage < 0 || damage >= icons.length)
-            return null;
+        if (damage < 0 || damage >= icons.length) return null;
         return this.icons[damage];
         // return ((BlockMachineMeta)field_150939_a).getSubBlock(dmg).getIcon(1, 0);
     }

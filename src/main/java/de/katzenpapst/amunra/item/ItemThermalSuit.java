@@ -91,7 +91,7 @@ public class ItemThermalSuit extends Item implements IItemThermal {
     @Override
     public String getUnlocalizedName(ItemStack stack) {
         int damage = stack.getItemDamage();
-        if(damage < 0 || damage >= this.names.length){
+        if (damage < 0 || damage >= this.names.length) {
             return this.getUnlocalizedName();
         }
         return this.getUnlocalizedName() + "." + this.names[damage];
@@ -99,7 +99,7 @@ public class ItemThermalSuit extends Item implements IItemThermal {
 
     @Override
     public IIcon getIconFromDamage(int damage) {
-        if(damage < 0 || damage >= this.icons.length){
+        if (damage < 0 || damage >= this.icons.length) {
             return null;
         }
         return this.icons[damage];
