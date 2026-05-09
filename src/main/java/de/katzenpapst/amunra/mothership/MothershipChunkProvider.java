@@ -1,7 +1,11 @@
 package de.katzenpapst.amunra.mothership;
 
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Random;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
@@ -15,6 +19,23 @@ import net.minecraft.world.gen.ChunkProviderGenerate;
 import micdoodle8.mods.galacticraft.core.world.gen.BiomeGenBaseOrbit;
 
 public class MothershipChunkProvider extends ChunkProviderGenerate { // for now, just like this
+
+    private static final Logger LOG = LogManager.getLogger(MothershipChunkProvider.class);
+
+    private static final Method GET_BIOME_SHORT_ARRAY;
+
+    static {
+        Method m = null;
+        try {
+            Class<?> hookClass = Class.forName("com.falsepattern.endlessids.mixin.helpers.ChunkBiomeHook");
+            m = hookClass.getMethod("getBiomeShortArray");
+        } catch (ClassNotFoundException ignored) {
+            // EndlessIDs is not installed; fall back to vanilla getBiomeArray()
+        } catch (Exception e) {
+            LOG.warn("Unexpected error while setting up EndlessIDs biome hook reflection", e);
+        }
+        GET_BIOME_SHORT_ARRAY = m;
+    }
 
     protected final Random rand;
     // ...sigh...
@@ -55,7 +76,17 @@ public class MothershipChunkProvider extends ChunkProviderGenerate { // for now,
 
         final Chunk chunk = new Chunk(this.worldObjNonPrivate, ids, meta, p_73154_1_, p_73154_2_);
 
-        Arrays.fill(chunk.getBiomeArray(), (byte) BiomeGenBaseOrbit.space.biomeID);
+        if (GET_BIOME_SHORT_ARRAY != null) {
+            try {
+                short[] biomeShortArray = (short[]) GET_BIOME_SHORT_ARRAY.invoke(chunk);
+                Arrays.fill(biomeShortArray, (short) BiomeGenBaseOrbit.space.biomeID);
+            } catch (Exception e) {
+                LOG.warn("Failed to set biomes via EndlessIDs hook, falling back to vanilla", e);
+                Arrays.fill(chunk.getBiomeArray(), (byte) BiomeGenBaseOrbit.space.biomeID);
+            }
+        } else {
+            Arrays.fill(chunk.getBiomeArray(), (byte) BiomeGenBaseOrbit.space.biomeID);
+        }
 
         chunk.generateSkylightMap();
         return chunk;
