@@ -488,7 +488,7 @@ public class AstronomyHelper {
 
         if (time > tEnd) {
             // how far did we come in tEnd
-            final double halfDistanceReached = 0.5D * accel * tEnd;
+            final double halfDistanceReached = 0.5D * maxSpeed * tEnd;
             final double halfDistanceRemaining = halfDistance - halfDistanceReached;
             // now, how long will it take us for the rest at contant speed?
             // x = v*t => t = x/v

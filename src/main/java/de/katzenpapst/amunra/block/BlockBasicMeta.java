@@ -106,6 +106,9 @@ public class BlockBasicMeta extends Block implements IMetaBlock, IDetectableReso
 
     @Override
     public SubBlock getSubBlock(final int meta) {
+        if (meta < 0 || meta >= subBlocksArray.length) {
+            return null;
+        }
         return this.subBlocksArray[this.getDistinctionMeta(meta)];
     }
 
