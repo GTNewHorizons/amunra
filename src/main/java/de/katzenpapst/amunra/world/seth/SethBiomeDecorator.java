@@ -16,11 +16,6 @@ public class SethBiomeDecorator extends AmunraBiomeDecorator {
     protected List<WorldGenOre> getOreGenerators() {
         final List<WorldGenOre> list = super.getOreGenerators();
 
-        final BlockMetaPair packedIce = new BlockMetaPair(Blocks.packed_ice, (byte) 0);
-
-        list.add(new WorldGenOre(new BlockMetaPair(Blocks.stone, (byte) 0), 12, packedIce, 8, 60, 120));
-        list.add(new WorldGenOre(new BlockMetaPair(Blocks.clay, (byte) 0), 8, packedIce, 4, 60, 70));
-
         if (AmunRa.config.generateOres) {
             final BlockMetaPair floorStoneBlock = new BlockMetaPair(Blocks.hardened_clay, (byte) 0);
 
