@@ -55,7 +55,10 @@ public class MothershipChunkProvider extends ChunkProviderGenerate { // for now,
 
         final Chunk chunk = new Chunk(this.worldObjNonPrivate, ids, meta, p_73154_1_, p_73154_2_);
 
-        Arrays.fill(chunk.getBiomeArray(), (byte) BiomeGenBaseOrbit.space.biomeID);
+        final byte[] biomesArray = chunk.getBiomeArray();
+        for (int i = 0; i < biomesArray.length; ++i) {
+            biomesArray[i] = (byte) BiomeGenBaseOrbit.space.biomeID;
+        }
 
         chunk.generateSkylightMap();
         return chunk;
