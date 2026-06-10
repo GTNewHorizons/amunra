@@ -689,10 +689,4 @@ public class AmunRa {
     public static boolean isDevEnvironment() {
         return (boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");
     }
-
-    /*
-     * @SideOnly(Side.CLIENT) public void setClientMothershipData(MothershipWorldData data) { mothershipDataClient =
-     * data; } public MothershipWorldData getMothershipData() { if(FMLCommonHandler.instance().getSide() == Side.CLIENT)
-     * { return this.mothershipDataClient; } return TickHandlerServer.mothershipData; }
-     */
 }
