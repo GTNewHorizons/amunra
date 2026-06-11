@@ -29,6 +29,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartedEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import cpw.mods.fml.common.event.FMLServerStoppedEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -276,6 +277,14 @@ public class AmunRa {
 
     @EventHandler
     public void serverInit(final FMLServerStartedEvent event) {
+        TickHandlerServer.restart();
+    }
+
+    @EventHandler
+    public void serverStopped(final FMLServerStoppedEvent event) {
+        if (TickHandlerServer.mothershipData != null) {
+            TickHandlerServer.mothershipData.unregisterAllMotherships();
+        }
         TickHandlerServer.restart();
     }
 
@@ -680,10 +689,4 @@ public class AmunRa {
     public static boolean isDevEnvironment() {
         return (boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");
     }
-
-    /*
-     * @SideOnly(Side.CLIENT) public void setClientMothershipData(MothershipWorldData data) { mothershipDataClient =
-     * data; } public MothershipWorldData getMothershipData() { if(FMLCommonHandler.instance().getSide() == Side.CLIENT)
-     * { return this.mothershipDataClient; } return TickHandlerServer.mothershipData; }
-     */
 }

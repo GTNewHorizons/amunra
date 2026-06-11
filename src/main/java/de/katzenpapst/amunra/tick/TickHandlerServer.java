@@ -35,9 +35,6 @@ public class TickHandlerServer {
     public static void restart() {
         mothershipData = null;
         dockData = null;
-        /*
-         * if(FMLCommonHandler.instance().getSide() == Side.CLIENT) { AmunRa.instance.setClientMothershipData(null); }
-         */
     }
 
     public TickHandlerServer() {}
