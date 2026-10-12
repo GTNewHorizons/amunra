@@ -103,7 +103,7 @@ public class Pyramid extends BaseStructureStart {
                 3,
                 5);
         final WeightedRandomChestContent ruby = new WeightedRandomChestContent(
-                ARItems.rubyGem.getItemStack(1),
+                ARItems.rubyGemOutput.getItemStack(1),
                 1,
                 3,
                 5);
