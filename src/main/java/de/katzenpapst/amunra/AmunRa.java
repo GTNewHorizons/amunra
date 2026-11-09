@@ -262,6 +262,7 @@ public class AmunRa {
         this.initCreatures();
         this.registerTileEntities();
         this.initOtherEntities();
+        ARItems.useMaterialLibRuby();
         RecipeHelper.initRecipes();
 
         proxy.init(event);

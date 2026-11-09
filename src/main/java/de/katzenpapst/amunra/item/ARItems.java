@@ -35,6 +35,9 @@ public class ARItems {
     public static ItemDamagePair porcodonMeat;
     public static ItemDamagePair dustMote;
     public static ItemDamagePair rubyGem;
+    /// The ruby gem AmunRa drops, smelts and puts in loot: MaterialLib's when it registers one under `gemRuby`,
+    /// since AmunRa's own is a copy of it there, else AmunRa's.
+    public static ItemDamagePair rubyGemOutput;
     public static ItemDamagePair coldCrystal;
     public static ItemDamagePair laserDiode;
     public static ItemDamagePair cryoDiode;
@@ -71,6 +74,19 @@ public class ARItems {
 
     public static ItemDamagePair shuttleSchematic;
 
+    /// Points [#rubyGemOutput] and the ruby ore at MaterialLib's gem when there is one. Runs at init, after every
+    /// mod has registered its preInit ore-dictionary entries and before the smelting recipes are added.
+    public static void useMaterialLibRuby() {
+        for (final ItemStack ore : OreDictionary.getOres("gemRuby")) {
+            final GameRegistry.UniqueIdentifier id = GameRegistry.findUniqueIdentifierFor(ore.getItem());
+            if (id != null && "materiallib".equals(id.modId)) {
+                rubyGemOutput = new ItemDamagePair(ore);
+                ARBlocks.subRuby.setSmeltItem(rubyGemOutput.getItemStack(1)).setDroppedItem(rubyGemOutput);
+                return;
+            }
+        }
+    }
+
     public static void initItems() {
         baseItem = new ItemBasicMulti("baseItem");
 
@@ -81,6 +97,7 @@ public class ARItems {
         laserDiode = baseItem.addSubItem(4, new SubItem("laserDiode", "laserDiode"));
         cryoDiode = baseItem.addSubItem(5, new SubItem("cryoDiode", "cryoDiode"));
         rubyGem = baseItem.addSubItem(6, new SubItem("rubyGem", "ruby"));
+        rubyGemOutput = rubyGem;
         lithiumGem = baseItem.addSubItem(7, new SubItem("lithiumGem", "lithiumgem"));
         lithiumMesh = baseItem.addSubItem(8, new SubItem("lithiumMesh", "lithiumMesh"));
         alienBook = baseItem.addSubItem(9, new SubItem("alienBook", "alien_book"));
